@@ -1,69 +1,52 @@
-/**
- * @main TradeSecret
- */
-
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
-import { GeneralPrerequisites } from "../../_Prerequisite.js"
+import {
+  Boolean,
+  Entity,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+} from "tsondb/schema/def"
+import { PlainGeneralPrerequisites } from "../../_Prerequisite.js"
+import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { src } from "../../source/_PublicationRef.js"
 
-/**
- * @title Trade Secret
- */
-export type TradeSecret = {
-  /**
-   * The trade secret's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * The adventure points value of the trade secret.
-   * @integer
-   * @minimum 1
-   */
-  ap_value: number
-
-  /**
-   * Is this trade secret considered secret knowledge?
-   */
-  is_secret_knowledge: boolean
-
-  prerequisites?: GeneralPrerequisites
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<TradeSecretTranslation>
-}
-
-export type TradeSecretTranslation = {
-  /**
-   * The name of the trade secret.
-   */
-  name: NonEmptyString
-
-  /**
-   * The description of the trade secret.
-   */
-  description?: NonEmptyMarkdown
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<TradeSecret, TradeSecret["id"], "TradeSecret"> = {
+export const TradeSecret = Entity(import.meta.url, {
   name: "TradeSecret",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("TradeSecret"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "TradeSecrets",
+  type: () =>
+    Object({
+      ap_value: Optional({
+        comment: "The trade secret’s adventure point value",
+        type: Integer({ minimum: 1 }),
+      }),
+      is_secret_knowledge: Required({
+        comment: "Is this trade secret considered secret knowledge?",
+        type: Boolean(),
+      }),
+      prerequisites: Optional({
+        type: IncludeIdentifier(PlainGeneralPrerequisites),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "TradeSecretTranslation",
+        Object({
+          name: Required({
+            comment: "The trade secret’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          description: Optional({
+            comment: "The description of the trade secret.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

@@ -1,35 +1,52 @@
+import { Enum, EnumCase, IncludeIdentifier, Object, Optional, TypeAlias } from "tsondb/schema/def"
 import { DisplayOption } from "../DisplayOption.js"
 
-/**
- * @title Blessed Tradition Prerequisite
- */
-export type BlessedTraditionPrerequisite = {
-  /**
-   * The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.
-   */
-  restriction?: BlessedTraditionPrerequisiteRestriction
+export const BlessedTraditionPrerequisite = TypeAlias(import.meta.url, {
+  name: "BlessedTraditionPrerequisite",
+  type: () =>
+    Object({
+      restriction: Optional({
+        comment:
+          "The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.",
+        type: IncludeIdentifier(BlessedTraditionPrerequisiteRestriction),
+      }),
+      display_option: Optional({
+        type: IncludeIdentifier(DisplayOption),
+      }),
+    }),
+})
 
-  display_option?: DisplayOption
-}
+const BlessedTraditionPrerequisiteRestriction = Enum(import.meta.url, {
+  name: "BlessedTraditionPrerequisiteRestriction",
+  comment:
+    "The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.",
+  values: () => ({
+    Church: EnumCase({ type: null }),
+    Shamanistic: EnumCase({ type: null }),
+  }),
+})
 
-/**
- * The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.
- */
-export type BlessedTraditionPrerequisiteRestriction = "Church" | "Shamanistic"
+export const MagicalTraditionPrerequisite = TypeAlias(import.meta.url, {
+  name: "MagicalTraditionPrerequisite",
+  type: () =>
+    Object({
+      restriction: Optional({
+        comment:
+          "The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.",
+        type: IncludeIdentifier(MagicalTraditionPrerequisiteRestriction),
+      }),
+      display_option: Optional({
+        type: IncludeIdentifier(DisplayOption),
+      }),
+    }),
+})
 
-/**
- * @title Magical Tradition Prerequisite
- */
-export type MagicalTraditionPrerequisite = {
-  /**
-   * The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.
-   */
-  restriction?: MagicalTraditionPrerequisiteRestriction
-
-  display_option?: DisplayOption
-}
-
-/**
- * The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.
- */
-export type MagicalTraditionPrerequisiteRestriction = "CanLearnRituals" | "CanBindFamiliars"
+const MagicalTraditionPrerequisiteRestriction = Enum(import.meta.url, {
+  name: "MagicalTraditionPrerequisiteRestriction",
+  comment:
+    "The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.",
+  values: () => ({
+    CanLearnRituals: EnumCase({ type: null }),
+    CanBindFamiliars: EnumCase({ type: null }),
+  }),
+})

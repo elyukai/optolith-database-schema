@@ -1,66 +1,51 @@
-/**
- * @main CommandSpecialAbility
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
-import { LocaleMap } from "../_LocaleMap.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import {
+  ap_value,
+  ap_value_append,
+  ap_value_l10n,
+  combat_techniques,
+  levels,
+  maximum,
+  name,
+  name_in_library,
+  rules,
+  select_options,
+  usage_type,
+} from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Command Special Ability
- */
-export type CommandSpecialAbility = {
-  id: Activatable.Id
-
-  levels?: Activatable.Levels
-
-  usage_type: Activatable.CombatSpecialAbilityUsageType
-
-  select_options?: Activatable.SelectOptions
-
-  maximum?: Activatable.Maximum
-
-  prerequisites?: GeneralPrerequisites
-
-  combat_techniques: Activatable.ApplicableCombatTechniques
-
-  ap_value: Activatable.AdventurePointsValue
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<CommandSpecialAbilityTranslation>
-}
-
-export type CommandSpecialAbilityTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  // input?: Activatable.Input
-
-  rules: Activatable.Rules
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<
-  CommandSpecialAbility,
-  CommandSpecialAbility["id"],
-  "CommandSpecialAbility"
-> = {
+export const CommandSpecialAbility = Entity(import.meta.url, {
   name: "CommandSpecialAbility",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("CommandSpecialAbility"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "CommandSpecialAbilities",
+  type: () =>
+    Object({
+      levels,
+      usage_type,
+      select_options,
+      maximum,
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      combat_techniques,
+      ap_value,
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "CommandSpecialAbilityTranslation",
+        Object({
+          name,
+          name_in_library,
+          rules,
+          ap_value_append,
+          ap_value: ap_value_l10n,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

@@ -1,84 +1,53 @@
-/**
- * @main Jewelry
- */
+import {
+  Entity,
+  GenIncludeIdentifier,
+  GenTypeAlias,
+  IncludeIdentifier,
+  Object,
+  Optional,
+  Param,
+  Required,
+  TypeArgument,
+} from "tsondb/schema/def"
+import { src } from "../../source/_PublicationRef.js"
+import { Complexity, Cost, DefaultItemTranslations, StructurePoints, Weight } from "./_Item.js"
 
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
-import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
-import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
-
-export type Jewelry = {
-  /**
-   * The cost in silverthalers.
-   */
-  cost: JewelryMaterialDifference<Cost>
-
-  /**
-   * The weight in kg.
-   */
-  weight: JewelryMaterialDifference<Weight>
-
-  /**
-   * The complexity of crafting the item.
-   */
-  complexity: Complexity
-
-  /**
-   * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-   */
-  structure_points: StructurePoints
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<JewelryTranslation>
-}
-
-/**
- * Jewelry has different cost based on the material.
- */
-export type JewelryMaterialDifference<T> = {
-  bronze: T
-  silver: T
-  gold: T
-}
-
-export type JewelryTranslation = {
-  /**
-   * The name of the item.
-   */
-  name: NonEmptyString
-
-  /**
-   * An auxiliary name or label of the item, if available.
-   */
-  secondary_name?: NonEmptyString
-
-  /**
-   * Note text.
-   */
-  note?: NonEmptyMarkdown
-
-  /**
-   * Special rules text.
-   */
-  rules?: NonEmptyMarkdown
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<Jewelry, number, "Jewelry"> = {
+export const Jewelry = Entity(import.meta.url, {
   name: "Jewelry",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Jewelry"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Jewelries",
+  type: () =>
+    Object({
+      cost: Required({
+        comment: "The cost in silverthalers.",
+        type: GenIncludeIdentifier(JewelryMaterialDifference, [IncludeIdentifier(Cost)]),
+      }),
+      weight: Required({
+        comment: "The weight in kg.",
+        type: GenIncludeIdentifier(JewelryMaterialDifference, [IncludeIdentifier(Weight)]),
+      }),
+      complexity: Optional({
+        comment: "The complexity of crafting the item.",
+        type: IncludeIdentifier(Complexity),
+      }),
+      structure_points: Required({
+        comment:
+          "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
+        type: IncludeIdentifier(StructurePoints),
+      }),
+      src,
+      translations: DefaultItemTranslations("Jewelry"),
+    }),
+  displayName: {},
+})
+
+const JewelryMaterialDifference = GenTypeAlias(import.meta.url, {
+  name: "JewelryMaterialDifference",
+  comment: "Jewelry can have different values for a property based on the material.",
+  parameters: [Param("T")],
+  type: T =>
+    Object({
+      bronze: Required({ type: TypeArgument(T) }),
+      silver: Required({ type: TypeArgument(T) }),
+      gold: Required({ type: TypeArgument(T) }),
+    }),
+})

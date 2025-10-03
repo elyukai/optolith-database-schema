@@ -1,13 +1,16 @@
-import { NonEmptyString } from "./_NonEmptyString.js"
+import { Object, Optional, Required, String, TypeAlias } from "tsondb/schema/def"
 
-export type AlternativeName = {
-  /**
-   * An alternative name of the disease.
-   */
-  name: NonEmptyString
-
-  /**
-   * The region where this alternative name is used.
-   */
-  region?: NonEmptyString
-}
+export const AlternativeName = TypeAlias(import.meta.url, {
+  name: "AlternativeName",
+  type: () =>
+    Object({
+      name: Required({
+        comment: "An alternative name of the disease.",
+        type: String({ minLength: 1 }),
+      }),
+      region: Optional({
+        comment: "The region where this alternative name is used.",
+        type: String({ minLength: 1 }),
+      }),
+    }),
+})

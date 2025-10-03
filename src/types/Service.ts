@@ -1,65 +1,56 @@
-/**
- * @main Service
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
+import {
+  Array,
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Object,
+  Optional,
+  Required,
+  String,
+} from "tsondb/schema/def"
+import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { src } from "./source/_PublicationRef.js"
 
-/**
- * @title Service of Summoned Creatures and Monstrosities
- */
-export type Service = {
-  /**
-   * The service's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * Defines for which creature type(s) the service is available.
-   * @minItems 1
-   * @uniqueItems
-   */
-  availability: ServiceAvailability[]
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<ServiceTranslation>
-}
-
-export type ServiceAvailability =
-  | "SummonedCreatures"
-  | "Monstrosities"
-
-export type ServiceTranslation = {
-  /**
-   * The name of the service.
-   */
-  name: NonEmptyString
-
-  /**
-   * The description of the service.
-   */
-  description: NonEmptyMarkdown
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<Service, Service["id"], "Service"> = {
+export const Service = Entity(import.meta.url, {
   name: "Service",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Service"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Services",
+  type: () =>
+    Object({
+      availability: Required({
+        comment: "Defines for which creature type(s) the service is available.",
+        type: Array(IncludeIdentifier(ServiceAvailability), {
+          minItems: 1,
+          uniqueItems: true,
+        }),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "ServiceTranslation",
+        Object({
+          name: Required({
+            comment: "The service’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          description: Required({
+            comment: "The service’s description.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+const ServiceAvailability = Enum(import.meta.url, {
+  name: "ServiceAvailability",
+  values: () => ({
+    SummonedCreatures: EnumCase({ type: null }),
+    Monstrosities: EnumCase({ type: null }),
+  }),
+})

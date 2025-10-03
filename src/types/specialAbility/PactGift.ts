@@ -1,124 +1,165 @@
-/**
- * @main PactGift
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
+import {
+  Array,
+  Boolean,
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  TypeAlias,
+} from "tsondb/schema/def"
+import {
+  ap_value,
+  ap_value_append,
+  ap_value_l10n,
+  effect,
+  levels,
+  maximum,
+  name,
+  name_in_library,
+  select_options,
+} from "../_Activatable.js"
 import { ActivatableIdentifier } from "../_IdentifierGroup.js"
-import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Pact Gift
- */
-export type PactGift = {
-  id: Activatable.Id
-
-  levels?: Activatable.Levels
-
-  select_options?: Activatable.SelectOptions
-
-  maximum?: Activatable.Maximum
-
-  permanent_demonic_consumption?: PactGiftPermanentDemonicConsumption
-
-  /**
-   * This pact gift has direct influence on the existence of other entries. It may add or remove entries.
-   * @minItems 1
-   */
-  automatic_entries?: AutomaticEntry[]
-
-  prerequisites?: GeneralPrerequisites
-
-  ap_value: Activatable.AdventurePointsValue
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<PactGiftTranslation>
-}
-
-export type PactGiftPermanentDemonicConsumption =
-  | { tag: "Fixed"; fixed: FixedPactGiftPermanentDemonicConsumption }
-  | { tag: "PerLevel"; per_level: PactGiftPermanentDemonicConsumptionPerLevel }
-
-export type FixedPactGiftPermanentDemonicConsumption = {
-  /**
-   * The levels of *Demonic Consumption* the pact gift causes.
-   * @integer
-   * @minimum 1
-   * @maximum 4
-   */
-  levels: number
-}
-
-export type PactGiftPermanentDemonicConsumptionPerLevel = {
-  /**
-   * The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift.
-   * @integer
-   * @minimum 1
-   * @maximum 4
-   */
-  levels: number
-}
-
-export type AutomaticEntry = {
-  /**
-   * What type of action is applied to the target entry?
-   */
-  action: AutomaticEntryAction
-
-  /**
-   * If an entry is added or removed, does is cost or grant adventure points or is it free of charge?
-   */
-  apply_ap_value: boolean
-
-  /**
-   * The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry.
-   */
-  target: AutomaticEntryTarget
-}
-
-export type AutomaticEntryAction = "Add" | "Remove"
-
-export type AutomaticEntryTarget =
-  | { tag: "Selection"; selection: AutomaticEntryTargetSelection }
-  | { tag: "Fixed"; fixed: FixedAutomaticEntryTarget }
-
-export type AutomaticEntryTargetSelection = {
-  list: AutomaticEntryTargetSelectionList
-}
-
-export type AutomaticEntryTargetSelectionList = "MagicalTraditions" | "MagicalDilettanteTraditions"
-
-export type FixedAutomaticEntryTarget = {
-  id: ActivatableIdentifier
-}
-
-export type PactGiftTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  // input?: Activatable.Input
-
-  effect: Activatable.Effect
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<PactGift, PactGift["id"], "PactGift"> = {
+export const PactGift = Entity(import.meta.url, {
   name: "PactGift",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("PactGift"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "PactGifts",
+  type: () =>
+    Object({
+      levels,
+      select_options,
+      maximum,
+      permanent_demonic_consumption: Optional({
+        comment: "This pact gift gives permanent levels of the condition *Demonic Consumption*.",
+        type: IncludeIdentifier(PactGiftPermanentDemonicConsumption),
+      }),
+      automatic_entries: Optional({
+        comment:
+          "This pact gift has direct influence on the existence of other entries. It may add or remove entries.",
+        type: Array(IncludeIdentifier(AutomaticEntry), { minItems: 1 }),
+      }),
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      ap_value,
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "PactGiftTranslation",
+        Object({
+          name,
+          name_in_library,
+          effect,
+          ap_value_append,
+          ap_value: ap_value_l10n,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+const PactGiftPermanentDemonicConsumption = Enum(import.meta.url, {
+  name: "PactGiftPermanentDemonicConsumption",
+  values: () => ({
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedPactGiftPermanentDemonicConsumption) }),
+    PerLevel: EnumCase({ type: IncludeIdentifier(PactGiftPermanentDemonicConsumptionPerLevel) }),
+  }),
+})
+
+const FixedPactGiftPermanentDemonicConsumption = TypeAlias(import.meta.url, {
+  name: "FixedPactGiftPermanentDemonicConsumption",
+  type: () =>
+    Object({
+      levels: Required({
+        comment: "The levels of *Demonic Consumption* the pact gift causes.",
+        type: Integer({ minimum: 1, maximum: 4 }),
+      }),
+    }),
+})
+
+const PactGiftPermanentDemonicConsumptionPerLevel = TypeAlias(import.meta.url, {
+  name: "PactGiftPermanentDemonicConsumptionPerLevel",
+  type: () =>
+    Object({
+      levels: Required({
+        comment:
+          "The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift.",
+        type: Integer({ minimum: 1, maximum: 4 }),
+      }),
+    }),
+})
+
+const AutomaticEntry = TypeAlias(import.meta.url, {
+  name: "AutomaticEntry",
+  type: () =>
+    Object({
+      action: Required({
+        comment: "What type of action is applied to the target entry?",
+        type: IncludeIdentifier(AutomaticEntryAction),
+      }),
+      apply_ap_value: Required({
+        comment:
+          "If an entry is added or removed, does is cost or grant adventure points or is it free of charge?",
+        type: Boolean(),
+      }),
+      target: Required({
+        comment:
+          "The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry.",
+        type: IncludeIdentifier(AutomaticEntryTarget),
+      }),
+    }),
+})
+
+const AutomaticEntryAction = Enum(import.meta.url, {
+  name: "AutomaticEntryAction",
+  values: () => ({
+    Add: EnumCase({ type: null }),
+    Remove: EnumCase({ type: null }),
+  }),
+})
+
+const AutomaticEntryTarget = Enum(import.meta.url, {
+  name: "AutomaticEntryTarget",
+  values: () => ({
+    Selection: EnumCase({ type: IncludeIdentifier(AutomaticEntryTargetSelection) }),
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedAutomaticEntryTarget) }),
+  }),
+})
+
+const AutomaticEntryTargetSelection = TypeAlias(import.meta.url, {
+  name: "AutomaticEntryTargetSelection",
+  type: () =>
+    Object({
+      list: Required({
+        type: IncludeIdentifier(AutomaticEntryTargetSelectionList),
+      }),
+    }),
+})
+
+const AutomaticEntryTargetSelectionList = Enum(import.meta.url, {
+  name: "AutomaticEntryTargetSelectionList",
+  values: () => ({
+    MagicalTraditions: EnumCase({ type: null }),
+    MagicalDilettanteTraditions: EnumCase({ type: null }),
+  }),
+})
+
+const FixedAutomaticEntryTarget = TypeAlias(import.meta.url, {
+  name: "FixedAutomaticEntryTarget",
+  type: () =>
+    Object({
+      id: Required({
+        type: IncludeIdentifier(ActivatableIdentifier),
+      }),
+    }),
+})

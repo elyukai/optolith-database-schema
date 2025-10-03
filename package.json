@@ -21,30 +21,28 @@
     "./cache/*": "./lib/cache/*.js",
     "./config/*": "./lib/config/*.js",
     "./rendering/*": "./lib/rendering/*.js",
+    "./types": "./lib/types/index.js",
     "./types/*": "./lib/types/*.js"
   },
   "scripts": {
-    "build:ts": "tsc",
-    "watch:ts": "tsc -w",
-    "build:gen": "otjsmd",
-    "watch:gen": "otjsmd -w",
-    "build": "npm run build:ts && npm run build:gen",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "generate": "tsondb generate",
     "release": "standard-version",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./lib/test.js",
+    "prepare": "npm run build"
   },
   "author": "Lukas Obermann",
   "license": "MPL-2.0",
   "dependencies": {
     "@optolith/helpers": "^0.2.2",
-    "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1",
-    "yaml": "^2.7.1"
+    "tsondb": "^0.7.4",
+    "yaml": "^2.8.1"
   },
   "devDependencies": {
-    "@types/node": "^22.13.14",
-    "optolith-tsjsonschemamd": "^0.11.2",
+    "@types/node": "^24.6.1",
     "standard-version": "^9.5.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.9.3"
   },
   "repository": "github:elyukai/optolith-database-schema",
   "bugs": {

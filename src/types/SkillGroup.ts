@@ -1,54 +1,30 @@
-/**
- * @main SkillGroup
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyString } from "./_NonEmptyString.js"
+import { Entity, IncludeIdentifier, Object, Required, String } from "tsondb/schema/def"
 import { SkillCheck } from "./_SkillCheck.js"
+import { NestedLocaleMap } from "./Locale.js"
 
-/**
- * @title Skill Group
- */
- export type SkillGroup = {
-  /**
-   * The skill group's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * The skill group check's attributes.
-   */
-  check: SkillCheck
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<SkillGroupTranslation>
-}
-
-export type SkillGroupTranslation = {
-  /**
-   * The skill group's name.
-   */
-  name: NonEmptyString
-
-  /**
-   * The skill group's long name.
-   */
-  long_name: NonEmptyString
-}
-
-export const config: TypeConfig<SkillGroup, SkillGroup["id"], "SkillGroup"> = {
+export const SkillGroup = Entity(import.meta.url, {
   name: "SkillGroup",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("SkillGroup"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "SkillGroups",
+  type: () =>
+    Object({
+      check: Required({
+        comment: "The skill group’s skill check attributes",
+        type: IncludeIdentifier(SkillCheck),
+      }),
+      translations: NestedLocaleMap(
+        Required,
+        "SkillGroupTranslation",
+        Object({
+          name: Required({
+            comment: "The skill group’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          longName: Required({
+            comment: "The skill group’s long name.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

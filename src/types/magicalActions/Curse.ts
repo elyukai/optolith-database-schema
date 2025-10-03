@@ -1,179 +1,166 @@
-/**
- * @main Curse
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
+import {
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { IndefiniteOneTimeCost } from "../_ActivatableSkillCost.js"
-import {
-  CheckResultBasedDuration,
-  DurationUnit,
-  IndefiniteDurationTranslation,
-} from "../_ActivatableSkillDuration.js"
+import { CheckResultBasedDuration, DurationUnitValue } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
-import { LocaleMap } from "../_LocaleMap.js"
-import { NonEmptyString } from "../_NonEmptyString.js"
+import { PropertyIdentifier } from "../_Identifier.js"
 import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
-import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Curse
- */
-export type Curse = {
-  /**
-   * The curse's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * Lists the linked three attributes used to make a skill check.
-   */
-  check: SkillCheck
-
-  /**
-   * In some cases, the target's Spirit or Toughness is applied as a penalty.
-   */
-  check_penalty?: SkillCheckPenalty
-
-  /**
-   * Measurable parameters of a curse.
-   */
-  parameters: CursePerformanceParameters
-
-  /**
-   * The associated property.
-   */
-  property: PropertyReference
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<CurseTranslation>
-}
-
-export type CurseTranslation = {
-  /**
-   * The name of the curse.
-   */
-  name: NonEmptyString
-
-  /**
-   * The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
-   */
-  effect: ActivatableSkillEffect
-
-  /**
-   * @deprecated
-   */
-  cost: OldParameter
-
-  /**
-   * @deprecated
-   */
-  duration: OldParameter
-
-  errata?: Errata
-}
-
-/**
- * Measurable parameters of a curse.
- */
-export type CursePerformanceParameters = {
-  /**
-   * The AE cost.
-   */
-  cost: CurseCost
-
-  /**
-   * The duration.
-   */
-  duration: CurseDuration
-}
-
-export type CurseCost =
-  | { tag: "Fixed"; fixed: FixedCurseCost }
-  | { tag: "Indefinite"; indefinite: IndefiniteOneTimeCost }
-
-export type FixedCurseCost = {
-  /**
-   * The (temporary) AE cost value.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations?: LocaleMap<FixedCurseCostTranslation>
-}
-
-/**
- * @minProperties 1
- */
-export type FixedCurseCostTranslation = {
-  /**
-   * The cost have to be per a specific countable entity, e.g. `8 KP per person`.
-   */
-  per?: ResponsiveText
-
-  /**
-   * A note, appended to the generated string in parenthesis.
-   */
-  note?: ResponsiveTextOptional
-}
-
-export type CurseDuration =
-  | { tag: "Immediate"; immediate: {} }
-  | { tag: "Fixed"; fixed: FixedCurseDuration }
-  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
-  | { tag: "Indefinite"; indefinite: IndefiniteCurseDuration }
-
-export type FixedCurseDuration = {
-  /**
-   * The (unitless) duration value.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-
-  /**
-   * The unit of the `value`.
-   */
-  unit: DurationUnit
-}
-
-export type IndefiniteCurseDuration = {
-  /**
-   * Specified if the duration has a maximum time span.
-   */
-  maximum?: MaximumIndefiniteCurseDuration
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<IndefiniteDurationTranslation>
-}
-
-export type MaximumIndefiniteCurseDuration =
-  | { tag: "Fixed"; fixed: FixedCurseDuration }
-  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
-
-export const config: TypeConfig<Curse, Curse["id"], "Curse"> = {
+export const Curse = Entity(import.meta.url, {
   name: "Curse",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Curse"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Curses",
+  type: () =>
+    Object({
+      check: Required({
+        comment: "Lists the linked three attributes used to make a skill check.",
+        type: IncludeIdentifier(SkillCheck),
+      }),
+      check_penalty: Optional({
+        comment: "In some cases, the target's Spirit or Toughness is applied as a penalty.",
+        type: IncludeIdentifier(SkillCheckPenalty),
+      }),
+      parameters: Required({
+        comment: "Measurable parameters of a curse.",
+        type: IncludeIdentifier(CursePerformanceParameters),
+      }),
+      property: Required({
+        comment: "The associated property.",
+        type: PropertyIdentifier(),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "CurseTranslation",
+        Object({
+          name: Required({
+            comment: "The curse’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          effect: Required({
+            comment:
+              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+            type: IncludeIdentifier(ActivatableSkillEffect),
+          }),
+          cost: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          duration: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+const CursePerformanceParameters = TypeAlias(import.meta.url, {
+  name: "CursePerformanceParameters",
+  comment: "Measurable parameters of a curse.",
+  type: () =>
+    Object({
+      cost: Required({
+        comment: "The AE cost.",
+        type: IncludeIdentifier(CurseCost),
+      }),
+      duration: Required({
+        comment: "The duration.",
+        type: IncludeIdentifier(CurseDuration),
+      }),
+    }),
+})
+
+const CurseCost = Enum(import.meta.url, {
+  name: "CurseCost",
+  values: () => ({
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedCurseCost) }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteOneTimeCost) }),
+  }),
+})
+
+const FixedCurseCost = TypeAlias(import.meta.url, {
+  name: "FixedCurseCost",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The (temporary) AE cost value.",
+        type: Integer({ minimum: 1 }),
+      }),
+      translations: NestedLocaleMap(
+        Optional,
+        "FixedCurseCostTranslation",
+        Object(
+          {
+            per: Optional({
+              comment:
+                "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
+              type: IncludeIdentifier(ResponsiveText),
+            }),
+            note: Optional({
+              comment: "A note, appended to the generated string in parenthesis.",
+              type: IncludeIdentifier(ResponsiveTextOptional),
+            }),
+          },
+          { minProperties: 1 }
+        )
+      ),
+    }),
+})
+
+const CurseDuration = Enum(import.meta.url, {
+  name: "CurseDuration",
+  values: () => ({
+    Immediate: EnumCase({ type: null }),
+    Fixed: EnumCase({ type: IncludeIdentifier(DurationUnitValue) }),
+    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteCurseDuration) }),
+  }),
+})
+
+const IndefiniteCurseDuration = TypeAlias(import.meta.url, {
+  name: "IndefiniteCurseDuration",
+  type: () =>
+    Object({
+      maximum: Optional({
+        comment: "Specified if the duration has a maximum time span.",
+        type: IncludeIdentifier(MaximumIndefiniteCurseDuration),
+      }),
+      translations: NestedLocaleMap(
+        Required,
+        "IndefiniteCurseDurationTranslation",
+        Object({
+          description: Required({
+            comment: "A description of the duration.",
+            type: IncludeIdentifier(ResponsiveText),
+          }),
+        })
+      ),
+    }),
+})
+
+const MaximumIndefiniteCurseDuration = Enum(import.meta.url, {
+  name: "MaximumIndefiniteCurseDuration",
+  values: () => ({
+    Fixed: EnumCase({ type: IncludeIdentifier(DurationUnitValue) }),
+    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+  }),
+})

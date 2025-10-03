@@ -1,43 +1,21 @@
-/**
- * @main AnimalShapePath
- */
+import { Entity, Object, Required, String } from "tsondb/schema/def"
+import { NestedLocaleMap } from "../../Locale.js"
 
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { NonEmptyString } from "../../_NonEmptyString.js"
-
-/**
- * @title Animal Shape Path
- */
- export type AnimalShapePath = {
-  /**
-   * The animal shape path's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<AnimalShapePathTranslation>
-}
-
-export type AnimalShapePathTranslation = {
-  /**
-   * The animal shape path's name.
-   */
-  name: NonEmptyString
-}
-
-export const config: TypeConfig<AnimalShapePath, AnimalShapePath["id"], "AnimalShapePath"> = {
+export const AnimalShapePath = Entity(import.meta.url, {
   name: "AnimalShapePath",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("AnimalShapePath"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "AnimalShapePaths",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Required,
+        "AnimalShapePathTranslation",
+        Object({
+          name: Required({
+            comment: "The animal shape path’s name.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

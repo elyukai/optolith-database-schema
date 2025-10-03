@@ -2,150 +2,137 @@
  * @main PublicationRefs
  */
 
+import {
+  Array,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { PublicationIdentifier } from "../_Identifier.js"
-import { LocaleMap } from "../_LocaleMap.js"
+import { NestedLocaleMap } from "../Locale.js"
 
-/**
- * The publications where you can find the entry.
- * @title Publication References
- * @minItems 1
- */
-export type PublicationRefs = PublicationRef[]
+export const PublicationRefs = TypeAlias(import.meta.url, {
+  name: "PublicationRefs",
+  comment: "The publications where you can find the entry.",
+  type: () => Array(IncludeIdentifier(PublicationRef), { minItems: 1 }),
+})
 
-/**
- * A source reference. It contains the book's publisher identifier and the page where it occurs. If an entry spans multiple pages, provide the last page as well.
- * @title Publication Reference
- */
-export type PublicationRef = {
-  /**
-   * The publication's identifier.
-   */
-  id: PublicationIdentifier
-
-  /**
-   * All occurrences of the entry, identified by IETF language tag (BCP47).
-   */
-  occurrences: LocaleMap<Occurrence>
+const srcConfig = {
+  comment: "All translations for the entry, identified by IETF language tag (BCP47).",
+  type: IncludeIdentifier(PublicationRefs),
 }
 
-export type Occurrence = SimpleOccurrence | SimpleOccurrences | VersionedOccurrence
+export const src = Required(srcConfig)
+export const optionalSrc = Optional(srcConfig)
 
-/**
- * @title Simple Occurrences
- * @minItems 1
- */
-export type SimpleOccurrences = SimpleOccurrence[]
+export const PublicationRef = TypeAlias(import.meta.url, {
+  name: "PublicationRef",
+  comment:
+    "A source reference. It contains the book's publisher identifier and the page where it occurs. If an entry spans multiple pages, provide the last page as well.",
+  type: () =>
+    Object({
+      id: Required({
+        comment: "The publication’s identifier.",
+        type: PublicationIdentifier(),
+      }),
+      occurrences: NestedLocaleMap(
+        Required,
+        "Occurrence",
+        Object({
+          initial: Required({
+            comment: "The initial occurrence of the entry.",
+            type: IncludeIdentifier(InitialOccurrence),
+          }),
+          revisions: Optional({
+            comment:
+              "Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.",
+            type: Array(IncludeIdentifier(Revision), { minItems: 1 }),
+          }),
+        })
+      ),
+    }),
+})
 
-/**
- * @title Simple Occurrence
- */
-export type SimpleOccurrence = {
-  /**
-   * The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.
-   * @integer
-   * @minimum 1
-   */
-  first_page: number
+const InitialOccurrence = TypeAlias(import.meta.url, {
+  name: "InitialOccurrence",
+  type: () =>
+    Object({
+      printing: Optional({
+        comment:
+          "The publication’s printing since which the entry is present. Leave empty if present since the beginning.",
+        type: Integer({ minimum: 2 }),
+      }),
+      pages: Required({
+        comment: "The initial page references.",
+        type: Array(IncludeIdentifier(PageRange), { minItems: 1 }),
+      }),
+    }),
+})
 
-  /**
-   * The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.
-   * @integer
-   * @minimum 2
-   */
-  last_page?: number
-}
+const Revision = Enum(import.meta.url, {
+  name: "Revision",
+  comment:
+    "A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.",
+  values: () => ({
+    Since: EnumCase({ type: IncludeIdentifier(Since) }),
+    Deprecated: EnumCase({ type: IncludeIdentifier(Deprecation) }),
+  }),
+})
 
-/**
- * @title Versioned Occurrence
- */
-export type VersionedOccurrence = {
-  /**
-   * The initial occurrence of the entry.
-   */
-  initial: InitialOccurrence
+const Since = TypeAlias(import.meta.url, {
+  name: "Since",
+  type: () =>
+    Object({
+      printing: Required({
+        comment:
+          "The publication’s printing since which the entry is present again or has changed page references.",
+        type: Integer({ minimum: 2 }),
+      }),
+      pages: Required({
+        comment: "The changed or new page references.",
+        type: Array(IncludeIdentifier(PageRange), { minItems: 1 }),
+      }),
+    }),
+})
 
-  /**
-   * Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.
-   * @minItems 1
-   */
-  revisions?: Revision[]
-}
+const Deprecation = TypeAlias(import.meta.url, {
+  name: "Deprecation",
+  type: () =>
+    Object({
+      printing: Required({
+        comment: "The publication’s printing since which the entry has been removed.",
+        type: Integer({ minimum: 2 }),
+      }),
+    }),
+})
 
-/**
- * @title Initial Occurrence
- */
-export type InitialOccurrence = {
-  /**
-   * The publication's printing since which the entry is present. Leave empty if present since the beginning.
-   * @integer
-   * @minimum 2
-   */
-  printing?: number
+const PageRange = TypeAlias(import.meta.url, {
+  name: "PageRange",
+  type: () =>
+    Object({
+      first_page: Required({
+        comment:
+          "The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.",
+        type: IncludeIdentifier(Page),
+      }),
+      last_page: Optional({
+        comment:
+          "The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.",
+        type: IncludeIdentifier(Page),
+      }),
+    }),
+})
 
-  /**
-   * The initial page references.
-   * @minItems 1
-   */
-  pages: PageRange[]
-}
-
-/**
- * A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.
- * @title Revision
- */
-export type Revision =
-  | { tag: "Since"; since: Since }
-  | { tag: "Deprecated"; deprecated: Deprecation }
-
-export type Since = {
-  /**
-   * The publication's printing since which the entry is present again or has changed page references.
-   * @integer
-   * @minimum 2
-   */
-  printing: number
-
-  /**
-   * The changed or new page references.
-   * @minItems 1
-   */
-  pages: PageRange[]
-}
-
-export type Deprecation = {
-  /**
-   * The publication's printing since which the entry has been removed.
-   * @integer
-   * @minimum 2
-   */
-  printing: number
-}
-
-/**
- * @title Page Range
- */
-export type PageRange = {
-  /**
-   * The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.
-   */
-  first_page: Page
-
-  /**
-   * The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.
-   */
-  last_page?: Page
-}
-
-/**
- * @title Page
- */
-export type Page =
-  | { tag: "InsideCoverFront"; inside_cover_front: {} }
-  | { tag: "InsideCoverBack"; inside_cover_back: {} }
-  | { tag: "Numbered"; numbered: NumberedPage }
-
-/**
- * The page number.
- * @integer
- */
-export type NumberedPage = number
+const Page = Enum(import.meta.url, {
+  name: "Page",
+  values: () => ({
+    InsideCoverFront: EnumCase({ type: null }),
+    InsideCoverBack: EnumCase({ type: null }),
+    Numbered: EnumCase({ type: Integer() }),
+  }),
+})

@@ -1,85 +1,88 @@
-/**
- * @main IlluminationLightSource
- */
-
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import {
+  Entity,
+  Enum,
+  EnumCase,
+  Float,
+  IncludeIdentifier,
+  Object,
+  Optional,
+  Required,
+  TypeAlias,
+} from "tsondb/schema/def"
+import { src } from "../../source/_PublicationRef.js"
 import {
   CombatUse,
   Complexity,
   Cost,
-  DefaultItemTranslation,
+  DefaultItemTranslations,
   StructurePoints,
   Weight,
 } from "./_Item.js"
 
-export type IlluminationLightSource = {
-  /**
-   * The cost in silverthalers.
-   */
-  cost: Cost
-
-  /**
-   * The weight in kg.
-   */
-  weight: Weight
-
-  /**
-   * The complexity of crafting the item.
-   */
-  complexity?: Complexity
-
-  /**
-   * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-   */
-  structure_points: StructurePoints
-
-  /**
-   * The burning time is the time how long the light source can be lit. After that time you have to use a new light source.
-   */
-  burning_time: BurningTime
-
-  /**
-   * The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
-   */
-  combat_use?: CombatUse
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<DefaultItemTranslation>
-}
-
-export type BurningTime =
-  | { tag: "Unlimited"; unlimited: {} }
-  | { tag: "Limited"; limited: LimitedBurningTime }
-
-export type LimitedBurningTime = {
-  /**
-   * The (unitless) time value.
-   * @exclusiveMinimum 0
-   */
-  value: number
-
-  /**
-   * The time unit.
-   */
-  unit: LimitedBurningTimeUnit
-}
-
-export type LimitedBurningTimeUnit = "Hours"
-
-export const config: TypeConfig<IlluminationLightSource, number, "IlluminationLightSource"> = {
+export const IlluminationLightSource = Entity(import.meta.url, {
   name: "IlluminationLightSource",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("IlluminationLightSource"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "IlluminationLightSources",
+  type: () =>
+    Object({
+      cost: Required({
+        comment: "The cost in silverthalers.",
+        type: IncludeIdentifier(Cost),
+      }),
+      weight: Required({
+        comment: "The weight in kg.",
+        type: IncludeIdentifier(Weight),
+      }),
+      complexity: Optional({
+        comment: "The complexity of crafting the item.",
+        type: IncludeIdentifier(Complexity),
+      }),
+      structure_points: Required({
+        comment:
+          "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
+        type: IncludeIdentifier(StructurePoints),
+      }),
+      burning_time: Required({
+        comment:
+          "The burning time is the time how long the light source can be lit. After that time you have to use a new light source.",
+        type: IncludeIdentifier(BurningTime),
+      }),
+      combat_use: Optional({
+        comment:
+          "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
+        type: IncludeIdentifier(CombatUse),
+      }),
+      src,
+      translations: DefaultItemTranslations("IlluminationLightSource"),
+    }),
+  displayName: {},
+})
+
+const BurningTime = Enum(import.meta.url, {
+  name: "BurningTime",
+  values: () => ({
+    Unlimited: EnumCase({ type: null }),
+    Limited: EnumCase({ type: IncludeIdentifier(LimitedBurningTime) }),
+  }),
+})
+
+const LimitedBurningTime = TypeAlias(import.meta.url, {
+  name: "LimitedBurningTime",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The (unitless) time value.",
+        type: Float({ minimum: { value: 0, isExclusive: true } }),
+      }),
+      unit: Required({
+        comment: "The time unit.",
+        type: IncludeIdentifier(LimitedBurningTimeUnit),
+      }),
+    }),
+})
+
+const LimitedBurningTimeUnit = Enum(import.meta.url, {
+  name: "LimitedBurningTimeUnit",
+  values: () => ({
+    Hours: EnumCase({ type: null }),
+  }),
+})

@@ -1,43 +1,26 @@
-/**
- * @main SocialStatus
- */
+import { Entity, Integer, Object, Required, String } from "tsondb/schema/def"
+import { NestedLocaleMap } from "./Locale.js"
 
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyString } from "./_NonEmptyString.js"
-
-/**
- * @title Social Status
- */
-export type SocialStatus = {
-  /**
-   * The social status' identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<SocialStatusTranslation>
-}
-
-export type SocialStatusTranslation = {
-  /**
-   * The social status name.
-   */
-  name: NonEmptyString
-}
-
-export const config: TypeConfig<SocialStatus, SocialStatus["id"], "SocialStatus"> = {
+export const SocialStatus = Entity(import.meta.url, {
   name: "SocialStatus",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("SocialStatus"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "SocialStatuses",
+  type: () =>
+    Object({
+      order: Required({
+        comment:
+          "The social status’ order. The higher the order, the more powerful the social status. This has to be a unique value.",
+        type: Integer({ minimum: 1 }),
+      }),
+      translations: NestedLocaleMap(
+        Required,
+        "SocialStatusTranslation",
+        Object({
+          name: Required({
+            comment: "The social status’ name.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

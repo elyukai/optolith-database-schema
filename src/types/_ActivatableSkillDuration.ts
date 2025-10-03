@@ -1,173 +1,187 @@
+import {
+  Boolean,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { CheckResultBasedModifier, CheckResultValue } from "./_ActivatableSkillCheckResultBased.js"
-import { LocaleMap } from "./_LocaleMap.js"
 import { ResponsiveText, ResponsiveTextReplace } from "./_ResponsiveText.js"
+import { NestedLocaleMap } from "./Locale.js"
 
-export type DurationForOneTime =
-  | {
-      tag: "Immediate"
-      immediate: Immediate
-    }
-  | {
-      tag: "Permanent"
-      permanent: PermanentDuration
-    }
-  | {
-      tag: "Fixed"
-      fixed: FixedDuration
-    }
-  | {
-      tag: "CheckResultBased"
-      check_result_based: CheckResultBasedDuration
-    }
-  | {
-      tag: "Indefinite"
-      indefinite: IndefiniteDuration
-    }
+export const DurationForOneTime = Enum(import.meta.url, {
+  name: "DurationForOneTime",
+  values: () => ({
+    Immediate: EnumCase({ type: IncludeIdentifier(Immediate) }),
+    Permanent: EnumCase({ type: IncludeIdentifier(PermanentDuration) }),
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedDuration) }),
+    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteDuration) }),
+  }),
+})
 
-export type Immediate = {
-  /**
-   * Specified if the duration has a maximum time span.
-   */
-  maximum?: DurationUnitValue
+const Immediate = TypeAlias(import.meta.url, {
+  name: "Immediate",
+  type: () =>
+    Object({
+      maximum: Optional({
+        comment: "Specified if the duration has a maximum time span.",
+        type: IncludeIdentifier(DurationUnitValue),
+      }),
+      translations: NestedLocaleMap(
+        Optional,
+        "ImmediateTranslation",
+        Object({
+          replacement: Optional({
+            comment: "A replacement string.",
+            type: IncludeIdentifier(ResponsiveTextReplace),
+          }),
+        })
+      ),
+    }),
+})
 
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations?: LocaleMap<ImmediateTranslation>
-}
+const PermanentDuration = TypeAlias(import.meta.url, {
+  name: "PermanentDuration",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Optional,
+        "PermanentDurationTranslation",
+        Object({
+          replacement: Optional({
+            comment: "A replacement string.",
+            type: IncludeIdentifier(ResponsiveTextReplace),
+          }),
+        })
+      ),
+    }),
+})
 
-export type ImmediateTranslation = {
-  /**
-   * A replacement string.
-   */
-  replacement: ResponsiveTextReplace
-}
+export const FixedDuration = TypeAlias(import.meta.url, {
+  name: "FixedDuration",
+  type: () =>
+    Object({
+      is_maximum: Optional({
+        comment: "If the duration is the maximum duration, so it may end earlier.",
+        type: Boolean(),
+      }),
+      value: Required({
+        comment: "The (unitless) duration.",
+        type: Integer({ minimum: 1 }),
+      }),
+      unit: Required({
+        comment: "The duration unit.",
+        type: IncludeIdentifier(DurationUnit),
+      }),
+      translations: NestedLocaleMap(
+        Optional,
+        "FixedDurationTranslation",
+        Object(
+          {
+            replacement: Optional({
+              comment: "A replacement string.",
+              type: IncludeIdentifier(ResponsiveTextReplace),
+            }),
+          },
+          { minProperties: 1 }
+        )
+      ),
+    }),
+})
 
-export type PermanentDuration = {
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations?: LocaleMap<PermanentDurationTranslation>
-}
+export const CheckResultBasedDuration = TypeAlias(import.meta.url, {
+  name: "CheckResultBasedDuration",
+  type: () =>
+    Object({
+      is_maximum: Optional({
+        comment: "If the duration is the maximum duration, so it may end earlier.",
+        type: Boolean(),
+      }),
+      base: Required({
+        comment: "The base value that is derived from the check result.",
+        type: IncludeIdentifier(CheckResultValue),
+      }),
+      modifier: Optional({
+        comment: "If defined, it modifies the base value.",
+        type: IncludeIdentifier(CheckResultBasedModifier),
+      }),
+      unit: Required({
+        comment: "The duration unit.",
+        type: IncludeIdentifier(DurationUnit),
+      }),
+      translations: NestedLocaleMap(
+        Optional,
+        "CheckResultBasedDurationTranslation",
+        Object({
+          replacement: Optional({
+            comment: "A replacement string.",
+            type: IncludeIdentifier(ResponsiveTextReplace),
+          }),
+        })
+      ),
+    }),
+})
 
-export type PermanentDurationTranslation = {
-  /**
-   * A replacement string.
-   */
-  replacement: ResponsiveTextReplace
-}
+export const IndefiniteDuration = TypeAlias(import.meta.url, {
+  name: "IndefiniteDuration",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Required,
+        "IndefiniteDurationTranslation",
+        Object({
+          description: Required({
+            comment: "A description of the duration.",
+            type: IncludeIdentifier(ResponsiveText),
+          }),
+        })
+      ),
+    }),
+})
 
-export type FixedDuration = {
-  /**
-   * If the duration is the maximum duration, so it may end earlier.
-   */
-  is_maximum?: true
+export const DurationForSustained = TypeAlias(import.meta.url, {
+  name: "DurationForSustained",
+  type: () =>
+    Object({
+      maximum: Required({
+        comment: "The sustained skill can be active a maximum amount of time.",
+        type: IncludeIdentifier(DurationUnitValue),
+      }),
+    }),
+})
 
-  /**
-   * The (unitless) duration.
-   * @integer
-   * @minimum 1
-   */
-  value: number
+export const DurationUnit = Enum(import.meta.url, {
+  name: "DurationUnit",
+  values: () => ({
+    Seconds: EnumCase({ type: null }),
+    Minutes: EnumCase({ type: null }),
+    Hours: EnumCase({ type: null }),
+    Days: EnumCase({ type: null }),
+    Weeks: EnumCase({ type: null }),
+    Months: EnumCase({ type: null }),
+    Years: EnumCase({ type: null }),
+    Centuries: EnumCase({ type: null }),
+    Actions: EnumCase({ type: null }),
+    CombatRounds: EnumCase({ type: null }),
+  }),
+})
 
-  /**
-   * The duration unit.
-   */
-  unit: DurationUnit
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations?: LocaleMap<FixedDurationTranslation>
-}
-
-export type FixedDurationTranslation = {
-  /**
-   * A replacement string.
-   */
-  replacement: ResponsiveTextReplace
-}
-
-/**
- * Defines the duration being based on a check result.
- */
-export type CheckResultBasedDuration = {
-  /**
-   * If the duration is the maximum duration, so it may end earlier.
-   */
-  is_maximum?: true
-
-  /**
-   * The base value that is derived from the check result.
-   */
-  base: CheckResultValue
-
-  /**
-   * If defined, it modifies the base value.
-   */
-  modifier?: CheckResultBasedModifier
-
-  /**
-   * The duration unit.
-   */
-  unit: DurationUnit
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations?: LocaleMap<CheckResultBasedDurationTranslation>
-}
-
-export type CheckResultBasedDurationTranslation = {
-  /**
-   * A replacement string.
-   */
-  replacement: ResponsiveTextReplace
-}
-
-export type IndefiniteDuration = {
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<IndefiniteDurationTranslation>
-}
-
-export type IndefiniteDurationTranslation = {
-  /**
-   * A description of the duration.
-   */
-  description: ResponsiveText
-}
-
-export type DurationForSustained = {
-  /**
-   * The sustained skill can be active a maximum amount of time.
-   */
-  maximum: DurationUnitValue
-}
-
-export type DurationUnit =
-  | "Seconds"
-  | "Minutes"
-  | "Hours"
-  | "Days"
-  | "Weeks"
-  | "Months"
-  | "Years"
-  | "Centuries"
-  | "Actions"
-  | "CombatRounds"
-
-export type DurationUnitValue = {
-  /**
-   * The (unitless) duration value.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-
-  /**
-   * The unit of the `value`.
-   */
-  unit: DurationUnit
-}
+export const DurationUnitValue = TypeAlias(import.meta.url, {
+  name: "DurationUnitValue",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The (unitless) duration value.",
+        type: Integer({ minimum: 1 }),
+      }),
+      unit: Required({
+        comment: "The unit of the `value`.",
+        type: IncludeIdentifier(DurationUnit),
+      }),
+    }),
+})

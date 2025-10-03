@@ -1,62 +1,52 @@
-/**
- * @main AdvancedMagicalSpecialAbility
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
-import { LocaleMap } from "../_LocaleMap.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import {
+  ap_value,
+  ap_value_append,
+  ap_value_l10n,
+  levels,
+  maximum,
+  name,
+  name_in_library,
+  rules,
+  select_options,
+  skill_applications,
+  skill_uses,
+} from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Advanced Magical Special Ability
- */
-export type AdvancedMagicalSpecialAbility = {
-  id: Activatable.Id
-
-  levels?: Activatable.Levels
-
-  select_options?: Activatable.SelectOptions
-
-  skill_applications?: Activatable.SkillApplications
-
-  skill_uses?: Activatable.SkillUses
-
-  maximum?: Activatable.Maximum
-
-  prerequisites?: GeneralPrerequisites
-
-  ap_value: Activatable.AdventurePointsValue
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<AdvancedMagicalSpecialAbilityTranslation>
-}
-
-export type AdvancedMagicalSpecialAbilityTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  // input?: Activatable.Input
-
-  rules: Activatable.Rules
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<AdvancedMagicalSpecialAbility, AdvancedMagicalSpecialAbility["id"], "AdvancedMagicalSpecialAbility"> = {
+export const AdvancedMagicalSpecialAbility = Entity(import.meta.url, {
   name: "AdvancedMagicalSpecialAbility",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("AdvancedMagicalSpecialAbility"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "AdvancedMagicalSpecialAbilities",
+  comment: "Magical Special Abilities that are being unlocked by Magic Style Special Abilities.",
+  type: () =>
+    Object({
+      levels,
+      select_options,
+      skill_applications,
+      skill_uses,
+      maximum,
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      ap_value,
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "AdvancedMagicalSpecialAbilityTranslation",
+        Object({
+          name,
+          name_in_library,
+          rules,
+          ap_value_append,
+          ap_value: ap_value_l10n,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

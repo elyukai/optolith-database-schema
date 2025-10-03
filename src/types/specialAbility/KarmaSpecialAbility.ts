@@ -1,67 +1,47 @@
-/**
- * @main KarmaSpecialAbility
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
-import { LocaleMap } from "../_LocaleMap.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import {
+  ap_value,
+  ap_value_append,
+  ap_value_l10n,
+  levels,
+  maximum,
+  name,
+  name_in_library,
+  rules,
+  select_options,
+} from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Karma Special Ability
- */
-export type KarmaSpecialAbility = {
-  id: Activatable.Id
-
-  levels?: Activatable.Levels
-
-  select_options?: Activatable.SelectOptions
-
-  maximum?: Activatable.Maximum
-
-  prerequisites?: GeneralPrerequisites
-
-  ap_value: Activatable.AdventurePointsValue
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<KarmaSpecialAbilityTranslation>
-}
-
-export type KarmaSpecialAbilityTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  // input?: Activatable.Input
-
-  rules: Activatable.Rules
-
-  /**
-   * The AP value. It is only used if the text cannot be generated from the given information.
-   */
-  ap_value?: Activatable.AdventurePointsValueReplacement
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<
-  KarmaSpecialAbility,
-  KarmaSpecialAbility["id"],
-  "KarmaSpecialAbility"
-> = {
+export const KarmaSpecialAbility = Entity(import.meta.url, {
   name: "KarmaSpecialAbility",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("KarmaSpecialAbility"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "KarmaSpecialAbilities",
+  type: () =>
+    Object({
+      levels,
+      select_options,
+      maximum,
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      ap_value,
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "KarmaSpecialAbilityTranslation",
+        Object({
+          name,
+          name_in_library,
+          rules,
+          ap_value_append,
+          ap_value: ap_value_l10n,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

@@ -1,263 +1,479 @@
-import * as Identifier from "./_Identifier.js"
+import { Enum, EnumCase } from "tsondb/schema/def"
+import {
+  AdvancedCombatSpecialAbilityIdentifier,
+  AdvancedKarmaSpecialAbilityIdentifier,
+  AdvancedMagicalSpecialAbilityIdentifier,
+  AdvancedSkillSpecialAbilityIdentifier,
+  AdvantageIdentifier,
+  AmmunitionIdentifier,
+  AncestorGlyphIdentifier,
+  AnimalCareIdentifier,
+  AnimalIdentifier,
+  AnimalShapeIdentifier,
+  AnimalShapeSizeIdentifier,
+  AnimistPowerIdentifier,
+  ArcaneBardTraditionIdentifier,
+  ArcaneDancerTraditionIdentifier,
+  ArcaneOrbEnchantmentIdentifier,
+  ArmorIdentifier,
+  AspectIdentifier,
+  AttireEnchantmentIdentifier,
+  AttributeIdentifier,
+  BandageOrRemedyIdentifier,
+  BlessedTraditionIdentifier,
+  BlessingIdentifier,
+  BookIdentifier,
+  BowlEnchantmentIdentifier,
+  BrawlingSpecialAbilityIdentifier,
+  CantripIdentifier,
+  CauldronEnchantmentIdentifier,
+  CeremonialItemIdentifier,
+  CeremonialItemSpecialAbilityIdentifier,
+  CeremonyIdentifier,
+  ChronicleEnchantmentIdentifier,
+  CloseCombatTechniqueIdentifier,
+  ClothesIdentifier,
+  CombatSpecialAbilityIdentifier,
+  CombatStyleSpecialAbilityIdentifier,
+  CommandSpecialAbilityIdentifier,
+  ContainerIdentifier,
+  CultureIdentifier,
+  CurseIdentifier,
+  DaggerRitualIdentifier,
+  DisadvantageIdentifier,
+  DiseaseIdentifier,
+  DominationRitualIdentifier,
+  ElementIdentifier,
+  ElixirIdentifier,
+  ElvenMagicalSongIdentifier,
+  EquipmentOfBlessedOnesIdentifier,
+  FamiliarSpecialAbilityIdentifier,
+  FatePointSexSpecialAbilityIdentifier,
+  FatePointSpecialAbilityIdentifier,
+  FocusRuleIdentifier,
+  FoolsHatEnchantmentIdentifier,
+  GemOrPreciousStoneIdentifier,
+  GeneralIdentifier,
+  GeneralSpecialAbilityIdentifier,
+  GeodeRitualIdentifier,
+  IlluminationLightSourceIdentifier,
+  IlluminationRefillsOrSuppliesIdentifier,
+  InstrumentEnchantmentIdentifier,
+  JesterTrickIdentifier,
+  JewelryIdentifier,
+  KarmaSpecialAbilityIdentifier,
+  KrallenkettenzauberIdentifier,
+  LanguageIdentifier,
+  LiebesspielzeugIdentifier,
+  LiturgicalChantIdentifier,
+  LiturgicalStyleSpecialAbilityIdentifier,
+  LuxuryGoodIdentifier,
+  LycantropicGiftIdentifier,
+  MagicalArtifactIdentifier,
+  MagicalDanceIdentifier,
+  MagicalMelodyIdentifier,
+  MagicalRuneIdentifier,
+  MagicalSignIdentifier,
+  MagicalSpecialAbilityIdentifier,
+  MagicalTraditionIdentifier,
+  MagicStyleSpecialAbilityIdentifier,
+  MusicalInstrumentIdentifier,
+  OptionalRuleIdentifier,
+  OrbEnchantmentIdentifier,
+  OrienteeringAidIdentifier,
+  PactGiftIdentifier,
+  PatronIdentifier,
+  PoisonIdentifier,
+  PropertyIdentifier,
+  ProtectiveWardingCircleSpecialAbilityIdentifier,
+  RaceIdentifier,
+  RangedCombatTechniqueIdentifier,
+  RingEnchantmentIdentifier,
+  RitualIdentifier,
+  RopeOrChainIdentifier,
+  ScriptIdentifier,
+  SermonIdentifier,
+  SexPracticeIdentifier,
+  SexSpecialAbilityIdentifier,
+  SickleRitualIdentifier,
+  SikaryanDrainSpecialAbilityIdentifier,
+  SkillApplicationIdentifier,
+  SkillIdentifier,
+  SkillStyleSpecialAbilityIdentifier,
+  SpellIdentifier,
+  SpellSwordEnchantmentIdentifier,
+  StaffEnchantmentIdentifier,
+  StationeryIdentifier,
+  TargetCategoryIdentifier,
+  ThievesToolIdentifier,
+  ToolOfTheTradeIdentifier,
+  ToyEnchantmentIdentifier,
+  TradeSecretIdentifier,
+  TravelGearOrToolIdentifier,
+  TrinkhornzauberIdentifier,
+  VampiricGiftIdentifier,
+  VehicleIdentifier,
+  VisionIdentifier,
+  WandEnchantmentIdentifier,
+  WeaponAccessoryIdentifier,
+  WeaponEnchantmentIdentifier,
+  WeaponIdentifier,
+  ZibiljaRitualIdentifier,
+} from "./_Identifier.js"
 
-export type ActivatableIdentifier =
-  | Identifier.AdvantageIdentifier
-  | Identifier.DisadvantageIdentifier
-  | Identifier.AdvancedCombatSpecialAbilityIdentifier
-  | Identifier.AdvancedKarmaSpecialAbilityIdentifier
-  | Identifier.AdvancedMagicalSpecialAbilityIdentifier
-  | Identifier.AdvancedSkillSpecialAbilityIdentifier
-  | Identifier.AncestorGlyphIdentifier
-  | Identifier.ArcaneOrbEnchantmentIdentifier
-  | Identifier.AttireEnchantmentIdentifier
-  | Identifier.BlessedTraditionIdentifier
-  | Identifier.BowlEnchantmentIdentifier
-  | Identifier.BrawlingSpecialAbilityIdentifier
-  | Identifier.CauldronEnchantmentIdentifier
-  | Identifier.CeremonialItemSpecialAbilityIdentifier
-  | Identifier.ChronicleEnchantmentIdentifier
-  | Identifier.CombatSpecialAbilityIdentifier
-  | Identifier.CombatStyleSpecialAbilityIdentifier
-  | Identifier.CommandSpecialAbilityIdentifier
-  | Identifier.DaggerRitualIdentifier
-  | Identifier.FamiliarSpecialAbilityIdentifier
-  | Identifier.FatePointSexSpecialAbilityIdentifier
-  | Identifier.FatePointSpecialAbilityIdentifier
-  | Identifier.FoolsHatEnchantmentIdentifier
-  | Identifier.GeneralSpecialAbilityIdentifier
-  | Identifier.InstrumentEnchantmentIdentifier
-  | Identifier.KarmaSpecialAbilityIdentifier
-  | Identifier.KrallenkettenzauberIdentifier
-  | Identifier.LiturgicalStyleSpecialAbilityIdentifier
-  | Identifier.LycantropicGiftIdentifier
-  | Identifier.MagicalSignIdentifier
-  | Identifier.MagicalSpecialAbilityIdentifier
-  | Identifier.MagicalTraditionIdentifier
-  | Identifier.MagicStyleSpecialAbilityIdentifier
-  | Identifier.OrbEnchantmentIdentifier
-  | Identifier.PactGiftIdentifier
-  | Identifier.ProtectiveWardingCircleSpecialAbilityIdentifier
-  | Identifier.RingEnchantmentIdentifier
-  | Identifier.SermonIdentifier
-  | Identifier.SexSpecialAbilityIdentifier
-  | Identifier.SickleRitualIdentifier
-  | Identifier.SikaryanDrainSpecialAbilityIdentifier
-  | Identifier.SkillStyleSpecialAbilityIdentifier
-  | Identifier.SpellSwordEnchantmentIdentifier
-  | Identifier.StaffEnchantmentIdentifier
-  | Identifier.ToyEnchantmentIdentifier
-  | Identifier.TrinkhornzauberIdentifier
-  | Identifier.VampiricGiftIdentifier
-  | Identifier.VisionIdentifier
-  | Identifier.WandEnchantmentIdentifier
-  | Identifier.WeaponEnchantmentIdentifier
+export const ActivatableIdentifier = Enum(import.meta.url, {
+  name: "ActivatableIdentifier",
+  values: () => ({
+    Advantage: EnumCase({ type: AdvantageIdentifier() }),
+    Disadvantage: EnumCase({ type: DisadvantageIdentifier() }),
+    AdvancedCombatSpecialAbility: EnumCase({ type: AdvancedCombatSpecialAbilityIdentifier() }),
+    AdvancedKarmaSpecialAbility: EnumCase({ type: AdvancedKarmaSpecialAbilityIdentifier() }),
+    AdvancedMagicalSpecialAbility: EnumCase({ type: AdvancedMagicalSpecialAbilityIdentifier() }),
+    AdvancedSkillSpecialAbility: EnumCase({ type: AdvancedSkillSpecialAbilityIdentifier() }),
+    AncestorGlyph: EnumCase({ type: AncestorGlyphIdentifier() }),
+    ArcaneOrbEnchantment: EnumCase({ type: ArcaneOrbEnchantmentIdentifier() }),
+    AttireEnchantment: EnumCase({ type: AttireEnchantmentIdentifier() }),
+    BlessedTradition: EnumCase({ type: BlessedTraditionIdentifier() }),
+    BowlEnchantment: EnumCase({ type: BowlEnchantmentIdentifier() }),
+    BrawlingSpecialAbility: EnumCase({ type: BrawlingSpecialAbilityIdentifier() }),
+    CauldronEnchantment: EnumCase({ type: CauldronEnchantmentIdentifier() }),
+    CeremonialItemSpecialAbility: EnumCase({ type: CeremonialItemSpecialAbilityIdentifier() }),
+    ChronicleEnchantment: EnumCase({ type: ChronicleEnchantmentIdentifier() }),
+    CombatSpecialAbility: EnumCase({ type: CombatSpecialAbilityIdentifier() }),
+    CombatStyleSpecialAbility: EnumCase({ type: CombatStyleSpecialAbilityIdentifier() }),
+    CommandSpecialAbility: EnumCase({ type: CommandSpecialAbilityIdentifier() }),
+    DaggerRitual: EnumCase({ type: DaggerRitualIdentifier() }),
+    FamiliarSpecialAbility: EnumCase({ type: FamiliarSpecialAbilityIdentifier() }),
+    FatePointSexSpecialAbility: EnumCase({ type: FatePointSexSpecialAbilityIdentifier() }),
+    FatePointSpecialAbility: EnumCase({ type: FatePointSpecialAbilityIdentifier() }),
+    FoolsHatEnchantment: EnumCase({ type: FoolsHatEnchantmentIdentifier() }),
+    GeneralSpecialAbility: EnumCase({ type: GeneralSpecialAbilityIdentifier() }),
+    InstrumentEnchantment: EnumCase({ type: InstrumentEnchantmentIdentifier() }),
+    KarmaSpecialAbility: EnumCase({ type: KarmaSpecialAbilityIdentifier() }),
+    Krallenkettenzauber: EnumCase({ type: KrallenkettenzauberIdentifier() }),
+    LiturgicalStyleSpecialAbility: EnumCase({ type: LiturgicalStyleSpecialAbilityIdentifier() }),
+    LycantropicGift: EnumCase({ type: LycantropicGiftIdentifier() }),
+    MagicalSign: EnumCase({ type: MagicalSignIdentifier() }),
+    MagicalSpecialAbility: EnumCase({ type: MagicalSpecialAbilityIdentifier() }),
+    MagicalTradition: EnumCase({ type: MagicalTraditionIdentifier() }),
+    MagicStyleSpecialAbility: EnumCase({ type: MagicStyleSpecialAbilityIdentifier() }),
+    OrbEnchantment: EnumCase({ type: OrbEnchantmentIdentifier() }),
+    PactGift: EnumCase({ type: PactGiftIdentifier() }),
+    ProtectiveWardingCircleSpecialAbility: EnumCase({
+      type: ProtectiveWardingCircleSpecialAbilityIdentifier(),
+    }),
+    RingEnchantment: EnumCase({ type: RingEnchantmentIdentifier() }),
+    Sermon: EnumCase({ type: SermonIdentifier() }),
+    SexSpecialAbility: EnumCase({ type: SexSpecialAbilityIdentifier() }),
+    SickleRitual: EnumCase({ type: SickleRitualIdentifier() }),
+    SikaryanDrainSpecialAbility: EnumCase({ type: SikaryanDrainSpecialAbilityIdentifier() }),
+    SkillStyleSpecialAbility: EnumCase({ type: SkillStyleSpecialAbilityIdentifier() }),
+    SpellSwordEnchantment: EnumCase({ type: SpellSwordEnchantmentIdentifier() }),
+    StaffEnchantment: EnumCase({ type: StaffEnchantmentIdentifier() }),
+    ToyEnchantment: EnumCase({ type: ToyEnchantmentIdentifier() }),
+    Trinkhornzauber: EnumCase({ type: TrinkhornzauberIdentifier() }),
+    VampiricGift: EnumCase({ type: VampiricGiftIdentifier() }),
+    Vision: EnumCase({ type: VisionIdentifier() }),
+    WandEnchantment: EnumCase({ type: WandEnchantmentIdentifier() }),
+    WeaponEnchantment: EnumCase({ type: WeaponEnchantmentIdentifier() }),
+  }),
+})
 
-export type SpecialAbilityIdentifier =
-  | Identifier.AdvancedCombatSpecialAbilityIdentifier
-  | Identifier.AdvancedKarmaSpecialAbilityIdentifier
-  | Identifier.AdvancedMagicalSpecialAbilityIdentifier
-  | Identifier.AdvancedSkillSpecialAbilityIdentifier
-  | Identifier.AncestorGlyphIdentifier
-  | Identifier.ArcaneOrbEnchantmentIdentifier
-  | Identifier.AttireEnchantmentIdentifier
-  | Identifier.BlessedTraditionIdentifier
-  | Identifier.BowlEnchantmentIdentifier
-  | Identifier.BrawlingSpecialAbilityIdentifier
-  | Identifier.CauldronEnchantmentIdentifier
-  | Identifier.CeremonialItemSpecialAbilityIdentifier
-  | Identifier.ChronicleEnchantmentIdentifier
-  | Identifier.CombatSpecialAbilityIdentifier
-  | Identifier.CombatStyleSpecialAbilityIdentifier
-  | Identifier.CommandSpecialAbilityIdentifier
-  | Identifier.DaggerRitualIdentifier
-  | Identifier.FamiliarSpecialAbilityIdentifier
-  | Identifier.FatePointSexSpecialAbilityIdentifier
-  | Identifier.FatePointSpecialAbilityIdentifier
-  | Identifier.FoolsHatEnchantmentIdentifier
-  | Identifier.GeneralSpecialAbilityIdentifier
-  | Identifier.InstrumentEnchantmentIdentifier
-  | Identifier.KarmaSpecialAbilityIdentifier
-  | Identifier.KrallenkettenzauberIdentifier
-  | Identifier.LiturgicalStyleSpecialAbilityIdentifier
-  | Identifier.LycantropicGiftIdentifier
-  | Identifier.MagicalSignIdentifier
-  | Identifier.MagicalSpecialAbilityIdentifier
-  | Identifier.MagicalTraditionIdentifier
-  | Identifier.MagicStyleSpecialAbilityIdentifier
-  | Identifier.OrbEnchantmentIdentifier
-  | Identifier.PactGiftIdentifier
-  | Identifier.ProtectiveWardingCircleSpecialAbilityIdentifier
-  | Identifier.RingEnchantmentIdentifier
-  | Identifier.SermonIdentifier
-  | Identifier.SexSpecialAbilityIdentifier
-  | Identifier.SickleRitualIdentifier
-  | Identifier.SikaryanDrainSpecialAbilityIdentifier
-  | Identifier.SkillStyleSpecialAbilityIdentifier
-  | Identifier.SpellSwordEnchantmentIdentifier
-  | Identifier.StaffEnchantmentIdentifier
-  | Identifier.ToyEnchantmentIdentifier
-  | Identifier.TrinkhornzauberIdentifier
-  | Identifier.VampiricGiftIdentifier
-  | Identifier.VisionIdentifier
-  | Identifier.WandEnchantmentIdentifier
-  | Identifier.WeaponEnchantmentIdentifier
+export const NewSkillApplicationOrUseParentIdentifier = Enum(import.meta.url, {
+  name: "NewSkillApplicationOrUseParentIdentifier",
+  values: () => ({
+    GeneralSelectOption: EnumCase({ type: GeneralIdentifier() }),
+    Advantage: EnumCase({ type: AdvantageIdentifier() }),
+    Disadvantage: EnumCase({ type: DisadvantageIdentifier() }),
+    AdvancedCombatSpecialAbility: EnumCase({ type: AdvancedCombatSpecialAbilityIdentifier() }),
+    AdvancedKarmaSpecialAbility: EnumCase({ type: AdvancedKarmaSpecialAbilityIdentifier() }),
+    AdvancedMagicalSpecialAbility: EnumCase({ type: AdvancedMagicalSpecialAbilityIdentifier() }),
+    AdvancedSkillSpecialAbility: EnumCase({ type: AdvancedSkillSpecialAbilityIdentifier() }),
+    BlessedTradition: EnumCase({ type: BlessedTraditionIdentifier() }),
+    CeremonialItemSpecialAbility: EnumCase({ type: CeremonialItemSpecialAbilityIdentifier() }),
+    CombatSpecialAbility: EnumCase({ type: CombatSpecialAbilityIdentifier() }),
+    CombatStyleSpecialAbility: EnumCase({ type: CombatStyleSpecialAbilityIdentifier() }),
+    FatePointSpecialAbility: EnumCase({ type: FatePointSpecialAbilityIdentifier() }),
+    GeneralSpecialAbility: EnumCase({ type: GeneralSpecialAbilityIdentifier() }),
+    LiturgicalStyleSpecialAbility: EnumCase({ type: LiturgicalStyleSpecialAbilityIdentifier() }),
+    MagicalSpecialAbility: EnumCase({ type: MagicalSpecialAbilityIdentifier() }),
+    MagicalTradition: EnumCase({ type: MagicalTraditionIdentifier() }),
+    MagicStyleSpecialAbility: EnumCase({ type: MagicStyleSpecialAbilityIdentifier() }),
+    SexSpecialAbility: EnumCase({ type: SexSpecialAbilityIdentifier() }),
+  }),
+})
 
-export type CombatRelatedSpecialAbilityIdentifier =
-  | Identifier.CombatSpecialAbilityIdentifier
-  | Identifier.CombatStyleSpecialAbilityIdentifier
-  | Identifier.AdvancedCombatSpecialAbilityIdentifier
-  | Identifier.CommandSpecialAbilityIdentifier
+export const SpecialAbilityIdentifier = Enum(import.meta.url, {
+  name: "SpecialAbilityIdentifier",
+  values: () => ({
+    AdvancedCombatSpecialAbility: EnumCase({ type: AdvancedCombatSpecialAbilityIdentifier() }),
+    AdvancedKarmaSpecialAbility: EnumCase({ type: AdvancedKarmaSpecialAbilityIdentifier() }),
+    AdvancedMagicalSpecialAbility: EnumCase({ type: AdvancedMagicalSpecialAbilityIdentifier() }),
+    AdvancedSkillSpecialAbility: EnumCase({ type: AdvancedSkillSpecialAbilityIdentifier() }),
+    AncestorGlyph: EnumCase({ type: AncestorGlyphIdentifier() }),
+    ArcaneOrbEnchantment: EnumCase({ type: ArcaneOrbEnchantmentIdentifier() }),
+    AttireEnchantment: EnumCase({ type: AttireEnchantmentIdentifier() }),
+    BlessedTradition: EnumCase({ type: BlessedTraditionIdentifier() }),
+    BowlEnchantment: EnumCase({ type: BowlEnchantmentIdentifier() }),
+    BrawlingSpecialAbility: EnumCase({ type: BrawlingSpecialAbilityIdentifier() }),
+    CauldronEnchantment: EnumCase({ type: CauldronEnchantmentIdentifier() }),
+    CeremonialItemSpecialAbility: EnumCase({ type: CeremonialItemSpecialAbilityIdentifier() }),
+    ChronicleEnchantment: EnumCase({ type: ChronicleEnchantmentIdentifier() }),
+    CombatSpecialAbility: EnumCase({ type: CombatSpecialAbilityIdentifier() }),
+    CombatStyleSpecialAbility: EnumCase({ type: CombatStyleSpecialAbilityIdentifier() }),
+    CommandSpecialAbility: EnumCase({ type: CommandSpecialAbilityIdentifier() }),
+    DaggerRitual: EnumCase({ type: DaggerRitualIdentifier() }),
+    FamiliarSpecialAbility: EnumCase({ type: FamiliarSpecialAbilityIdentifier() }),
+    FatePointSexSpecialAbility: EnumCase({ type: FatePointSexSpecialAbilityIdentifier() }),
+    FatePointSpecialAbility: EnumCase({ type: FatePointSpecialAbilityIdentifier() }),
+    FoolsHatEnchantment: EnumCase({ type: FoolsHatEnchantmentIdentifier() }),
+    GeneralSpecialAbility: EnumCase({ type: GeneralSpecialAbilityIdentifier() }),
+    InstrumentEnchantment: EnumCase({ type: InstrumentEnchantmentIdentifier() }),
+    KarmaSpecialAbility: EnumCase({ type: KarmaSpecialAbilityIdentifier() }),
+    Krallenkettenzauber: EnumCase({ type: KrallenkettenzauberIdentifier() }),
+    LiturgicalStyleSpecialAbility: EnumCase({ type: LiturgicalStyleSpecialAbilityIdentifier() }),
+    LycantropicGift: EnumCase({ type: LycantropicGiftIdentifier() }),
+    MagicalSign: EnumCase({ type: MagicalSignIdentifier() }),
+    MagicalSpecialAbility: EnumCase({ type: MagicalSpecialAbilityIdentifier() }),
+    MagicalTradition: EnumCase({ type: MagicalTraditionIdentifier() }),
+    MagicStyleSpecialAbility: EnumCase({ type: MagicStyleSpecialAbilityIdentifier() }),
+    OrbEnchantment: EnumCase({ type: OrbEnchantmentIdentifier() }),
+    PactGift: EnumCase({ type: PactGiftIdentifier() }),
+    ProtectiveWardingCircleSpecialAbility: EnumCase({
+      type: ProtectiveWardingCircleSpecialAbilityIdentifier(),
+    }),
+    RingEnchantment: EnumCase({ type: RingEnchantmentIdentifier() }),
+    Sermon: EnumCase({ type: SermonIdentifier() }),
+    SexSpecialAbility: EnumCase({ type: SexSpecialAbilityIdentifier() }),
+    SickleRitual: EnumCase({ type: SickleRitualIdentifier() }),
+    SikaryanDrainSpecialAbility: EnumCase({ type: SikaryanDrainSpecialAbilityIdentifier() }),
+    SkillStyleSpecialAbility: EnumCase({ type: SkillStyleSpecialAbilityIdentifier() }),
+    SpellSwordEnchantment: EnumCase({ type: SpellSwordEnchantmentIdentifier() }),
+    StaffEnchantment: EnumCase({ type: StaffEnchantmentIdentifier() }),
+    ToyEnchantment: EnumCase({ type: ToyEnchantmentIdentifier() }),
+    Trinkhornzauber: EnumCase({ type: TrinkhornzauberIdentifier() }),
+    VampiricGift: EnumCase({ type: VampiricGiftIdentifier() }),
+    Vision: EnumCase({ type: VisionIdentifier() }),
+    WandEnchantment: EnumCase({ type: WandEnchantmentIdentifier() }),
+    WeaponEnchantment: EnumCase({ type: WeaponEnchantmentIdentifier() }),
+  }),
+})
 
-export type TraditionIdentifier =
-  | Identifier.MagicalTraditionIdentifier
-  | Identifier.BlessedTraditionIdentifier
+export const CombatRelatedSpecialAbilityIdentifier = Enum(import.meta.url, {
+  name: "CombatRelatedSpecialAbilityIdentifier",
+  values: () => ({
+    CombatSpecialAbility: EnumCase({ type: CombatSpecialAbilityIdentifier() }),
+    CombatStyleSpecialAbility: EnumCase({ type: CombatStyleSpecialAbilityIdentifier() }),
+    AdvancedCombatSpecialAbility: EnumCase({ type: AdvancedCombatSpecialAbilityIdentifier() }),
+    CommandSpecialAbility: EnumCase({ type: CommandSpecialAbilityIdentifier() }),
+  }),
+})
 
-export type RatedIdentifier =
-  | Identifier.AttributeIdentifier
-  | Identifier.SkillIdentifier
-  | Identifier.CloseCombatTechniqueIdentifier
-  | Identifier.RangedCombatTechniqueIdentifier
-  | Identifier.SpellIdentifier
-  | Identifier.RitualIdentifier
-  | Identifier.LiturgicalChantIdentifier
-  | Identifier.CeremonyIdentifier
+export const TraditionIdentifier = Enum(import.meta.url, {
+  name: "TraditionIdentifier",
+  values: () => ({
+    MagicalTradition: EnumCase({ type: MagicalTraditionIdentifier() }),
+    BlessedTradition: EnumCase({ type: BlessedTraditionIdentifier() }),
+  }),
+})
 
-export type SkillishIdentifier =
-  | Identifier.SkillIdentifier
-  | Identifier.SpellIdentifier
-  | Identifier.RitualIdentifier
-  | Identifier.LiturgicalChantIdentifier
-  | Identifier.CeremonyIdentifier
+export const RatedIdentifier = Enum(import.meta.url, {
+  name: "RatedIdentifier",
+  values: () => ({
+    Attribute: EnumCase({ type: AttributeIdentifier() }),
+    Skill: EnumCase({ type: SkillIdentifier() }),
+    CloseCombatTechnique: EnumCase({ type: CloseCombatTechniqueIdentifier() }),
+    RangedCombatTechnique: EnumCase({ type: RangedCombatTechniqueIdentifier() }),
+    Spell: EnumCase({ type: SpellIdentifier() }),
+    Ritual: EnumCase({ type: RitualIdentifier() }),
+    LiturgicalChant: EnumCase({ type: LiturgicalChantIdentifier() }),
+    Ceremony: EnumCase({ type: CeremonyIdentifier() }),
+  }),
+})
 
-export type AdvancedSpecialAbilityRestrictedOptionIdentifier =
-  | Identifier.GeneralIdentifier
-  | Identifier.SkillIdentifier
-  | Identifier.ElementIdentifier
-  | Identifier.AspectIdentifier
+export const SkillishIdentifier = Enum(import.meta.url, {
+  name: "SkillishIdentifier",
+  values: () => ({
+    Skill: EnumCase({ type: SkillIdentifier() }),
+    Spell: EnumCase({ type: SpellIdentifier() }),
+    Ritual: EnumCase({ type: RitualIdentifier() }),
+    LiturgicalChant: EnumCase({ type: LiturgicalChantIdentifier() }),
+    Ceremony: EnumCase({ type: CeremonyIdentifier() }),
+  }),
+})
 
-export type VolumePointsOptionReferenceIdentifier =
-  | Identifier.GeneralIdentifier
-  | Identifier.AnimalShapeSizeIdentifier
+export const AdvancedSpecialAbilityRestrictedOptionIdentifier = Enum(import.meta.url, {
+  name: "AdvancedSpecialAbilityRestrictedOptionIdentifier",
+  values: () => ({
+    General: EnumCase({ type: GeneralIdentifier() }),
+    Skill: EnumCase({ type: SkillIdentifier() }),
+    CloseCombatTechnique: EnumCase({ type: CloseCombatTechniqueIdentifier() }),
+    RangedCombatTechnique: EnumCase({ type: RangedCombatTechniqueIdentifier() }),
+    Element: EnumCase({ type: ElementIdentifier() }),
+    Aspect: EnumCase({ type: AspectIdentifier() }),
+  }),
+})
 
-export type CombatTechniqueIdentifier =
-  | Identifier.CloseCombatTechniqueIdentifier
-  | Identifier.RangedCombatTechniqueIdentifier
+export const VolumePointsOptionReferenceIdentifier = Enum(import.meta.url, {
+  name: "VolumePointsOptionReferenceIdentifier",
+  values: () => ({
+    General: EnumCase({ type: GeneralIdentifier() }),
+    AnimalShapeSize: EnumCase({ type: AnimalShapeSizeIdentifier() }),
+  }),
+})
 
-export type ExtensionRuleIdentifier =
-  | Identifier.FocusRuleIdentifier
-  | Identifier.OptionalRuleIdentifier
+export const CombatTechniqueIdentifier = Enum(import.meta.url, {
+  name: "CombatTechniqueIdentifier",
+  values: () => ({
+    CloseCombatTechnique: EnumCase({ type: CloseCombatTechniqueIdentifier() }),
+    RangedCombatTechnique: EnumCase({ type: RangedCombatTechniqueIdentifier() }),
+  }),
+})
 
-export type SkillWithEnhancementsIdentifier =
-  | Identifier.SpellIdentifier
-  | Identifier.RitualIdentifier
-  | Identifier.LiturgicalChantIdentifier
-  | Identifier.CeremonyIdentifier
+export const ExtensionRuleIdentifier = Enum(import.meta.url, {
+  name: "ExtensionRuleIdentifier",
+  values: () => ({
+    FocusRule: EnumCase({ type: FocusRuleIdentifier() }),
+    OptionalRule: EnumCase({ type: OptionalRuleIdentifier() }),
+  }),
+})
 
-export type SpellworkIdentifier = Identifier.SpellIdentifier | Identifier.RitualIdentifier
+export const SkillWithEnhancementsIdentifier = Enum(import.meta.url, {
+  name: "SkillWithEnhancementsIdentifier",
+  values: () => ({
+    Spell: EnumCase({ type: SpellIdentifier() }),
+    Ritual: EnumCase({ type: RitualIdentifier() }),
+    LiturgicalChant: EnumCase({ type: LiturgicalChantIdentifier() }),
+    Ceremony: EnumCase({ type: CeremonyIdentifier() }),
+  }),
+})
 
-export type LiturgyIdentifier = Identifier.LiturgicalChantIdentifier | Identifier.CeremonyIdentifier
+export const SpellworkIdentifier = Enum(import.meta.url, {
+  name: "SpellworkIdentifier",
+  values: () => ({
+    Spell: EnumCase({ type: SpellIdentifier() }),
+    Ritual: EnumCase({ type: RitualIdentifier() }),
+  }),
+})
 
-export type MagicalActionIdentifier =
-  | Identifier.CurseIdentifier
-  | Identifier.ElvenMagicalSongIdentifier
-  | Identifier.DominationRitualIdentifier
-  | Identifier.MagicalMelodyIdentifier
-  | Identifier.MagicalDanceIdentifier
-  | Identifier.JesterTrickIdentifier
-  | Identifier.AnimistPowerIdentifier
-  | Identifier.GeodeRitualIdentifier
-  | Identifier.ZibiljaRitualIdentifier
-  | Identifier.MagicalRuneIdentifier
+export const LiturgyIdentifier = Enum(import.meta.url, {
+  name: "LiturgyIdentifier",
+  values: () => ({
+    LiturgicalChant: EnumCase({ type: LiturgicalChantIdentifier() }),
+    Ceremony: EnumCase({ type: CeremonyIdentifier() }),
+  }),
+})
 
-export type SelectOptionIdentifier =
-  | Identifier.GeneralIdentifier
-  | Identifier.BlessingIdentifier
-  | Identifier.CantripIdentifier
-  | Identifier.TradeSecretIdentifier
-  | Identifier.ScriptIdentifier
-  | Identifier.AnimalShapeIdentifier
-  | Identifier.ArcaneBardTraditionIdentifier
-  | Identifier.ArcaneDancerTraditionIdentifier
-  | Identifier.SexPracticeIdentifier
-  | Identifier.RaceIdentifier
-  | Identifier.CultureIdentifier
-  | Identifier.BlessedTraditionIdentifier
-  | Identifier.ElementIdentifier
-  | Identifier.PropertyIdentifier
-  | Identifier.AspectIdentifier
-  | Identifier.DiseaseIdentifier
-  | Identifier.PoisonIdentifier
-  | Identifier.LanguageIdentifier
-  | Identifier.SkillIdentifier
-  | Identifier.SkillApplicationIdentifier
-  | Identifier.CloseCombatTechniqueIdentifier
-  | Identifier.RangedCombatTechniqueIdentifier
-  | Identifier.LiturgicalChantIdentifier
-  | Identifier.CeremonyIdentifier
-  | Identifier.SpellIdentifier
-  | Identifier.RitualIdentifier
-  | Identifier.TargetCategoryIdentifier
-  | Identifier.PatronIdentifier
+export const MagicalActionIdentifier = Enum(import.meta.url, {
+  name: "MagicalActionIdentifier",
+  values: () => ({
+    Curse: EnumCase({ type: CurseIdentifier() }),
+    ElvenMagicalSong: EnumCase({ type: ElvenMagicalSongIdentifier() }),
+    DominationRitual: EnumCase({ type: DominationRitualIdentifier() }),
+    MagicalMelody: EnumCase({ type: MagicalMelodyIdentifier() }),
+    MagicalDance: EnumCase({ type: MagicalDanceIdentifier() }),
+    JesterTrick: EnumCase({ type: JesterTrickIdentifier() }),
+    AnimistPower: EnumCase({ type: AnimistPowerIdentifier() }),
+    GeodeRitual: EnumCase({ type: GeodeRitualIdentifier() }),
+    ZibiljaRitual: EnumCase({ type: ZibiljaRitualIdentifier() }),
+    MagicalRune: EnumCase({ type: MagicalRuneIdentifier() }),
+  }),
+})
 
-export type RequirableSelectOptionIdentifier =
-  | Identifier.GeneralIdentifier
-  | Identifier.SkillIdentifier
-  | Identifier.CloseCombatTechniqueIdentifier
-  | Identifier.RangedCombatTechniqueIdentifier
-  | Identifier.PropertyIdentifier
-  | Identifier.AspectIdentifier
-  | Identifier.LanguageIdentifier
-  | Identifier.AnimalShapeIdentifier
-  | Identifier.LiturgicalChantIdentifier
-  | Identifier.CeremonyIdentifier
-  | Identifier.SpellIdentifier
-  | Identifier.RitualIdentifier
+export const SelectOptionIdentifier = Enum(import.meta.url, {
+  name: "SelectOptionIdentifier",
+  values: () => ({
+    General: EnumCase({ type: GeneralIdentifier() }),
+    Blessing: EnumCase({ type: BlessingIdentifier() }),
+    Cantrip: EnumCase({ type: CantripIdentifier() }),
+    TradeSecret: EnumCase({ type: TradeSecretIdentifier() }),
+    Script: EnumCase({ type: ScriptIdentifier() }),
+    AnimalShape: EnumCase({ type: AnimalShapeIdentifier() }),
+    ArcaneBardTradition: EnumCase({ type: ArcaneBardTraditionIdentifier() }),
+    ArcaneDancerTradition: EnumCase({ type: ArcaneDancerTraditionIdentifier() }),
+    SexPractice: EnumCase({ type: SexPracticeIdentifier() }),
+    Race: EnumCase({ type: RaceIdentifier() }),
+    Culture: EnumCase({ type: CultureIdentifier() }),
+    BlessedTradition: EnumCase({ type: BlessedTraditionIdentifier() }),
+    Element: EnumCase({ type: ElementIdentifier() }),
+    Property: EnumCase({ type: PropertyIdentifier() }),
+    Aspect: EnumCase({ type: AspectIdentifier() }),
+    Disease: EnumCase({ type: DiseaseIdentifier() }),
+    Poison: EnumCase({ type: PoisonIdentifier() }),
+    Language: EnumCase({ type: LanguageIdentifier() }),
+    Skill: EnumCase({ type: SkillIdentifier() }),
+    SkillApplication: EnumCase({ type: SkillApplicationIdentifier() }),
+    CloseCombatTechnique: EnumCase({ type: CloseCombatTechniqueIdentifier() }),
+    RangedCombatTechnique: EnumCase({ type: RangedCombatTechniqueIdentifier() }),
+    LiturgicalChant: EnumCase({ type: LiturgicalChantIdentifier() }),
+    Ceremony: EnumCase({ type: CeremonyIdentifier() }),
+    Spell: EnumCase({ type: SpellIdentifier() }),
+    Ritual: EnumCase({ type: RitualIdentifier() }),
+    TargetCategory: EnumCase({ type: TargetCategoryIdentifier() }),
+    Patron: EnumCase({ type: PatronIdentifier() }),
+  }),
+})
 
-export type CoreRuleDerivableContentIdentifier =
-  | Identifier.MagicalTraditionIdentifier
-  | Identifier.FamiliarSpecialAbilityIdentifier
-  | Identifier.MagicalSpecialAbilityIdentifier
-  | Identifier.BlessedTraditionIdentifier
+export const RequirableSelectOptionIdentifier = Enum(import.meta.url, {
+  name: "RequirableSelectOptionIdentifier",
+  values: () => ({
+    General: EnumCase({ type: GeneralIdentifier() }),
+    Skill: EnumCase({ type: SkillIdentifier() }),
+    CloseCombatTechnique: EnumCase({ type: CloseCombatTechniqueIdentifier() }),
+    RangedCombatTechnique: EnumCase({ type: RangedCombatTechniqueIdentifier() }),
+    Property: EnumCase({ type: PropertyIdentifier() }),
+    Aspect: EnumCase({ type: AspectIdentifier() }),
+    Language: EnumCase({ type: LanguageIdentifier() }),
+    AnimalShape: EnumCase({ type: AnimalShapeIdentifier() }),
+    LiturgicalChant: EnumCase({ type: LiturgicalChantIdentifier() }),
+    Ceremony: EnumCase({ type: CeremonyIdentifier() }),
+    Spell: EnumCase({ type: SpellIdentifier() }),
+    Ritual: EnumCase({ type: RitualIdentifier() }),
+    TradeSecret: EnumCase({ type: TradeSecretIdentifier() }),
+  }),
+})
 
-export type EquipmentIdentifier =
-  | Identifier.AmmunitionIdentifier
-  | Identifier.AnimalIdentifier
-  | Identifier.AnimalCareIdentifier
-  | Identifier.ArmorIdentifier
-  | Identifier.BandageOrRemedyIdentifier
-  | Identifier.BookIdentifier
-  | Identifier.CeremonialItemIdentifier
-  | Identifier.ClothesIdentifier
-  | Identifier.ContainerIdentifier
-  | Identifier.ElixirIdentifier
-  | Identifier.EquipmentOfBlessedOnesIdentifier
-  | Identifier.GemOrPreciousStoneIdentifier
-  | Identifier.IlluminationLightSourceIdentifier
-  | Identifier.IlluminationRefillsOrSuppliesIdentifier
-  | Identifier.JewelryIdentifier
-  | Identifier.LiebesspielzeugIdentifier
-  | Identifier.LuxuryGoodIdentifier
-  | Identifier.MagicalArtifactIdentifier
-  | Identifier.MusicalInstrumentIdentifier
-  | Identifier.OrienteeringAidIdentifier
-  | Identifier.PoisonIdentifier
-  | Identifier.RopeOrChainIdentifier
-  | Identifier.StationaryIdentifier
-  | Identifier.ThievesToolIdentifier
-  | Identifier.ToolOfTheTradeIdentifier
-  | Identifier.TravelGearOrToolIdentifier
-  | Identifier.VehicleIdentifier
-  | Identifier.WeaponIdentifier
-  | Identifier.WeaponAccessoryIdentifier
+export const CoreRuleDerivableContentIdentifier = Enum(import.meta.url, {
+  name: "CoreRuleDerivableContentIdentifier",
+  values: () => ({
+    MagicalTradition: EnumCase({ type: MagicalTraditionIdentifier() }),
+    FamiliarSpecialAbility: EnumCase({ type: FamiliarSpecialAbilityIdentifier() }),
+    MagicalSpecialAbility: EnumCase({ type: MagicalSpecialAbilityIdentifier() }),
+    BlessedTradition: EnumCase({ type: BlessedTraditionIdentifier() }),
+  }),
+})
 
-export type OneOrManyNumericIdentifiers = OneNumericIdentifier | ManyNumericIdentifiers
-
-/**
- * @minimum 1
- */
-type OneNumericIdentifier = number
-
-/**
- * @minItems 2
- */
-type ManyNumericIdentifiers = OneNumericIdentifier[]
+export const EquipmentIdentifier = Enum(import.meta.url, {
+  name: "EquipmentIdentifier",
+  values: () => ({
+    Ammunition: EnumCase({ type: AmmunitionIdentifier() }),
+    Animal: EnumCase({ type: AnimalIdentifier() }),
+    AnimalCare: EnumCase({ type: AnimalCareIdentifier() }),
+    Armor: EnumCase({ type: ArmorIdentifier() }),
+    BandageOrRemedy: EnumCase({ type: BandageOrRemedyIdentifier() }),
+    Book: EnumCase({ type: BookIdentifier() }),
+    CeremonialItem: EnumCase({ type: CeremonialItemIdentifier() }),
+    Clothes: EnumCase({ type: ClothesIdentifier() }),
+    Container: EnumCase({ type: ContainerIdentifier() }),
+    Elixir: EnumCase({ type: ElixirIdentifier() }),
+    EquipmentOfBlessedOnes: EnumCase({ type: EquipmentOfBlessedOnesIdentifier() }),
+    GemOrPreciousStone: EnumCase({ type: GemOrPreciousStoneIdentifier() }),
+    IlluminationLightSource: EnumCase({ type: IlluminationLightSourceIdentifier() }),
+    IlluminationRefillsOrSupplies: EnumCase({ type: IlluminationRefillsOrSuppliesIdentifier() }),
+    Jewelry: EnumCase({ type: JewelryIdentifier() }),
+    Liebesspielzeug: EnumCase({ type: LiebesspielzeugIdentifier() }),
+    LuxuryGood: EnumCase({ type: LuxuryGoodIdentifier() }),
+    MagicalArtifact: EnumCase({ type: MagicalArtifactIdentifier() }),
+    MusicalInstrument: EnumCase({ type: MusicalInstrumentIdentifier() }),
+    OrienteeringAid: EnumCase({ type: OrienteeringAidIdentifier() }),
+    Poison: EnumCase({ type: PoisonIdentifier() }),
+    RopeOrChain: EnumCase({ type: RopeOrChainIdentifier() }),
+    Stationary: EnumCase({ type: StationeryIdentifier() }),
+    ThievesTool: EnumCase({ type: ThievesToolIdentifier() }),
+    ToolOfTheTrade: EnumCase({ type: ToolOfTheTradeIdentifier() }),
+    TravelGearOrTool: EnumCase({ type: TravelGearOrToolIdentifier() }),
+    Vehicle: EnumCase({ type: VehicleIdentifier() }),
+    Weapon: EnumCase({ type: WeaponIdentifier() }),
+    WeaponAccessory: EnumCase({ type: WeaponAccessoryIdentifier() }),
+  }),
+})

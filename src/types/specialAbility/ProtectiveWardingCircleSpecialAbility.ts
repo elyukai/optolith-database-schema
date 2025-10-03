@@ -1,72 +1,65 @@
-/**
- * @main ProtectiveWardingCircleSpecialAbility
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
-import { LocaleMap } from "../_LocaleMap.js"
-import { NonEmptyMarkdown } from "../_NonEmptyString.js"
+import {
+  Entity,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+} from "tsondb/schema/def"
+import {
+  ap_value,
+  ap_value_append,
+  ap_value_l10n,
+  levels,
+  maximum,
+  name,
+  name_in_library,
+  select_options,
+} from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Protective Warding Circle Special Ability
- */
-export type ProtectiveWardingCircleSpecialAbility = {
-  id: Activatable.Id
-
-  levels?: Activatable.Levels
-
-  select_options?: Activatable.SelectOptions
-
-  maximum?: Activatable.Maximum
-
-  prerequisites?: GeneralPrerequisites
-
-  /**
-   * The cost in AE.
-   * @integer
-   * @minimum 0
-   */
-  cost: number
-
-  ap_value: Activatable.AdventurePointsValue
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<ProtectiveWardingCircleSpecialAbilityTranslation>
-}
-
-export type ProtectiveWardingCircleSpecialAbilityTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  /**
-   * The rules for the protective circle variant.
-   */
-  protective_circle: NonEmptyMarkdown
-
-  /**
-   * The rules for the warding circle variant.
-   */
-  warding_circle: NonEmptyMarkdown
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<ProtectiveWardingCircleSpecialAbility, ProtectiveWardingCircleSpecialAbility["id"], "ProtectiveWardingCircleSpecialAbility"> = {
+export const ProtectiveWardingCircleSpecialAbility = Entity(import.meta.url, {
   name: "ProtectiveWardingCircleSpecialAbility",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("ProtectiveWardingCircleSpecialAbility"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "ProtectiveWardingCircleSpecialAbilities",
+  type: () =>
+    Object({
+      levels,
+      select_options,
+      maximum,
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      cost: Required({
+        comment: "The cost in AE.",
+        type: Integer({ minimum: 0 }),
+      }),
+      ap_value,
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "ProtectiveWardingCircleSpecialAbilityTranslation",
+        Object({
+          name,
+          name_in_library,
+          protective_circle: Required({
+            comment: "The rules for the protective circle variant.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          warding_circle: Required({
+            comment: "The rules for the warding circle variant.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          ap_value_append,
+          ap_value: ap_value_l10n,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

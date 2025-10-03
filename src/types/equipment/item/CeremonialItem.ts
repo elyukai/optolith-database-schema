@@ -1,67 +1,48 @@
-/**
- * @main CeremonialItem
- */
-
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { BlessedTraditionReference } from "../../_SimpleReferences.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import { BlessedTraditionIdentifier } from "../../_Identifier.js"
+import { src } from "../../source/_PublicationRef.js"
 import {
   CombatUse,
   Complexity,
   Cost,
-  DefaultItemTranslation,
+  DefaultItemTranslations,
   StructurePoints,
   Weight,
 } from "./_Item.js"
 
-export type CeremonialItem = {
-  /**
-   * The cost in silverthalers.
-   */
-  cost: Cost
-
-  /**
-   * The weight in kg.
-   */
-  weight: Weight
-
-  /**
-   * The complexity of crafting the item.
-   */
-  complexity?: Complexity
-
-  /**
-   * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-   */
-  structure_points: StructurePoints
-
-  /**
-   * The deity associated with the equipment item.
-   */
-  associated_tradition: BlessedTraditionReference
-
-  /**
-   * The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
-   */
-  combat_use?: CombatUse
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<DefaultItemTranslation>
-}
-
-export const config: TypeConfig<CeremonialItem, number, "CeremonialItem"> = {
+export const CeremonialItem = Entity(import.meta.url, {
   name: "CeremonialItem",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("CeremonialItem"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "CeremonialItems",
+  type: () =>
+    Object({
+      cost: Required({
+        comment: "The cost in silverthalers.",
+        type: IncludeIdentifier(Cost),
+      }),
+      weight: Required({
+        comment: "The weight in kg.",
+        type: IncludeIdentifier(Weight),
+      }),
+      complexity: Optional({
+        comment: "The complexity of crafting the item.",
+        type: IncludeIdentifier(Complexity),
+      }),
+      structure_points: Required({
+        comment:
+          "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
+        type: IncludeIdentifier(StructurePoints),
+      }),
+      associated_tradition: Required({
+        comment: "The deity associated with the equipment item.",
+        type: BlessedTraditionIdentifier(),
+      }),
+      combat_use: Optional({
+        comment:
+          "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
+        type: IncludeIdentifier(CombatUse),
+      }),
+      src,
+      translations: DefaultItemTranslations("CeremonialItem"),
+    }),
+  displayName: {},
+})

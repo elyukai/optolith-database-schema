@@ -1,23 +1,9 @@
-/**
- * @main ArcaneDancerTradition
- */
+import { Entity } from "tsondb/schema/def"
+import { ArcaneTraditionType } from "./_ArcaneTradition.js"
 
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { ArcaneTradition } from "./_ArcaneTradition.js"
-
-/**
- * @title Arcane Dancer Tradition
- */
-export type ArcaneDancerTradition = ArcaneTradition
-
-export const config: TypeConfig<ArcaneDancerTradition, ArcaneDancerTradition["id"], "ArcaneDancerTradition"> = {
+export const ArcaneDancerTradition = Entity(import.meta.url, {
   name: "ArcaneDancerTradition",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("ArcaneDancerTradition"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "ArcaneDancerTraditions",
+  type: ArcaneTraditionType("ArcaneDancerTraditionTranslation"),
+  displayName: {},
+})

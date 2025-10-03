@@ -1,94 +1,71 @@
-/**
- * @main Elixir
- */
-
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
+import {
+  Array,
+  Entity,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+} from "tsondb/schema/def"
+import { NestedLocaleMap } from "../../Locale.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { src } from "../../source/_PublicationRef.js"
 import { LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
 
-export type Elixir = {
-  /**
-   * The elixir's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * The cost per ingredient level in silverthalers.
-   */
-  cost_per_ingredient_level: number
-
-  /**
-   * The laboratory level needed to brew the elixir.
-   */
-  laboratory: LaboratoryLevel
-
-  /**
-   * The brewing difficulty, which represents the challenge of creating an elixir.
-   * @integer
-   */
-  brewing_difficulty: number
-
-  /**
-   * AP value and prerequisites of the elixir recipe’s trade secret.
-   */
-  trade_secret: RecipeTradeSecret
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<ElixirTranslation>
-}
-
-export type ElixirTranslation = {
-  /**
-   * The name of the elixir.
-   */
-  name: NonEmptyString
-
-  /**
-   * A list of alternative names.
-   * @minItems 1
-   */
-  alternative_names?: AlternativeName[]
-
-  /**
-   * A list of typical ingredients.
-   * @minItems 1
-   * @uniqueItems
-   */
-  typical_ingredients: NonEmptyString[]
-
-  /**
-   * Prerequsites for the brewing process, if any.
-   */
-  brewing_process_prerequisites?: NonEmptyMarkdown
-
-  /**
-   * The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.
-   * @minLength 6
-   * @maxLength 6
-   */
-  quality_levels: NonEmptyMarkdown[]
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<Elixir, number, "Elixir"> = {
+export const Elixir = Entity(import.meta.url, {
   name: "Elixir",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Elixir"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Elixirs",
+  type: () =>
+    Object({
+      cost_per_ingredient_level: Required({
+        comment: "The cost per ingredient level in silverthalers.",
+        type: Integer({ minimum: 1 }),
+      }),
+      laboratory: Required({
+        comment: "The laboratory level needed to brew the elixir.",
+        type: IncludeIdentifier(LaboratoryLevel),
+      }),
+      brewing_difficulty: Required({
+        comment: "The brewing difficulty, which represents the challenge of creating an elixir.",
+        type: Integer(),
+      }),
+      trade_secret: Required({
+        comment: "AP value and prerequisites of the elixir recipe’s trade secret.",
+        type: IncludeIdentifier(RecipeTradeSecret),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "ElixirTranslationTranslation",
+        Object({
+          name: Required({
+            comment: "The item’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          alternative_names: Optional({
+            comment: "A list of alternative names.",
+            type: Array(IncludeIdentifier(AlternativeName), { minItems: 1 }),
+          }),
+          typical_ingredients: Required({
+            comment: "A list of typical ingredients.",
+            type: Array(String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
+          }),
+          brewing_process_prerequisites: Optional({
+            comment: "Prerequsites for the brewing process, if any.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          quality_levels: Required({
+            comment:
+              "The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.",
+            type: Array(String({ minLength: 1, isMarkdown: true }), { minItems: 6, maxItems: 6 }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

@@ -1,61 +1,46 @@
-/**
- * @main Condition
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
+import {
+  Array,
+  Entity,
+  IncludeIdentifier,
+  Object,
+  Optional,
+  Required,
+  String,
+} from "tsondb/schema/def"
+import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { src } from "./source/_PublicationRef.js"
 
-/**
- * @title Condition
- */
-export type Condition = {
-  /**
-   * The condition's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<ConditionTranslation>
-}
-
-export type ConditionTranslation = {
-  /**
-   * The condition's name.
-   */
-  name: NonEmptyString
-
-  /**
-   * Additional rules for the condition, if applicable.
-   */
-  rules?: NonEmptyMarkdown
-
-  /**
-   * The effects for level 1 to 4.
-   * @minItems 4
-   * @maxItems 4
-   */
-  effects: NonEmptyMarkdown[]
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<Condition, Condition["id"], "Condition"> = {
+export const Condition = Entity(import.meta.url, {
   name: "Condition",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Condition"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Conditions",
+  type: () =>
+    Object({
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "ConditionTranslation",
+        Object({
+          name: Required({
+            comment: "The condition’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          rules: Optional({
+            comment: "Additional rules for the condition, if applicable.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          effects: Required({
+            comment: "The effects for level 1 to 4.",
+            type: Array(String({ minLength: 1, isMarkdown: true }), {
+              minItems: 4,
+              maxItems: 4,
+            }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

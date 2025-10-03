@@ -2,113 +2,115 @@
  * Auxiliary types for melee weapons.
  */
 
+import {
+  Boolean,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { Dice } from "../../_Dice.js"
 import { ReachIdentifier } from "../../_Identifier.js"
-import { CloseCombatTechniqueReference } from "../../_SimpleReferences.js"
 import { Length, PrimaryAttributeDamageThreshold } from "./_Weapon.js"
 
-/**
- * The AT modifier.
- * @integer
- */
-export type AttackModifier = number
+export const AttackModifier = TypeAlias(import.meta.url, {
+  name: "AttackModifier",
+  comment: "The AT modifier.",
+  type: () => Integer(),
+})
 
-/**
- * The PA modifier.
- * @integer
- */
-export type ParryModifier = number
+export const ParryModifier = TypeAlias(import.meta.url, {
+  name: "ParryModifier",
+  comment: "The PA modifier.",
+  type: () => Integer(),
+})
 
-/**
- * The damage of a weapon consists of a random part using dice and an optional flat part.
- */
-export type MeleeDamage = {
-  /**
-   * How many dice of which type are rolled to get the damage.
-   */
-  dice: Dice
+const MeleeDamage = TypeAlias(import.meta.url, {
+  name: "MeleeDamage",
+  comment: "The damage of a weapon consists of a random part using dice and an optional flat part.",
+  type: () =>
+    Object({
+      dice: Required({
+        comment: "How many dice of which type are rolled to get the damage.",
+        type: IncludeIdentifier(Dice),
+      }),
+      flat: Optional({
+        comment: "Flat damage, if any. It gets added to the result of the dice rolls.",
+        type: Integer(),
+      }),
+    }),
+})
 
-  /**
-   * Flat damage, if any. It gets added to the result of the dice rolls.
-   * @integer
-   * @default 0
-   */
-  flat?: number
-}
+const ShieldSize = Enum(import.meta.url, {
+  name: "ShieldSize",
+  comment: "The shield size and potential size-depending values.",
+  values: () => ({
+    Small: EnumCase({ type: null }),
+    Medium: EnumCase({ type: null }),
+    Large: EnumCase({ type: IncludeIdentifier(LargeShieldSize) }),
+  }),
+})
 
-/**
- * The shield size and potential size-depending values.
- */
-export type ShieldSize =
-  | { tag: "Small"; small: {} }
-  | { tag: "Medium"; medium: {} }
-  | { tag: "Large"; large?: LargeShieldSize }
+const LargeShieldSize = TypeAlias(import.meta.url, {
+  name: "LargeShieldSize",
+  comment: "The damage of a weapon consists of a random part using dice and an optional flat part.",
+  type: () =>
+    Object({
+      attack_penalty: Optional({
+        comment: "The attack penalty from the shield, if any.",
+        type: Integer(),
+      }),
+    }),
+})
 
-export type LargeShieldSize = {
-  /**
-   * The attack penalty from the shield.
-   * @integer
-   * @default 1
-   */
-  attack_penalty: number
-}
-
-/**
- * @title Melee Weapon
- */
-export type MeleeWeapon = {
-  /**
-   * The combat techniques and dependent values.
-   */
-  combat_technique: CloseCombatTechniqueReference
-
-  /**
-   * The damage of a weapon consists of a random part using dice and an optional flat part.
-   */
-  damage: MeleeDamage
-
-  /**
-   * The primary attribute damage and threshold value.
-   */
-  damage_threshold?: PrimaryAttributeDamageThreshold
-
-  /**
-   * The AT modifier.
-   */
-  at: AttackModifier
-
-  /**
-   * The PA modifier.
-   */
-  pa?: ParryModifier
-
-  /**
-   * The reach of the weapon.
-   */
-  reach?: ReachIdentifier
-
-  /**
-   * The length of the weapon in cm/halffingers.
-   */
-  length?: Length
-
-  /**
-   * The shield size and potential size-depending values.
-   */
-  size?: ShieldSize
-
-  /**
-   * Is the weapon a parrying weapon?
-   */
-  is_parrying_weapon: boolean
-
-  /**
-   * Is the weapon a two-handed weapon?
-   */
-  is_two_handed_weapon: boolean
-
-  /**
-   * Is the weapon an improvised weapon?
-   */
-  is_improvised_weapon: boolean
-}
+export const MeleeWeapon = TypeAlias(import.meta.url, {
+  name: "MeleeWeapon",
+  type: () =>
+    Object({
+      damage: Required({
+        comment:
+          "The damage of a weapon consists of a random part using dice and an optional flat part.",
+        type: IncludeIdentifier(MeleeDamage),
+      }),
+      damage_threshold: Required({
+        comment: "The primary attribute damage and threshold value.",
+        type: IncludeIdentifier(PrimaryAttributeDamageThreshold),
+      }),
+      attackModifier: Required({
+        comment: "The AT modifier.",
+        type: IncludeIdentifier(AttackModifier),
+      }),
+      parryModifier: Optional({
+        comment: "The PA modifier.",
+        type: IncludeIdentifier(ParryModifier),
+      }),
+      reach: Optional({
+        comment: "The reach of the weapon.",
+        type: ReachIdentifier(),
+      }),
+      length: Optional({
+        comment: "The length of the weapon in cm/halffingers.",
+        type: IncludeIdentifier(Length),
+      }),
+      size: Optional({
+        comment: "The shield size and potential size-depending values.",
+        type: IncludeIdentifier(ShieldSize),
+      }),
+      is_parrying_weapon: Required({
+        comment: "Is the weapon a parrying weapon?",
+        type: Boolean(),
+      }),
+      is_two_handed_weapon: Required({
+        comment: "Is the weapon a two-handed weapon?",
+        type: Boolean(),
+      }),
+      is_improvised_weapon: Required({
+        comment: "Is the weapon an improvised weapon?",
+        type: Boolean(),
+      }),
+    }),
+})

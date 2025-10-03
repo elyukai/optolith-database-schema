@@ -1,50 +1,1398 @@
-/**
- * @main Locale
- */
+import {
+  Boolean,
+  Entity,
+  MemberDecl,
+  NestedEntityMap,
+  Object,
+  ObjectType,
+  Required,
+  String,
+  Type,
+} from "tsondb/schema/def"
 
-import { TypeConfig } from "../typeConfig.js"
-import { validateLanguageFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenameAsStringId } from "../validation/filename.js"
-
-/**
- * @title Supported locale
- */
-export type Locale = {
-  /**
-   * The locale's identifier. An IETF language tag (BCP47).
-   * @pattern ^[a-z]{2}-[A-Z]{2}$
-   */
-  id: string
-
-  /**
-   * Name of the language in it's language.
-   * @minLength 1
-   * @example "Deutsch"
-   * @example "English"
-   * @example "Nederlands"
-   */
-  name: string
-
-  /**
-   * Region in which the language is spoken in it's language.
-   * @minLength 1
-   * @example "Deutschland"
-   * @example "United States"
-   * @example "België"
-   */
-  region: string
-
-  /**
-   * The language is not (fully) implemented and thus needs to be excluded from stable releases.
-   */
-  is_missing_implementation?: true
-}
-
-export const config: TypeConfig<Locale, string, "Locale"> = {
+export const Locale = Entity(import.meta.url, {
   name: "Locale",
-  id: getFilenameAsStringId,
-  integrityValidator: () => ({ tag: "Ok", value: undefined }),
-  schemaValidator: createSchemaValidator(import.meta.url, { ignoreFileNamePattern: true }),
-  fileNameValidator: validateLanguageFileName,
-}
+  namePlural: "Locales",
+  comment:
+    "A supported locale. The locale is used to identify the language and region of the content.",
+  type: () =>
+    Object({
+      name: Required({
+        comment: "Name of the language in its language.",
+        type: String({ minLength: 1 }),
+      }),
+      region: Required({
+        comment: "Region in which the language is spoken in its language.",
+        type: String({ minLength: 1 }),
+      }),
+      is_missing_implementation: Required({
+        comment:
+          "The language is not (fully) implemented and thus needs to be excluded from stable releases.",
+        type: Boolean(),
+      }),
+      // translations: Optional({
+      //   comment: "The translations strings for the locale.",
+      //   // prettier-ignore
+      //   type: Object({
+      //     // Menu
+      //     "About {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "Preferences …": Required({ type: String({ minLength: 1 }) }),
+      //     "Services": Required({ type: String({ minLength: 1 }) }),
+      //     "Hide {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "Hide Others": Required({ type: String({ minLength: 1 }) }),
+      //     "Show All": Required({ type: String({ minLength: 1 }) }),
+      //     "Quit {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "File": Required({ type: IncludeIdentifier(VaryBySystem) }),
+      //     "Close": Required({ type: String({ minLength: 1 }) }),
+      //     "Quit": Required({ type: String({ minLength: 1 }) }),
+      //     "Edit": Required({ type: String({ minLength: 1 }) }),
+      //     "Undo": Required({ type: String({ minLength: 1 }) }),
+      //     "Redo": Required({ type: String({ minLength: 1 }) }),
+      //     "Cut": Required({ type: String({ minLength: 1 }) }),
+      //     "Copy": Required({ type: String({ minLength: 1 }) }),
+      //     "Paste": Required({ type: String({ minLength: 1 }) }),
+      //     "Delete": Required({ type: String({ minLength: 1 }) }),
+      //     "Select All": Required({ type: String({ minLength: 1 }) }),
+      //     "View": Required({ type: String({ minLength: 1 }) }),
+      //     "Toggle Full Screen": Required({ type: String({ minLength: 1 }) }),
+      //     "Window": Required({ type: String({ minLength: 1 }) }),
+      //     "Minimize": Required({ type: String({ minLength: 1 }) }),
+      //     "Zoom": Required({ type: String({ minLength: 1 }) }),
+      //     "Main Window": Required({ type: String({ minLength: 1 }) }),
+      //     "Bring All to Front": Required({ type: String({ minLength: 1 }) }),
+
+      //     // Settings Window
+      //     "Settings": Required({ type: String({ minLength: 1 }) }),
+      //     "Main Language": Required({ type: String({ minLength: 1 }) }),
+      //     "System Language": Required({ type: String({ minLength: 1 }) }),
+      //     "Fallback Language": Required({ type: String({ minLength: 1 }) }),
+      //     "No fallback language": Required({ type: String({ minLength: 1 }) }),
+      //     "Appearance": Required({ type: String({ minLength: 1 }) }),
+      //     "Auto": Required({ type: String({ minLength: 1 }) }),
+      //     "Light": Required({ type: String({ minLength: 1 }) }),
+      //     "Dark": Required({ type: String({ minLength: 1 }) }),
+      //     "Edit characters after creation": Required({ type: String({ minLength: 1 }) }),
+      //     "Show animations": Required({ type: String({ minLength: 1 }) }),
+      //     "Check for updates": Required({ type: String({ minLength: 1 }) }),
+
+      //     // Updater Window
+      //     "Updater": Required({ type: String({ minLength: 1 }) }),
+      //     "Checking for updates …": Required({ type: String({ minLength: 1 }) }),
+      //     "New version available": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Version number
+      //      */
+      //     "Version {0} is available! Do you wish to download and install?": Required({ type: String({ minLength: 1 }) }),
+      //     "Download": Required({ type: String({ minLength: 1 }) }),
+      //     "Download Later": Required({ type: String({ minLength: 1 }) }),
+      //     "Downloading update …": Required({ type: String({ minLength: 1 }) }),
+      //     "Update downloaded": Required({ type: String({ minLength: 1 }) }),
+      //     "Quit and Install": Required({ type: String({ minLength: 1 }) }),
+      //     "Install Later": Required({ type: String({ minLength: 1 }) }),
+      //     "No update available": Required({ type: String({ minLength: 1 }) }),
+      //     "You're running the latest version available.": Required({ type: String({ minLength: 1 }) }),
+
+      //     // Main Window
+      //     "Characters": Required({ type: String({ minLength: 1 }) }),
+      //     "Groups": Required({ type: String({ minLength: 1 }) }),
+      //     "Library": Required({ type: String({ minLength: 1 }) }),
+      //     "FAQ": Required({ type: String({ minLength: 1 }) }),
+      //     "About": Required({ type: String({ minLength: 1 }) }),
+      //     "Imprint": Required({ type: String({ minLength: 1 }) }),
+      //     "Third-Party Licenses": Required({ type: String({ minLength: 1 }) }),
+      //     "Last Changes": Required({ type: String({ minLength: 1 }) }),
+      //     "Profile": Required({ type: String({ minLength: 1 }) }),
+      //     "Overview": Required({ type: String({ minLength: 1 }) }),
+      //     "Personal Data": Required({ type: String({ minLength: 1 }) }),
+      //     "Character Sheet": Required({ type: String({ minLength: 1 }) }),
+      //     "Pact": Required({ type: String({ minLength: 1 }) }),
+      //     "Rules": Required({ type: String({ minLength: 1 }) }),
+      //     "Race, Culture & Profession": Required({ type: String({ minLength: 1 }) }),
+      //     "Race": Required({ type: String({ minLength: 1 }) }),
+      //     "Culture": Required({ type: String({ minLength: 1 }) }),
+      //     "Profession": Required({ type: String({ minLength: 1 }) }),
+      //     "Attributes": Required({ type: String({ minLength: 1 }) }),
+      //     "Advantages & Disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "Advantages": Required({ type: String({ minLength: 1 }) }),
+      //     "Disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Skills": Required({ type: String({ minLength: 1 }) }),
+      //     "Combat Techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Spells": Required({ type: String({ minLength: 1 }) }),
+      //     "Liturgical Chants": Required({ type: String({ minLength: 1 }) }),
+      //     "Belongings": Required({ type: String({ minLength: 1 }) }),
+      //     "Equipment": Required({ type: String({ minLength: 1 }) }),
+      //     "Hit Zone Armor": Required({ type: String({ minLength: 1 }) }),
+      //     "Pets": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP left
+      //      */
+      //     "{0} AP Remaining": Required({ type: String({ minLength: 1 }) }),
+      //     "Save": Required({ type: String({ minLength: 1 }) }),
+      //     "Show Settings": Required({ type: String({ minLength: 1 }) }),
+      //     "Toggle DevTools": Required({ type: String({ minLength: 1 }) }),
+
+      //     // Adventure Points
+      //     "Adventure Points": Required({ type: String({ minLength: 1 }) }),
+      //     "AP": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP value
+      //      */
+      //     "{0} Adventure Points": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     /**
+      //      * - `0`: AP value
+      //      */
+      //     "{0} AP": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP Total
+      //      */
+      //     "{0} Total AP": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP Spent
+      //      */
+      //     "{0} AP Spent": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Current AP spent on advantages
+      //      * - `1`: Maximum possible AP spent on advantages
+      //      */
+      //     "{0}/{1} AP spent on advantages": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Current AP spent on magic advantages
+      //      * - `1`: Maximum possible AP spent on magic advantages
+      //      */
+      //     "Thereof {0}/{1} on magic advantages": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Current AP spent on blessed advantages
+      //      * - `1`: Maximum possible AP spent on blessed advantages
+      //      */
+      //     "Thereof {0}/{1} on blessed advantages": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Current AP spent on disadvantages
+      //      * - `1`: Maximum possible AP spent on disadvantages
+      //      */
+      //     "{0}/{1} AP received from disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Current AP spent on magic disadvantages
+      //      * - `1`: Maximum possible AP spent on magic disadvantages
+      //      */
+      //     "Thereof {0}/{1} from magic disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Current AP spent on blessed disadvantages
+      //      * - `1`: Maximum possible AP spent on blessed disadvantages
+      //      */
+      //     "Thereof {0}/{1} from blessed disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on race
+      //      */
+      //     "{0} AP spent on race": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on profession
+      //      */
+      //     "{0} AP spent on profession": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on attributes
+      //      */
+      //     "{0} AP spent on attributes": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on skills
+      //      */
+      //     "{0} AP spent on skills": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on combat techniques
+      //      */
+      //     "{0} AP spent on combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on spells
+      //      */
+      //     "{0} AP spent on spells": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on cantrips
+      //      */
+      //     "{0} AP spent on cantrips": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on liturgical chants
+      //      */
+      //     "{0} AP spent on liturgical chants": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on blessings
+      //      */
+      //     "{0} AP spent on blessings": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on special abilities
+      //      */
+      //     "{0} AP spent on special abilities": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP spent on energies (LP/AE/KP)
+      //      */
+      //     "{0} AP spent on improving/buying back LP/AE/KP": Required({ type: String({ minLength: 1 }) }),
+
+      //     "header.dialogs.herosaved": Required({ type: String({ minLength: 1 }) }),
+      //     "header.dialogs.allsaved": Required({ type: String({ minLength: 1 }) }),
+      //     "header.dialogs.everythingelsesaved": Required({ type: String({ minLength: 1 }) }),
+      //     "header.dialogs.saveconfigerror.title": Required({ type: String({ minLength: 1 }) }),
+      //     "header.dialogs.saveconfigerror.message": Required({ type: String({ minLength: 1 }) }),
+      //     "header.dialogs.saveheroeserror.title": Required({ type: String({ minLength: 1 }) }),
+      //     "header.dialogs.saveheroeserror.message": Required({ type: String({ minLength: 1 }) }),
+
+      //     /**
+      //      * - `0`: Weight in kg
+      //      */
+      //     "general.weightvalue": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Price in silverthalers
+      //      */
+      //     "general.pricevalue": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Length in cm
+      //      */
+      //     "general.lengthvalue": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * As in *2D6*.
+      //      */
+      //     "D": Required({ type: String({ minLength: 1 }) }),
+      //     "general.none": Required({ type: String({ minLength: 1 }) }),
+      //     "general.or": Required({ type: String({ minLength: 1 }) }),
+      //     "general.and": Required({ type: String({ minLength: 1 }) }),
+      //     "general.error": Required({ type: String({ minLength: 1 }) }),
+      //     "general.errorcode": Required({ type: String({ minLength: 1 }) }),
+      //     "general.emptylistplaceholder": Required({ type: String({ minLength: 1 }) }),
+      //     "general.emptylistnoresultsplaceholder": Required({ type: String({ minLength: 1 }) }),
+      //     "No Results": Required({ type: String({ minLength: 1 }) }),
+
+      //     "Search": Required({ type: String({ minLength: 1 }) }),
+      //     "Sort By": Required({ type: String({ minLength: 1 }) }),
+      //     "Name": Required({ type: String({ minLength: 1 }) }),
+      //     "Date Modified": Required({ type: String({ minLength: 1 }) }),
+      //     "Group": Required({ type: String({ minLength: 1 }) }),
+      //     "Property": Required({ type: String({ minLength: 1 }) }),
+      //     "general.filters.sort.bylocation": Required({ type: String({ minLength: 1 }) }),
+      //     "general.filters.sort.bycost": Required({ type: String({ minLength: 1 }) }),
+      //     "general.filters.sort.byweight": Required({ type: String({ minLength: 1 }) }),
+      //     "general.filters.showactivatedentries": Required({ type: String({ minLength: 1 }) }),
+
+      //     "Done": Required({ type: String({ minLength: 1 }) }),
+      //     "OK": Required({ type: String({ minLength: 1 }) }),
+      //     "Cancel": Required({ type: String({ minLength: 1 }) }),
+      //     "Create": Required({ type: String({ minLength: 1 }) }),
+      //     "Apply": Required({ type: String({ minLength: 1 }) }),
+      //     "Add": Required({ type: String({ minLength: 1 }) }),
+      //     "Not enough AP": Required({ type: String({ minLength: 1 }) }),
+      //     "You are missing {0} Adventure Points to do this.": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "Exceeding Adventure Points limit for advantages": Required({ type: String({ minLength: 1 }) }),
+      //     "You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP.": Required({ type: String({ minLength: 1 }) }),
+      //     "Exceeding Adventure Points limit for magical advantages": Required({ type: String({ minLength: 1 }) }),
+      //     "You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP.": Required({ type: String({ minLength: 1 }) }),
+      //     "Exceeding Adventure Points limit for blessed advantages": Required({ type: String({ minLength: 1 }) }),
+      //     "You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP.": Required({ type: String({ minLength: 1 }) }),
+      //     "Exceeding Adventure Points limit for disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP.": Required({ type: String({ minLength: 1 }) }),
+      //     "Exceeding Adventure Points limit for magical disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP.": Required({ type: String({ minLength: 1 }) }),
+      //     "Exceeding Adventure Points limit for blessed disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP.": Required({ type: String({ minLength: 1 }) }),
+
+      //     "heroes.filters.origin.allheroes": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.filters.origin.ownheroes": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.filters.origin.sharedheroes": Required({ type: String({ minLength: 1 }) }),
+      //     "Import": Required({ type: String({ minLength: 1 }) }),
+      //     "New Character": Required({ type: String({ minLength: 1 }) }),
+      //     "Duplicate Character": Required({ type: String({ minLength: 1 }) }),
+      //     "Export Character as OPTLC file": Required({ type: String({ minLength: 1 }) }),
+      //     "Delete Character": Required({ type: String({ minLength: 1 }) }),
+      //     "Open Character": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.saveherobtn": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.unsavedhero.name": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.list.adventurepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.herosaved": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.importheroerror.title": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.importheroerror.message": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.heroexportsavelocation.title": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.herojsonsaveerror.title": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.herojsonsaveerror.message": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.unsavedactions.title": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.unsavedactions.message": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.unsavedactions.quit": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.unsavedactions.saveandquit": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Name of the hero to delete
+      //      */
+      //     "heroes.dialogs.deletehero.title": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.deletehero.message": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.herocreation.title": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.herocreation.nameofhero": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.herocreation.sex.placeholder": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.herocreation.sex.male": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.herocreation.sex.female": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.herocreation.experiencelevel.placeholder": Required({ type: String({ minLength: 1 }) }),
+      //     "heroes.dialogs.herocreation.startbtn": Required({ type: String({ minLength: 1 }) }),
+
+      //     "wiki.chooseacategory": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.chooseacategorytodisplayalist": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.races": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.cultures": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.professions": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.advantages": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.skills": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.skills.all": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.combattechniques": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.combattechniques.all": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.magic": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.magic.all": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.liturgicalchants": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.liturgicalchants.all": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.specialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.specialabilities.all": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.itemtemplates": Required({ type: String({ minLength: 1 }) }),
+      //     "wiki.filters.itemtemplates.all": Required({ type: String({ minLength: 1 }) }),
+
+      //     "Edit Name": Required({ type: String({ minLength: 1 }) }),
+      //     "Change Name": Required({ type: String({ minLength: 1 }) }),
+      //     "Edit Profession Name": Required({ type: String({ minLength: 1 }) }),
+      //     "Change Profession Name": Required({ type: String({ minLength: 1 }) }),
+      //     "Add AP": Required({ type: String({ minLength: 1 }) }),
+      //     "Add Adventure Points": Required({ type: String({ minLength: 1 }) }),
+      //     "How many Adventure Points do you want to add?": Required({ type: String({ minLength: 1 }) }),
+      //     "Finish Character Creation": Required({ type: String({ minLength: 1 }) }),
+      //     "Select New Avatar": Required({ type: String({ minLength: 1 }) }),
+      //     "Delete Avatar": Required({ type: String({ minLength: 1 }) }),
+      //     "profile.dialogs.changeheroavatar.title": Required({ type: String({ minLength: 1 }) }),
+      //     "profile.dialogs.changeheroavatar.selectfilebtn": Required({ type: String({ minLength: 1 }) }),
+      //     "profile.dialogs.changeheroavatar.imagefiletype": Required({ type: String({ minLength: 1 }) }),
+      //     "profile.dialogs.changeheroavatar.invalidfilewarning": Required({ type: String({ minLength: 1 }) }),
+
+      //     // Personal Data
+      //     "Male": Required({ type: String({ minLength: 1 }) }),
+      //     "Female": Required({ type: String({ minLength: 1 }) }),
+      //     "Bal’Thani": Required({ type: String({ minLength: 1 }) }),
+      //     "Tsajana": Required({ type: String({ minLength: 1 }) }),
+      //     "Family": Required({ type: String({ minLength: 1 }) }),
+      //     "Place of Birth": Required({ type: String({ minLength: 1 }) }),
+      //     "Date of Birth": Required({ type: String({ minLength: 1 }) }),
+      //     "Age": Required({ type: String({ minLength: 1 }) }),
+      //     "Hair Color": Required({ type: String({ minLength: 1 }) }),
+      //     "Eye Color": Required({ type: String({ minLength: 1 }) }),
+      //     "Size": Required({ type: String({ minLength: 1 }) }),
+      //     "Weight": Required({ type: String({ minLength: 1 }) }),
+      //     "Title": Required({ type: String({ minLength: 1 }) }),
+      //     "Social Status": Required({ type: String({ minLength: 1 }) }),
+      //     "Characteristics": Required({ type: String({ minLength: 1 }) }),
+      //     "Other Information": Required({ type: String({ minLength: 1 }) }),
+      //     "Reroll Eye Color": Required({ type: String({ minLength: 1 }) }),
+      //     "Reroll Hair Color": Required({ type: String({ minLength: 1 }) }),
+      //     "Reroll Size": Required({ type: String({ minLength: 1 }) }),
+      //     "Reroll Weight": Required({ type: String({ minLength: 1 }) }),
+      //     "personaldata.cultureareaknowledge": Required({ type: String({ minLength: 1 }) }),
+      //     "You can save up no more than 10 AP to use later during the game, and you cannot begin the game with a negative AP balance.": Required({ type: String({ minLength: 1 }) }),
+
+      //     "sheets.printtopdfbtn": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.dialogs.pdfexportsavelocation.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.dialogs.pdfsaved": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.dialogs.pdfsaveerror.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.dialogs.pdfsaveerror.message": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.dialogs.pdfcreationerror.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.dialogs.pdfcreationerror.message": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.showattributevalues": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.useparchment": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.zoomfactor": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.charactersheet": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.attributemodifiers.title": Required({ type: String({ minLength: 1 }) }),
+
+      //     "sheets.mainsheet.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.name": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.family": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.placeofbirth": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.dateofbirth": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.age": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.sex": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.race": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.size": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.weight": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.haircolor": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.eyecolor": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.culture": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.socialstatus": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.profession": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.rank": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.characteristics": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.otherinfo": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.experiencelevellabel": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.totalaplabel": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.apcollectedlabel": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.apspentlabel": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.avatarlabel": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.advantages": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.generalspecialabilites": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.fatepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.derivedcharacteristics.labels.value": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.derivedcharacteristics.labels.bonuspenalty": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.derivedcharacteristics.labels.bonus": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.derivedcharacteristics.labels.bought": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.derivedcharacteristics.labels.max": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.derivedcharacteristics.labels.current": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.derivedcharacteristics.labels.basestat": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.mainsheet.derivedcharacteristics.labels.permanentlylostboughtback": Required({ type: String({ minLength: 1 }) }),
+
+      //     "sheets.gamestatssheet.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.labels.skill": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.labels.check": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.labels.encumbrance": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.labels.improvementcost": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.labels.skillrating": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.labels.routinechecks": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.labels.notes": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.encumbrance.yes": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.encumbrance.no": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.encumbrance.maybe": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.skillstable.groups.pages": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.languages.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.languages.nativetongue": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.knownscripts.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.routinechecks.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.routinechecks.textRow1": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.routinechecks.textRow2": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.routinechecks.textRow3": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.routinechecks.textRow4": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.routinechecks.labels.checkmod": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.routinechecks.labels.neededsr": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.routinechecks.from3on": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.qualitylevels.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.qualitylevels.labels.skillpoints": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.gamestatssheet.qualitylevels.labels.qualitylevel": Required({ type: String({ minLength: 1 }) }),
+
+      //     "sheets.combatsheet.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.combattechniquestable.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.combattechniquestable.labels.combattechnique": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.combattechniquestable.labels.primaryattribute": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.combattechniquestable.labels.improvementcost": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.combattechniquestable.labels.combattechniquerating": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.combattechniquestable.labels.attackrangecombat": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.combattechniquestable.labels.parry": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.lifepoints.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.lifepoints.max": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.lifepoints.current": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.lifepoints.pain1": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.lifepoints.pain2": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.lifepoints.pain3": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.lifepoints.pain4": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.lifepoints.dying": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.weapon": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.combattechnique": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.damagebonus": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.damagepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.attackparrymodifier": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.reach": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.breakingpointrating": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.damaged": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.attack": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.parry": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.closecombatweapons.labels.weight": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons.labels.weapon": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons.labels.combattechnique": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons.labels.reloadtime": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons.labels.damagepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons.labels.ammunition": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons.labels.rangebrackets": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons.labels.breakingpointrating": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons.labels.damaged": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons.labels.rangedcombat": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.rangedcombatweapons.labels.weight": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.armor": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.sturdinessrating": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.wear": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.protection": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.encumbrance": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.movementinitiative": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.carriedwhereexamples": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.head": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.torso": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.leftarm": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.rightarm": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.leftleg": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.rightleg": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.armors.labels.weight": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.shieldparryingweapon.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.shieldparryingweapon.labels.shieldparryingweapon": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.shieldparryingweapon.labels.structurepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.shieldparryingweapon.labels.breakingpointrating": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.shieldparryingweapon.labels.damaged": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.shieldparryingweapon.labels.attackparrymodifier": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.shieldparryingweapon.labels.weight": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.actions": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.combatspecialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.conditions": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.combatsheet.states": Required({ type: String({ minLength: 1 }) }),
+
+      //     "sheets.belongingssheet.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.equipmenttable.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.equipmenttable.labels.item": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.equipmenttable.labels.number": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.equipmenttable.labels.price": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.equipmenttable.labels.weight": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.equipmenttable.labels.carriedwhere": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.equipmenttable.labels.total": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.purse.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.purse.ducats": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.purse.silverthalers": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.purse.halers": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.purse.kreutzers": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.purse.gems": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.purse.jewelry": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.purse.other": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.carryingcapacity.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.carryingcapacity.calc": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.carryingcapacity.label": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.name": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.sizecategory": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.type": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.ap": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.protection": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.attackname": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.attack": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.parry": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.damagepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.reach": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.actions": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.skills": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.specialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.belongingssheet.animal.notes": Required({ type: String({ minLength: 1 }) }),
+
+      //     "sheets.spellssheet.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.header.labels.aemax": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.header.labels.aecurrent": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.spellorritual": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.check": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.skillrating": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.cost": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.castingtime": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.range": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.duration": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.property": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.improvementcost": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.effect": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.labels.pages": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.spellstable.unfamiliarspell": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.primaryattribute": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.properties": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.tradition": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.magicalspecialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.spellssheet.cantrips": Required({ type: String({ minLength: 1 }) }),
+
+      //     "sheets.chantssheet.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.header.labels.kpmax": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.header.labels.kpcurrent": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.title": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.chant": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.check": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.skillrating": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.cost": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.castingtime": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.range": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.duration": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.aspect": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.improvementcost": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.effect": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.chantstable.labels.pages": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.primaryattribute": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.aspects": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.tradition": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.blessedspecialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     "sheets.chantssheet.blessings": Required({ type: String({ minLength: 1 }) }),
+
+      //     "pacts.pactcategory": Required({ type: String({ minLength: 1 }) }),
+      //     "pacts.nopact": Required({ type: String({ minLength: 1 }) }),
+      //     "pacts.pactlevel": Required({ type: String({ minLength: 1 }) }),
+      //     "pacts.fairytype": Required({ type: String({ minLength: 1 }) }),
+      //     "pacts.domain": Required({ type: String({ minLength: 1 }) }),
+      //     "pacts.userdefined": Required({ type: String({ minLength: 1 }) }),
+      //     "pacts.demontype": Required({ type: String({ minLength: 1 }) }),
+      //     "pacts.circleofdamnation": Required({ type: String({ minLength: 1 }) }),
+      //     "pacts.minorpact": Required({ type: String({ minLength: 1 }) }),
+      //     "pacts.pactisincompletehint": Required({ type: String({ minLength: 1 }) }),
+      //     "pacts.name": Required({ type: String({ minLength: 1 }) }),
+
+      //     // Rules
+      //     "Rule Sources": Required({ type: String({ minLength: 1 }) }),
+      //     "Use all publications": Required({ type: String({ minLength: 1 }) }),
+      //     "Focus Rules": Required({ type: String({ minLength: 1 }) }),
+      //     "Optional Rules": Required({ type: String({ minLength: 1 }) }),
+      //     "rules.manualherodatarepair": Required({ type: String({ minLength: 1 }) }),
+      //     "rules.manualherodatarepairexplanation": Required({ type: String({ minLength: 1 }) }),
+
+      //     "inlinewiki.complementarysources": Required({ type: String({ minLength: 1 }) }),
+
+      //     "race.header.name": Required({ type: String({ minLength: 1 }) }),
+      //     "race.header.adventurepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "race.header.adventurepoints.tooltip": Required({ type: String({ minLength: 1 }) }),
+
+      //     "inlinewiki.apvalue": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.adventurepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.lifepointbasevalue": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.spiritbasevalue": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.toughnessbasevalue": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.movementbasevalue": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.attributeadjustments": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.automaticadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.stronglyrecommendedadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.stronglyrecommendeddisadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.commoncultures": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.commonadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.commondisadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.uncommonadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.uncommondisadvantages": Required({ type: String({ minLength: 1 }) }),
+
+      //     "culture.filters.common.allcultures": Required({ type: String({ minLength: 1 }) }),
+      //     "culture.filters.common.commoncultures": Required({ type: String({ minLength: 1 }) }),
+      //     "culture.header.name": Required({ type: String({ minLength: 1 }) }),
+
+      //     "inlinewiki.language": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.script": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.areaknowledge": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.socialstatus": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.commonprofessions": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.commonprofessions.mundane": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.commonprofessions.magic": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.commonprofessions.blessed": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.commonskills": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.uncommonskills": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.commonnames": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Name of cultural package
+      //      * - `1`: AP cost of the cultural package
+      //      */
+      //     "inlinewiki.culturalpackage": Required({ type: String({ minLength: 1 }) }),
+
+      //     "profession.ownprofession": Required({ type: String({ minLength: 1 }) }),
+      //     "profession.variants.novariant": Required({ type: String({ minLength: 1 }) }),
+      //     "profession.filters.common.allprofessions": Required({ type: String({ minLength: 1 }) }),
+      //     "profession.filters.common.commonprofessions": Required({ type: String({ minLength: 1 }) }),
+      //     "profession.filters.groups.allprofessiongroups": Required({ type: String({ minLength: 1 }) }),
+      //     "profession.filters.groups.mundaneprofessions": Required({ type: String({ minLength: 1 }) }),
+      //     "profession.filters.groups.magicalprofessions": Required({ type: String({ minLength: 1 }) }),
+      //     "profession.filters.groups.blessedprofessions": Required({ type: String({ minLength: 1 }) }),
+      //     "profession.header.name": Required({ type: String({ minLength: 1 }) }),
+      //     "profession.header.adventurepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "profession.header.adventurepoints.tooltip": Required({ type: String({ minLength: 1 }) }),
+
+      //     "inlinewiki.prerequisites": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.race": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.specialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP given
+      //      */
+      //     "inlinewiki.languagesandliteracytotalingap": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Skill name(s)
+      //      */
+      //     "inlinewiki.skillspecialization": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP given
+      //      * - `1`: Skill group
+      //      */
+      //     "inlinewiki.skillsselection": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.combattechniques": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Amount of combat techniques to choose
+      //      * - `1`: CtR of the selected combat techniques after application
+      //      * - `2`: List of possible combat techniques
+      //      */
+      //     "inlinewiki.combattechniqueselection": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.combattechnique.one": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.combattechnique.two": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Amount of combat techniques to choose
+      //      * - `1`: CtR of the selected combat techniques after application
+      //      * - `2`: Amount of combat techniques to choose in a second selection
+      //      * - `3`: CtR of the selected combat techniques from second selection after application
+      //      * - `4`: List of possible combat techniques
+      //      */
+      //     "inlinewiki.combattechniquesecondselection": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.skills": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.spells": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP given
+      //      */
+      //     "inlinewiki.cursestotalingap": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Amount of cantrips to choose
+      //      * - `1`: List of possible cantrips
+      //      */
+      //     "inlinewiki.cantripsfromlist": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.cantrip.one": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.cantrip.two": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.liturgicalchants": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.thetwelveblessings": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: name of first excluded blessing
+      //      * - `1`: name of second excluded blessing
+      //      * - `2`: name of third excluded blessing
+      //      */
+      //     "inlinewiki.thetwelveblessingsexceptions": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.sixblessings": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.suggestedadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.suggesteddisadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.unsuitableadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.unsuitabledisadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.variants": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.insteadof": Required({ type: String({ minLength: 1 }) }),
+
+      //     "rcpselectoptions.race": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.culture": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.profession": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Amount of cantrips to choose
+      //      */
+      //     "rcpselectoptions.cantripsfromlist": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.cantrip.one": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.cantrip.two": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Amount of combat techniques to choose
+      //      * - `1`: CtR of the selected combat techniques after application
+      //      */
+      //     "rcpselectoptions.combattechniqueselection": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.combattechnique.one": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.combattechnique.two": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.selectattributeadjustment": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.buyculturalpackage": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.nativetongue.placeholder": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.buyscript": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.script.placeholder": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Amount of combat techniques to choose in a second selection
+      //      * - `1`: CtR of the selected combat techniques from second selection after application
+      //      */
+      //     "rcpselectoptions.combattechniquesecondselection": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP given
+      //      * - `1`: AP left
+      //      */
+      //     "rcpselectoptions.cursestotalingapleft": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: AP given
+      //      * - `1`: AP left
+      //      */
+      //     "rcpselectoptions.languagesandliteracytotalingapleft": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.applicationforskillspecialization": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Skill group
+      //      * - `1`: AP given
+      //      * - `2`: AP left
+      //      */
+      //     "rcpselectoptions.skillselectionap": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Skill name(s)
+      //      */
+      //     "rcpselectoptions.skillspecialization": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.completebtn": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.unfamiliarspells": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.unfamiliarspellselectionfortraditionguildmage": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.unfamiliarspell.placeholder": Required({ type: String({ minLength: 1 }) }),
+      //     "rcpselectoptions.unfamiliarspell": Required({ type: String({ minLength: 1 }) }),
+
+      //     // Attributes
+      //     "Total Points": Required({ type: String({ minLength: 1 }) }),
+      //     "Increment": Required({ type: String({ minLength: 1 }) }),
+      //     "Decrement": Required({ type: String({ minLength: 1 }) }),
+      //     "Activate": Required({ type: String({ minLength: 1 }) }),
+      //     "Attribute Adjustment Selection": Required({ type: String({ minLength: 1 }) }),
+      //     "Modifier": Required({ type: String({ minLength: 1 }) }),
+      //     "Bought": Required({ type: String({ minLength: 1 }) }),
+      //     "Lost Total": Required({ type: String({ minLength: 1 }) }),
+      //     "Bought Back": Required({ type: String({ minLength: 1 }) }),
+      //     "Buy Back Permanently Lost Point": Required({ type: String({ minLength: 1 }) }),
+      //     "Permanently Lost Life Points": Required({ type: String({ minLength: 1 }) }),
+      //     "pLP": Required({ type: String({ minLength: 1 }) }),
+      //     "Permanently Lost Arcane Energy": Required({ type: String({ minLength: 1 }) }),
+      //     "pAE": Required({ type: String({ minLength: 1 }) }),
+      //     "Permanently Lost Karma Points": Required({ type: String({ minLength: 1 }) }),
+      //     "pKP": Required({ type: String({ minLength: 1 }) }),
+      //     "Loose Permanent Points": Required({ type: String({ minLength: 1 }) }),
+      //     "How many points do you want to remove?": Required({ type: String({ minLength: 1 }) }),
+      //     "Remove": Required({ type: String({ minLength: 1 }) }),
+      //     "Permanently Spent": Required({ type: String({ minLength: 1 }) }),
+
+      //     "Common Advantages": Required({ type: String({ minLength: 1 }) }),
+      //     "Common Disadvantages": Required({ type: String({ minLength: 1 }) }),
+      //     "Custom AP Cost": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Entry name
+      //      */
+      //     "AP Cost for {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "Custom option": Required({ type: String({ minLength: 1 }) }),
+
+      //     "specialabilities.nativetonguelevel": Required({ type: String({ minLength: 1 }) }),
+      //     "Advanced Combat Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Advanced Karma Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Advanced Magical Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Advanced Skill Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Ancestor Glyphs": Required({ type: String({ minLength: 1 }) }),
+      //     "Arcane Orb Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Attire Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Blessed Traditions": Required({ type: String({ minLength: 1 }) }),
+      //     "Bowl Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Brawling Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Cauldron Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Ceremonial Item Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Chronicle Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Combat Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Combat Style Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Command Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Dagger Rituals": Required({ type: String({ minLength: 1 }) }),
+      //     "Familiar Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Fate Point Sex Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Fate Point Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Fools Hat Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "General Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Instrument Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Karma Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Krallenkettenzauber": Required({ type: String({ minLength: 1 }) }),
+      //     "Liturgical Style Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Lycantropic Gifts": Required({ type: String({ minLength: 1 }) }),
+      //     "Magical Signs": Required({ type: String({ minLength: 1 }) }),
+      //     "Magical Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Magical Traditions": Required({ type: String({ minLength: 1 }) }),
+      //     "Magic Style Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Orb Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Pact Gifts": Required({ type: String({ minLength: 1 }) }),
+      //     "Protective/Warding Circle Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Ring Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Sermons": Required({ type: String({ minLength: 1 }) }),
+      //     "Sex Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Sickle Rituals": Required({ type: String({ minLength: 1 }) }),
+      //     "Sikaryan Drain Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Skill Style Special Abilities": Required({ type: String({ minLength: 1 }) }),
+      //     "Spell Sword Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Staff Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Toy Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Trinkhornzauber": Required({ type: String({ minLength: 1 }) }),
+      //     "Vampiric Gifts": Required({ type: String({ minLength: 1 }) }),
+      //     "Visions": Required({ type: String({ minLength: 1 }) }),
+      //     "Wand Enchantments": Required({ type: String({ minLength: 1 }) }),
+      //     "Weapon Enchantments": Required({ type: String({ minLength: 1 }) }),
+
+      //     "inlinewiki.rule": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.effect": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.extendedcombatspecialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.extendedmagicalspecialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.extendedblessedspecialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.extendedskillspecialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.penalty": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.level": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.perlevel": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.volume": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.aspect": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.bindingcost": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.protectivecircle": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.wardingcircle": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.actions": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Entry name
+      //      * - `1`: category (advantage, disadvantage, …)
+      //      */
+      //     "inlinewiki.racecultureorprofessionrequiresautomaticorsuggested": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.advantage": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.disadvantage": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.primaryattributeofthetradition": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.knowledgeofspell": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.knowledgeofliturgicalchant": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.appropriatecombatstylespecialability": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.appropriatemagicalstylespecialability": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.appropriateblessedstylespecialability": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.appropriateskillstylespecialability": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.sex": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.sex.male": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.sex.female": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.combattechniques.groups.all": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.combattechniques.groups.allmeleecombattechniques": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.combattechniques.groups.allrangedcombattechniques": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.combattechniques.groups.allmeleecombattechniqueswithparry": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.combattechniques.groups.allmeleecombattechniquesforonehandedweapons": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Minimum social status
+      //      */
+      //     "inlinewiki.socialstatusxorhigher": Required({ type: String({ minLength: 1 }) }),
+
+      //     "Common Skills": Required({ type: String({ minLength: 1 }) }),
+      //     "SR": Required({ type: String({ minLength: 1 }) }),
+      //     "Skill Rating": Required({ type: String({ minLength: 1 }) }),
+      //     "IC": Required({ type: String({ minLength: 1 }) }),
+      //     "New Applications": Required({ type: String({ minLength: 1 }) }),
+      //     "Uses": Required({ type: String({ minLength: 1 }) }),
+
+      //     "Strongly Recommended": Required({ type: String({ minLength: 1 }) }),
+      //     "Common": Required({ type: String({ minLength: 1 }) }),
+      //     "Uncommon": Required({ type: String({ minLength: 1 }) }),
+      //     "Unfamiliar Spells": Required({ type: String({ minLength: 1 }) }),
+
+      //     "CTR": Required({ type: String({ minLength: 1 }) }),
+      //     "Combat Technique Rating": Required({ type: String({ minLength: 1 }) }),
+      //     "P": Required({ type: String({ minLength: 1 }) }),
+      //     "Primary Attribute(s)": Required({ type: String({ minLength: 1 }) }),
+      //     "AT": Required({ type: String({ minLength: 1 }) }),
+      //     "Attack": Required({ type: String({ minLength: 1 }) }),
+      //     "PA": Required({ type: String({ minLength: 1 }) }),
+      //     "Parry": Required({ type: String({ minLength: 1 }) }),
+      //     "Close Combat": Required({ type: String({ minLength: 1 }) }),
+      //     "Ranged Combat": Required({ type: String({ minLength: 1 }) }),
+
+      //     "Special": Required({ type: String({ minLength: 1 }) }),
+      //     "Primary Attribute": Required({ type: String({ minLength: 1 }) }),
+
+      //     "Cantrips": Required({ type: String({ minLength: 1 }) }),
+      //     "Rituals": Required({ type: String({ minLength: 1 }) }),
+      //     "Curses": Required({ type: String({ minLength: 1 }) }),
+      //     "Elven Magical Songs": Required({ type: String({ minLength: 1 }) }),
+      //     "Domination Rituals": Required({ type: String({ minLength: 1 }) }),
+      //     "Magical Dances": Required({ type: String({ minLength: 1 }) }),
+      //     "Magical Melodies": Required({ type: String({ minLength: 1 }) }),
+      //     "Jester Tricks": Required({ type: String({ minLength: 1 }) }),
+      //     "Animist Powers": Required({ type: String({ minLength: 1 }) }),
+      //     "Geode Rituals": Required({ type: String({ minLength: 1 }) }),
+      //     "Zibilja Rituals": Required({ type: String({ minLength: 1 }) }),
+      //     "Mod": Required({ type: String({ minLength: 1 }) }),
+      //     "Check Modifier": Required({ type: String({ minLength: 1 }) }),
+      //     "spells.traditions.general": Required({ type: String({ minLength: 1 }) }),
+      //     "magicalactions.animistforces.tribes.general": Required({ type: String({ minLength: 1 }) }),
+
+      //     " (modified by {0})": Required({ type: String({ minLength: 1 }) }),
+      //     " (− {0})": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} or {1}, depending on which value is higher": Required({ type: String({ minLength: 1 }) }),
+      //     "Invocation Difficulty": Required({ type: String({ minLength: 1 }) }),
+      //     "ID": Required({ type: String({ minLength: 1 }) }),
+      //     "Creation Difficulty": Required({ type: String({ minLength: 1 }) }),
+      //     "CD": Required({ type: String({ minLength: 1 }) }),
+      //     "Effect": Required({ type: String({ minLength: 1 }) }),
+      //     "Casting Time": Required({ type: String({ minLength: 1 }) }),
+      //     "Ritual Time": Required({ type: String({ minLength: 1 }) }),
+      //     "Liturgical Time": Required({ type: String({ minLength: 1 }) }),
+      //     "Ceremonial Time": Required({ type: String({ minLength: 1 }) }),
+      //     "AE Cost": Required({ type: String({ minLength: 1 }) }),
+      //     "KP Cost": Required({ type: String({ minLength: 1 }) }),
+      //     "Range": Required({ type: String({ minLength: 1 }) }),
+      //     "Duration": Required({ type: String({ minLength: 1 }) }),
+      //     "Target Category": Required({ type: String({ minLength: 1 }) }),
+      //     "Traditions": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this spell’s casting time)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this spell’s cost)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this spell’s range)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this ritual’s ritual time)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this ritual’s cost)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this ritual’s range)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this chant’s liturgical time)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this chant’s cost)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this chant’s range)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this ceremony’s ceremonial time)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this ceremony’s cost)": Required({ type: String({ minLength: 1 }) }),
+      //     " (you cannot use a modification on this ceremony’s range)": Required({ type: String({ minLength: 1 }) }),
+      //     " (cannot modify)": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} act": Required({ type: String({ minLength: 1 }) }),
+      //     "act": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} actions": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "actions": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} s": Required({ type: String({ minLength: 1 }) }),
+      //     "s": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} seconds": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "seconds": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} min": Required({ type: String({ minLength: 1 }) }),
+      //     "min": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} minutes": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "minutes": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} h": Required({ type: String({ minLength: 1 }) }),
+      //     "h": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} hours": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "hours": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} d": Required({ type: String({ minLength: 1 }) }),
+      //     "d": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} days": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "days": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} wks.": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "wks.": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} weeks": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "weeks": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} mos.": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "mos.": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} months": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "months": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} yrs.": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "yrs.": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} years": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "years": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} cent.": Required({ type: String({ minLength: 1 }) }),
+      //     "cent.": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} centuries": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "centuries": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} SA": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} seduction actions": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "{0} rnds": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} rounds": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "{0} CR": Required({ type: String({ minLength: 1 }) }),
+      //     "CR": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} combat rounds": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "combat rounds": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} AE": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} KP": Required({ type: String({ minLength: 1 }) }),
+      //     "min. ": Required({ type: String({ minLength: 1 }) }),
+      //     "at least ": Required({ type: String({ minLength: 1 }) }),
+      //     "min. {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "at least {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "/{0}": Required({ type: String({ minLength: 1 }) }),
+      //     " per {0}": Required({ type: String({ minLength: 1 }) }),
+      //     ", minimum of {0}": Required({ type: String({ minLength: 1 }) }),
+      //     " ({0} perm.)": Required({ type: String({ minLength: 1 }) }),
+      //     ", {0} of which are permanent": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "half of the activation cost": Required({ type: String({ minLength: 1 }) }),
+      //     " and ": Required({ type: String({ minLength: 1 }) }),
+      //     " + ": Required({ type: String({ minLength: 1 }) }),
+      //     " or ": Required({ type: String({ minLength: 1 }) }),
+      //     " / ": Required({ type: String({ minLength: 1 }) }),
+      //     " for ": Required({ type: String({ minLength: 1 }) }),
+      //     " (no more than {0})": Required({ type: String({ minLength: 1 }) }),
+      //     " (max. {0})": Required({ type: String({ minLength: 1 }) }),
+      //     "no more than {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "max. {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "Immediate": Required({ type: String({ minLength: 1 }) }),
+      //     "Permanent": Required({ type: String({ minLength: 1 }) }),
+      //     "no more than ": Required({ type: String({ minLength: 1 }) }),
+      //     "max. ": Required({ type: String({ minLength: 1 }) }),
+      //     "Quality Levels": Required({ type: String({ minLength: 1 }) }),
+      //     "QL": Required({ type: String({ minLength: 1 }) }),
+      //     "QL {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "Skill Points": Required({ type: String({ minLength: 1 }) }),
+      //     "SP": Required({ type: String({ minLength: 1 }) }),
+      //     "Sustained": Required({ type: String({ minLength: 1 }) }),
+      //     "(S)": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} yards": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "{0} yd": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} miles": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "{0} mi.": Required({ type: String({ minLength: 1 }) }),
+      //     "Sight": Required({ type: String({ minLength: 1 }) }),
+      //     "Self": Required({ type: String({ minLength: 1 }) }),
+      //     "Global": Required({ type: String({ minLength: 1 }) }),
+      //     "Touch": Required({ type: String({ minLength: 1 }) }),
+      //     "Radius": Required({ type: String({ minLength: 1 }) }),
+      //     " (casting)": Required({ type: String({ minLength: 1 }) }),
+      //     "Zone": Required({ type: String({ minLength: 1 }) }),
+      //     "Liturgical Chants and Ceremonies": Required({ type: String({ minLength: 1 }) }),
+      //     "General": Required({ type: String({ minLength: 1 }) }),
+      //     "Note": Required({ type: String({ minLength: 1 }) }),
+      //     "all": Required({ type: String({ minLength: 1 }) }),
+
+      //     "none": Required({ type: String({ minLength: 1 }) }),
+      //     "State": Required({ type: String({ minLength: 1 }) }),
+      //     "Social Status {0} or higher": Required({ type: String({ minLength: 1 }) }),
+      //     "Person with {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "Penis": Required({ type: String({ minLength: 1 }) }),
+      //     "Vagina": Required({ type: String({ minLength: 1 }) }),
+      //     "the SR for {0} combined must add up to at least {1}": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} on at least SR {1}: {2}": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} arcane works with the property {1} at SR {2} or higher": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} liturgical chants and ceremonies with the aspect {1} at SR {2} or higher": Required({ type: String({ minLength: 1 }) }),
+      //     "one of the following skills": Required({ type: String({ minLength: 1 }) }),
+      //     "two of the following skills": Required({ type: String({ minLength: 1 }) }),
+      //     "three of the following skills": Required({ type: String({ minLength: 1 }) }),
+      //     "four of the following skills": Required({ type: String({ minLength: 1 }) }),
+      //     "five of the following skills": Required({ type: String({ minLength: 1 }) }),
+      //     "six of the following skills": Required({ type: String({ minLength: 1 }) }),
+      //     "seven of the following skills": Required({ type: String({ minLength: 1 }) }),
+      //     "eight of the following skills": Required({ type: String({ minLength: 1 }) }),
+      //     "nine of the following skills": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} of the following skills": Required({ type: String({ minLength: 1 }) }),
+      //     "one combat technique": Required({ type: String({ minLength: 1 }) }),
+      //     "two combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "three combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "four combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "five combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "six combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "seven combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "eight combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "nine combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "one close combat technique": Required({ type: String({ minLength: 1 }) }),
+      //     "two close combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "three close combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "four close combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "five close combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "six close combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "seven close combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "eight close combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "nine close combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} close combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "one ranged combat technique": Required({ type: String({ minLength: 1 }) }),
+      //     "two ranged combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "three ranged combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "four ranged combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "five ranged combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "six ranged combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "seven ranged combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "eight ranged combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "nine ranged combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} ranged combat techniques": Required({ type: String({ minLength: 1 }) }),
+      //     "special ability": Required({ type: String({ minLength: 1 }) }),
+      //     "no special ability": Required({ type: String({ minLength: 1 }) }),
+      //     "Tradition": Required({ type: String({ minLength: 1 }) }),
+      //     "Tradition ({0})": Required({ type: String({ minLength: 1 }) }),
+      //     "Church": Required({ type: String({ minLength: 1 }) }),
+      //     "Shaman": Required({ type: String({ minLength: 1 }) }),
+      //     "Tradition must be able to use rituals": Required({ type: String({ minLength: 1 }) }),
+      //     "Tradition must be able to bind familiars": Required({ type: String({ minLength: 1 }) }),
+      //     "spell enhancement": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgical enhancement": Required({ type: String({ minLength: 1 }) }),
+      //     "for": Required({ type: String({ minLength: 1 }) }),
+      //     "no other ancestor blood advantage": Required({ type: String({ minLength: 1 }) }),
+      //     "Race, culture, or profession must have {0} as an automatic or suggested {1}": Required({ type: String({ minLength: 1 }) }),
+      //     "advantage": Required({ type: String({ minLength: 1 }) }),
+      //     "disadvantage": Required({ type: String({ minLength: 1 }) }),
+      //     "domain {0}": Required({ type: String({ minLength: 1 }) }),
+      //     "{0} level {1}": Required({ type: String({ minLength: 1 }) }),
+      //     "Level {0}:": Required({ type: String({ minLength: 1 }) }),
+
+      //     "inlinewiki.castingtime": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.ritualtime": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.aecost": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.range": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.duration": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.targetcategory": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.property": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.traditions": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.skill": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.lengthoftime": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.musictradition": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.youcannotuseamodificationonthisspellscastingtime": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.youcannotuseamodificationonthisspellsritualtime": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.youcannotuseamodificationonthisspellscost": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.youcannotuseamodificationonthisspellsrange": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.youcannotuseamodificationonthisspellsduration": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.spellenhancements": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Enhancement name
+      //      * - `1`: Required Skill Rating
+      //      * - `2`: AP value
+      //      * - `3`: Description
+      //      */
+      //     "inlinewiki.spellenhancements.title": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.tribaltraditions": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.brew": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.spirithalf": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.spirithalf.short": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.spiritortoughness": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.spiritortoughness.short": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.note": Required({ type: String({ minLength: 1 }) }),
+
+      //     "Blessings": Required({ type: String({ minLength: 1 }) }),
+      //     "Ceremonies": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.addbtn": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.header.name": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.header.traditions": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.header.group": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.header.skillrating": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.header.skillrating.tooltip": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.header.check": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.header.checkmodifier": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.header.checkmodifier.tooltip": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.header.improvementcost": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.header.improvementcost.tooltip": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.groups.blessing": Required({ type: String({ minLength: 1 }) }),
+      //     "liturgicalchants.aspects.general": Required({ type: String({ minLength: 1 }) }),
+
+      //     "inlinewiki.liturgicaltime": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.ceremonialtime": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.kpcost": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.youcannotuseamodificationonthischantsliturgicaltime": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.youcannotuseamodificationonthischantsceremonialtime": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.youcannotuseamodificationonthischantscost": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.youcannotuseamodificationonthischantsrange": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.youcannotuseamodificationonthischantsduration": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.liturgicalchantenhancements": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Enhancement name
+      //      * - `1`: Required Skill Rating
+      //      * - `2`: AP value
+      //      * - `3`: Description
+      //      */
+      //     "inlinewiki.liturgicalchantenhancements.title": Required({ type: String({ minLength: 1 }) }),
+
+      //     "equipment.header.name": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.header.group": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.addbtn": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.createbtn": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.filters.allcombattechniques": Required({ type: String({ minLength: 1 }) }),
+
+      //     "equipment.purse.title": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.ducats": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.silverthalers": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.halers": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.kreutzers": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.carryingcapacity": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.initialstartingwealthandcarryingcapacity": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.earnpay": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.earn": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.pay": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.notefirst": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.notesecond": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.currentcredit": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.purse.amount": Required({ type: String({ minLength: 1 }) }),
+
+      //     "equipment.dialogs.addedit.damage": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.length": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.range": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.edititem": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.createitem": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.number": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.name": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.price": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.weight": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.carriedwhere": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.itemgroup": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.itemgrouphint": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.improvisedweapon": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.improvisedweapongroup": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.template": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.combattechnique": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.primaryattributeanddamagethreshold": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.primaryattribute": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.primaryattribute.short": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.damagethreshold": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.separatedamagethresholds": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.breakingpointratingmodifier": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.damaged": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.reach": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.attackparrymodifier": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.structurepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.lengthwithunit": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.parryingweapon": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.twohandedweapon": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.reloadtime": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.rangeclose": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.rangemedium": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.rangefar": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.ammunition": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.protection": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.encumbrance": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.armortype": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.sturdinessmodifier": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.wear": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.hitzonearmoronly": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.movementmodifier": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.initiativemodifier": Required({ type: String({ minLength: 1 }) }),
+      //     "equipment.dialogs.addedit.additionalpenalties": Required({ type: String({ minLength: 1 }) }),
+
+      //     "hitzonearmors.header.name": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.createbtn": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.dialogs.addedit.name": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.dialogs.addedit.edithitzonearmor": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.dialogs.addedit.createhitzonearmor": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.dialogs.addedit.head": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.dialogs.addedit.torso": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.dialogs.addedit.leftarm": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.dialogs.addedit.rightarm": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.dialogs.addedit.leftleg": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.dialogs.addedit.rightleg": Required({ type: String({ minLength: 1 }) }),
+      //     "hitzonearmors.dialogs.addedit.wear": Required({ type: String({ minLength: 1 }) }),
+
+      //     "inlinewiki.equipment.weight": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.price": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.ammunition": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.combattechnique": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.damage": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.primaryattributeanddamagethreshold": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.attackparrymodifier": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.reach": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.length": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.reloadtime": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.range": Required({ type: String({ minLength: 1 }) }),
+      //     /**
+      //      * - `0`: Number of actions
+      //      */
+      //     "inlinewiki.equipment.actionsvalue": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.protection": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.encumbrance": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.additionalpenalties": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.note": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.rules": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.weaponadvantage": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.weapondisadvantage": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.armoradvantage": Required({ type: String({ minLength: 1 }) }),
+      //     "inlinewiki.equipment.armordisadvantage": Required({ type: String({ minLength: 1 }) }),
+
+      //     "pets.dialogs.addedit.deleteavatarbtn": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.name": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.sizecategory": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.type": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.apspent": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.totalap": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.protection": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.attackname": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.attack": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.parry": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.damagepoints": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.reach": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.actions": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.skills": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.specialabilities": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.notes": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.addbtn": Required({ type: String({ minLength: 1 }) }),
+      //     "pets.dialogs.addedit.savebtn": Required({ type: String({ minLength: 1 }) }),
+
+      //     // Inline Library
+      //     "Show details": Required({ type: String({ minLength: 1 }) }),
+
+      //     // Experience Level
+      //     "Maximum Attribute Value": Required({ type: String({ minLength: 1 }) }),
+      //     "Maximum Skill Value": Required({ type: String({ minLength: 1 }) }),
+      //     "Maximum Combat Technique": Required({ type: String({ minLength: 1 }) }),
+      //     "Maximum Attribute Total": Required({ type: String({ minLength: 1 }) }),
+      //     "Number of Spells/Liturgical Chants": Required({ type: String({ minLength: 1 }) }),
+      //     "Number from other Traditions": Required({ type: String({ minLength: 1 }) }),
+
+      //     // Skill
+      //     "Check": Required({ type: String({ minLength: 1 }) }),
+      //     "Applications": Required({ type: String({ minLength: 1 }) }),
+      //     "Encumbrance": Required({ type: String({ minLength: 1 }) }),
+      //     "Yes": Required({ type: String({ minLength: 1 }) }),
+      //     "No": Required({ type: String({ minLength: 1 }) }),
+      //     "Maybe": Required({ type: String({ minLength: 1 }) }),
+      //     "Tools": Required({ type: String({ minLength: 1 }) }),
+      //     "Quality": Required({ type: String({ minLength: 1 }) }),
+      //     "Failed Check": Required({ type: String({ minLength: 1 }) }),
+      //     "Critical Success": Required({ type: String({ minLength: 1 }) }),
+      //     "Botch": Required({ type: String({ minLength: 1 }) }),
+      //     "Improvement Cost": Required({ type: String({ minLength: 1 }) }),
+
+      //     "Front Cover Inside": Required({ type: String({ minLength: 1 }) }),
+      //     "Back Cover Inside": Required({ type: String({ minLength: 1 }) }),
+      //     "since the {0}. printing": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //     "removed in {0}. printing": Required({ type: IncludeIdentifier(PluralizationCategories) }),
+      //   }),
+      // }),
+    }),
+})
+
+export const NestedLocaleMap = <
+  Name extends string,
+  T extends Record<string, MemberDecl<Type, boolean>>,
+  R extends boolean
+>(
+  MemberDeclCreator: <T extends Type>(options: {
+    comment?: string
+    isDeprecated?: boolean
+    type: T
+  }) => MemberDecl<T, R>,
+  name: Name,
+  type: ObjectType<T>
+) =>
+  MemberDeclCreator({
+    comment: "All translations for the entry, identified by IETF language tag (BCP47).",
+    type: NestedEntityMap({
+      name,
+      secondaryEntity: Locale,
+      type,
+    }),
+  })

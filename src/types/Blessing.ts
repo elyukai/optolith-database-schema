@@ -1,131 +1,124 @@
-/**
- * @main Blessing
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
+import {
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
-import { FixedRange } from "./_ActivatableSkillRange.js"
 import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { ResponsiveText } from "./_ResponsiveText.js"
+import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { src } from "./source/_PublicationRef.js"
 
-/**
- * @title Blessing
- */
-export type Blessing = {
-  /**
-   * The blessing's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * Measurable parameters of a blessing.
-   */
-  parameters: BlessingPerformanceParameters
-
-  /**
-   * The target category – the kind of creature or object – the skill affects.
-   */
-  target: AffectedTargetCategories
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<BlessingTranslation>
-}
-
-export type BlessingTranslation = {
-  /**
-   * The name of the blessing.
-   * @minLength 1
-   */
-  name: string
-
-  /**
-   * The effect description.
-   * @markdown
-   * @minLength 1
-   */
-  effect: string
-
-  /**
-   * @deprecated
-   */
-  range: string
-
-  /**
-   * @deprecated
-   */
-  duration: string
-
-  /**
-   * @deprecated
-   */
-  target: string
-
-  errata?: Errata
-}
-
-/**
- * Measurable parameters of a blessing.
- */
-export type BlessingPerformanceParameters = {
-  range: BlessingRange
-  duration: BlessingDuration
-}
-
-export type BlessingRange =
-  | { tag: "Self"; self: {} }
-  | { tag: "Touch"; touch: {} }
-  | { tag: "Fixed"; fixed: FixedRange }
-
-export type BlessingDuration =
-  | { tag: "Immediate"; immediate: {} }
-  | { tag: "Fixed"; fixed: FixedBlessingDuration }
-  | { tag: "Indefinite"; indefinite: IndefiniteBlessingDuration }
-
-export type FixedBlessingDuration = {
-  /**
-   * The (unitless) duration.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-
-  /**
-   * The duration unit.
-   */
-  unit: DurationUnit
-}
-
-export type IndefiniteBlessingDuration = {
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<IndefiniteBlessingDurationTranslation>
-}
-
-export type IndefiniteBlessingDurationTranslation = {
-  /**
-   * A description of the duration.
-   */
-  description: ResponsiveText
-}
-
-export const config: TypeConfig<Blessing, Blessing["id"], "Blessing"> = {
+export const Blessing = Entity(import.meta.url, {
   name: "Blessing",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Blessing"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Blessings",
+  type: () =>
+    Object({
+      parameters: Required({
+        comment: "Measurable parameters of a blessing.",
+        type: IncludeIdentifier(BlessingPerformanceParameters),
+      }),
+      target: Required({
+        comment: "The target category – the kind of creature or object – the skill affects.",
+        type: IncludeIdentifier(AffectedTargetCategories),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "BlessingTranslation",
+        Object({
+          name: Required({
+            comment: "The blessing’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          effect: Required({
+            comment: "The effect description.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          range: Required({
+            isDeprecated: true,
+            type: String({ minLength: 1 }),
+          }),
+          duration: Required({
+            isDeprecated: true,
+            type: String({ minLength: 1 }),
+          }),
+          target: Required({
+            isDeprecated: true,
+            type: String({ minLength: 1 }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+const BlessingPerformanceParameters = TypeAlias(import.meta.url, {
+  name: "BlessingPerformanceParameters",
+  comment: "Measurable parameters of a blessing.",
+  type: () =>
+    Object({
+      range: Required({ type: IncludeIdentifier(BlessingRange) }),
+      duration: Required({ type: IncludeIdentifier(BlessingDuration) }),
+    }),
+})
+
+const BlessingRange = Enum(import.meta.url, {
+  name: "BlessingRange",
+  values: () => ({
+    Self: EnumCase({ type: null }),
+    Touch: EnumCase({ type: null }),
+    Fixed: EnumCase({ type: null }),
+  }),
+})
+
+const BlessingDuration = Enum(import.meta.url, {
+  name: "BlessingDuration",
+  values: () => ({
+    Immediate: EnumCase({ type: null }),
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedBlessingDuration) }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteBlessingDuration) }),
+  }),
+})
+
+const FixedBlessingDuration = TypeAlias(import.meta.url, {
+  name: "FixedBlessingDuration",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The (unitless) duration.",
+        type: Integer({ minimum: 1 }),
+      }),
+      unit: Required({
+        comment: "The duration unit.",
+        type: IncludeIdentifier(DurationUnit),
+      }),
+    }),
+})
+
+const IndefiniteBlessingDuration = TypeAlias(import.meta.url, {
+  name: "IndefiniteBlessingDuration",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Required,
+        "IndefiniteBlessingDurationTranslation",
+        Object({
+          description: Required({
+            comment: "A description of the duration.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+})

@@ -1,85 +1,65 @@
-/**
- * @main Book
- */
-
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
+import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { src } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
 
-export type Book = {
-  /**
-   * The cost in silverthalers.
-   */
-  cost: Cost
-
-  /**
-   * The weight in kg.
-   */
-  weight: Weight
-
-  /**
-   * The complexity of crafting the item.
-   */
-  complexity: Complexity
-
-  /**
-   * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-   */
-  structure_points: StructurePoints
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<BookTranslation>
-}
-
-export type BookTranslation = {
-  /**
-   * The name of the item.
-   */
-  name: NonEmptyString
-
-  /**
-   * An auxiliary name or label of the item, if available.
-   */
-  secondary_name?: NonEmptyString
-
-  /**
-   * The language the book is written in.
-   */
-  language: NonEmptyString
-
-  /**
-   * The script that was used for the book.
-   */
-  script: NonEmptyString
-
-  /**
-   * Note text.
-   */
-  note?: NonEmptyMarkdown
-
-  /**
-   * Special rules text.
-   */
-  rules?: NonEmptyMarkdown
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<Book, number, "Book"> = {
+export const Book = Entity(import.meta.url, {
   name: "Book",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Book"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Books",
+  type: () =>
+    Object({
+      cost: Required({
+        comment: "The cost in silverthalers.",
+        type: IncludeIdentifier(Cost),
+      }),
+      weight: Required({
+        comment: "The weight in kg.",
+        type: IncludeIdentifier(Weight),
+      }),
+      complexity: Optional({
+        comment: "The complexity of crafting the item.",
+        type: IncludeIdentifier(Complexity),
+      }),
+      structure_points: Required({
+        comment:
+          "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
+        type: IncludeIdentifier(StructurePoints),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "BookTranslation",
+        Object({
+          name: Required({
+            comment: "The item’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          secondary_name: Optional({
+            comment: "An auxiliary name or label of the item, if available.",
+            type: String({ minLength: 1 }),
+          }),
+          language: Required({
+            comment: "The language the book is written in.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          script: Required({
+            comment: "The script that was used for the book.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          note: Optional({
+            comment: "Note text.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          rules: Optional({
+            comment: "Special rules text.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

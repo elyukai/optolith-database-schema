@@ -1,161 +1,192 @@
-import { LocaleMap } from "../../_LocaleMap.js"
-import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
+import {
+  Array,
+  Entity,
+  Enum,
+  EnumCase,
+  Float,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
+import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { src } from "../../source/_PublicationRef.js"
 import { SecondaryArmor } from "./Armor.js"
-import { SecondaryWeapon } from "./Weapon.js"
+import { ImprovisedWeapon } from "./Weapon.js"
 
-export type DefaultItem = {
-  /**
-   * The cost in silverthalers.
-   */
-  cost: Cost
+export const DefaultItem = (singularName: string, pluralName?: string) =>
+  Entity(import.meta.url, {
+    name: singularName,
+    namePlural: pluralName ?? `${singularName}s`,
+    type: () =>
+      Object({
+        cost: Required({
+          comment: "The cost in silverthalers.",
+          type: IncludeIdentifier(Cost),
+        }),
+        weight: Required({
+          comment: "The weight in kg.",
+          type: IncludeIdentifier(Weight),
+        }),
+        complexity: Optional({
+          comment: "The complexity of crafting the item.",
+          type: IncludeIdentifier(Complexity),
+        }),
+        structure_points: Required({
+          comment:
+            "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
+          type: IncludeIdentifier(StructurePoints),
+        }),
+        combat_use: Optional({
+          comment:
+            "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
+          type: IncludeIdentifier(CombatUse),
+        }),
+        src,
+        translations: DefaultItemTranslations(singularName),
+      }),
+    displayName: {},
+  })
 
-  /**
-   * The weight in kg.
-   */
-  weight: Weight
+export const DefaultItemTranslations = (singularName: string) =>
+  NestedLocaleMap(
+    Required,
+    `${singularName}Translation`,
+    Object({
+      name: Required({
+        comment: "The item’s name.",
+        type: String({ minLength: 1 }),
+      }),
+      secondary_name: Optional({
+        comment: "An auxiliary name or label of the item, if available.",
+        type: String({ minLength: 1 }),
+      }),
+      note: Optional({
+        comment: "Note text.",
+        type: String({ minLength: 1, isMarkdown: true }),
+      }),
+      rules: Optional({
+        comment: "Special rules text.",
+        type: String({ minLength: 1, isMarkdown: true }),
+      }),
+      errata: Optional({
+        type: IncludeIdentifier(Errata),
+      }),
+    })
+  )
 
-  /**
-   * The complexity of crafting the item.
-   */
-  complexity?: Complexity
+export const CombatUse = Enum(import.meta.url, {
+  name: "CombatUse",
+  comment:
+    "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
+  values: () => ({
+    Weapon: EnumCase({ type: IncludeIdentifier(ImprovisedWeapon) }),
+    Armor: EnumCase({ type: IncludeIdentifier(SecondaryArmor) }),
+  }),
+})
 
-  /**
-   * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-   */
-  structure_points: StructurePoints
+export const StructurePoints = TypeAlias(import.meta.url, {
+  name: "StructurePoints",
+  comment:
+    "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
+  type: () => Array(IncludeIdentifier(StructurePointsComponent), { minItems: 1 }),
+})
 
-  /**
-   * The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
-   */
-  combat_use?: CombatUse
+const StructurePointsComponent = TypeAlias(import.meta.url, {
+  name: "StructurePointsComponent",
+  type: () =>
+    Object({
+      points: Required({
+        comment: "The structure points.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
 
-  src: PublicationRefs
+export const Cost = Enum(import.meta.url, {
+  name: "Cost",
+  comment: "The cost in silverthalers.",
+  values: () => ({
+    Free: EnumCase({ type: null }),
+    Various: EnumCase({ type: null }),
+    Invaluable: EnumCase({ type: null }),
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedCost) }),
+    Range: EnumCase({ type: IncludeIdentifier(CostRange) }),
+  }),
+})
 
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<DefaultItemTranslation>
-}
+const wrap_in_text = Required({
+  comment: "The cost get wrapped by this text using a placeholder in the text.",
+  type: String({ minLength: 1, pattern: /\{0\}/ }),
+})
 
-/**
- * The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
- */
-export type CombatUse =
-  | { tag: "Weapon"; weapon: SecondaryWeapon }
-  | { tag: "Armor"; armor: SecondaryArmor }
+export const FixedCost = TypeAlias(import.meta.url, {
+  name: "FixedCost",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The cost in silverthalers.",
+        type: Float({ minimum: { value: 0, isExclusive: true } }),
+      }),
+      translations: NestedLocaleMap(
+        Optional,
+        "FixedCostTranslation",
+        Object({
+          wrap_in_text,
+        })
+      ),
+    }),
+})
 
-export type DefaultItemTranslation = {
-  /**
-   * The name of the item.
-   */
-  name: NonEmptyString
+const CostRange = TypeAlias(import.meta.url, {
+  name: "CostRange",
+  type: () =>
+    Object({
+      from: Required({
+        comment: "The lower bound of the cost in silverthalers.",
+        type: Float({ minimum: { value: 0, isExclusive: true } }),
+      }),
+      to: Required({
+        comment: "The upper bound of the cost in silverthalers.",
+        type: Float({ minimum: { value: 0, isExclusive: true } }),
+      }),
+      translations: NestedLocaleMap(
+        Optional,
+        "CostRangeTranslation",
+        Object({
+          wrap_in_text,
+        })
+      ),
+    }),
+})
 
-  /**
-   * An auxiliary name or label of the item, if available.
-   */
-  secondary_name?: NonEmptyString
+export const Weight = TypeAlias(import.meta.url, {
+  name: "Weight",
+  comment: "The weight in kg.",
+  type: () => Float({ minimum: { value: 0, isExclusive: true } }),
+})
 
-  /**
-   * Note text.
-   */
-  note?: NonEmptyMarkdown
+export const Complexity = Enum(import.meta.url, {
+  name: "Complexity",
+  comment: "The complexity of crafting the item.",
+  values: () => ({
+    Primitive: EnumCase({ type: null }),
+    Simple: EnumCase({ type: null }),
+    Complex: EnumCase({ type: IncludeIdentifier(ComplexComplexity) }),
+  }),
+})
 
-  /**
-   * Special rules text.
-   */
-  rules?: NonEmptyMarkdown
-
-  errata?: Errata
-}
-
-/**
- * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
- * @title Structure Points
- * @minItems 1
- */
-export type StructurePoints = StructurePointsComponent[]
-
-export type StructurePointsComponent = {
-  /**
-   * The structure points.
-   * @integer
-   * @minimum 1
-   */
-  points: number
-}
-
-/**
- * The cost in silverthalers.
- */
-export type Cost =
-  | { tag: "Free"; free: {} }
-  | { tag: "Various"; various: {} }
-  | { tag: "Invaluable"; invaluable: {} }
-  | { tag: "Fixed"; fixed: FixedCost }
-  | { tag: "Range"; range: CostRange }
-
-export type FixedCost = {
-  /**
-   * The cost in silverthalers.
-   * @exclusiveMinimum 0
-   */
-  value: number
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations?: LocaleMap<CostTranslation>
-}
-
-export type CostRange = {
-  /**
-   * The lower bound of the cost in silverthalers.
-   * @exclusiveMinimum 0
-   */
-  from: number
-
-  /**
-   * The upper bound of the cost in silverthalers.
-   * @exclusiveMinimum 0
-   */
-  to: number
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations?: LocaleMap<CostTranslation>
-}
-
-export type CostTranslation = {
-  /**
-   * The cost get wrapped by this text using a placeholder in the text.
-   * @minLength 1
-   * @pattern \{0\}
-   */
-  wrap_in_text: string
-}
-
-/**
- * The weight in kg.
- * @exclusiveMinimum 0
- */
-export type Weight = number
-
-/**
- * The complexity of crafting the item.
- */
-export type Complexity =
-  | { tag: "Primitive"; primitive: {} }
-  | { tag: "Simple"; simple: {} }
-  | { tag: "Complex"; complex: ComplexComplexity }
-
-export type ComplexComplexity = {
-  /**
-   * The AP value for the trade secret.
-   * @integer
-   * @minimum 1
-   */
-  ap_value: number
-}
+const ComplexComplexity = TypeAlias(import.meta.url, {
+  name: "ComplexComplexity",
+  type: () =>
+    Object({
+      ap_value: Required({
+        comment: "The AP value for the trade secret.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
