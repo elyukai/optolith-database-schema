@@ -27,10 +27,9 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "generate": "tsondb generate",
-    "release": "standard-version",
     "test": "node ./lib/test.js",
-    "prepare": "npm run build"
+    "release": "commit-and-tag-version",
+    "release:sign": "commit-and-tag-version --sign --signoff"
   },
   "author": "Lukas Obermann",
   "license": "MPL-2.0",
@@ -40,8 +39,8 @@
     "yaml": "^2.8.1"
   },
   "devDependencies": {
-    "@types/node": "^24.6.1",
-    "standard-version": "^9.5.0",
+    "@types/node": "^24.6.2",
+    "commit-and-tag-version": "^12.6.0",
     "typescript": "^5.9.3"
   },
   "repository": "github:elyukai/optolith-database-schema",
