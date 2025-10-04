@@ -76,6 +76,7 @@ import { Weapon } from "./types/equipment/item/Weapon.js"
 import { WeaponAccessory } from "./types/equipment/item/WeaponAccessory.js"
 import { ArmorType } from "./types/equipment/item/sub/ArmorType.js"
 import { Reach } from "./types/equipment/item/sub/Reach.js"
+import { ClothingPackage, Laboratory } from "./types/index.js"
 import { AnimistPower } from "./types/magicalActions/AnimistPower.js"
 import { Tribe } from "./types/magicalActions/AnimistPower_Tribe.js"
 import { Curse } from "./types/magicalActions/Curse.js"
@@ -189,6 +190,7 @@ export const schema = Schema(
     ChronicleEnchantment,
     CloseCombatTechnique,
     Clothes,
+    ClothingPackage,
     CombatSpecialAbility,
     CombatStyleSpecialAbility,
     CommandSpecialAbility,
@@ -231,6 +233,7 @@ export const schema = Schema(
     Language,
     Curriculum,
     Guideline,
+    Laboratory,
     Liebesspielzeug,
     LiturgicalChant,
     LiturgicalStyleSpecialAbility,
