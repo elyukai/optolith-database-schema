@@ -49,7 +49,7 @@ export const Poison = Entity(import.meta.url, {
         type: GenIncludeIdentifier(Reduceable, [IncludeIdentifier(PoisonDuration)]),
       }),
       value: Optional({
-        comment: "The raw (ingredients) value, in silverthalers.",
+        comment: "The raw (ingredients) value per level, in silverthalers.",
         type: Integer({ minimum: 1 }),
       }),
       cost: Required({
@@ -102,6 +102,7 @@ const PoisonStart = Enum(import.meta.url, {
     Immediate: EnumCase({ type: null }),
     Constant: EnumCase({ type: IncludeIdentifier(ConstantPoisonTime) }),
     DiceBased: EnumCase({ type: IncludeIdentifier(DiceBasedPoisonTime) }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefinitePoisonTime) }),
   }),
 })
 
@@ -118,6 +119,7 @@ const PoisonDuration = Enum(import.meta.url, {
 const PoisonCost = Enum(import.meta.url, {
   name: "PoisonCost",
   values: () => ({
+    CannotBeExtracted: EnumCase({ type: null }),
     None: EnumCase({ type: IncludeIdentifier(NoPoisonCost) }),
     Constant: EnumCase({ type: Float({ minimum: { value: 0, isExclusive: true } }) }),
     Indefinite: EnumCase({ type: IncludeIdentifier(IndefinitePoisonCost) }),
@@ -446,8 +448,9 @@ export const IntoxicantAddiction = TypeAlias(import.meta.url, {
     "The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
   type: () =>
     Object({
-      chance: Required({
-        comment: "The chance of getting addicted after an ingestion in percent.",
+      chance: Optional({
+        comment:
+          "The chance of getting addicted after an ingestion in percent. Some intoxicants do not have a contant chance of addiction.",
         type: Integer({ minimum: 0, maximum: 100, multipleOf: 5 }),
       }),
       interval: Required({

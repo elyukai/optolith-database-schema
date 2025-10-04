@@ -13,7 +13,7 @@ export const Book = Entity(import.meta.url, {
         comment: "The cost in silverthalers.",
         type: IncludeIdentifier(Cost),
       }),
-      weight: Required({
+      weight: Optional({
         comment: "The weight in kg.",
         type: IncludeIdentifier(Weight),
       }),
@@ -21,7 +21,7 @@ export const Book = Entity(import.meta.url, {
         comment: "The complexity of crafting the item.",
         type: IncludeIdentifier(Complexity),
       }),
-      structure_points: Required({
+      structure_points: Optional({
         comment:
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
         type: IncludeIdentifier(StructurePoints),

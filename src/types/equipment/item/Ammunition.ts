@@ -26,6 +26,14 @@ export const Ammunition = Entity(import.meta.url, {
             comment: "An auxiliary name or label of the item, if available.",
             type: String({ minLength: 1 }),
           }),
+          note: Optional({
+            comment: "Note text.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          rules: Optional({
+            comment: "Special rules text.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),

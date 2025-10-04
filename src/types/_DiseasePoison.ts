@@ -50,8 +50,9 @@ export const Cause = TypeAlias(import.meta.url, {
     "What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.",
   type: () =>
     Object({
-      chance: Required({
-        comment: "The chance to get infected by this cause, in percent.",
+      chance: Optional({
+        comment:
+          "The chance to get infected by this cause, in percent. Some causes do not have a specific chance.",
         type: Integer({ minimum: 5, multipleOf: 5, maximum: 100 }),
       }),
       translations: NestedLocaleMap(

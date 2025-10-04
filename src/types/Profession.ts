@@ -295,6 +295,23 @@ export const ProfessionPackage = Entity(import.meta.url, {
     }),
   parentReferenceKey: "profession_version",
   displayName: null,
+  displayNameCustomizer: ({ instance, getDisplayNameForInstanceId }) => {
+    const baseName = getDisplayNameForInstanceId(instance.profession_version)
+
+    if (!baseName) {
+      return { name: "(Profession Package with no Profession Version)" }
+    }
+
+    if (instance.experience_level) {
+      const experienceLevelName = getDisplayNameForInstanceId(instance.profession_version)
+      return {
+        ...baseName,
+        name: `${baseName.name} [${experienceLevelName?.name ?? instance.experience_level}]`,
+      }
+    }
+
+    return baseName
+  },
 })
 
 export const ProfessionVariant = Entity(import.meta.url, {
@@ -350,7 +367,7 @@ export const ProfessionVariant = Entity(import.meta.url, {
         ObjectType({
           name: Required({
             comment: "The profession variant’s name.",
-            type: String({ minLength: 1 }),
+            type: IncludeIdentifier(ProfessionName),
           }),
           full_text: Optional({
             comment: "A text that replaces the generated text for the profession variant.",
@@ -364,7 +381,10 @@ export const ProfessionVariant = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "profession_package",
-  displayName: {},
+  displayName: {
+    pathToLocaleMap: "translations",
+    pathInLocaleMap: "name.default",
+  },
 })
 
 const VariantSpecialAbilityAction = Enum(import.meta.url, {

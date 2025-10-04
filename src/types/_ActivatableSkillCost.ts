@@ -8,7 +8,6 @@ import {
   Object,
   Optional,
   Required,
-  String,
   TypeAlias,
 } from "tsondb/schema/def"
 import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
@@ -172,16 +171,16 @@ This will generate the exact same string as seen above – given it is set for a
           {
             list_prepend: Optional({
               comment: "Place a string between the `for` and the grouped map option labels.",
-              type: String({ minLength: 1 }),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
             list_append: Optional({
               comment: "Place a string after the grouped map option labels.",
-              type: String({ minLength: 1 }),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
             replacement: Optional({
               comment:
                 "If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.",
-              type: String({ minLength: 1 }),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
           { minProperties: 1 }
@@ -208,12 +207,12 @@ const CostMapOption = TypeAlias(import.meta.url, {
         Object({
           label: Required({
             comment: "The description of the option for cost string generation.",
-            type: String({ minLength: 1 }),
+            type: IncludeIdentifier(ResponsiveTextOptional),
           }),
           label_standalone: Optional({
             comment:
               "The description of the option if used standalone. Only used if different from `label`.",
-            type: String({ minLength: 1 }),
+            type: IncludeIdentifier(ResponsiveTextOptional),
           }),
         })
       ),

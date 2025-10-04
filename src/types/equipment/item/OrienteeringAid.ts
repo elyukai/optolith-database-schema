@@ -1,3 +1,3 @@
 import { DefaultItem } from "./_Item.js"
 
-export const OrienteeringAid = DefaultItem("OrienteeringAid")
+export const OrienteeringAid = DefaultItem(import.meta.url, "OrienteeringAid")

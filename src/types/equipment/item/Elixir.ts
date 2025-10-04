@@ -12,13 +12,17 @@ import { NestedLocaleMap } from "../../Locale.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
-import { LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
+import { EffectType, LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
 
 export const Elixir = Entity(import.meta.url, {
   name: "Elixir",
   namePlural: "Elixirs",
   type: () =>
     Object({
+      effect_types: Optional({
+        comment: "Effect type(s) of an alchemical poison.",
+        type: Array(IncludeIdentifier(EffectType), { minItems: 1, uniqueItems: true }),
+      }),
       cost_per_ingredient_level: Required({
         comment: "The cost per ingredient level in silverthalers.",
         type: Integer({ minimum: 1 }),
@@ -42,6 +46,14 @@ export const Elixir = Entity(import.meta.url, {
         Object({
           name: Required({
             comment: "The item’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          description: Optional({
+            comment: "The recipe’s description.",
+            type: String({ minLength: 1 }),
+          }),
+          special: Optional({
+            comment: "The recipe’s description.",
             type: String({ minLength: 1 }),
           }),
           alternative_names: Optional({

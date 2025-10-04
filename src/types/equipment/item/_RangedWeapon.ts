@@ -69,7 +69,7 @@ export const RangedWeapon = TypeAlias(import.meta.url, {
         comment: "The needed ammunition.",
         type: AmmunitionIdentifier(),
       }),
-      length: Required({
+      length: Optional({
         comment: "The length of the weapon in cm/halffingers.",
         type: IncludeIdentifier(Length),
       }),

@@ -18,8 +18,8 @@ import { src } from "../../source/_PublicationRef.js"
 import { SecondaryArmor } from "./Armor.js"
 import { ImprovisedWeapon } from "./Weapon.js"
 
-export const DefaultItem = (singularName: string, pluralName?: string) =>
-  Entity(import.meta.url, {
+export const DefaultItem = (sourceUrl: string, singularName: string, pluralName?: string) =>
+  Entity(sourceUrl, {
     name: singularName,
     namePlural: pluralName ?? `${singularName}s`,
     type: () =>

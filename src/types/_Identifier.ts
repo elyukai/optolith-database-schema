@@ -26,6 +26,7 @@ import { BandageOrRemedy } from "./equipment/item/BandageOrRemedy.js"
 import { Book } from "./equipment/item/Book.js"
 import { CeremonialItem } from "./equipment/item/CeremonialItem.js"
 import { Clothes } from "./equipment/item/Clothes.js"
+import { ClothingPackage } from "./equipment/item/ClothingPackage.js"
 import { Container } from "./equipment/item/Container.js"
 import { Elixir } from "./equipment/item/Elixir.js"
 import { EquipmentOfBlessedOnes } from "./equipment/item/EquipmentOfBlessedOnes.js"
@@ -33,6 +34,7 @@ import { GemOrPreciousStone } from "./equipment/item/GemOrPreciousStone.js"
 import { IlluminationLightSource } from "./equipment/item/IlluminationLightSource.js"
 import { IlluminationRefillOrSupply } from "./equipment/item/IlluminationRefillOrSupply.js"
 import { Jewelry } from "./equipment/item/Jewelry.js"
+import { Laboratory } from "./equipment/item/Laboratory.js"
 import { Liebesspielzeug } from "./equipment/item/Liebesspielzeug.js"
 import { LuxuryGood } from "./equipment/item/LuxuryGood.js"
 import { MagicalArtifact } from "./equipment/item/MagicalArtifact.js"
@@ -185,6 +187,7 @@ export const CeremonyIdentifier: () => R = () => R(Ceremony)
 export const ChronicleEnchantmentIdentifier: () => R = () => R(ChronicleEnchantment)
 export const CloseCombatTechniqueIdentifier: () => R = () => R(CloseCombatTechnique)
 export const ClothesIdentifier: () => R = () => R(Clothes)
+export const ClothingPackageIdentifier: () => R = () => R(ClothingPackage)
 export const CombatSpecialAbilityIdentifier: () => R = () => R(CombatSpecialAbility)
 export const CombatStyleSpecialAbilityIdentifier: () => R = () => R(CombatStyleSpecialAbility)
 export const CommandSpecialAbilityIdentifier: () => R = () => R(CommandSpecialAbility)
@@ -226,6 +229,7 @@ export const JesterTrickIdentifier: () => R = () => R(JesterTrick)
 export const JewelryIdentifier: () => R = () => R(Jewelry)
 export const KarmaSpecialAbilityIdentifier: () => R = () => R(KarmaSpecialAbility)
 export const KrallenkettenzauberIdentifier: () => R = () => R(Krallenkettenzauber)
+export const LaboratoryIdentifier: () => R = () => R(Laboratory)
 export const LanguageIdentifier: () => R = () => R(Language)
 export const LanguageSpecializationIdentifier: () => R = () => R(LanguageSpecialization)
 export const LessonPackageIdentifier: () => R = () => R(LessonPackage)

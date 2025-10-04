@@ -1164,16 +1164,16 @@ This will generate the exact same string as seen above. The associated options a
           {
             list_prepend: Optional({
               comment: "Place a string between the `for` and the grouped map option labels.",
-              type: IncludeIdentifier(ResponsiveText),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
             list_append: Optional({
               comment: "Place a string after the grouped map option labels.",
-              type: IncludeIdentifier(ResponsiveText),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
             replacement: Optional({
               comment:
                 "If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.",
-              type: IncludeIdentifier(ResponsiveText),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
           { minProperties: 1 }
@@ -1201,12 +1201,12 @@ const VolumeMapOption = TypeAlias(import.meta.url, {
           {
             label: Required({
               comment: "The description of the option for cost string generation.",
-              type: IncludeIdentifier(ResponsiveText),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
             label_standalone: Optional({
               comment:
                 "The description of the option if used standalone. Only used if different from `label`.",
-              type: IncludeIdentifier(ResponsiveText),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
           { minProperties: 1 }
@@ -1316,16 +1316,16 @@ This will generate the exact same string as seen above.`,
           {
             list_prepend: Optional({
               comment: "Place a string between the `for` and the grouped map option labels.",
-              type: IncludeIdentifier(ResponsiveText),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
             list_append: Optional({
               comment: "Place a string after the grouped map option labels.",
-              type: IncludeIdentifier(ResponsiveText),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
             replacement: Optional({
               comment:
                 "If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.",
-              type: IncludeIdentifier(ResponsiveText),
+              type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
           { minProperties: 1 }
@@ -1348,12 +1348,12 @@ const BindingCostMapOption = TypeAlias(import.meta.url, {
         Object({
           label: Required({
             comment: "The description of the option for cost string generation.",
-            type: String({ minLength: 1 }),
+            type: IncludeIdentifier(ResponsiveTextOptional),
           }),
           label_standalone: Optional({
             comment:
               "The description of the option if used standalone. Only used if different from `label`.",
-            type: String({ minLength: 1 }),
+            type: IncludeIdentifier(ResponsiveTextOptional),
           }),
         })
       ),

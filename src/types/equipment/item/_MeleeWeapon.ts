@@ -76,11 +76,11 @@ export const MeleeWeapon = TypeAlias(import.meta.url, {
           "The damage of a weapon consists of a random part using dice and an optional flat part.",
         type: IncludeIdentifier(MeleeDamage),
       }),
-      damage_threshold: Required({
+      damage_threshold: Optional({
         comment: "The primary attribute damage and threshold value.",
         type: IncludeIdentifier(PrimaryAttributeDamageThreshold),
       }),
-      attackModifier: Required({
+      attackModifier: Optional({
         comment: "The AT modifier.",
         type: IncludeIdentifier(AttackModifier),
       }),
