@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.18.4](https://github.com/elyukai/optolith-database-schema/compare/v0.18.3...v0.18.4) (2025-10-05)
+
 ## [0.18.3](https://github.com/elyukai/optolith-database-schema/compare/v0.18.2...v0.18.3) (2025-10-04)
 
 
