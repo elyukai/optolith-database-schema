@@ -22,7 +22,7 @@ import {
   TypeAlias,
   TypeArgument,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { SelectOptionCategory } from "./_ActivatableSelectOptionCategory.js"
 import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import {
@@ -155,9 +155,9 @@ export const GeneralSelectOption = Entity(import.meta.url, {
         type: Integer({ minimum: 1 }),
       }),
       src: optionalSrc,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "GeneralSelectOptionTranslation",
+        "GeneralSelectOption",
         Object({
           name: Required({
             comment: "The name of the select option.",
@@ -225,9 +225,9 @@ const ExplicitSkillSelectOption = TypeAlias(import.meta.url, {
         type: Integer({ minimum: 1 }),
       }),
       src: optionalSrc,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "ExplicitSkillSelectOptionTranslation",
+        "ExplicitSkillSelectOption",
         Object(
           {
             errata: Optional({
@@ -262,9 +262,9 @@ const ExplicitCombatTechniqueSelectOption = TypeAlias(import.meta.url, {
         type: Integer({ minimum: 1 }),
       }),
       src: optionalSrc,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "ExplicitCombatTechniqueSelectOptionTranslation",
+        "ExplicitCombatTechniqueSelectOption",
         Object(
           {
             errata: Optional({
@@ -469,9 +469,9 @@ export const NewSkillApplication = Entity(import.meta.url, {
           "If an application applies to multiple skills, it may need to ensure the respective skill is on a certain skill rating if the activatable entry cannot ensure this prerequisite.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "NewSkillApplicationTranslation",
+        "NewSkillApplication",
         Object({
           name: Required({
             comment: "The name of the application if different from the activatable entry’s name.",
@@ -516,9 +516,9 @@ export const SkillUse = Entity(import.meta.url, {
           "If a use applies to multiple skills, it may need to ensure the respective skill is on a certain skill rating if the activatable entry cannot ensure this prerequisite.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "SkillUseTranslation",
+        "SkillUse",
         Object({
           name: Required({
             comment: "The name of the use if different from the activatable entry’s name.",
@@ -833,9 +833,9 @@ const FixedArcaneEnergyCost = TypeAlias(import.meta.url, {
           "The AE cost are per level of the enchantment. It may either be displayed in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`).",
         type: IncludeIdentifier(FixedArcaneEnergyCostPerLevel),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "FixedArcaneEnergyCostTranslation",
+        "FixedArcaneEnergyCost",
         Object(
           {
             note: Optional({
@@ -872,9 +872,9 @@ const ArcaneEnergyCostPerCountable = TypeAlias(import.meta.url, {
           "If defined, in addition to the cost per entity you have to pay a flat amount, regardless of the entity count.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ArcaneEnergyCostPerCountableTranslation",
+        "ArcaneEnergyCostPerCountable",
         Object({
           per: Required({
             comment: "The cost have to be per a specific countable entity, e.g. `8 AE per person`.",
@@ -929,9 +929,9 @@ const IndefiniteArcaneEnergyCost = TypeAlias(import.meta.url, {
           "Specified if the indefinite AP cost description needs to be modified by a certain value.",
         type: IncludeIdentifier(IndefiniteArcaneEnergyCostModifier),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IndefiniteArcaneEnergyCostTranslation",
+        "IndefiniteArcaneEnergyCost",
         Object({
           description: Required({
             comment: "A description of where the cost come from.",
@@ -1008,9 +1008,9 @@ const ArcaneEnergyCostDisjunctionOption = TypeAlias(import.meta.url, {
         comment: "A possible AE cost value.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "ArcaneEnergyCostDisjunctionOptionTranslation",
+        "ArcaneEnergyCostDisjunctionOption",
         Object(
           {
             note: Optional({
@@ -1028,9 +1028,9 @@ const NoArcaneEnergyCost = TypeAlias(import.meta.url, {
   name: "NoArcaneEnergyCost",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "NoArcaneEnergyCostTranslation",
+        "NoArcaneEnergyCost",
         Object(
           {
             note: Optional({
@@ -1157,9 +1157,9 @@ This will generate the exact same string as seen above. The associated options a
         comment: "The possible costs and associated labels.",
         type: Array(IncludeIdentifier(VolumeMapOption), { minItems: 2 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "VolumeMapTranslation",
+        "VolumeMap",
         Object(
           {
             list_prepend: Optional({
@@ -1194,9 +1194,9 @@ const VolumeMapOption = TypeAlias(import.meta.url, {
         comment: "Links to the options this volume specification is meant for.",
         type: Array(IncludeIdentifier(VolumeMapOptionAssociatedOption), { minItems: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "VolumeMapOptionTranslation",
+        "VolumeMapOption",
         Object(
           {
             label: Required({
@@ -1309,9 +1309,9 @@ This will generate the exact same string as seen above.`,
         comment: "The possible costs and associated labels.",
         type: Array(IncludeIdentifier(BindingCostMapOption), { minItems: 2 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "BindingCostMapTranslation",
+        "BindingCostMap",
         Object(
           {
             list_prepend: Optional({
@@ -1342,9 +1342,9 @@ const BindingCostMapOption = TypeAlias(import.meta.url, {
         comment: "The full permanent AE cost value for this option.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "BindingCostMapOptionTranslation",
+        "BindingCostMapOption",
         Object({
           label: Required({
             comment: "The description of the option for cost string generation.",
@@ -1732,9 +1732,9 @@ const AdventurePointsDerivedFromSelection = TypeAlias(import.meta.url, {
     "The adventure points value is derived from the selection of the special ability. Its display value may be able to be derived from the given information for the select options. If that is not the case or the generated text would not match the original one, a replacement text can be provided.",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "AdventurePointsDerivedFromSelectionTranslation",
+        "AdventurePointsDerivedFromSelection",
         Object(
           {
             replacement: Optional({

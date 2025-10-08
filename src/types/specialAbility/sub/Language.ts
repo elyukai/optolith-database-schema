@@ -13,7 +13,7 @@ import {
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { LanguageIdentifier } from "../../_Identifier.js"
 import { LanguagePrerequisites } from "../../_Prerequisite.js"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { AssociatedContinent } from "./_LanguageScript.js"
@@ -43,9 +43,9 @@ export const Language = Entity(import.meta.url, {
         type: Integer({ minimum: 1, maximum: 2 }),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "LanguageTranslation",
+        "Language",
         Object({
           name: Required({
             comment: "The language’s name.",
@@ -77,9 +77,9 @@ export const LanguageSpecialization = Entity(import.meta.url, {
         comment: "The language this specialization belongs to.",
         type: LanguageIdentifier(),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "LanguageSpecializationTranslation",
+        "LanguageSpecialization",
         Object({
           name: Required({
             comment: "The specialization’s name.",
@@ -101,9 +101,9 @@ const IndefiniteSpecializations = TypeAlias(import.meta.url, {
   name: "IndefiniteSpecializations",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IndefiniteSpecializationsTranslation",
+        "IndefiniteSpecializations",
         Object({
           description: Required({
             comment: "The specializations description.",

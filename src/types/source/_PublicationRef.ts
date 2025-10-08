@@ -8,13 +8,14 @@ import {
   EnumCase,
   IncludeIdentifier,
   Integer,
+  NestedEntityMap,
   Object,
   Optional,
   Required,
   TypeAlias,
 } from "tsondb/schema/def"
 import { PublicationIdentifier } from "../_Identifier.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { Locale } from "../Locale.js"
 
 export const PublicationRefs = TypeAlias(import.meta.url, {
   name: "PublicationRefs",
@@ -40,21 +41,25 @@ export const PublicationRef = TypeAlias(import.meta.url, {
         comment: "The publication’s identifier.",
         type: PublicationIdentifier(),
       }),
-      occurrences: NestedLocaleMap(
-        Required,
-        "Occurrence",
-        Object({
-          initial: Required({
-            comment: "The initial occurrence of the entry.",
-            type: IncludeIdentifier(InitialOccurrence),
+      occurrences: Required({
+        comment: "All translations for the entry, identified by IETF language tag (BCP47).",
+        type: NestedEntityMap({
+          name: "Occurrence",
+          namePlural: "Occurrences",
+          secondaryEntity: Locale,
+          type: Object({
+            initial: Required({
+              comment: "The initial occurrence of the entry.",
+              type: IncludeIdentifier(InitialOccurrence),
+            }),
+            revisions: Optional({
+              comment:
+                "Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.",
+              type: Array(IncludeIdentifier(Revision), { minItems: 1 }),
+            }),
           }),
-          revisions: Optional({
-            comment:
-              "Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.",
-            type: Array(IncludeIdentifier(Revision), { minItems: 1 }),
-          }),
-        })
-      ),
+        }),
+      }),
     }),
 })
 

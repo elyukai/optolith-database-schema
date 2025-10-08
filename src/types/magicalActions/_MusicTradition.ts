@@ -8,7 +8,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 
 export const MusicTraditionReference = (traditionIdentifier: ReferenceIdentifier) =>
   TypeAlias(import.meta.url, {
@@ -21,7 +21,7 @@ export const MusicTraditionReference = (traditionIdentifier: ReferenceIdentifier
           comment: "The music tradition’s identifier.",
           type: traditionIdentifier,
         }),
-        translations: NestedLocaleMap(
+        translations: NestedTranslationMap(
           Required,
           traditionIdentifier.entity.name + "ReferenceTranslation",
           Object({

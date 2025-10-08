@@ -14,7 +14,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const SkillModificationLevel = Entity(import.meta.url, {
   name: "SkillModificationLevel",
@@ -29,9 +29,9 @@ export const SkillModificationLevel = Entity(import.meta.url, {
         comment: "Configuration for this level for slow skills (rituals, ceremonies).",
         type: IncludeIdentifier(SlowSkillModificationLevelConfig),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "SkillModificationLevelTranslation",
+        "SkillModificationLevel",
         Object(
           {
             fast: Optional({

@@ -1,5 +1,5 @@
 import { Entity, Object, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 
 export const Subject = Entity(import.meta.url, {
   name: "Subject",
@@ -7,9 +7,9 @@ export const Subject = Entity(import.meta.url, {
   comment: "Subjects or Subject Areas are the categories of Focus Rules.",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "SubjectTranslation",
+        "Subject",
         Object({
           name: Required({
             comment: "The subject.",

@@ -18,7 +18,7 @@ import {
   select_options,
 } from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -39,9 +39,9 @@ export const ProtectiveWardingCircleSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ProtectiveWardingCircleSpecialAbilityTranslation",
+        "ProtectiveWardingCircleSpecialAbility",
         Object({
           name,
           name_in_library,

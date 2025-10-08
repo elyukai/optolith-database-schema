@@ -15,7 +15,7 @@ import {
 } from "tsondb/schema/def"
 import { SkillWithEnhancementsIdentifier } from "./_IdentifierGroup.js"
 import { EnhancementPrerequisites } from "./_Prerequisite.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -56,9 +56,9 @@ export const Enhancement = Entity(import.meta.url, {
         comment: "Only defined if different than the associated skill.",
         type: IncludeIdentifier(PublicationRefs),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "EnhancementTranslation",
+        "Enhancement",
         Object({
           name: Required({
             comment: "The name of the enhancement.",

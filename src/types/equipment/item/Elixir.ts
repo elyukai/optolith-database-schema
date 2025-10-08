@@ -8,7 +8,7 @@ import {
   Required,
   String,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
@@ -40,9 +40,9 @@ export const Elixir = Entity(import.meta.url, {
         type: IncludeIdentifier(RecipeTradeSecret),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ElixirTranslationTranslation",
+        "ElixirTranslation",
         Object({
           name: Required({
             comment: "The item’s name.",

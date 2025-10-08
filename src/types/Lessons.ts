@@ -12,7 +12,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import {
   CurriculumIdentifier,
   ElementIdentifier,
@@ -34,9 +34,9 @@ export const Guideline = Entity(import.meta.url, {
         comment: "Maximum number of spells that can be exchanged.",
         type: Integer({ minimum: 0 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "GuidelineTranslation",
+        "Guideline",
         Object({
           name: Required({
             comment: "The guideline’s name.",
@@ -72,9 +72,9 @@ export const Curriculum = Entity(import.meta.url, {
         type: ChildEntities(LessonPackage),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "CurriculumTranslation",
+        "Curriculum",
         Object({
           name: Required({
             comment: "The institution’s name.",
@@ -187,9 +187,9 @@ export const LessonPackage = Entity(import.meta.url, {
         skills: Optional({
           type: Array(IncludeIdentifier(AbilityAdjustment), { minItems: 1, uniqueItems: true }),
         }),
-        translations: NestedLocaleMap(
+        translations: NestedTranslationMap(
           Required,
-          "LessonPackageTranslation",
+          "LessonPackage",
           Object({
             name: Required({
               comment: "The lesson package’s name.",

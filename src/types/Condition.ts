@@ -7,7 +7,7 @@ import {
   Required,
   String,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -17,9 +17,9 @@ export const Condition = Entity(import.meta.url, {
   type: () =>
     Object({
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ConditionTranslation",
+        "Condition",
         Object({
           name: Required({
             comment: "The condition’s name.",

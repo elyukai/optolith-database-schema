@@ -1,5 +1,5 @@
 import { Entity, Object, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const Continent = Entity(import.meta.url, {
   name: "Continent",
@@ -8,9 +8,9 @@ export const Continent = Entity(import.meta.url, {
     "Continents are mostly referenced to in languages and scripts that occur on a specific continent.",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ContinentTranslation",
+        "Continent",
         Object({
           name: Required({
             comment: "The continent name.",

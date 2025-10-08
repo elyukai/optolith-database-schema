@@ -18,7 +18,7 @@ import {
   usage_type,
 } from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -40,9 +40,9 @@ export const CombatSpecialAbility = Entity(import.meta.url, {
       combat_techniques,
       ap_value,
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "CombatSpecialAbilityTranslation",
+        "CombatSpecialAbility",
         Object({
           name,
           name_in_library,

@@ -22,7 +22,7 @@ import {
   PropertyIdentifier,
 } from "./_Identifier.js"
 import { ResponsiveText } from "./_ResponsiveText.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -49,9 +49,9 @@ export const Cantrip = Entity(import.meta.url, {
         type: IncludeIdentifier(CantripNote),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "CantripTranslation",
+        "Cantrip",
         Object({
           name: Required({
             comment: "The cantrip’s name.",
@@ -130,9 +130,9 @@ const CommonCantripTraditionNote = TypeAlias(import.meta.url, {
         comment: "The magical tradition’s identifier.",
         type: MagicalTraditionIdentifier(),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "CommonCantripTraditionNoteTranslation",
+        "CommonCantripTraditionNote",
         Object({
           note: Required({
             comment: "A note, appended to the generated string in parenthesis.",
@@ -195,9 +195,9 @@ const IndefiniteCantripDuration = TypeAlias(import.meta.url, {
   name: "IndefiniteCantripDuration",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IndefiniteCantripDurationTranslation",
+        "IndefiniteCantripDuration",
         Object({
           description: Required({
             comment: "A description of the duration.",

@@ -11,7 +11,7 @@ import {
 } from "tsondb/schema/def"
 import { CheckResultBasedModifier, CheckResultValue } from "./_ActivatableSkillCheckResultBased.js"
 import { ResponsiveText, ResponsiveTextReplace } from "./_ResponsiveText.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const DurationForOneTime = Enum(import.meta.url, {
   name: "DurationForOneTime",
@@ -32,9 +32,9 @@ const Immediate = TypeAlias(import.meta.url, {
         comment: "Specified if the duration has a maximum time span.",
         type: IncludeIdentifier(DurationUnitValue),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "ImmediateTranslation",
+        "Immediate",
         Object({
           replacement: Optional({
             comment: "A replacement string.",
@@ -49,9 +49,9 @@ const PermanentDuration = TypeAlias(import.meta.url, {
   name: "PermanentDuration",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "PermanentDurationTranslation",
+        "PermanentDuration",
         Object({
           replacement: Optional({
             comment: "A replacement string.",
@@ -78,9 +78,9 @@ export const FixedDuration = TypeAlias(import.meta.url, {
         comment: "The duration unit.",
         type: IncludeIdentifier(DurationUnit),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "FixedDurationTranslation",
+        "FixedDuration",
         Object(
           {
             replacement: Optional({
@@ -114,9 +114,9 @@ export const CheckResultBasedDuration = TypeAlias(import.meta.url, {
         comment: "The duration unit.",
         type: IncludeIdentifier(DurationUnit),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "CheckResultBasedDurationTranslation",
+        "CheckResultBasedDuration",
         Object({
           replacement: Optional({
             comment: "A replacement string.",
@@ -131,9 +131,9 @@ export const IndefiniteDuration = TypeAlias(import.meta.url, {
   name: "IndefiniteDuration",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IndefiniteDurationTranslation",
+        "IndefiniteDuration",
         Object({
           description: Required({
             comment: "A description of the duration.",

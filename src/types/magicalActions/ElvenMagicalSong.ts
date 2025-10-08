@@ -16,7 +16,7 @@ import { PropertyIdentifier, SkillIdentifier } from "../_Identifier.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { ResponsiveText, ResponsiveTextReplace } from "../_ResponsiveText.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -55,9 +55,9 @@ export const ElvenMagicalSong = Entity(import.meta.url, {
         type: IncludeIdentifier(ImprovementCost),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ElvenMagicalSongTranslation",
+        "ElvenMagicalSong",
         Object({
           name: Required({
             comment: "The Elven magical song’s name.",
@@ -109,9 +109,9 @@ const ElvenMagicalSongCost = TypeAlias(import.meta.url, {
         comment: "A permanent AE cost, independent from a possible interval.",
         type: IncludeIdentifier(ElvenMagicalSongPermanentCost),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "ElvenMagicalSongCostTranslation",
+        "ElvenMagicalSongCost",
         Object({
           per: Required({
             comment: "The cost have to be per a specific countable entity, e.g. `8 AE per person`.",
@@ -130,9 +130,9 @@ const ElvenMagicalSongPermanentCost = TypeAlias(import.meta.url, {
         comment: "The permanent AE cost value.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "ElvenMagicalSongPermanentCostTranslation",
+        "ElvenMagicalSongPermanentCost",
         Object({
           replacement: Required({
             comment: "A replacement string for the permanent cost.",

@@ -21,7 +21,7 @@ import {
 } from "./_Identifier.js"
 import { SpellworkIdentifier } from "./_IdentifierGroup.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { src } from "./source/_PublicationRef.js"
 
 export const Patron = Entity(import.meta.url, {
@@ -75,9 +75,9 @@ export const Patron = Entity(import.meta.url, {
         type: Array(IncludeIdentifier(SpellworkIdentifier), { minItems: 1, uniqueItems: true }),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "PatronTranslation",
+        "Patron",
         Object({
           name: Required({
             comment: "The patron’s name.",

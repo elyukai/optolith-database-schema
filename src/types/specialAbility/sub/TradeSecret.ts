@@ -9,7 +9,7 @@ import {
   String,
 } from "tsondb/schema/def"
 import { PlainGeneralPrerequisites } from "../../_Prerequisite.js"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 
@@ -30,9 +30,9 @@ export const TradeSecret = Entity(import.meta.url, {
         type: IncludeIdentifier(PlainGeneralPrerequisites),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "TradeSecretTranslation",
+        "TradeSecret",
         Object({
           name: Required({
             comment: "The trade secret’s name.",

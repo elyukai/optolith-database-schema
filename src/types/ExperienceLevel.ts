@@ -1,5 +1,5 @@
 import { Entity, Integer, Object, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const ExperienceLevel = Entity(import.meta.url, {
   name: "ExperienceLevel",
@@ -35,9 +35,9 @@ export const ExperienceLevel = Entity(import.meta.url, {
         comment: "The maximum of spells of an unfamiliar tradition you can activate.",
         type: Integer(),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ExperienceLevelTranslation",
+        "ExperienceLevel",
         Object({
           name: Required({
             comment: "The experience level’s name.",

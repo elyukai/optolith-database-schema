@@ -20,7 +20,7 @@ import { ImprovementCost } from "../_ImprovementCost.js"
 import { AnimistPowerPrerequisites } from "../_Prerequisite.js"
 import { ResponsiveTextOptional } from "../_ResponsiveText.js"
 import { SkillCheck } from "../_SkillCheck.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs, src } from "../source/_PublicationRef.js"
 
@@ -61,9 +61,9 @@ If no tribe tradition is given, the animist power is generally available to all 
         type: Array(IncludeIdentifier(AnimistPowerLevel), { minItems: 1 }),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "AnimistPowerTranslation",
+        "AnimistPower",
         Object({
           name: Required({
             comment: "The animist power’s name.",
@@ -108,9 +108,9 @@ const AnimistPowerLevel = TypeAlias(import.meta.url, {
         comment: "The source references, if different than the references for level 1.",
         type: IncludeIdentifier(PublicationRefs),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "AnimistPowerLevelTranslation",
+        "AnimistPowerLevel",
         Object({
           effect: Required({
             comment: "An additional effect description for this level.",
@@ -177,9 +177,9 @@ const AnimistPowerCostByPrimaryPatron = TypeAlias(import.meta.url, {
         comment: "If defined, half of the AE cost `value` has to be paid each interval.",
         type: IncludeIdentifier(DurationUnitValue),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "AnimistPowerCostByPrimaryPatronTranslation",
+        "AnimistPowerCostByPrimaryPatron",
         Object({
           note: Required({
             comment: "A note, appended to the generated string in parenthesis.",

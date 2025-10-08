@@ -1,14 +1,14 @@
 import { Entity, Object, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const EyeColor = Entity(import.meta.url, {
   name: "EyeColor",
   namePlural: "EyeColors",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "EyeColorTranslation",
+        "EyeColor",
         Object({
           name: Required({
             comment: "The eye color’s name.",

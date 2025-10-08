@@ -1,6 +1,6 @@
 import { Entity, IncludeIdentifier, Object, Required, String } from "tsondb/schema/def"
 import { SkillCheck } from "./_SkillCheck.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const SkillGroup = Entity(import.meta.url, {
   name: "SkillGroup",
@@ -11,9 +11,9 @@ export const SkillGroup = Entity(import.meta.url, {
         comment: "The skill group’s skill check attributes",
         type: IncludeIdentifier(SkillCheck),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "SkillGroupTranslation",
+        "SkillGroup",
         Object({
           name: Required({
             comment: "The skill group’s name.",

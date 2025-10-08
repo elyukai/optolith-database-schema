@@ -17,7 +17,7 @@ import {
 import { SkillGroupIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { SkillCheck } from "./_SkillCheck.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -48,9 +48,9 @@ export const Skill = Entity(import.meta.url, {
         type: SkillGroupIdentifier(),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "SkillTranslation",
+        "Skill",
         Object({
           name: Required({
             comment: "The skill’s name.",
@@ -130,9 +130,9 @@ export const SkillApplication = Entity(import.meta.url, {
         comment: "The skill this application belongs to.",
         type: SkillIdentifier(),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "SkillApplicationTranslation",
+        "SkillApplication",
         Object({
           name: Required({
             comment: "The skill application’s name.",

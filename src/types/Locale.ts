@@ -1375,7 +1375,7 @@ export const Locale = Entity(import.meta.url, {
     }),
 })
 
-export const NestedLocaleMap = <
+export const NestedTranslationMap = <
   Name extends string,
   T extends Record<string, MemberDecl<Type, boolean>>,
   R extends boolean
@@ -1385,13 +1385,14 @@ export const NestedLocaleMap = <
     isDeprecated?: boolean
     type: T
   }) => MemberDecl<T, R>,
-  name: Name,
+  entityName: Name,
   type: ObjectType<T>
 ) =>
   MemberDeclCreator({
     comment: "All translations for the entry, identified by IETF language tag (BCP47).",
     type: NestedEntityMap({
-      name,
+      name: `${entityName}Translation`,
+      namePlural: `${entityName}Translations`,
       secondaryEntity: Locale,
       type,
     }),

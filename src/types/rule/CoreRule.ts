@@ -14,7 +14,7 @@ import {
 } from "tsondb/schema/def"
 import { CoreRuleIdentifier } from "../_Identifier.js"
 import { CoreRuleDerivableContentIdentifier } from "../_IdentifierGroup.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -27,9 +27,9 @@ export const CoreRule = Entity(import.meta.url, {
         type: Array(IncludeIdentifier(ContentNode), { minItems: 1 }),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "CoreRuleTranslation",
+        "CoreRule",
         Object({
           name: Required({
             comment: "The core rule’s name.",
@@ -78,9 +78,9 @@ const TextNode = TypeAlias(import.meta.url, {
     "A simple text block, containing one or multiple paragraphs. Headings are not allowed, they should be handled as nested core rules instead.",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "TextNodeTranslation",
+        "TextNode",
         Object({
           text: Required({
             comment: "Markdown-formatted text.",
@@ -99,9 +99,9 @@ const ReferenceListNode = TypeAlias(import.meta.url, {
       source: Required({
         type: IncludeIdentifier(ReferenceListNodeSource),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ReferenceListNodeTranslation",
+        "ReferenceListNode",
         Object({
           text: Required({
             comment: "Markdown-formatted text.",

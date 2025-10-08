@@ -9,7 +9,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { TargetCategoryIdentifier } from "./_Identifier.js"
 
 export const AffectedTargetCategories = TypeAlias(import.meta.url, {
@@ -25,9 +25,9 @@ const SpecificAffectedTargetCategory = TypeAlias(import.meta.url, {
   type: () =>
     Object({
       id: Required({ type: IncludeIdentifier(SpecificAffectedTargetCategoryIdentifier) }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "SpecificAffectedTargetCategoryTranslation",
+        "SpecificAffectedTargetCategory",
         Object({
           note: Required({ type: String({ minLength: 1 }) }),
         })

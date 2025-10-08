@@ -16,7 +16,7 @@ import {
   volume_l10n,
 } from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -35,9 +35,9 @@ export const WandEnchantment = Entity(import.meta.url, {
       property,
       ap_value,
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "WandEnchantmentTranslation",
+        "WandEnchantment",
         Object({
           name,
           name_in_library,

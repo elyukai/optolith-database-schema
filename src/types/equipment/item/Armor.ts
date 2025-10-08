@@ -13,7 +13,7 @@ import {
   TypeAlias,
 } from "tsondb/schema/def"
 import { ArmorIdentifier, ArmorTypeIdentifier } from "../../_Identifier.js"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, Weight } from "./_Item.js"
@@ -56,9 +56,9 @@ export const Armor = Entity(import.meta.url, {
         type: IncludeIdentifier(HitZone),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ArmorTranslation",
+        "Armor",
         Object({
           name: Required({
             comment: "The item’s name.",
@@ -117,9 +117,9 @@ export const SecondaryArmor = TypeAlias(import.meta.url, {
         comment: "Specify if armor is only available for a specific hit zone.",
         type: IncludeIdentifier(HitZone),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "SecondaryArmorTranslation",
+        "SecondaryArmor",
         Object(
           {
             advantage: Optional({

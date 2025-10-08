@@ -20,7 +20,7 @@ import {
 } from "./_ActivatableSkillDuration.js"
 import { AnimalTypeIdentifier, PropertyIdentifier } from "./_Identifier.js"
 import { ResponsiveText, ResponsiveTextOptional } from "./_ResponsiveText.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -49,9 +49,9 @@ If no animal types are given, the animal disease applies to all animal types.`,
         type: Integer({ minimum: 1 }),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "FamiliarsTrickTranslation",
+        "FamiliarsTrick",
         Object({
           name: Required({
             comment: "The familiar’s trick’s name.",
@@ -90,9 +90,9 @@ const IndefiniteFamiliarsTrickProperty = TypeAlias(import.meta.url, {
   name: "IndefiniteFamiliarsTrickProperty",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "IndefiniteFamiliarsTrickPropertyTranslation",
+        "IndefiniteFamiliarsTrickProperty",
         Object({
           description: Required({
             comment: "A description of the property.",
@@ -153,9 +153,9 @@ const FamiliarsTrickFixedOneTimeCost = TypeAlias(import.meta.url, {
         comment: "The interval in which you have to pay the AE cost again.",
         type: IncludeIdentifier(DurationUnitValue),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "FamiliarsTrickFixedOneTimeCostTranslation",
+        "FamiliarsTrickFixedOneTimeCost",
         Object(
           {
             per: Optional({

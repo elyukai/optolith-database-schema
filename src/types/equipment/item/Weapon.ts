@@ -18,7 +18,7 @@ import {
   RaceIdentifier,
 } from "../../_Identifier.js"
 import { CloseCombatTechnique, RangedCombatTechnique } from "../../CombatTechnique.js"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
@@ -52,6 +52,7 @@ export const Weapon = Entity(import.meta.url, {
           "A list of stat blocks for each close combat technique this weapon can be used with.",
         type: NestedEntityMap({
           name: "MeleeWeaponUse",
+          namePlural: "MeleeWeaponUses",
           secondaryEntity: CloseCombatTechnique,
           type: IncludeIdentifier(MeleeWeapon),
         }),
@@ -61,6 +62,7 @@ export const Weapon = Entity(import.meta.url, {
           "A list of stat blocks for each ranged combat technique this weapon can be used with.",
         type: NestedEntityMap({
           name: "RangedWeaponUse",
+          namePlural: "RangedWeaponUses",
           secondaryEntity: RangedCombatTechnique,
           type: IncludeIdentifier(RangedWeapon),
         }),
@@ -80,9 +82,9 @@ export const Weapon = Entity(import.meta.url, {
         type: Array(MagicalTraditionIdentifier(), { minItems: 1 }),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "WeaponTranslation",
+        "Weapon",
         Object({
           name: Required({
             comment: "The item’s name.",
@@ -126,6 +128,7 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
           "A list of stat blocks for each close combat technique this weapon can be used with.",
         type: NestedEntityMap({
           name: "ImprovisedMeleeWeaponUse",
+          namePlural: "ImprovisedMeleeWeaponUses",
           secondaryEntity: CloseCombatTechnique,
           type: IncludeIdentifier(MeleeWeapon),
         }),
@@ -135,6 +138,7 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
           "A list of stat blocks for each ranged combat technique this weapon can be used with.",
         type: NestedEntityMap({
           name: "ImprovisedRangedWeaponUse",
+          namePlural: "ImprovisedRangedWeaponUses",
           secondaryEntity: RangedCombatTechnique,
           type: IncludeIdentifier(RangedWeapon),
         }),
@@ -153,9 +157,9 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
           "Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.",
         type: Array(MagicalTraditionIdentifier(), { minItems: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "ImprovisedWeaponTranslation",
+        "ImprovisedWeapon",
         Object(
           {
             advantage: Optional({

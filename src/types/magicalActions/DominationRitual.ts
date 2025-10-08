@@ -16,7 +16,7 @@ import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { PropertyIdentifier, SkillModificationLevelIdentifier } from "../_Identifier.js"
 import { ResponsiveText } from "../_ResponsiveText.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -42,9 +42,9 @@ export const DominationRitual = Entity(import.meta.url, {
         type: PropertyIdentifier(),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "DominationRitualTranslation",
+        "DominationRitual",
         Object({
           name: Required({
             comment: "The domination ritual’s name.",
@@ -96,9 +96,9 @@ const DominationRitualCost = TypeAlias(import.meta.url, {
         comment: "The initial skill modification identifier/level.",
         type: SkillModificationLevelIdentifier(),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "DominationRitualCostTranslation",
+        "DominationRitualCost",
         Object({
           additional: Required({
             comment: "AE cost in addition to the normal AE cost.",
@@ -141,9 +141,9 @@ const IndefiniteDominationRitualDuration = TypeAlias(import.meta.url, {
         comment: "Specified if the duration has a maximum time span.",
         type: IncludeIdentifier(MaximumIndefiniteDominationRitualDuration),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IndefiniteDominationRitualDurationTranslation",
+        "IndefiniteDominationRitualDuration",
         Object({
           description: Required({
             comment: "A description of the duration.",

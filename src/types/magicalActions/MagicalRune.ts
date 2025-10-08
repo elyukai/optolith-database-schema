@@ -21,7 +21,7 @@ import { CombatTechniqueIdentifier } from "../_IdentifierGroup.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
 import { SkillCheck } from "../_SkillCheck.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -57,9 +57,9 @@ If there are multiple options, the magical rune may be activated for each option
         type: IncludeIdentifier(MagicalRuneImprovementCost),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "MagicalRuneTranslation",
+        "MagicalRune",
         Object({
           name: Required({
             comment: `The magical rune’s name.
@@ -206,9 +206,9 @@ const SingleMagicalRuneCost = TypeAlias(import.meta.url, {
         comment: "The AE cost value.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "SingleMagicalRuneCostTranslation",
+        "SingleMagicalRuneCost",
         Object({
           note: Required({
             comment: "A note, appended to the generated string in parenthesis.",
@@ -238,9 +238,9 @@ const MagicalRuneCraftingTime = TypeAlias(import.meta.url, {
         comment: "The crafting time in actions.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "MagicalRuneCraftingTimeTranslation",
+        "MagicalRuneCraftingTime",
         Object({
           per: Required({
             comment:
@@ -295,9 +295,9 @@ export const MagicalRuneOption = Entity(import.meta.url, {
       suboption: Optional({
         type: IncludeIdentifier(MagicalRuneSuboption),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "MagicalRuneOptionTranslation",
+        "MagicalRuneOption",
         Object({
           name: Required({
             comment: `The magical rune option’s name.
@@ -330,9 +330,9 @@ const CustomMagicalRuneSuboption = TypeAlias(import.meta.url, {
   name: "CustomMagicalRuneSuboption",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "CustomMagicalRuneSuboptionTranslation",
+        "CustomMagicalRuneSuboption",
         Object(
           {
             examples: Optional({

@@ -10,7 +10,7 @@ import {
 } from "tsondb/schema/def"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { LanguageIdentifier } from "../../_Identifier.js"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { AssociatedContinent } from "./_LanguageScript.js"
@@ -33,9 +33,9 @@ export const Script = Entity(import.meta.url, {
         type: Array(IncludeIdentifier(AssociatedContinent), { minItems: 1 }),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ScriptTranslation",
+        "Script",
         Object({
           name: Required({
             comment: "The script’s name.",

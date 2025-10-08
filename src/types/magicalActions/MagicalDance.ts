@@ -18,7 +18,7 @@ import { ArcaneDancerTraditionIdentifier, PropertyIdentifier } from "../_Identif
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
 import { SkillCheck } from "../_SkillCheck.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 import { MusicDuration, MusicTraditionReference } from "./_MusicTradition.js"
@@ -52,9 +52,9 @@ export const MagicalDance = Entity(import.meta.url, {
         type: IncludeIdentifier(ImprovementCost),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "MagicalDanceTranslation",
+        "MagicalDance",
         Object({
           name: Required({
             comment: "The magical dance’s name.",
@@ -114,9 +114,9 @@ const FixedMagicalDanceCost = TypeAlias(import.meta.url, {
         comment: "The (temporary) AE cost value.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "FixedMagicalDanceCostTranslation",
+        "FixedMagicalDanceCost",
         Object(
           {
             per: Optional({
@@ -140,9 +140,9 @@ const IndefiniteMagicalDanceCost = TypeAlias(import.meta.url, {
           "Specified if the indefinite description's result value is to be modified by a certain number.",
         type: IncludeIdentifier(CheckResultBasedModifier),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IndefiniteMagicalDanceCostTranslation",
+        "IndefiniteMagicalDanceCost",
         Object({
           description: Required({
             comment: "A description of where the cost come from.",

@@ -1,5 +1,5 @@
 import { Entity, Integer, Object, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 
 export const AnimalShapeSize = Entity(import.meta.url, {
   name: "AnimalShapeSize",
@@ -14,9 +14,9 @@ export const AnimalShapeSize = Entity(import.meta.url, {
         comment: "The animal shape size’s adventure point value",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "AnimalShapeSizeTranslation",
+        "AnimalShapeSize",
         Object({
           name: Required({
             comment: "The animal shape size’s name.",

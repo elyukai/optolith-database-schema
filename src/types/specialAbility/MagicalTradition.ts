@@ -27,7 +27,7 @@ import {
   MagicalTraditionIdentifier,
 } from "../_Identifier.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 import { SpecialRule } from "./_Tradition.js"
@@ -95,9 +95,9 @@ export const MagicalTradition = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "MagicalTraditionTranslation",
+        "MagicalTradition",
         Object({
           name,
           name_for_arcane_spellworks: Optional({

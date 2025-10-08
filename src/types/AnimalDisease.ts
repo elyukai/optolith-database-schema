@@ -1,5 +1,5 @@
 import { Array, Entity, IncludeIdentifier, Object, Required } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { cause, Cause, DiseaseTranslation, level, resistance } from "./_DiseasePoison.js"
 import { AnimalTypeIdentifier } from "./_Identifier.js"
 import { src } from "./source/_PublicationRef.js"
@@ -25,7 +25,7 @@ If no causes are given, the disease is not communicable to intelligent creatures
         type: Array(IncludeIdentifier(Cause)),
       }),
       src,
-      translations: NestedLocaleMap(Required, "AnimalDiseaseTranslation", DiseaseTranslation),
+      translations: NestedTranslationMap(Required, "AnimalDisease", DiseaseTranslation),
     }),
   displayName: {},
 })

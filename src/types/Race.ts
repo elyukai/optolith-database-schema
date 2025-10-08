@@ -26,7 +26,7 @@ import {
   RaceIdentifier,
 } from "./_Identifier.js"
 import { ExperienceLevel } from "./ExperienceLevel.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -76,6 +76,7 @@ export const Race = Entity(import.meta.url, {
           "Defines the starting ages for the race. It depends on the selected experience level.",
         type: NestedEntityMap({
           name: "StartingAgeConfigForExperienceLevel",
+          namePlural: "StartingAgeConfigsForExperienceLevel",
           secondaryEntity: ExperienceLevel,
           type: Object({
             base: Required({
@@ -96,9 +97,9 @@ export const Race = Entity(import.meta.url, {
         type: ChildEntities(RaceVariant),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "RaceTranslation",
+        "Race",
         Object({
           name: Required({
             comment: "The race’s name.",
@@ -327,9 +328,9 @@ export const RaceVariant = Entity(import.meta.url, {
         comment: "Configuration for random height generation.",
         type: IncludeIdentifier(RandomHeightGeneration),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "RaceVariantTranslation",
+        "RaceVariant",
         Object({
           name: Required({
             comment:

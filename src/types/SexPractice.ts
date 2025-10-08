@@ -1,5 +1,5 @@
 import { Entity, Object, Optional, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { src } from "./source/_PublicationRef.js"
 
 export const SexPractice = Entity(import.meta.url, {
@@ -8,9 +8,9 @@ export const SexPractice = Entity(import.meta.url, {
   type: () =>
     Object({
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "StateTranslation",
+        "State",
         Object({
           name: Required({
             comment: "The sex practice’s name.",

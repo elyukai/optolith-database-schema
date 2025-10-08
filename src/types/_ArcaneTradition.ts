@@ -1,5 +1,5 @@
 import { IncludeIdentifier, Object, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { ArcaneTraditionPrerequisites } from "./_Prerequisite.js"
 
 export const ArcaneTraditionType =
@@ -9,7 +9,7 @@ export const ArcaneTraditionType =
       prerequisites: Required({
         type: IncludeIdentifier(ArcaneTraditionPrerequisites),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
         translationName,
         Object({

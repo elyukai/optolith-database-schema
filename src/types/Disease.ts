@@ -1,5 +1,5 @@
 import { Entity, Object, Required } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { cause, DiseaseTranslation, level, resistance } from "./_DiseasePoison.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -12,7 +12,7 @@ export const Disease = Entity(import.meta.url, {
       resistance,
       cause,
       src,
-      translations: NestedLocaleMap(Required, "DiseaseTranslation", DiseaseTranslation),
+      translations: NestedTranslationMap(Required, "Disease", DiseaseTranslation),
     }),
   displayName: {},
 })

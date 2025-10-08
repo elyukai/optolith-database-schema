@@ -17,7 +17,7 @@ import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { PropertyIdentifier } from "../_Identifier.js"
 import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -43,9 +43,9 @@ export const Curse = Entity(import.meta.url, {
         type: PropertyIdentifier(),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "CurseTranslation",
+        "Curse",
         Object({
           name: Required({
             comment: "The curse’s name.",
@@ -105,9 +105,9 @@ const FixedCurseCost = TypeAlias(import.meta.url, {
         comment: "The (temporary) AE cost value.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "FixedCurseCostTranslation",
+        "FixedCurseCost",
         Object(
           {
             per: Optional({
@@ -144,9 +144,9 @@ const IndefiniteCurseDuration = TypeAlias(import.meta.url, {
         comment: "Specified if the duration has a maximum time span.",
         type: IncludeIdentifier(MaximumIndefiniteCurseDuration),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IndefiniteCurseDurationTranslation",
+        "IndefiniteCurseDuration",
         Object({
           description: Required({
             comment: "A description of the duration.",

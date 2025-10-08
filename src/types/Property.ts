@@ -1,6 +1,6 @@
 import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
 import { SkillCheck } from "./_SkillCheck.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const Property = Entity(import.meta.url, {
   name: "Property",
@@ -12,9 +12,9 @@ export const Property = Entity(import.meta.url, {
           "The property check’s attributes. Only the properties from the Core Rules have defined property checks.",
         type: IncludeIdentifier(SkillCheck),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "PropertyTranslation",
+        "Property",
         Object({
           name: Required({
             comment: "The property’s name.",

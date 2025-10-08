@@ -18,7 +18,7 @@ import {
 } from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { ResponsiveTextOptional } from "../_ResponsiveText.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -38,9 +38,9 @@ export const StaffEnchantment = Entity(import.meta.url, {
       property,
       ap_value,
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "StaffEnchantmentTranslation",
+        "StaffEnchantment",
         Object({
           name,
           name_in_library,

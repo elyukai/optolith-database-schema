@@ -12,7 +12,7 @@ import {
 } from "tsondb/schema/def"
 import { AttributeIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -39,9 +39,9 @@ export const CloseCombatTechnique = Entity(import.meta.url, {
         type: IncludeIdentifier(ImprovementCost),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "CloseCombatTechniqueTranslation",
+        "CloseCombatTechnique",
         Object({
           name: Required({
             comment: "The combat technique’s name.",
@@ -99,9 +99,9 @@ export const RangedCombatTechnique = Entity(import.meta.url, {
         type: IncludeIdentifier(ImprovementCost),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "RangedCombatTechniqueTranslation",
+        "RangedCombatTechnique",
         Object({
           name: Required({
             comment: "The combat technique’s name.",

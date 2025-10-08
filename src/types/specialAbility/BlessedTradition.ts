@@ -30,7 +30,7 @@ import {
 } from "../_Identifier.js"
 import { CombatTechniqueIdentifier } from "../_IdentifierGroup.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 import { SpecialRule } from "./_Tradition.js"
@@ -84,9 +84,9 @@ export const BlessedTradition = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "BlessedTraditionTranslation",
+        "BlessedTradition",
         Object({
           name,
           name_compressed: Optional({

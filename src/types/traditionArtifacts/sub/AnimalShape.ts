@@ -1,6 +1,6 @@
 import { Entity, Object, Required, String } from "tsondb/schema/def"
 import { AnimalShapePathIdentifier, AnimalShapeSizeIdentifier } from "../../_Identifier.js"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 
 export const AnimalShape = Entity(import.meta.url, {
   name: "AnimalShape",
@@ -15,9 +15,9 @@ export const AnimalShape = Entity(import.meta.url, {
         comment: "The animal shape’s size.",
         type: AnimalShapeSizeIdentifier(),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "AnimalShapeTranslation",
+        "AnimalShape",
         Object({
           name: Required({
             comment: "The animal shape’s name.",

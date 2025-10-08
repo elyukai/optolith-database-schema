@@ -12,7 +12,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { SecondaryArmor } from "./Armor.js"
@@ -53,7 +53,7 @@ export const DefaultItem = (sourceUrl: string, singularName: string, pluralName?
   })
 
 export const DefaultItemTranslations = (singularName: string) =>
-  NestedLocaleMap(
+  NestedTranslationMap(
     Required,
     `${singularName}Translation`,
     Object({
@@ -132,9 +132,9 @@ export const FixedCost = TypeAlias(import.meta.url, {
         comment: "The cost in silverthalers.",
         type: Float({ minimum: { value: 0, isExclusive: true } }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "FixedCostTranslation",
+        "FixedCost",
         Object({
           wrap_in_text,
         })
@@ -154,9 +154,9 @@ const CostRange = TypeAlias(import.meta.url, {
         comment: "The upper bound of the cost in silverthalers.",
         type: Float({ minimum: { value: 0, isExclusive: true } }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "CostRangeTranslation",
+        "CostRange",
         Object({
           wrap_in_text,
         })

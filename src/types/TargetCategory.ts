@@ -1,5 +1,5 @@
 import { Entity, ObjectType, Optional, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { TargetCategoryIdentifier } from "./_Identifier.js"
 
 export const TargetCategory = Entity(import.meta.url, {
@@ -11,9 +11,9 @@ export const TargetCategory = Entity(import.meta.url, {
         comment: "A superordinate target category, if present.",
         type: TargetCategoryIdentifier(),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "TargetCategoryTranslation",
+        "TargetCategory",
         ObjectType({
           name: Required({
             comment: "The target category’s name.",

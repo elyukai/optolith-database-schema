@@ -1,5 +1,5 @@
 import { Entity, Object, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const Attribute = Entity(import.meta.url, {
   name: "Attribute",
@@ -7,9 +7,9 @@ export const Attribute = Entity(import.meta.url, {
   comment: "A base attribute of a character.",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "AttributeTranslation",
+        "Attribute",
         Object({
           name: Required({
             comment: "The attribute’s name.",

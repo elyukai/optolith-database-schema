@@ -1,5 +1,5 @@
 import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { Cost } from "./_Item.js"
@@ -14,9 +14,9 @@ export const Ammunition = Entity(import.meta.url, {
         type: IncludeIdentifier(Cost),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "AmmunitionTranslation",
+        "Ammunition",
         Object({
           name: Required({
             comment: "The item’s name.",

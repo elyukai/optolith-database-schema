@@ -41,7 +41,7 @@ import {
   SpellworkIdentifier,
 } from "./_IdentifierGroup.js"
 import { ProfessionPrerequisites } from "./_Prerequisite.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -173,9 +173,9 @@ export const ProfessionVersion = Entity(import.meta.url, {
         ),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ProfessionVersionTranslation",
+        "ProfessionVersion",
         ObjectType({
           name: Required({
             comment: "The basic profession’s name.",
@@ -361,9 +361,9 @@ export const ProfessionVariant = Entity(import.meta.url, {
           "Clerical profession variants receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.",
         type: Array(IncludeIdentifier(LiturgicalChantRating), { minItems: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ProfessionVariantTranslation",
+        "ProfessionVariant",
         ObjectType({
           name: Required({
             comment: "The profession variant’s name.",

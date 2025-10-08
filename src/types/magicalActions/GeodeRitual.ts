@@ -19,7 +19,7 @@ import { AffectedTargetCategories } from "../_ActivatableSkillTargetCategory.js"
 import { PropertyIdentifier } from "../_Identifier.js"
 import { GeodeRitualPrerequisites } from "../_Prerequisite.js"
 import { SkillCheck } from "../_SkillCheck.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -49,9 +49,9 @@ export const GeodeRitual = Entity(import.meta.url, {
         type: IncludeIdentifier(GeodeRitualPrerequisites),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "GeodeRitualTranslation",
+        "GeodeRitual",
         Object({
           name: Required({
             comment: "The geode ritual’s name.",

@@ -8,7 +8,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { SentenceType } from "./single/TextPrerequisite.js"
 
 export const DisplayOption = Enum(import.meta.url, {
@@ -29,9 +29,9 @@ const ReplacementDisplayOption = TypeAlias(import.meta.url, {
 A standalone sentence is connected to the previous prerequisite string with a period and a period is also added at the end of the sentence automatically, if it is not present. A connected sentence is connected to the previous prerequisite string with a semicolon and a period is not added to the end of the sentence. In this case, if there are prerequisites after this one, they will be connected using a semicolon again, unless a different punctuation mark is present at the end of the given text.`,
         type: IncludeIdentifier(SentenceType),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "ReplacementDisplayOptionTranslation",
+        "ReplacementDisplayOption",
         Object({
           replacement: Required({
             comment: "The replacement text.",

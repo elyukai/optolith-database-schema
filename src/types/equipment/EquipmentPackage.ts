@@ -10,7 +10,7 @@ import {
   TypeAlias,
 } from "tsondb/schema/def"
 import { EquipmentIdentifier } from "../_IdentifierGroup.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { src } from "../source/_PublicationRef.js"
 
 export const EquipmentPackage = Entity(import.meta.url, {
@@ -24,9 +24,9 @@ export const EquipmentPackage = Entity(import.meta.url, {
         type: Array(IncludeIdentifier(EquipmentPackageItem), { minItems: 2 }),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "EquipmentPackageTranslation",
+        "EquipmentPackage",
         Object({
           name: Required({
             comment: "The equipment package’s name.",

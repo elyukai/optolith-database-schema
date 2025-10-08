@@ -16,7 +16,7 @@ import { Enhancement } from "./_Enhancements.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { LiturgyPrerequisites } from "./_Prerequisite.js"
 import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -55,9 +55,9 @@ export const Ceremony = Entity(import.meta.url, {
         type: IncludeIdentifier(LiturgyPrerequisites),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "LiturgicalChantTranslation",
+        "LiturgicalChant",
         Object({
           name: Required({
             comment: "The ceremony’s name.",

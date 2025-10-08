@@ -15,7 +15,7 @@ import {
   skill_uses,
 } from "./_Activatable.js"
 import { AdvantageDisadvantagePrerequisites } from "./_Prerequisite.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -43,9 +43,9 @@ export const Advantage = Entity(import.meta.url, {
         type: Boolean(),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "AdvantageTranslation",
+        "Advantage",
         Object({
           name,
           name_in_library,

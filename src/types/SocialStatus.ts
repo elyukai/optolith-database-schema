@@ -1,5 +1,5 @@
 import { Entity, Integer, Object, Required, String } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const SocialStatus = Entity(import.meta.url, {
   name: "SocialStatus",
@@ -11,9 +11,9 @@ export const SocialStatus = Entity(import.meta.url, {
           "The social status’ order. The higher the order, the more powerful the social status. This has to be a unique value.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "SocialStatusTranslation",
+        "SocialStatus",
         Object({
           name: Required({
             comment: "The social status’ name.",

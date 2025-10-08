@@ -18,7 +18,7 @@ import {
   TypeAlias,
   TypeArgument,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { DisplayOption } from "./prerequisites/DisplayOption.js"
 import {
   AdvantageDisadvantagePrerequisiteGroup,
@@ -47,9 +47,9 @@ const PrerequisiteGroup = GenTypeAlias(import.meta.url, {
       list: Required({
         type: Array(TypeArgument(T), { minItems: 2 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "PrerequisiteGroupTranslation",
+        "PrerequisiteGroup",
         Object({
           text: Required({
             type: String({ minLength: 1 }),

@@ -10,7 +10,7 @@ import {
   Required,
   String,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { PublicationPrerequisites } from "../_Prerequisite.js"
 
 export const Publication = Entity(import.meta.url, {
@@ -36,9 +36,9 @@ export const Publication = Entity(import.meta.url, {
       prerequisites: Optional({
         type: IncludeIdentifier(PublicationPrerequisites),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "PublicationTranslation",
+        "Publication",
         Object({
           publisherId: Optional({
             comment: "The publisher’s publication identifier.",

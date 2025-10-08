@@ -8,7 +8,7 @@ import {
   String,
 } from "tsondb/schema/def"
 import { PactCategoryIdentifier } from "./_Identifier.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -26,9 +26,9 @@ export const PactCategory = Entity(import.meta.url, {
         type: ChildEntities(PactDomain),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "PactCategoryTranslation",
+        "PactCategory",
         Object({
           name: Required({
             comment: "The pact category’s name.",
@@ -52,9 +52,9 @@ export const PactType = Entity(import.meta.url, {
         comment: "The pact category this type belongs to.",
         type: PactCategoryIdentifier(),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "PactTypeTranslation",
+        "PactType",
         Object({
           name: Required({
             comment: "The type’s name.",
@@ -76,9 +76,9 @@ export const PactDomain = Entity(import.meta.url, {
         comment: "The pact category this domain belongs to.",
         type: PactCategoryIdentifier(),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "PactDomainTranslation",
+        "PactDomain",
         Object({
           name: Required({
             comment: "The domain’s name.",

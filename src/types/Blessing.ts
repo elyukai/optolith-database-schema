@@ -12,7 +12,7 @@ import {
 } from "tsondb/schema/def"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
 import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -30,9 +30,9 @@ export const Blessing = Entity(import.meta.url, {
         type: IncludeIdentifier(AffectedTargetCategories),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "BlessingTranslation",
+        "Blessing",
         Object({
           name: Required({
             comment: "The blessing’s name.",
@@ -110,9 +110,9 @@ const IndefiniteBlessingDuration = TypeAlias(import.meta.url, {
   name: "IndefiniteBlessingDuration",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IndefiniteBlessingDurationTranslation",
+        "IndefiniteBlessingDuration",
         Object({
           description: Required({
             comment: "A description of the duration.",

@@ -12,7 +12,7 @@ import {
 import { CheckResultBasedModifier, CheckResultValue } from "./_ActivatableSkillCheckResultBased.js"
 import { SkillModificationLevelIdentifier } from "./_Identifier.js"
 import { ResponsiveTextOptional, ResponsiveTextReplace } from "./_ResponsiveText.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const Range = TypeAlias(import.meta.url, {
   name: "Range",
@@ -22,9 +22,9 @@ export const Range = TypeAlias(import.meta.url, {
         comment: "The range value.",
         type: IncludeIdentifier(RangeValue),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "RangeTranslation",
+        "Range",
         Object(
           {
             note: Optional({

@@ -30,7 +30,7 @@ import {
   SocialStatusIdentifier,
 } from "./_Identifier.js"
 import { BinarySex } from "./_Sex.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { MundaneProfessionGroup } from "./Profession.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
@@ -103,9 +103,9 @@ export const Culture = Entity(import.meta.url, {
         type: Array(IncludeIdentifier(CulturalPackageItem), { minItems: 1 }),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "CultureTranslation",
+        "Culture",
         Object({
           name: Required({
             comment: "The race’s name.",

@@ -9,7 +9,7 @@ import {
   String,
 } from "tsondb/schema/def"
 import { SubjectIdentifier } from "../_Identifier.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -32,9 +32,9 @@ export const FocusRule = Entity(import.meta.url, {
         type: Boolean(),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "FocusRuleTranslation",
+        "FocusRule",
         Object({
           name: Required({
             comment: "The focus rule’s name.",

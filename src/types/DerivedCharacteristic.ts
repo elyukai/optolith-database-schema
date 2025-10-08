@@ -7,7 +7,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { DerivedCharacteristicPrerequisites } from "./_Prerequisite.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -20,9 +20,9 @@ export const DerivedCharacteristic = Entity(import.meta.url, {
         type: IncludeIdentifier(DerivedCharacteristicPrerequisites),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "DerivedCharacteristicTranslation",
+        "DerivedCharacteristic",
         Object({
           name: Required({
             comment: "The derived characteristic’s name.",

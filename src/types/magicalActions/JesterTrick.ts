@@ -17,7 +17,7 @@ import { AffectedTargetCategories } from "../_ActivatableSkillTargetCategory.js"
 import { PropertyIdentifier } from "../_Identifier.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
-import { NestedLocaleMap } from "../Locale.js"
+import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
@@ -51,9 +51,9 @@ export const JesterTrick = Entity(import.meta.url, {
         type: IncludeIdentifier(ImprovementCost),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "JesterTrickTranslation",
+        "JesterTrick",
         Object({
           name: Required({
             comment: "The jester trick’s name.",

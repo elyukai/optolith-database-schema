@@ -9,7 +9,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 
 export const TextPrerequisite = TypeAlias(import.meta.url, {
   name: "TextPrerequisite",
@@ -36,9 +36,9 @@ If all prerequisites of an entry are marked as meta, the entry is considered to 
 This is the only use case for this property.`,
         type: Boolean(),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "TextPrerequisiteTranslation",
+        "TextPrerequisite",
         Object({
           text: Required({
             comment: "The displayed text.",

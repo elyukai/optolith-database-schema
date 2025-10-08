@@ -16,7 +16,7 @@ import { ImprovementCost } from "./_ImprovementCost.js"
 import { SpellworkPrerequisites } from "./_Prerequisite.js"
 import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck.js"
 import { SpellworkTraditions } from "./_Spellwork.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -59,9 +59,9 @@ export const Spell = Entity(import.meta.url, {
         type: IncludeIdentifier(SpellworkPrerequisites),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "SpellTranslation",
+        "Spell",
         Object({
           name: Required({
             comment: "The spell’s name.",

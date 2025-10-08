@@ -16,7 +16,7 @@ import {
   TypeAlias,
   TypeArgument,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import {
   CeremonyIdentifier,
   CloseCombatTechniqueIdentifier,
@@ -285,9 +285,9 @@ const SkillApplicationOrUse = TypeAlias(import.meta.url, {
         comment: "The application’s or use’s identifier. An entry-unique, increasing integer.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "SkillApplicationOrUseTranslation",
+        "SkillApplicationOrUse",
         Object({
           name: Required({
             comment:

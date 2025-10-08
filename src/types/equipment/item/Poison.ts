@@ -15,7 +15,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "../../Locale.js"
+import { NestedTranslationMap } from "../../Locale.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { Dice } from "../../_Dice.js"
 import { Reduceable, Resistance } from "../../_DiseasePoison.js"
@@ -57,9 +57,9 @@ export const Poison = Entity(import.meta.url, {
         type: IncludeIdentifier(PoisonCost),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "PoisonTranslation",
+        "Poison",
         Object({
           name: Required({
             comment: "The name of the poison.",
@@ -130,9 +130,9 @@ export const NoPoisonCost = TypeAlias(import.meta.url, {
   name: "NoPoisonCost",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "NoPoisonCostTranslation",
+        "NoPoisonCost",
         Object({
           description: Required({
             comment: "A description of the cost.",
@@ -147,9 +147,9 @@ export const IndefinitePoisonCost = TypeAlias(import.meta.url, {
   name: "IndefinitePoisonCost",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IndefinitePoisonCostTranslation",
+        "IndefinitePoisonCost",
         Object({
           description: Required({
             comment: "A description of the cost.",
@@ -204,9 +204,9 @@ export const IndefinitePoisonTime = TypeAlias(import.meta.url, {
   name: "IndefinitePoisonTime",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "IndefinitePoisonTimeTranslation",
+        "IndefinitePoisonTime",
         Object(
           {
             description: Optional({
@@ -282,9 +282,9 @@ export const AlchemicalPoison = TypeAlias(import.meta.url, {
         comment: "Additional information if the poison is an intoxicant.",
         type: IncludeIdentifier(Intoxicant),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "AlchemicalPoisonTranslation",
+        "AlchemicalPoison",
         Object({
           typical_ingredients: Required({
             comment: "A list of typical ingredients.",
@@ -337,9 +337,9 @@ export const DemonicPoison = TypeAlias(import.meta.url, {
         comment: "The poison’s level.",
         type: IncludeIdentifier(DemonicPoisonLevel),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "DemonicPoisonTranslation",
+        "DemonicPoison",
         Object(
           {
             note: Optional({
@@ -403,9 +403,9 @@ export const Intoxicant = TypeAlias(import.meta.url, {
           "The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
         type: IncludeIdentifier(IntoxicantAddiction),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IntoxicantTranslation",
+        "Intoxicant",
         Object({
           ingestion: Required({
             comment: "How to ingest the intoxicant.",

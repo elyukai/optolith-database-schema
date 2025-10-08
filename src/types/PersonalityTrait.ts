@@ -9,7 +9,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { PersonalityTraitIdentifier } from "./_Identifier.js"
 import { PersonalityTraitPrerequisites } from "./_Prerequisite.js"
 import { Errata } from "./source/_Erratum.js"
@@ -34,9 +34,9 @@ export const PersonalityTrait = Entity(import.meta.url, {
         type: Array(PersonalityTraitIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "PersonalityTraitTranslation",
+        "PersonalityTrait",
         Object({
           name: Required({
             comment: "The personality trait’s name.",

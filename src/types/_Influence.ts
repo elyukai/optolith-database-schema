@@ -9,7 +9,7 @@ import {
   TypeAlias,
 } from "tsondb/schema/def"
 import { InfluencePrerequisites } from "./_Prerequisite.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -22,9 +22,9 @@ export const Influence = Entity(import.meta.url, {
         type: IncludeIdentifier(InfluencePrerequisites),
       }),
       src,
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "InfluenceTranslation",
+        "Influence",
         Object({
           name: Required({
             comment: "The influence’s name.",

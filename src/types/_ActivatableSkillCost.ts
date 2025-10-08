@@ -13,7 +13,7 @@ import {
 import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import { SkillModificationLevelIdentifier } from "./_Identifier.js"
 import { ResponsiveText, ResponsiveTextOptional, ResponsiveTextReplace } from "./_ResponsiveText.js"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const OneTimeCost = Enum(import.meta.url, {
   name: "OneTimeCost",
@@ -54,9 +54,9 @@ const ModifiableOneTimeCost = TypeAlias(import.meta.url, {
         comment: "The part of the cost value that has to be spent permanently.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "ModifiableOneTimeCostTranslation",
+        "ModifiableOneTimeCost",
         Object({
           replacement: Required({
             comment: "A replacement string.",
@@ -87,9 +87,9 @@ const NonModifiableOneTimeCost = TypeAlias(import.meta.url, {
         comment: "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
         type: IncludeIdentifier(NonModifiableOneTimeCostPerCountable),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "NonModifiableOneTimeCostTranslation",
+        "NonModifiableOneTimeCost",
         Object({
           note: Required({
             comment: "A note, appended to the generated string in parenthesis.",
@@ -108,9 +108,9 @@ const NonModifiableOneTimeCostPerCountable = TypeAlias(import.meta.url, {
         comment: "If defined, the minimum total AE that have to be spent casting the skill.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "NonModifiableOneTimeCostPerCountableTranslation",
+        "NonModifiableOneTimeCostPerCountable",
         Object({
           countable: Required({
             comment: "The countable entity name.",
@@ -125,9 +125,9 @@ export const IndefiniteOneTimeCost = TypeAlias(import.meta.url, {
   name: "IndefiniteOneTimeCost",
   type: () =>
     Object({
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "IndefiniteOneTimeCostTranslation",
+        "IndefiniteOneTimeCost",
         Object({
           description: Required({
             comment: "A description of where the cost come from.",
@@ -164,9 +164,9 @@ This will generate the exact same string as seen above – given it is set for a
           minItems: 2,
         }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "CostMapTranslation",
+        "CostMap",
         Object(
           {
             list_prepend: Optional({
@@ -201,9 +201,9 @@ const CostMapOption = TypeAlias(import.meta.url, {
         comment: "The part of the `value` that has to be paid permanently.",
         type: Integer({ minimum: 0 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Optional,
-        "CostMapOptionTranslation",
+        "CostMapOption",
         Object({
           label: Required({
             comment: "The description of the option for cost string generation.",
@@ -277,9 +277,9 @@ const NonModifiableSustainedCostPerCountable = TypeAlias(import.meta.url, {
         comment: "If defined, the minimum total AE that have to be spent casting the skill.",
         type: Integer({ minimum: 1 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "NonModifiableSustainedCostPerCountableTranslation",
+        "NonModifiableSustainedCostPerCountable",
         Object({
           countable: Required({
             comment: "The countable entity name.",

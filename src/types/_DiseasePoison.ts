@@ -18,7 +18,7 @@ import {
   TypeAlias,
   TypeArgument,
 } from "tsondb/schema/def"
-import { NestedLocaleMap } from "./Locale.js"
+import { NestedTranslationMap } from "./Locale.js"
 import { AlternativeName } from "./_AlternativeNames.js"
 import { Errata } from "./source/_Erratum.js"
 
@@ -55,9 +55,9 @@ export const Cause = TypeAlias(import.meta.url, {
           "The chance to get infected by this cause, in percent. Some causes do not have a specific chance.",
         type: Integer({ minimum: 5, multipleOf: 5, maximum: 100 }),
       }),
-      translations: NestedLocaleMap(
+      translations: NestedTranslationMap(
         Required,
-        "CauseTranslation",
+        "Cause",
         Object({
           name: Required({
             comment: "The cause’s name.",
