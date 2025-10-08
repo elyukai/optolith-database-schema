@@ -89,6 +89,7 @@ export const Race = Entity(import.meta.url, {
               type: IncludeIdentifier(Dice),
             }),
           }),
+          displayName: null,
         }),
       }),
       variants: Required({

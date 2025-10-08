@@ -57,7 +57,7 @@ export const Ceremony = Entity(import.meta.url, {
       src,
       translations: NestedTranslationMap(
         Required,
-        "LiturgicalChant",
+        "Ceremony",
         Object({
           name: Required({
             comment: "The ceremony’s name.",

@@ -10,7 +10,7 @@ export const SexPractice = Entity(import.meta.url, {
       src,
       translations: NestedTranslationMap(
         Required,
-        "State",
+        "SexPractice",
         Object({
           name: Required({
             comment: "The sex practice’s name.",
