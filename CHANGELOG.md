@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.18.5](https://github.com/elyukai/optolith-database-schema/compare/v0.18.4...v0.18.5) (2025-10-09)
+
+
+### Bug Fixes
+
+* duplicate identifier violations and non-existent display name ([0bd47d1](https://github.com/elyukai/optolith-database-schema/commit/0bd47d12b58cf47f804387443927c0d97acc7ce7))
+
 ## [0.18.4](https://github.com/elyukai/optolith-database-schema/compare/v0.18.3...v0.18.4) (2025-10-05)
 
 ## [0.18.3](https://github.com/elyukai/optolith-database-schema/compare/v0.18.2...v0.18.3) (2025-10-04)
