@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.18.6](https://github.com/elyukai/optolith-database-schema/compare/v0.18.5...v0.18.6) (2025-10-14)
+
+
+### Features
+
+* add additionalRules to optional rules to separate box text from associated main text ([a7b1bed](https://github.com/elyukai/optolith-database-schema/commit/a7b1bed0fadc3d346b4962e1ba808eb2ac05e670))
+
 ## [0.18.5](https://github.com/elyukai/optolith-database-schema/compare/v0.18.4...v0.18.5) (2025-10-09)
 
 
