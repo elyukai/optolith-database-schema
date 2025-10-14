@@ -31,7 +31,12 @@ export const OptionalRule = Entity(import.meta.url, {
             type: String({ minLength: 1 }),
           }),
           description: Required({
-            comment: "The description of the optional rule.",
+            comment: "The description of the optional rule, as stated in the optional rule box.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          additionalRules: Required({
+            comment:
+              "Sometimes, an optional rule does not only contain all the rules belonging to it in its rule box, but also in the main text.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
           errata: Optional({
