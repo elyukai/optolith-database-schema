@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.18.9](https://github.com/elyukai/optolith-database-schema/compare/v0.18.8...v0.18.9) (2025-10-15)
+
+
+### Features
+
+* add alternative rule and player type entities ([034a2ed](https://github.com/elyukai/optolith-database-schema/commit/034a2ed6849a5581951fe1757c5c7179509f76bd))
+
 ## [0.18.8](https://github.com/elyukai/optolith-database-schema/compare/v0.18.7...v0.18.8) (2025-10-14)
 
 ## [0.18.7](https://github.com/elyukai/optolith-database-schema/compare/v0.18.6...v0.18.7) (2025-10-14)
