@@ -80,6 +80,8 @@ import {
 import { Property } from "./Property.js"
 import { Race, RaceVariant } from "./Race.js"
 import { Ritual } from "./Ritual.js"
+import { AlternativeRule } from "./rule/AlternativeRule.js"
+import { PlayerType } from "./rule/AlternativeRule_PlayerType.js"
 import { CoreRule } from "./rule/CoreRule.js"
 import { FocusRule } from "./rule/FocusRule.js"
 import { Subject } from "./rule/FocusRule_Subject.js"
@@ -155,6 +157,7 @@ export const AdvancedMagicalSpecialAbilityIdentifier: () => R = () =>
   R(AdvancedMagicalSpecialAbility)
 export const AdvancedSkillSpecialAbilityIdentifier: () => R = () => R(AdvancedSkillSpecialAbility)
 export const AdvantageIdentifier: () => R = () => R(Advantage)
+export const AlternativeRuleIdentifier: () => R = () => R(AlternativeRule)
 export const AmmunitionIdentifier: () => R = () => R(Ammunition)
 export const AncestorGlyphIdentifier: () => R = () => R(AncestorGlyph)
 export const AnimalCareIdentifier: () => R = () => R(AnimalCare)
@@ -259,6 +262,7 @@ export const PactTypeIdentifier: () => R = () => R(PactType)
 export const PatronCategoryIdentifier: () => R = () => R(PatronCategory)
 export const PatronIdentifier: () => R = () => R(Patron)
 export const PersonalityTraitIdentifier: () => R = () => R(PersonalityTrait)
+export const PlayerTypeIdentifier: () => R = () => R(PlayerType)
 export const PoisonIdentifier: () => R = () => R(Poison)
 export const ProfessionIdentifier: () => R = () => R(Profession)
 export const ProfessionPackageIdentifier: () => R = () => R(ProfessionPackage)

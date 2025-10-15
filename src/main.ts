@@ -76,7 +76,7 @@ import { Weapon } from "./types/equipment/item/Weapon.js"
 import { WeaponAccessory } from "./types/equipment/item/WeaponAccessory.js"
 import { ArmorType } from "./types/equipment/item/sub/ArmorType.js"
 import { Reach } from "./types/equipment/item/sub/Reach.js"
-import { ClothingPackage, Laboratory } from "./types/index.js"
+import { AlternativeRule, ClothingPackage, Laboratory, PlayerType } from "./types/index.js"
 import { AnimistPower } from "./types/magicalActions/AnimistPower.js"
 import { Tribe } from "./types/magicalActions/AnimistPower_Tribe.js"
 import { Curse } from "./types/magicalActions/Curse.js"
@@ -156,6 +156,7 @@ export const schema = Schema(
     AdvancedMagicalSpecialAbility,
     AdvancedSkillSpecialAbility,
     Advantage,
+    AlternativeRule,
     Ammunition,
     AncestorGlyph,
     AnimalCare,
@@ -257,6 +258,7 @@ export const schema = Schema(
     PatronCategory,
     Patron,
     PersonalityTrait,
+    PlayerType,
     Poison,
     Profession,
     Property,
