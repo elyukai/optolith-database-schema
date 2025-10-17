@@ -128,14 +128,14 @@ const DefiniteBookCostVariant = TypeAlias(import.meta.url, {
 })
 
 const IndefiniteBookCostVariant = TypeAlias(import.meta.url, {
-  name: "DefiniteBookCostVariant",
+  name: "IndefiniteBookCostVariant",
   comment:
     "An indefinite cost value for the book, which means it is impossible to narrow the range of the cost value by any numbers.",
   type: () =>
     Object({
       translations: NestedTranslationMap(
         Required,
-        "DefiniteBookCostVariant",
+        "IndefiniteBookCostVariant",
         Object({
           label: Optional({
             comment: "The label for the cost variant, e.g. “Original script”.",
