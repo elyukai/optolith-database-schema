@@ -4,7 +4,6 @@ import {
   Enum,
   EnumCase,
   IncludeIdentifier,
-  Integer,
   Object,
   Optional,
   Required,
@@ -78,12 +77,14 @@ export const Book = Entity(import.meta.url, {
 
 const BookCost = Enum(import.meta.url, {
   name: "BookCost",
+  comment:
+    "The cost of the book, which may be a single value or multiple values that are defined by specific editions or other defining factors of the book.",
   values: () => ({
-    Constant: EnumCase({
-      comment: "The book has a fixed cost.",
-      type: Integer({ minimum: 0 }),
+    Single: EnumCase({
+      comment: "The book only has a single cost description.",
+      type: IncludeIdentifier(Cost),
     }),
-    Variable: EnumCase({
+    Multiple: EnumCase({
       comment: "The book’s cost varies by edition or other factors.",
       type: Array(IncludeIdentifier(BookCostVariant), { minItems: 2 }),
     }),
