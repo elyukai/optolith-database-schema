@@ -40,11 +40,11 @@ import {
   WeaponIdentifier,
 } from "./_Identifier.js"
 import {
-  ActivatableIdentifier,
   AdvancedSpecialAbilityRestrictedOptionIdentifier,
   CombatRelatedSpecialAbilityIdentifier,
   CombatTechniqueIdentifier,
   NewSkillApplicationOrUseParentIdentifier,
+  SelectOptionParentIdentifier,
   VolumePointsOptionReferenceIdentifier,
 } from "./_IdentifierGroup.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
@@ -108,7 +108,7 @@ Note that this is only a full definition of options for simple logic that can be
   type: IncludeIdentifier(SelectOptions),
 })
 
-const ExplicitSelectOption = Enum(import.meta.url, {
+export const ExplicitSelectOption = Enum(import.meta.url, {
   name: "ExplicitSelectOption",
   values: () => ({
     General: EnumCase({ type: GeneralIdentifier() }),
@@ -124,7 +124,7 @@ export const GeneralSelectOption = Entity(import.meta.url, {
     Object({
       parent: Required({
         comment: "The entry that contains select option.",
-        type: IncludeIdentifier(ActivatableIdentifier),
+        type: IncludeIdentifier(SelectOptionParentIdentifier),
       }),
       profession_only: Optional({
         comment:

@@ -1,4 +1,5 @@
 import {
+  Array,
   Boolean,
   Entity,
   IncludeIdentifier,
@@ -7,7 +8,9 @@ import {
   Optional,
   Required,
   String,
+  TypeAlias,
 } from "tsondb/schema/def"
+import { ExplicitSelectOption } from "../../_Activatable.js"
 import { PlainGeneralPrerequisites } from "../../_Prerequisite.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
@@ -18,6 +21,12 @@ export const TradeSecret = Entity(import.meta.url, {
   namePlural: "TradeSecrets",
   type: () =>
     Object({
+      select_options: Optional({
+        comment: `Definitions for possible options for the activatable entry.
+
+      Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
+        type: IncludeIdentifier(TradeSecretSelectOptions),
+      }),
       ap_value: Optional({
         comment: "The trade secret’s adventure point value",
         type: Integer({ minimum: 1 }),
@@ -49,4 +58,21 @@ export const TradeSecret = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+})
+
+const TradeSecretSelectOptions = TypeAlias(import.meta.url, {
+  name: "TradeSecretSelectOptions",
+  comment: `Definitions for possible options for the activatable entry. They can either be derived from entry categories or be defined explicitly. Both can happen as well, but if there is an explicitly defined select option and a derived select option has the same identifier (which may only happen if skill or combat technique identifiers are used for explicit select options), the explicit definition overwrites the derived option.
+
+Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
+  type: () =>
+    Object(
+      {
+        explicit: Optional({
+          comment: `A list of explicit select options. If the identifier has a specific type, its entry is the base of this select option, where values defined here override values from the base. Define the \`src\` property if the options are not derived from the rules text of the advantage/disadvantage/special ability but instead are listed in a separate block and/or on a separate page.`,
+          type: Array(IncludeIdentifier(ExplicitSelectOption), { minItems: 1 }),
+        }),
+      },
+      { minProperties: 1 }
+    ),
 })
