@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.18.13](https://github.com/elyukai/optolith-database-schema/compare/v0.18.12...v0.18.13) (2025-10-17)
+
+
+### Features
+
+* add options for adventure point multiplier expression ([7898b2d](https://github.com/elyukai/optolith-database-schema/commit/7898b2da788e386e74f75b9883638026900b3e95))
+
 ## [0.18.12](https://github.com/elyukai/optolith-database-schema/compare/v0.18.11...v0.18.12) (2025-10-17)
 
 
