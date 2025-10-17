@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.18.11](https://github.com/elyukai/optolith-database-schema/compare/v0.18.10...v0.18.11) (2025-10-17)
+
+
+### Bug Fixes
+
+* duplicate DefiniteBookCostVariant identifier ([3735381](https://github.com/elyukai/optolith-database-schema/commit/373538121fecbae58dfb02d782d23bbdc9a17029))
+
 ## [0.18.10](https://github.com/elyukai/optolith-database-schema/compare/v0.18.9...v0.18.10) (2025-10-17)
 
 
