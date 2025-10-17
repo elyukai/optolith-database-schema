@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.18.10](https://github.com/elyukai/optolith-database-schema/compare/v0.18.9...v0.18.10) (2025-10-17)
+
+
+### Features
+
+* books may have multiple cost values dependending on the edition or other factors ([bd4507d](https://github.com/elyukai/optolith-database-schema/commit/bd4507d2507e01e363dad831a50f87e691ed6087))
+* trade secrets and activatable entries can have an adventure points value that is based on the number of active instances ([c575ec1](https://github.com/elyukai/optolith-database-schema/commit/c575ec11f7326902348956971bea73cf7e9b2cb9))
+* trade secrets can have explicit select options ([48e5d3f](https://github.com/elyukai/optolith-database-schema/commit/48e5d3f8c688733227a8de5cc629b3878f949fcf))
+
 ## [0.18.9](https://github.com/elyukai/optolith-database-schema/compare/v0.18.8...v0.18.9) (2025-10-15)
 
 
