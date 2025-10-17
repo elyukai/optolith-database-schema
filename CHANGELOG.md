@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.18.12](https://github.com/elyukai/optolith-database-schema/compare/v0.18.11...v0.18.12) (2025-10-17)
+
+
+### Bug Fixes
+
+* allow single range as a possible book cost value ([4e60943](https://github.com/elyukai/optolith-database-schema/commit/4e60943174213defe3ad006f64b18c359cc86469))
+
 ## [0.18.11](https://github.com/elyukai/optolith-database-schema/compare/v0.18.10...v0.18.11) (2025-10-17)
 
 
