@@ -2,15 +2,20 @@ import {
   Array,
   Boolean,
   Entity,
+  Enum,
+  EnumCase,
   IncludeIdentifier,
-  Integer,
   Object,
   Optional,
   Required,
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { ExplicitSelectOption } from "../../_Activatable.js"
+import {
+  AdventurePointsDependingOnActiveInstances,
+  ExplicitSelectOption,
+  FixedAdventurePointsValue,
+} from "../../_Activatable.js"
 import { PlainGeneralPrerequisites } from "../../_Prerequisite.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
@@ -27,9 +32,9 @@ export const TradeSecret = Entity(import.meta.url, {
       Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
         type: IncludeIdentifier(TradeSecretSelectOptions),
       }),
-      ap_value: Optional({
+      ap_value: Required({
         comment: "The trade secret’s adventure point value",
-        type: Integer({ minimum: 1 }),
+        type: IncludeIdentifier(TradeSecretAdventurePointsValue),
       }),
       is_secret_knowledge: Required({
         comment: "Is this trade secret considered secret knowledge?",
@@ -75,4 +80,14 @@ Note that this is only a full definition of options for simple logic that can be
       },
       { minProperties: 1 }
     ),
+})
+
+const TradeSecretAdventurePointsValue = Enum(import.meta.url, {
+  name: "TradeSecretAdventurePointsValue",
+  values: () => ({
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedAdventurePointsValue) }),
+    DependingOnActiveInstances: EnumCase({
+      type: IncludeIdentifier(AdventurePointsDependingOnActiveInstances),
+    }),
+  }),
 })

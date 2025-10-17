@@ -1691,6 +1691,9 @@ const AdventurePointsValue = Enum(import.meta.url, {
     DerivedFromSelection: EnumCase({
       type: IncludeIdentifier(AdventurePointsDerivedFromSelection),
     }),
+    DependingOnActiveInstances: EnumCase({
+      type: IncludeIdentifier(AdventurePointsDependingOnActiveInstances),
+    }),
     Indefinite: EnumCase({ type: null }),
   }),
 })
@@ -1712,7 +1715,7 @@ export const ap_value_append = Optional({
   type: String({ minLength: 1 }),
 })
 
-const FixedAdventurePointsValue = TypeAlias(import.meta.url, {
+export const FixedAdventurePointsValue = TypeAlias(import.meta.url, {
   name: "FixedAdventurePointsValue",
   comment:
     "A fixed adventure points value. If the entry has levels, this is the cost per level as well.",
@@ -1753,6 +1756,55 @@ const AdventurePointsSingleValue = TypeAlias(import.meta.url, {
   name: "AdventurePointsSingleValue",
   comment: "A single adventure points value.",
   type: () => Integer({ minimum: 0 }),
+})
+
+export const AdventurePointsDependingOnActiveInstances = Enum(import.meta.url, {
+  name: "AdventurePointsDependingOnActiveInstances",
+  comment:
+    "The adventure points cost depends on how many instances of the entry are already active.",
+  values: () => ({
+    Threshold: EnumCase({
+      type: IncludeIdentifier(AdventurePointsDependingOnActiveInstancesThreshold),
+    }),
+    Multiplier: EnumCase({
+      type: IncludeIdentifier(AdventurePointsDependingOnActiveInstancesMultiplier),
+    }),
+  }),
+})
+
+const AdventurePointsDependingOnActiveInstancesThreshold = TypeAlias(import.meta.url, {
+  name: "AdventurePointsDependingOnActiveInstancesThreshold",
+  comment:
+    "The adventure points cost depends on how many instances of the entry are already active.",
+  type: () =>
+    Object({
+      normal: Required({
+        comment: "The normal adventure points value.",
+        type: Integer({ minimum: 0 }),
+      }),
+      threshold: Required({
+        comment: "The number of active instances **after** which the alternative cost applies.",
+        type: Integer({ minimum: 1 }),
+      }),
+      alternative: Required({
+        comment: "The alternative adventure points value.",
+        type: Integer({ minimum: 0 }),
+      }),
+    }),
+})
+
+const AdventurePointsDependingOnActiveInstancesMultiplier = TypeAlias(import.meta.url, {
+  name: "AdventurePointsDependingOnActiveInstancesMultiplier",
+  comment:
+    "The adventure points cost depends on how many instances of the entry are already active.",
+  type: () =>
+    Object({
+      base: Required({
+        comment:
+          "The base adventure points value that is multiplied by `(number of active instances) + 1`.",
+        type: Integer({ minimum: 0 }),
+      }),
+    }),
 })
 
 export const input = Optional({
