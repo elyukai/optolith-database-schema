@@ -1801,10 +1801,31 @@ const AdventurePointsDependingOnActiveInstancesMultiplier = TypeAlias(import.met
     Object({
       base: Required({
         comment:
-          "The base adventure points value that is multiplied by `(number of active instances) + 1`.",
+          "The base adventure points value that is multiplied by the result of the selected expression.",
         type: Integer({ minimum: 0 }),
       }),
+      expression: Required({
+        comment: "The type of expression to use for calculating the multiplier.",
+        type: IncludeIdentifier(AdventurePointsDependingOnActiveInstancesMultiplierExpression),
+      }),
     }),
+})
+
+const AdventurePointsDependingOnActiveInstancesMultiplierExpression = Enum(import.meta.url, {
+  name: "AdventurePointsDependingOnActiveInstancesMultiplierExpression",
+  comment: `The type of expression to use for calculating the multiplier that is multiplied with the base value to get the final AP value.
+
+To keep the comments for each case easier to compare, the variable \`active\` is used for the number of active instances.`,
+  values: () => ({
+    Linear: EnumCase({
+      comment: "active − 1",
+      type: null,
+    }),
+    Exponentiation: EnumCase({
+      comment: "2^active^",
+      type: null,
+    }),
+  }),
 })
 
 export const input = Optional({
