@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.19.1](https://github.com/elyukai/optolith-database-schema/compare/v0.19.0...v0.19.1) (2025-10-27)
+
+
+### Bug Fixes
+
+* general special ability options and activatable instances in general should use child entity types instead of reference types ([5952ef2](https://github.com/elyukai/optolith-database-schema/commit/5952ef214d388e328b6a94364384eed712cefb13))
+
 ## [0.19.0](https://github.com/elyukai/optolith-database-schema/compare/v0.18.13...v0.19.0) (2025-10-27)
 
 
