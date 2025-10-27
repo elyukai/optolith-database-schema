@@ -47,6 +47,7 @@ import {
   SelectOptionParentIdentifier,
   VolumePointsOptionReferenceIdentifier,
 } from "./_IdentifierGroup.js"
+import { MathOperation } from "./_MathExpression.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
 import { ResponsiveText, ResponsiveTextOptional } from "./_ResponsiveText.js"
 import { DisplayOption } from "./prerequisites/DisplayOption.js"
@@ -1766,8 +1767,8 @@ export const AdventurePointsDependingOnActiveInstances = Enum(import.meta.url, {
     Threshold: EnumCase({
       type: IncludeIdentifier(AdventurePointsDependingOnActiveInstancesThreshold),
     }),
-    Multiplier: EnumCase({
-      type: IncludeIdentifier(AdventurePointsDependingOnActiveInstancesMultiplier),
+    Expression: EnumCase({
+      type: IncludeIdentifier(AdventurePointsDependingOnActiveInstancesExpression),
     }),
   }),
 })
@@ -1793,36 +1794,26 @@ const AdventurePointsDependingOnActiveInstancesThreshold = TypeAlias(import.meta
     }),
 })
 
-const AdventurePointsDependingOnActiveInstancesMultiplier = TypeAlias(import.meta.url, {
-  name: "AdventurePointsDependingOnActiveInstancesMultiplier",
+const AdventurePointsDependingOnActiveInstancesExpression = TypeAlias(import.meta.url, {
+  name: "AdventurePointsDependingOnActiveInstancesExpression",
   comment:
     "The adventure points cost depends on how many instances of the entry are already active.",
   type: () =>
-    Object({
-      base: Required({
-        comment:
-          "The base adventure points value that is multiplied by the result of the selected expression.",
-        type: Integer({ minimum: 0 }),
-      }),
-      expression: Required({
-        comment: "The type of expression to use for calculating the multiplier.",
-        type: IncludeIdentifier(AdventurePointsDependingOnActiveInstancesMultiplierExpression),
-      }),
-    }),
+    GenIncludeIdentifier(MathOperation, [
+      IncludeIdentifier(AdventurePointsDependingOnActiveInstancesExpressionValue),
+    ]),
 })
 
-const AdventurePointsDependingOnActiveInstancesMultiplierExpression = Enum(import.meta.url, {
-  name: "AdventurePointsDependingOnActiveInstancesMultiplierExpression",
-  comment: `The type of expression to use for calculating the multiplier that is multiplied with the base value to get the final AP value.
-
-To keep the comments for each case easier to compare, the variable \`active\` is used for the number of active instances.`,
+const AdventurePointsDependingOnActiveInstancesExpressionValue = Enum(import.meta.url, {
+  name: "AdventurePointsDependingOnActiveInstancesExpressionValue",
+  comment: `The type of value allowed in the expression to calculate the AP value.`,
   values: () => ({
-    Linear: EnumCase({
-      comment: "active − 1",
-      type: null,
+    Constant: EnumCase({
+      comment: "A constant integer value.",
+      type: Integer(),
     }),
-    Exponentiation: EnumCase({
-      comment: "2^active^",
+    Active: EnumCase({
+      comment: "The number of active instances.",
       type: null,
     }),
   }),
