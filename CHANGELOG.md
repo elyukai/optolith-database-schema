@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.19.0](https://github.com/elyukai/optolith-database-schema/compare/v0.18.13...v0.19.0) (2025-10-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* combineable binary math operators to specific adventure points value by active instances instead of fixed functions
+
+### Features
+
+* combineable binary math operators to specific adventure points value by active instances instead of fixed functions ([f11c1e1](https://github.com/elyukai/optolith-database-schema/commit/f11c1e1e07318ed5836d9964f3658335bf07d072))
+
 ## [0.18.13](https://github.com/elyukai/optolith-database-schema/compare/v0.18.12...v0.18.13) (2025-10-17)
 
 
