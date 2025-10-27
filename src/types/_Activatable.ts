@@ -5,6 +5,7 @@
 import {
   Array,
   Boolean,
+  ChildEntities,
   Entity,
   Enum,
   EnumCase,
@@ -30,13 +31,11 @@ import {
   CloseCombatTechniqueIdentifier,
   GeneralIdentifier,
   MagicalTraditionIdentifier,
-  NewSkillApplicationIdentifier,
   PatronIdentifier,
   PropertyIdentifier,
   RaceIdentifier,
   RangedCombatTechniqueIdentifier,
   SkillIdentifier,
-  SkillUseIdentifier,
   WeaponIdentifier,
 } from "./_Identifier.js"
 import {
@@ -132,15 +131,15 @@ export const GeneralSelectOption = Entity(import.meta.url, {
           "Sometimes, professions use specific text selections that are not contained in described lists. This ensures you can use them for professions only. They are not going to be displayed as options to the user.",
         type: Boolean(),
       }),
-      skill_applications: Optional({
+      skill_applications: Required({
         comment:
           "Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
-        type: IncludeIdentifier(NewSkillApplications),
+        type: ChildEntities(NewSkillApplication),
       }),
-      skill_uses: Optional({
+      skill_uses: Required({
         comment:
           "Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
-        type: IncludeIdentifier(SkillUses),
+        type: ChildEntities(SkillUse),
       }),
       prerequisites: Optional({
         comment: "Prerequisites for the select option.",
@@ -201,16 +200,6 @@ const ExplicitSkillSelectOption = TypeAlias(import.meta.url, {
       id: Required({
         comment: "The skill’s identifier.",
         type: SkillIdentifier(),
-      }),
-      skill_applications: Optional({
-        comment:
-          "Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
-        type: IncludeIdentifier(NewSkillApplications),
-      }),
-      skill_uses: Optional({
-        comment:
-          "Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
-        type: IncludeIdentifier(SkillUses),
       }),
       prerequisites: Optional({
         comment: "Prerequisites for the select option.",
@@ -437,19 +426,6 @@ export const type = Required({
   type: IncludeIdentifier(CombatSpecialAbilityType),
 })
 
-const NewSkillApplications = TypeAlias(import.meta.url, {
-  name: "NewSkillApplications",
-  comment:
-    "Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
-  type: () => Array(NewSkillApplicationIdentifier(), { minItems: 1 }),
-})
-
-export const skill_applications = Optional({
-  comment:
-    "Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
-  type: IncludeIdentifier(NewSkillApplications),
-})
-
 export const NewSkillApplication = Entity(import.meta.url, {
   name: "NewSkillApplication",
   namePlural: "NewSkillApplications",
@@ -495,6 +471,12 @@ export const NewSkillApplication = Entity(import.meta.url, {
     }`,
     localeId: instanceDisplayNameLocaleId,
   }),
+})
+
+export const skill_applications = Required({
+  comment:
+    "Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
+  type: ChildEntities(NewSkillApplication),
 })
 
 export const SkillUse = Entity(import.meta.url, {
@@ -544,17 +526,10 @@ export const SkillUse = Entity(import.meta.url, {
   }),
 })
 
-const SkillUses = TypeAlias(import.meta.url, {
-  name: "SkillUses",
+export const skill_uses = Required({
   comment:
     "Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
-  type: () => Array(SkillUseIdentifier(), { minItems: 1 }),
-})
-
-export const skill_uses = Optional({
-  comment:
-    "Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
-  type: IncludeIdentifier(SkillUses),
+  type: ChildEntities(SkillUse),
 })
 
 const Penalty = Enum(import.meta.url, {
