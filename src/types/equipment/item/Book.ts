@@ -206,7 +206,7 @@ const IndefiniteBookCostVariant = TypeAlias(import.meta.url, {
             type: String({ minLength: 1, isMarkdown: true }),
           }),
           description: Required({
-            comment: "The description of the cost variant, e.g. “Original script”.",
+            comment: "The description of the cost variant, e.g. “less”.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
         })
