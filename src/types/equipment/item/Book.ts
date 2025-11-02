@@ -10,6 +10,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
+import { SkillIdentifier } from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
@@ -20,9 +21,9 @@ export const Book = Entity(import.meta.url, {
   namePlural: "Books",
   type: () =>
     Object({
-      category: Required({
-        comment: "The category of the book.",
-        type: IncludeIdentifier(BookCategory),
+      types: Required({
+        comment: "The type of book.",
+        type: Array(IncludeIdentifier(BookType), { minItems: 1, uniqueItems: true }),
       }),
       cost: Required({
         comment: "The cost in silverthalers.",
@@ -79,17 +80,13 @@ export const Book = Entity(import.meta.url, {
   displayName: {},
 })
 
-const BookCategory = Enum(import.meta.url, {
-  name: "BookCategory",
-  comment: "The category of the book.",
+const BookType = Enum(import.meta.url, {
+  name: "BookType",
+  comment: "The type of book.",
   values: () => ({
-    MundaneWithoutRules: EnumCase({
+    Mundane: EnumCase({
       comment: "A mundane book without special rules.",
-      type: null,
-    }),
-    MundaneWithRules: EnumCase({
-      comment: "A mundane book with special rules.",
-      type: null,
+      type: IncludeIdentifier(MundaneBookType),
     }),
     Magical: EnumCase({
       comment: "A magical book.",
@@ -98,6 +95,42 @@ const BookCategory = Enum(import.meta.url, {
     Religious: EnumCase({
       comment: "A religious book.",
       type: null,
+    }),
+  }),
+})
+
+const MundaneBookType = Enum(import.meta.url, {
+  name: "MundaneBookType",
+  comment: "The type of mundane book, i.e. the type of writing it contains.",
+  values: () => ({
+    RomanceNovel: EnumCase({
+      comment: "A romance novel.",
+      type: null,
+    }),
+    Poetry: EnumCase({
+      comment: "A piece of poetry.",
+      type: null,
+    }),
+    PoliticalPamphlet: EnumCase({
+      comment: "A political pamphlet.",
+      type: null,
+    }),
+    CrimeStory: EnumCase({
+      comment: "A crime story.",
+      type: null,
+    }),
+    FairyTale: EnumCase({
+      comment: "A fairy tale.",
+      type: null,
+    }),
+    Novel: EnumCase({
+      comment: "A novel.",
+      type: null,
+    }),
+    ProfessionalPublication: EnumCase({
+      comment:
+        "A professional publication about a specific topic, represented by a (knowledge) skill.",
+      type: SkillIdentifier(),
     }),
   }),
 })
