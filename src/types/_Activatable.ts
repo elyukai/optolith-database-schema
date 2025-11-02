@@ -186,9 +186,9 @@ export const GeneralSelectOption = Entity(import.meta.url, {
     instanceDisplayNameLocaleId,
     getDisplayNameForInstanceId,
   }) => ({
-    name: `${getDisplayNameForInstanceId(
-      (instance as any).parent[(instance as any).parent.kind]
-    )} — ${instanceDisplayName}`,
+    name: `${
+      getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])?.name
+    } — ${instanceDisplayName}`,
     localeId: instanceDisplayNameLocaleId,
   }),
 })
