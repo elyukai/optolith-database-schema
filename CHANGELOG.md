@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.20.0](https://github.com/elyukai/optolith-database-schema/compare/v0.19.1...v0.20.0) (2025-11-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* align book type/category with official sources
+* use book cost variant with single single costs as well to enable label usage
+
+### Features
+
+* add book category ([b3a88fa](https://github.com/elyukai/optolith-database-schema/commit/b3a88fa9ea417930c4c5249869f4153404570393))
+
+
+### Bug Fixes
+
+* align book type/category with official sources ([b89bda8](https://github.com/elyukai/optolith-database-schema/commit/b89bda8e670d1a46d6a5ea2f094401e458ce62f7))
+* general select option display name customizer ([47b308b](https://github.com/elyukai/optolith-database-schema/commit/47b308b4b93deabb83aaec11b4036b9a70350a83))
+* make definite book cost variant translations optional if label is not used ([79c4daa](https://github.com/elyukai/optolith-database-schema/commit/79c4daa3d50aa3468f0c72ef6a5736779c421039))
+* use book cost variant with single single costs as well to enable label usage ([e3f9138](https://github.com/elyukai/optolith-database-schema/commit/e3f91381fe6d93525366e15c3d4073cda90821b8))
+
 ## [0.19.1](https://github.com/elyukai/optolith-database-schema/compare/v0.19.0...v0.19.1) (2025-10-27)
 
 
