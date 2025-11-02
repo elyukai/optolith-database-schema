@@ -176,14 +176,17 @@ const DefiniteBookCostVariant = TypeAlias(import.meta.url, {
         type: IncludeIdentifier(Cost),
       }),
       translations: NestedTranslationMap(
-        Required,
+        Optional,
         "DefiniteBookCostVariant",
-        Object({
-          label: Optional({
-            comment: "The label for the cost variant, e.g. “Original script”.",
-            type: String({ minLength: 1, isMarkdown: true }),
-          }),
-        })
+        Object(
+          {
+            label: Optional({
+              comment: "The label for the cost variant, e.g. “Original script”.",
+              type: String({ minLength: 1, isMarkdown: true }),
+            }),
+          },
+          { minProperties: 1 }
+        )
       ),
     }),
 })
