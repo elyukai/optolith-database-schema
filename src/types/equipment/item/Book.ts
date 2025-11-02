@@ -109,7 +109,7 @@ const BookCost = Enum(import.meta.url, {
   values: () => ({
     Single: EnumCase({
       comment: "The book only has a single cost description.",
-      type: IncludeIdentifier(Cost),
+      type: IncludeIdentifier(BookCostVariant),
     }),
     Multiple: EnumCase({
       comment: "The book’s cost varies by edition or other factors.",
