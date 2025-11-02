@@ -20,6 +20,10 @@ export const Book = Entity(import.meta.url, {
   namePlural: "Books",
   type: () =>
     Object({
+      category: Required({
+        comment: "The category of the book.",
+        type: IncludeIdentifier(BookCategory),
+      }),
       cost: Required({
         comment: "The cost in silverthalers.",
         type: IncludeIdentifier(BookCost),
@@ -73,6 +77,29 @@ export const Book = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+})
+
+const BookCategory = Enum(import.meta.url, {
+  name: "BookCategory",
+  comment: "The category of the book.",
+  values: () => ({
+    MundaneWithoutRules: EnumCase({
+      comment: "A mundane book without special rules.",
+      type: null,
+    }),
+    MundaneWithRules: EnumCase({
+      comment: "A mundane book with special rules.",
+      type: null,
+    }),
+    Magical: EnumCase({
+      comment: "A magical book.",
+      type: null,
+    }),
+    Religious: EnumCase({
+      comment: "A religious book.",
+      type: null,
+    }),
+  }),
 })
 
 const BookCost = Enum(import.meta.url, {
