@@ -76,7 +76,13 @@ import { Weapon } from "./types/equipment/item/Weapon.js"
 import { WeaponAccessory } from "./types/equipment/item/WeaponAccessory.js"
 import { ArmorType } from "./types/equipment/item/sub/ArmorType.js"
 import { Reach } from "./types/equipment/item/sub/Reach.js"
-import { AlternativeRule, ClothingPackage, Laboratory, PlayerType } from "./types/index.js"
+import {
+  AlternativeRule,
+  ClothingPackage,
+  Laboratory,
+  Newspaper,
+  PlayerType,
+} from "./types/index.js"
 import { AnimistPower } from "./types/magicalActions/AnimistPower.js"
 import { Tribe } from "./types/magicalActions/AnimistPower_Tribe.js"
 import { Curse } from "./types/magicalActions/Curse.js"
@@ -250,6 +256,7 @@ export const schema = Schema(
     MagicStyleSpecialAbility,
     MetaCondition,
     MusicalInstrument,
+    Newspaper,
     OptionalRule,
     OrbEnchantment,
     OrienteeringAid,

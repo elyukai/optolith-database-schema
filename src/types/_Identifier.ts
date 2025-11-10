@@ -39,6 +39,7 @@ import { Liebesspielzeug } from "./equipment/item/Liebesspielzeug.js"
 import { LuxuryGood } from "./equipment/item/LuxuryGood.js"
 import { MagicalArtifact } from "./equipment/item/MagicalArtifact.js"
 import { MusicalInstrument } from "./equipment/item/MusicalInstrument.js"
+import { Newspaper } from "./equipment/item/Newspaper.js"
 import { OrienteeringAid } from "./equipment/item/OrienteeringAid.js"
 import { Poison } from "./equipment/item/Poison.js"
 import { RopeOrChain } from "./equipment/item/RopeOrChain.js"
@@ -252,6 +253,7 @@ export const MagicalSpecialAbilityIdentifier: () => R = () => R(MagicalSpecialAb
 export const MagicalTraditionIdentifier: () => R = () => R(MagicalTradition)
 export const MagicStyleSpecialAbilityIdentifier: () => R = () => R(MagicStyleSpecialAbility)
 export const MusicalInstrumentIdentifier: () => R = () => R(MusicalInstrument)
+export const NewspaperIdentifier: () => R = () => R(Newspaper)
 export const OptionalRuleIdentifier: () => R = () => R(OptionalRule)
 export const OrbEnchantmentIdentifier: () => R = () => R(OrbEnchantment)
 export const OrienteeringAidIdentifier: () => R = () => R(OrienteeringAid)
