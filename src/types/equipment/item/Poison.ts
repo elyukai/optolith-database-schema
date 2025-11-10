@@ -251,7 +251,33 @@ const AnimalVenomLevel = Enum(import.meta.url, {
   values: () => ({
     QualityLevel: EnumCase({ type: null }),
     Constant: EnumCase({ type: Integer({ minimum: 1, maximum: 6 }) }),
+    BySubtype: EnumCase({ type: IncludeIdentifier(AnimalVenomLevelBySubType) }),
   }),
+})
+
+const AnimalVenomLevelBySubType = TypeAlias(import.meta.url, {
+  name: "AnimalVenomLevelBySubType",
+  type: () =>
+    Array(
+      Object({
+        value: Required({
+          comment: "The poison’s level.",
+          type: Integer({ minimum: 1, maximum: 6 }),
+        }),
+        translations: NestedTranslationMap(
+          Required,
+          "AnimalVenomLevelBySubType",
+          Object({
+            name: Required({
+              comment:
+                "The subtype name. If there are multiple subtypes with the same level, specify them separately.",
+              type: String({ minLength: 1 }),
+            }),
+          })
+        ),
+      }),
+      { minItems: 1 }
+    ),
 })
 
 export const AlchemicalPoison = TypeAlias(import.meta.url, {
