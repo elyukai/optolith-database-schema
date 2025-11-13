@@ -15,7 +15,7 @@ export const Newspaper = Entity(import.meta.url, {
       src,
       translations: NestedTranslationMap(
         Required,
-        "Book",
+        "Newspaper",
         Object({
           name: Required({
             comment: "The newspaper’s name.",
