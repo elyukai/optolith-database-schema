@@ -111,6 +111,11 @@ export const MagicalTradition = Entity(import.meta.url, {
               "The special rules of the tradition. They should be sorted like they are in the book.",
             type: Array(IncludeIdentifier(SpecialRule), { minItems: 1 }),
           }),
+          supplemental_content: Optional({
+            comment:
+              "Supplemental content for the tradition, such as additional information or clarifications.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
           ap_value_append,
           ap_value: ap_value_l10n,
           errata: Optional({
