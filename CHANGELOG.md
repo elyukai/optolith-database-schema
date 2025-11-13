@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.20.2](https://github.com/elyukai/optolith-database-schema/compare/v0.20.1...v0.20.2) (2025-11-13)
+
+
+### Bug Fixes
+
+* wrong newspaper translation name ([278f214](https://github.com/elyukai/optolith-database-schema/commit/278f21449836143440d485ba350a8e60748fc3f1))
+
 ## [0.20.1](https://github.com/elyukai/optolith-database-schema/compare/v0.20.0...v0.20.1) (2025-11-13)
 
 
