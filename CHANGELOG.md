@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.20.1](https://github.com/elyukai/optolith-database-schema/compare/v0.20.0...v0.20.1) (2025-11-13)
+
+
+### Features
+
+* add "various" case to armor complexity ([23d4294](https://github.com/elyukai/optolith-database-schema/commit/23d429466ac6eb34c8086c63abde93bfec5d354d)), closes [#21](https://github.com/elyukai/optolith-database-schema/issues/21)
+* add newspaper entity ([6503ac1](https://github.com/elyukai/optolith-database-schema/commit/6503ac161b00c980695ea94a87d27ebbfcef7674)), closes [#40](https://github.com/elyukai/optolith-database-schema/issues/40)
+* add supplemental content option to magical traditions to enable trailing tables ([2348130](https://github.com/elyukai/optolith-database-schema/commit/2348130ce28e6ddde64ff6304ae04d01a00573c8)), closes [elyukai/optolith-data#791](https://github.com/elyukai/optolith-data/issues/791)
+* animal poison level may depend on the subtype of animal ([a2fb493](https://github.com/elyukai/optolith-database-schema/commit/a2fb493d251d733c13b1d22034c9b8e917e67d68)), closes [#38](https://github.com/elyukai/optolith-database-schema/issues/38)
+
 ## [0.20.0](https://github.com/elyukai/optolith-database-schema/compare/v0.19.1...v0.20.0) (2025-11-02)
 
 
