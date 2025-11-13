@@ -180,7 +180,7 @@ export const Complexity = Enum(import.meta.url, {
   }),
 })
 
-const ComplexComplexity = TypeAlias(import.meta.url, {
+export const ComplexComplexity = TypeAlias(import.meta.url, {
   name: "ComplexComplexity",
   type: () =>
     Object({

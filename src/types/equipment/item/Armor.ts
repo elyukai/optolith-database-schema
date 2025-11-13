@@ -16,7 +16,7 @@ import { ArmorIdentifier, ArmorTypeIdentifier } from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
-import { Complexity, Cost, Weight } from "./_Item.js"
+import { ComplexComplexity, Cost, Weight } from "./_Item.js"
 
 export const Armor = Entity(import.meta.url, {
   name: "Armor",
@@ -33,7 +33,7 @@ export const Armor = Entity(import.meta.url, {
       }),
       complexity: Optional({
         comment: "The complexity of crafting the item.",
-        type: IncludeIdentifier(Complexity),
+        type: IncludeIdentifier(ArmorComplexity),
       }),
       protection: Required({
         comment: "The PRO value.",
@@ -135,6 +135,17 @@ export const SecondaryArmor = TypeAlias(import.meta.url, {
         )
       ),
     }),
+})
+
+const ArmorComplexity = Enum(import.meta.url, {
+  name: "ArmorComplexity",
+  comment: "The complexity of crafting the armor.",
+  values: () => ({
+    Primitive: EnumCase({ type: null }),
+    Simple: EnumCase({ type: null }),
+    Complex: EnumCase({ type: IncludeIdentifier(ComplexComplexity) }),
+    Various: EnumCase({ type: null }),
+  }),
 })
 
 export const Protection = TypeAlias(import.meta.url, {
