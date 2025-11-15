@@ -9,6 +9,7 @@
     "dasschwarzeauge"
   ],
   "files": [
+    "gen",
     "lib",
     "schema",
     "AUTHORS",
@@ -17,6 +18,7 @@
   "main": "./lib/main.js",
   "exports": {
     ".": "./lib/main.js",
+    "./gen": "./gen/types.d.ts",
     "./errors": "./lib/errors.js",
     "./cache/*": "./lib/cache/*.js",
     "./config/*": "./lib/config/*.js",
@@ -26,6 +28,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "generate": "tsondb generate",
     "watch": "tsc -w",
     "test": "node ./lib/test.js",
     "release": "commit-and-tag-version",
@@ -35,7 +38,7 @@
   "license": "MPL-2.0",
   "dependencies": {
     "@optolith/helpers": "^0.2.2",
-    "tsondb": "^0.11.0",
+    "tsondb": "^0.12.0",
     "yaml": "^2.8.1"
   },
   "devDependencies": {
