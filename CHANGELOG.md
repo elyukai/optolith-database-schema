@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.20.4](https://github.com/elyukai/optolith-database-schema/compare/v0.20.3...v0.20.4) (2025-11-15)
+
+
+### Features
+
+* generated typescript typings ([ace11a4](https://github.com/elyukai/optolith-database-schema/commit/ace11a4eea93665decc0070267e9a873aa856734))
+
 ## [0.20.3](https://github.com/elyukai/optolith-database-schema/compare/v0.20.2...v0.20.3) (2025-11-14)
 
 
