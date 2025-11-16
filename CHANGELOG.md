@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.20.6](https://github.com/elyukai/optolith-database-schema/compare/v0.20.5...v0.20.6) (2025-11-16)
+
+
+### Features
+
+* focus rules and optional rules can require other focus rules or optional rules to be active ([797825b](https://github.com/elyukai/optolith-database-schema/commit/797825b6da46517b1f7a9e2f00f34b21c8bae15d))
+
 ## [0.20.5](https://github.com/elyukai/optolith-database-schema/compare/v0.20.4...v0.20.5) (2025-11-15)
 
 
