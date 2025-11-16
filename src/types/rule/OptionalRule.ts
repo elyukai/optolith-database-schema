@@ -7,6 +7,7 @@ import {
   Required,
   String,
 } from "tsondb/schema/def"
+import { RulePrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
@@ -20,6 +21,9 @@ export const OptionalRule = Entity(import.meta.url, {
         comment:
           "Has the optional rule not been implemented in Optolith yet? This is also true if the optional rule does not (currently) apply to any Optolith feature.",
         type: Boolean(),
+      }),
+      prerequisites: Optional({
+        type: IncludeIdentifier(RulePrerequisites),
       }),
       src,
       translations: NestedTranslationMap(

@@ -23,6 +23,13 @@ import {
   MagicalTraditionPrerequisite,
 } from "./single/TraditionPrerequisite.js"
 
+export const RulePrerequisiteGroup = Enum(import.meta.url, {
+  name: "RulePrerequisiteGroup",
+  values: () => ({
+    Rule: EnumCase({ type: IncludeIdentifier(RulePrerequisite) }),
+  }),
+})
+
 export const DerivedCharacteristicPrerequisiteGroup = Enum(import.meta.url, {
   name: "DerivedCharacteristicPrerequisiteGroup",
   values: () => ({

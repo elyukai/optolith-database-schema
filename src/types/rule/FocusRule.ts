@@ -9,6 +9,7 @@ import {
   String,
 } from "tsondb/schema/def"
 import { SubjectIdentifier } from "../_Identifier.js"
+import { RulePrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
@@ -30,6 +31,9 @@ export const FocusRule = Entity(import.meta.url, {
         comment:
           "Has the focus rule not been implemented in Optolith yet? This is also true if the focus rule does not (currently) apply to any Optolith feature.",
         type: Boolean(),
+      }),
+      prerequisites: Optional({
+        type: IncludeIdentifier(RulePrerequisites),
       }),
       src,
       translations: NestedTranslationMap(

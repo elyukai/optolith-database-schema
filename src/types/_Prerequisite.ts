@@ -34,6 +34,7 @@ import {
   PersonalityTraitPrerequisiteGroup,
   ProfessionPrerequisiteGroup,
   PublicationPrerequisiteGroup,
+  RulePrerequisiteGroup,
   SpellworkPrerequisiteGroup,
 } from "./prerequisites/PrerequisiteGroups.js"
 
@@ -116,6 +117,11 @@ const PrerequisitesForLevels = GenTypeAlias(import.meta.url, {
     Array(GenIncludeIdentifier(PrerequisiteForLevel, [TypeArgument(T)]), {
       minItems: 1,
     }),
+})
+
+export const RulePrerequisites = TypeAlias(import.meta.url, {
+  name: "RulePrerequisites",
+  type: () => GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(RulePrerequisiteGroup)]),
 })
 
 export const DerivedCharacteristicPrerequisites = TypeAlias(import.meta.url, {
