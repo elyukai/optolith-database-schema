@@ -4,6 +4,7 @@ import {
   ap_value,
   ap_value_append,
   ap_value_l10n,
+  explicit_select_options,
   levels,
   maximum,
   name,
@@ -24,6 +25,7 @@ export const SkillStyleSpecialAbility = Entity(import.meta.url, {
     Object({
       levels,
       select_options,
+      explicit_select_options,
       maximum,
       advanced: advanced(AdvancedSkillSpecialAbilityIdentifier()),
       prerequisites: Optional({

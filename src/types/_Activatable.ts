@@ -92,17 +92,13 @@ Note that this is only a full definition of options for simple logic that can be
           comment: `An entry category with optional further configuration. All available entries from the specified categories will be included as separate select options. You can also specify a set of groups that should only be included. Groups not mentioned will be excluded then.`,
           type: IncludeIdentifier(SelectOptionCategory),
         }),
-        explicit: Optional({
-          comment: `A list of explicit select options. If the identifier has a specific type, its entry is the base of this select option, where values defined here override values from the base. Define the \`src\` property if the options are not derived from the rules text of the advantage/disadvantage/special ability but instead are listed in a separate block and/or on a separate page.`,
-          type: Array(IncludeIdentifier(ExplicitSelectOption), { minItems: 1 }),
-        }),
       },
       { minProperties: 1 }
     ),
 })
 
 export const select_options = Optional({
-  comment: `Definitions for possible options for the activatable entry. They can either be derived from entry categories or be defined explicitly. Both can happen as well, but if there is an explicitly defined select option and a derived select option has the same identifier (which may only happen if skill or combat technique identifiers are used for explicit select options), the explicit definition overwrites the derived option.
+  comment: `Definitions for possible options for the activatable entry, derived from entry categories.
 
 Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
   type: IncludeIdentifier(SelectOptions),
@@ -191,6 +187,13 @@ export const GeneralSelectOption = Entity(import.meta.url, {
     } — ${instanceDisplayName}`,
     localeId: instanceDisplayNameLocaleId,
   }),
+})
+
+export const explicit_select_options = Required({
+  comment: `Explicit definitions for possible options for the activatable entry.
+
+Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
+  type: ChildEntities(GeneralSelectOption),
 })
 
 const ExplicitSkillSelectOption = TypeAlias(import.meta.url, {

@@ -16,6 +16,7 @@ import {
   ap_value_append,
   ap_value_l10n,
   effect,
+  explicit_select_options,
   levels,
   maximum,
   name,
@@ -35,6 +36,7 @@ export const PactGift = Entity(import.meta.url, {
     Object({
       levels,
       select_options,
+      explicit_select_options,
       maximum,
       permanent_demonic_consumption: Optional({
         comment: "This pact gift gives permanent levels of the condition *Demonic Consumption*.",

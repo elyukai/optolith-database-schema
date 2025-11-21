@@ -4,6 +4,7 @@ import {
   ap_value_append,
   ap_value_l10n,
   combat_techniques,
+  explicit_select_options,
   levels,
   maximum,
   name,
@@ -25,6 +26,7 @@ export const BrawlingSpecialAbility = Entity(import.meta.url, {
       levels,
       usage_type,
       select_options,
+      explicit_select_options,
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),

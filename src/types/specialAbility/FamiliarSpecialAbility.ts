@@ -4,6 +4,7 @@ import {
   ap_value_append,
   ap_value_l10n,
   effect,
+  explicit_select_options,
   levels,
   maximum,
   name,
@@ -22,6 +23,7 @@ export const FamiliarSpecialAbility = Entity(import.meta.url, {
     Object({
       levels,
       select_options,
+      explicit_select_options,
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),

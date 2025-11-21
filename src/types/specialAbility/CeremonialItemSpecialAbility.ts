@@ -5,6 +5,7 @@ import {
   ap_value_l10n,
   aspectOptional,
   effect,
+  explicit_select_options,
   levels,
   maximum,
   name,
@@ -25,6 +26,7 @@ export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
     Object({
       levels,
       select_options,
+      explicit_select_options,
       skill_applications,
       skill_uses,
       maximum,

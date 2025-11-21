@@ -16,6 +16,7 @@ import {
   ap_value,
   ap_value_append,
   ap_value_l10n,
+  explicit_select_options,
   name,
   name_in_library,
   select_options,
@@ -41,6 +42,7 @@ export const BlessedTradition = Entity(import.meta.url, {
   type: () =>
     Object({
       select_options,
+      explicit_select_options,
       skill_applications,
       skill_uses,
       primary: Optional({

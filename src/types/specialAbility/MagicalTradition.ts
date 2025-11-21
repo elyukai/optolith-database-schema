@@ -14,6 +14,7 @@ import {
   ap_value,
   ap_value_append,
   ap_value_l10n,
+  explicit_select_options,
   levels,
   name,
   name_in_library,
@@ -39,6 +40,7 @@ export const MagicalTradition = Entity(import.meta.url, {
     Object({
       levels,
       select_options,
+      explicit_select_options,
       skill_applications,
       skill_uses,
       primary: Optional({

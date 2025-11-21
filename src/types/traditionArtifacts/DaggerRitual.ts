@@ -18,6 +18,7 @@ import {
   BindingCost,
   bindingCost,
   effect,
+  explicit_select_options,
   levels,
   maximum,
   name,
@@ -39,6 +40,7 @@ export const DaggerRitual = Entity(import.meta.url, {
     Object({
       levels,
       select_options,
+      explicit_select_options,
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
