@@ -36,6 +36,7 @@ import {
   PublicationPrerequisiteGroup,
   RulePrerequisiteGroup,
   SpellworkPrerequisiteGroup,
+  TribePrerequisiteGroup,
 } from "./prerequisites/PrerequisiteGroups.js"
 
 const PrerequisiteGroup = GenTypeAlias(import.meta.url, {
@@ -206,6 +207,11 @@ export const AnimistPowerPrerequisites = TypeAlias(import.meta.url, {
   name: "AnimistPowerPrerequisites",
   type: () =>
     GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(AnimistPowerPrerequisiteGroup)]),
+})
+
+export const TribePrerequisites = TypeAlias(import.meta.url, {
+  name: "TribePrerequisites",
+  type: () => GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(TribePrerequisiteGroup)]),
 })
 
 export const GeodeRitualPrerequisites = TypeAlias(import.meta.url, {

@@ -14,10 +14,10 @@ import {
 import {
   AdvantageIdentifier,
   AttributeIdentifier,
-  CultureIdentifier,
   DisadvantageIdentifier,
   PatronCategoryIdentifier,
   SkillIdentifier,
+  TribeIdentifier,
 } from "./_Identifier.js"
 import { SpellworkIdentifier } from "./_IdentifierGroup.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
@@ -96,11 +96,9 @@ const PatronCulture = TypeAlias(import.meta.url, {
   type: () =>
     Object({
       set: Required({
-        comment: "The AE cost value.",
-        type: Array(CultureIdentifier(), { uniqueItems: true }),
+        type: Array(TribeIdentifier(), { uniqueItems: true }),
       }),
       operation: Optional({
-        comment: "The interval in which you have to pay the AE cost again.",
         type: IncludeIdentifier(PatronCultureOperation),
       }),
     }),

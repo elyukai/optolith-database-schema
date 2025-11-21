@@ -163,6 +163,14 @@ export const AnimistPowerPrerequisiteGroup = Enum(import.meta.url, {
   }),
 })
 
+export const TribePrerequisiteGroup = Enum(import.meta.url, {
+  name: "TribePrerequisiteGroup",
+  values: () => ({
+    Race: EnumCase({ type: IncludeIdentifier(RacePrerequisite) }),
+    Culture: EnumCase({ type: IncludeIdentifier(CulturePrerequisite) }),
+  }),
+})
+
 export const GeodeRitualPrerequisiteGroup = Enum(import.meta.url, {
   name: "GeodeRitualPrerequisiteGroup",
   values: () => ({
