@@ -131,7 +131,7 @@ const CommonCantripTraditionNote = TypeAlias(import.meta.url, {
         type: MagicalTraditionIdentifier(),
       }),
       translations: NestedTranslationMap(
-        Required,
+        Optional,
         "CommonCantripTraditionNote",
         Object({
           note: Required({
