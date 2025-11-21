@@ -118,6 +118,7 @@ export const ArcaneTraditionPrerequisiteGroup = Enum(import.meta.url, {
 export const PersonalityTraitPrerequisiteGroup = Enum(import.meta.url, {
   name: "PersonalityTraitPrerequisiteGroup",
   values: () => ({
+    Race: EnumCase({ type: IncludeIdentifier(RacePrerequisite) }),
     Culture: EnumCase({ type: IncludeIdentifier(CulturePrerequisite) }),
     Text: EnumCase({ type: IncludeIdentifier(TextPrerequisite) }),
   }),
