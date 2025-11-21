@@ -243,6 +243,10 @@ export const AnimalVenom = TypeAlias(import.meta.url, {
         comment: "If `false`, the poison cannot be extracted.",
         type: Boolean(),
       }),
+      trade_secret: Optional({
+        comment: "AP value and prerequisites of the poison’s trade secret.",
+        type: IncludeIdentifier(RecipeTradeSecret),
+      }),
     }),
 })
 
