@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.21.0](https://github.com/elyukai/optolith-database-schema/compare/v0.20.6...v0.21.0) (2025-11-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* patrons also work with tribes instead of plain cultures to align with animist powers
+
+### Features
+
+* allow race prerequisite for personality traits ([146723c](https://github.com/elyukai/optolith-database-schema/commit/146723c3e7f91e8c4b4e63b61df95c5a497ea117)), closes [#45](https://github.com/elyukai/optolith-database-schema/issues/45)
+* allow trade secret for animal poisons ([8d14f89](https://github.com/elyukai/optolith-database-schema/commit/8d14f891dabad75b9ad1d37c98f1bf8b10c74d69))
+* patrons also work with tribes instead of plain cultures to align with animist powers ([68b857a](https://github.com/elyukai/optolith-database-schema/commit/68b857afbefb0655a842cd86f5321f155054db7a)), closes [#47](https://github.com/elyukai/optolith-database-schema/issues/47)
+
+
+### Bug Fixes
+
+* always display child instances of activatable entries ([06b5443](https://github.com/elyukai/optolith-database-schema/commit/06b5443531c5b00fbf4b422aac9e2cdc6ea6ff14)), closes [#51](https://github.com/elyukai/optolith-database-schema/issues/51)
+* cantrip note translations should be optional ([490a4eb](https://github.com/elyukai/optolith-database-schema/commit/490a4ebeeb728ec61e83193a6f84cd774625b777))
+
 ## [0.20.6](https://github.com/elyukai/optolith-database-schema/compare/v0.20.5...v0.20.6) (2025-11-16)
 
 
