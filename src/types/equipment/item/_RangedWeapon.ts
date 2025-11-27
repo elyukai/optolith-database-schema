@@ -86,15 +86,15 @@ const RangeBrackets = TypeAlias(import.meta.url, {
     Object({
       close: Required({
         comment: "The close range bracket for the weapon. Distance in m.",
-        type: Integer({ minimum: 1 }),
+        type: Integer({ minimum: 0 }),
       }),
       medium: Required({
         comment: "The medium range bracket for the weapon. Distance in m.",
-        type: Integer({ minimum: 1 }),
+        type: Integer({ minimum: 0 }),
       }),
       far: Required({
         comment: "The far range bracket for the weapon. Distance in m.",
-        type: Integer({ minimum: 1 }),
+        type: Integer({ minimum: 0 }),
       }),
     }),
 })
