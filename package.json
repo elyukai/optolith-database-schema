@@ -38,11 +38,11 @@
   "license": "MPL-2.0",
   "dependencies": {
     "@optolith/helpers": "^0.2.2",
-    "tsondb": "^0.12.2",
+    "tsondb": "^0.12.5",
     "yaml": "^2.8.1"
   },
   "devDependencies": {
-    "@types/node": "^24.8.1",
+    "@types/node": "^24.10.1",
     "commit-and-tag-version": "^12.6.0",
     "typescript": "^5.9.3"
   },
