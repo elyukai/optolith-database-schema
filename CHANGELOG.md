@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.21.1](https://github.com/elyukai/optolith-database-schema/compare/v0.21.0...v0.21.1) (2025-11-27)
+
+
+### Features
+
+* add trade secret option for diseases ([da69a79](https://github.com/elyukai/optolith-database-schema/commit/da69a793a65e7737505c4ff140f6be2132119d6c))
+* add weight and complexity options to vehicles ([bfbf0c0](https://github.com/elyukai/optolith-database-schema/commit/bfbf0c017f0e7bd08bf0ebebe189a862796831ce)), closes [#59](https://github.com/elyukai/optolith-database-schema/issues/59)
+* magical artifacts may define complexity and combat uses ([0a86d73](https://github.com/elyukai/optolith-database-schema/commit/0a86d7396b2fddd977e214ab8be283dd31353292)), closes [#62](https://github.com/elyukai/optolith-database-schema/issues/62)
+
+
+### Bug Fixes
+
+* ranged weapons may have a range of 0 ([fb34438](https://github.com/elyukai/optolith-database-schema/commit/fb3443816195b3079362d07c9bb3a261f98609c8)), closes [#63](https://github.com/elyukai/optolith-database-schema/issues/63)
+
 ## [0.21.0](https://github.com/elyukai/optolith-database-schema/compare/v0.20.6...v0.21.0) (2025-11-21)
 
 
