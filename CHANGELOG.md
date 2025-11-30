@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.21.2](https://github.com/elyukai/optolith-database-schema/compare/v0.21.1...v0.21.2) (2025-11-30)
+
+
+### Features
+
+* allow three fraction digits for item weight ([9d2dc02](https://github.com/elyukai/optolith-database-schema/commit/9d2dc029c2a07ec3180b4d340ff5ea8afe67fcba))
+
 ## [0.21.1](https://github.com/elyukai/optolith-database-schema/compare/v0.21.0...v0.21.1) (2025-11-27)
 
 
