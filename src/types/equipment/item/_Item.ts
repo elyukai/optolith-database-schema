@@ -167,7 +167,7 @@ const CostRange = TypeAlias(import.meta.url, {
 export const Weight = TypeAlias(import.meta.url, {
   name: "Weight",
   comment: "The weight in kg.",
-  type: () => Float({ minimum: { value: 0, isExclusive: true } }),
+  type: () => Float({ minimum: { value: 0, isExclusive: true }, fractionDigits: 3 }),
 })
 
 export const Complexity = Enum(import.meta.url, {
