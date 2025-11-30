@@ -89,7 +89,7 @@ export const Skill = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -138,7 +138,7 @@ export const SkillApplication = Entity(import.meta.url, {
             comment: "The skill application’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "parent",

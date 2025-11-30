@@ -80,7 +80,7 @@ export const Poison = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -138,7 +138,7 @@ export const NoPoisonCost = TypeAlias(import.meta.url, {
             comment: "A description of the cost.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -155,7 +155,7 @@ export const IndefinitePoisonCost = TypeAlias(import.meta.url, {
             comment: "A description of the cost.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -214,8 +214,8 @@ export const IndefinitePoisonTime = TypeAlias(import.meta.url, {
               type: String({ minLength: 1, isMarkdown: true }),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -277,10 +277,10 @@ const AnimalVenomLevelBySubType = TypeAlias(import.meta.url, {
                 "The subtype name. If there are multiple subtypes with the same level, specify them separately.",
               type: String({ minLength: 1 }),
             }),
-          })
+          }),
         ),
       }),
-      { minItems: 1 }
+      { minItems: 1 },
     ),
 })
 
@@ -324,7 +324,7 @@ export const AlchemicalPoison = TypeAlias(import.meta.url, {
             comment: "Prerequsites for the brewing process, if any.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -377,8 +377,8 @@ export const DemonicPoison = TypeAlias(import.meta.url, {
               type: String({ minLength: 1, isMarkdown: true }),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -455,7 +455,7 @@ export const Intoxicant = TypeAlias(import.meta.url, {
             comment: "Special information about the intoxicant.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-        })
+        }),
       ),
     }),
 })

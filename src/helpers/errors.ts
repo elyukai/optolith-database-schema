@@ -1,6 +1,6 @@
 import { filterNonNullable } from "@optolith/helpers/array"
-import { collator } from "./helpers/i18n.js"
-import { TypeValidationError } from "./main.js"
+import { TypeValidationError } from "../main.js"
+import { collator } from "./i18n.js"
 import { IntegrityError } from "./validation/builders/integrity.js"
 import { FileNameError } from "./validation/builders/naming.js"
 
@@ -25,7 +25,7 @@ export type PrintOptions = {
  */
 export const printErrors = (
   errorsByFile: Record<string, TypeValidationError[]>,
-  printOptions: PrintOptions = {}
+  printOptions: PrintOptions = {},
 ): string => {
   const { verbose = false } = printOptions
 
@@ -38,13 +38,13 @@ export const printErrors = (
             ...errors
               .filter(
                 (error): error is IntegrityError | FileNameError =>
-                  error.keyword === "integrity" || error.keyword === "filename"
+                  error.keyword === "integrity" || error.keyword === "filename",
               )
               .map(printVerboseError(filePath)),
             ...(errors.some(error => error.keyword !== "integrity" && error.keyword !== "filename")
               ? [errorMessageBlock([filePath], "has schema errors")]
               : []),
-          ]
+          ],
     )
     .join("\n\n")
 }

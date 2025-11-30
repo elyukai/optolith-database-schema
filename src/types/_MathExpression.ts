@@ -26,7 +26,7 @@ type BinaryMathOperation = {
 export type MathOperation = Enum<
   "MathOperation",
   {
-    Value: EnumCase<TypeArgument<TypeParameter>>
+    Value: EnumCase<TypeArgument>
   } & BinaryMathOperation,
   [Value: TypeParameter]
 >
@@ -39,7 +39,7 @@ export const MathOperation: MathOperation = GenEnum(import.meta.url, {
       GenIncludeIdentifier<MathOperation, [Value: TypeParameter]>(MathOperation, [
         TypeArgument(Value),
       ]),
-      { minItems: 2, maxItems: 2 }
+      { minItems: 2, maxItems: 2 },
     )
 
     return {

@@ -44,7 +44,7 @@ This is the only use case for this property.`,
             comment: "The displayed text.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-        })
+        }),
       ),
     }),
 })

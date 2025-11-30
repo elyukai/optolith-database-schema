@@ -90,7 +90,7 @@ If no tribe tradition is given, the animist power is generally available to all 
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -116,7 +116,7 @@ const AnimistPowerLevel = TypeAlias(import.meta.url, {
             comment: "An additional effect description for this level.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -185,7 +185,7 @@ const AnimistPowerCostByPrimaryPatron = TypeAlias(import.meta.url, {
             comment: "A note, appended to the generated string in parenthesis.",
             type: IncludeIdentifier(ResponsiveTextOptional),
           }),
-        })
+        }),
       ),
     }),
 })

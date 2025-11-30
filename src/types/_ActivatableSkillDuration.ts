@@ -40,7 +40,7 @@ const Immediate = TypeAlias(import.meta.url, {
             comment: "A replacement string.",
             type: IncludeIdentifier(ResponsiveTextReplace),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -57,7 +57,7 @@ const PermanentDuration = TypeAlias(import.meta.url, {
             comment: "A replacement string.",
             type: IncludeIdentifier(ResponsiveTextReplace),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -88,8 +88,8 @@ export const FixedDuration = TypeAlias(import.meta.url, {
               type: IncludeIdentifier(ResponsiveTextReplace),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -122,7 +122,7 @@ export const CheckResultBasedDuration = TypeAlias(import.meta.url, {
             comment: "A replacement string.",
             type: IncludeIdentifier(ResponsiveTextReplace),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -139,7 +139,7 @@ export const IndefiniteDuration = TypeAlias(import.meta.url, {
             comment: "A description of the duration.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })

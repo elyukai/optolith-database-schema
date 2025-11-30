@@ -41,7 +41,7 @@ export const MetaCondition = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

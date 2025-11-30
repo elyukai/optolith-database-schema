@@ -76,7 +76,7 @@ export const MagicalDance = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -125,8 +125,8 @@ const FixedMagicalDanceCost = TypeAlias(import.meta.url, {
               type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -148,7 +148,7 @@ const IndefiniteMagicalDanceCost = TypeAlias(import.meta.url, {
             comment: "A description of where the cost come from.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })

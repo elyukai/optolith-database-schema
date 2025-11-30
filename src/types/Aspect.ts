@@ -21,7 +21,7 @@ export const Aspect = Entity(import.meta.url, {
               minLength: 1,
             }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

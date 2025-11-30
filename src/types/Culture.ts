@@ -66,28 +66,28 @@ export const Culture = Entity(import.meta.url, {
         comment: "A list of common advantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       common_disadvantages: Optional({
         comment: "A list of common disadvantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       uncommon_advantages: Optional({
         comment: "A list of uncommon advantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       uncommon_disadvantages: Optional({
         comment: "A list of uncommon disadvantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       common_skills: Required({
@@ -138,7 +138,7 @@ export const Culture = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -333,7 +333,7 @@ const GroupedCommonProfessions = TypeAlias(import.meta.url, {
           ]),
         }),
       },
-      { minProperties: 1 }
+      { minProperties: 1 },
     ),
 })
 
@@ -420,7 +420,7 @@ const CommonNames = TypeAlias(import.meta.url, {
           type: String({ minLength: 1 }),
         }),
       },
-      { minProperties: 1 }
+      { minProperties: 1 },
     ),
 })
 
@@ -442,7 +442,7 @@ const CommonNameGroup = TypeAlias(import.meta.url, {
           type: Array(IncludeIdentifier(CommonName), { minItems: 1 }),
         }),
       },
-      { minProperties: 1 }
+      { minProperties: 1 },
     ),
 })
 
@@ -459,6 +459,6 @@ const CommonName = TypeAlias(import.meta.url, {
           type: String({ minLength: 1 }),
         }),
       },
-      { minProperties: 1 }
+      { minProperties: 1 },
     ),
 })

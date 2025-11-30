@@ -74,7 +74,7 @@ export const Book = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -185,8 +185,8 @@ const DefiniteBookCostVariant = TypeAlias(import.meta.url, {
               type: String({ minLength: 1, isMarkdown: true }),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -209,7 +209,7 @@ const IndefiniteBookCostVariant = TypeAlias(import.meta.url, {
             comment: "The description of the cost variant, e.g. “less”.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-        })
+        }),
       ),
     }),
 })

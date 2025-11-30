@@ -20,7 +20,7 @@ export const Property = Entity(import.meta.url, {
             comment: "The property’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

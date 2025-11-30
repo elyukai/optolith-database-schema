@@ -29,7 +29,7 @@ export const Newspaper = Entity(import.meta.url, {
             comment: "The place the newspaper is published.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

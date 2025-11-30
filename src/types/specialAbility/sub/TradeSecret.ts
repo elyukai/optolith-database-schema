@@ -59,7 +59,7 @@ export const TradeSecret = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -78,7 +78,7 @@ Note that this is only a full definition of options for simple logic that can be
           type: Array(IncludeIdentifier(ExplicitSelectOption), { minItems: 1 }),
         }),
       },
-      { minProperties: 1 }
+      { minProperties: 1 },
     ),
 })
 

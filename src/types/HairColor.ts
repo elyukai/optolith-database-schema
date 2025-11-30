@@ -14,7 +14,7 @@ export const HairColor = Entity(import.meta.url, {
             comment: "The hair color’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

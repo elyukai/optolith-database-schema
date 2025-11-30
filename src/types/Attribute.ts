@@ -23,7 +23,7 @@ export const Attribute = Entity(import.meta.url, {
             comment: "The description of the attribute.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

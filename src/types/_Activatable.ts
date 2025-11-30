@@ -12,6 +12,7 @@ import {
   GenEnum,
   GenIncludeIdentifier,
   GenTypeAlias,
+  getAnyEnumCaseValue,
   IncludeIdentifier,
   Integer,
   Object,
@@ -19,7 +20,7 @@ import {
   Param,
   Required,
   String,
-  Type,
+  type Type,
   TypeAlias,
   TypeArgument,
 } from "tsondb/schema/def"
@@ -93,7 +94,7 @@ Note that this is only a full definition of options for simple logic that can be
           type: IncludeIdentifier(SelectOptionCategory),
         }),
       },
-      { minProperties: 1 }
+      { minProperties: 1 },
     ),
 })
 
@@ -171,7 +172,7 @@ export const GeneralSelectOption = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "parent",
@@ -183,7 +184,9 @@ export const GeneralSelectOption = Entity(import.meta.url, {
     getDisplayNameForInstanceId,
   }) => ({
     name: `${
-      getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])?.name
+      instanceDisplayName.length > 0
+        ? instanceDisplayName
+        : (getDisplayNameForInstanceId(getAnyEnumCaseValue(instance.parent))?.name ?? "")
     } — ${instanceDisplayName}`,
     localeId: instanceDisplayNameLocaleId,
   }),
@@ -227,8 +230,8 @@ const ExplicitSkillSelectOption = TypeAlias(import.meta.url, {
               type: IncludeIdentifier(Errata),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -264,8 +267,8 @@ const ExplicitCombatTechniqueSelectOption = TypeAlias(import.meta.url, {
               type: IncludeIdentifier(Errata),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -457,7 +460,7 @@ export const NewSkillApplication = Entity(import.meta.url, {
             comment: "The name of the application if different from the activatable entry’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "parent",
@@ -468,10 +471,10 @@ export const NewSkillApplication = Entity(import.meta.url, {
     instanceDisplayNameLocaleId,
     getDisplayNameForInstanceId,
   }) => ({
-    name: `${
-      instanceDisplayName ||
-      getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])
-    }`,
+    name:
+      instanceDisplayName.length > 0
+        ? instanceDisplayName
+        : (getDisplayNameForInstanceId(getAnyEnumCaseValue(instance.parent))?.name ?? ""),
     localeId: instanceDisplayNameLocaleId,
   }),
 })
@@ -510,7 +513,7 @@ export const SkillUse = Entity(import.meta.url, {
             comment: "The name of the use if different from the activatable entry’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "parent",
@@ -521,10 +524,10 @@ export const SkillUse = Entity(import.meta.url, {
     instanceDisplayNameLocaleId,
     getDisplayNameForInstanceId,
   }) => ({
-    name: `${
-      instanceDisplayName ||
-      getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])
-    }`,
+    name:
+      instanceDisplayName.length > 0
+        ? instanceDisplayName
+        : (getDisplayNameForInstanceId(getAnyEnumCaseValue(instance.parent))?.name ?? ""),
     localeId: instanceDisplayNameLocaleId,
   }),
 })
@@ -822,8 +825,8 @@ const FixedArcaneEnergyCost = TypeAlias(import.meta.url, {
               type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -863,7 +866,7 @@ const ArcaneEnergyCostPerCountable = TypeAlias(import.meta.url, {
             comment: "A note, appended to the generated string in parenthesis.",
             type: IncludeIdentifier(ResponsiveTextOptional),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -916,7 +919,7 @@ const IndefiniteArcaneEnergyCost = TypeAlias(import.meta.url, {
             comment: "A description of where the cost come from.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -997,28 +1000,8 @@ const ArcaneEnergyCostDisjunctionOption = TypeAlias(import.meta.url, {
               type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
-          { minProperties: 1 }
-        )
-      ),
-    }),
-})
-
-const NoArcaneEnergyCost = TypeAlias(import.meta.url, {
-  name: "NoArcaneEnergyCost",
-  type: () =>
-    Object({
-      translations: NestedTranslationMap(
-        Optional,
-        "NoArcaneEnergyCost",
-        Object(
-          {
-            note: Optional({
-              comment: "A note, appended to the generated string in parenthesis.",
-              type: IncludeIdentifier(ResponsiveTextOptional),
-            }),
-          },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -1155,8 +1138,8 @@ This will generate the exact same string as seen above. The associated options a
               type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -1188,8 +1171,8 @@ const VolumeMapOption = TypeAlias(import.meta.url, {
               type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -1307,8 +1290,8 @@ This will generate the exact same string as seen above.`,
               type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -1334,7 +1317,7 @@ const BindingCostMapOption = TypeAlias(import.meta.url, {
               "The description of the option if used standalone. Only used if different from `label`.",
             type: IncludeIdentifier(ResponsiveTextOptional),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -1450,7 +1433,7 @@ const AdvancedSpecialAbilityDerivedFromExternalOption = GenTypeAlias(import.meta
           GenIncludeIdentifier(AdvancedSpecialAbilityDerivedFromExternalOptionMapping, [
             TypeArgument(Identifier),
           ]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       display_option: Optional({
@@ -1632,7 +1615,7 @@ const ApplicableCombatTechniquesNegativeCombatTechniquesRestriction = GenTypeAli
           type: Array(TypeArgument(Ref), { minItems: 1 }),
         }),
       }),
-  }
+  },
 )
 
 const ApplicableCombatTechniquesRaceRestriction = TypeAlias(import.meta.url, {
@@ -1725,8 +1708,8 @@ const AdventurePointsDerivedFromSelection = TypeAlias(import.meta.url, {
               type: String({ minLength: 1, isMarkdown: true }),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })

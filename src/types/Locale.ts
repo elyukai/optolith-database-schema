@@ -1,15 +1,15 @@
 import {
   Boolean,
   Entity,
-  MemberDecl,
+  type MemberDecl,
   NestedEntityMap,
   Object,
-  ObjectType,
+  type ObjectType,
   Optional,
   Required,
   String,
   TranslationObject,
-  Type,
+  type Type,
 } from "tsondb/schema/def"
 
 export const Locale = Entity(import.meta.url, {
@@ -1380,8 +1380,8 @@ export const Locale = Entity(import.meta.url, {
 
 export const NestedTranslationMap = <
   Name extends string,
-  T extends Record<string, MemberDecl<Type, boolean>>,
-  R extends boolean
+  T extends Record<string, MemberDecl>,
+  R extends boolean,
 >(
   MemberDeclCreator: <T extends Type>(options: {
     comment?: string
@@ -1389,7 +1389,7 @@ export const NestedTranslationMap = <
     type: T
   }) => MemberDecl<T, R>,
   entityName: Name,
-  type: ObjectType<T>
+  type: ObjectType<T>,
 ) =>
   MemberDeclCreator({
     comment: "All translations for the entry, identified by IETF language tag (BCP47).",

@@ -30,7 +30,7 @@ const SpecificAffectedTargetCategory = TypeAlias(import.meta.url, {
         "SpecificAffectedTargetCategory",
         Object({
           note: Required({ type: String({ minLength: 1 }) }),
-        })
+        }),
       ),
     }),
 })

@@ -14,7 +14,7 @@ export const AnimalType = Entity(import.meta.url, {
             comment: "The animal type’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

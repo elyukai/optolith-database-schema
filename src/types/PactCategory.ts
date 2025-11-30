@@ -37,7 +37,7 @@ export const PactCategory = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -60,7 +60,7 @@ export const PactType = Entity(import.meta.url, {
             comment: "The type’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "parent",
@@ -84,7 +84,7 @@ export const PactDomain = Entity(import.meta.url, {
             comment: "The domain’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "parent",

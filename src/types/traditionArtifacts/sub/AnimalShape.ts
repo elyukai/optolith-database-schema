@@ -23,7 +23,7 @@ export const AnimalShape = Entity(import.meta.url, {
             comment: "The animal shape’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

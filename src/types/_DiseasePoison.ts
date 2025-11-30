@@ -72,7 +72,7 @@ export const Cause = TypeAlias(import.meta.url, {
             comment: "An additional note about this cause.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
 })

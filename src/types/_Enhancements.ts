@@ -5,6 +5,7 @@
 import {
   ChildEntities,
   Entity,
+  getAnyEnumCaseValue,
   IncludeIdentifier,
   Integer,
   Object,
@@ -76,7 +77,7 @@ export const Enhancement = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "parent",
@@ -88,7 +89,7 @@ export const Enhancement = Entity(import.meta.url, {
     getDisplayNameForInstanceId,
   }) => ({
     name: `${
-      getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])?.name
+      getDisplayNameForInstanceId(getAnyEnumCaseValue(instance.parent))?.name ?? ""
     } — ${instanceDisplayName}`,
     localeId: instanceDisplayNameLocaleId,
   }),

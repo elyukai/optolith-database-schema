@@ -15,7 +15,7 @@ export const PlayerType = Entity(import.meta.url, {
             comment: "The player type.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

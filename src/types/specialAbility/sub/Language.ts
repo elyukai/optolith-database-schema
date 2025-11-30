@@ -62,7 +62,7 @@ export const Language = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -90,7 +90,7 @@ export const LanguageSpecialization = Entity(import.meta.url, {
               "The specialization description. It will be appended to the name in parenthesis.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "parent",
@@ -114,7 +114,7 @@ const IndefiniteSpecializations = TypeAlias(import.meta.url, {
               "An input label or placeholder text for an UI element if it differs from the `description`.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
 })

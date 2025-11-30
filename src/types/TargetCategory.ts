@@ -19,7 +19,7 @@ export const TargetCategory = Entity(import.meta.url, {
             comment: "The target category’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

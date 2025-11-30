@@ -15,7 +15,7 @@ export const Subject = Entity(import.meta.url, {
             comment: "The subject.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

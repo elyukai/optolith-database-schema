@@ -294,7 +294,7 @@ const SkillApplicationOrUse = TypeAlias(import.meta.url, {
               "The name of the application or use if different from the activatable entry’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -424,7 +424,7 @@ const SelectOptionsFixedAdventurePointsValue = GenTypeAlias(import.meta.url, {
         type: Array(
           GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValueMapping, [
             TypeArgument(Identifier),
-          ])
+          ]),
         ),
       }),
       default: Required({

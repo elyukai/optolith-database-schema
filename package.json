@@ -28,9 +28,12 @@
   },
   "scripts": {
     "build": "tsc",
-    "generate": "tsondb generate",
     "watch": "tsc -w",
+    "generate": "tsondb generate",
     "test": "node ./lib/test.js",
+    "lint": "eslint",
+    "format": "prettier \"src/{types/**/*.{ts,tsx},*.{ts,tsx}}\" --write",
+    "format:check": "prettier \"src/{types/**/*.{ts,tsx},*.{ts,tsx}}\" --check",
     "release": "commit-and-tag-version",
     "release:sign": "commit-and-tag-version --sign --signoff"
   },
@@ -38,13 +41,18 @@
   "license": "MPL-2.0",
   "dependencies": {
     "@optolith/helpers": "^0.2.2",
-    "tsondb": "^0.12.6",
+    "tsondb": "^0.12.7",
     "yaml": "^2.8.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "commit-and-tag-version": "^12.6.0",
-    "typescript": "^5.9.3"
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "prettier": "^3.7.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.0"
   },
   "repository": "github:elyukai/optolith-database-schema",
   "bugs": {

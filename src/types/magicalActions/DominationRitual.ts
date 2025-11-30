@@ -66,7 +66,7 @@ export const DominationRitual = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -104,7 +104,7 @@ const DominationRitualCost = TypeAlias(import.meta.url, {
             comment: "AE cost in addition to the normal AE cost.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -149,7 +149,7 @@ const IndefiniteDominationRitualDuration = TypeAlias(import.meta.url, {
             comment: "A description of the duration.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })

@@ -3,7 +3,7 @@ import {
   EnumCase,
   IncludeIdentifier,
   Object,
-  ReferenceIdentifier,
+  type ReferenceIdentifier,
   Required,
   String,
   TypeAlias,
@@ -29,7 +29,7 @@ export const MusicTraditionReference = (traditionIdentifier: ReferenceIdentifier
               comment: "The music-tradition-specific name of the entry.",
               type: String({ minLength: 1 }),
             }),
-          })
+          }),
         ),
       }),
   })

@@ -95,7 +95,7 @@ export const Spell = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
       enhancements: Required({
         type: ChildEntities(Enhancement),

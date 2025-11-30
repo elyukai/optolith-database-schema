@@ -23,7 +23,7 @@ export const SkillGroup = Entity(import.meta.url, {
             comment: "The skill group’s long name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

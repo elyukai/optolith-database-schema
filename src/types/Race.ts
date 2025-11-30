@@ -57,14 +57,14 @@ export const Race = Entity(import.meta.url, {
         comment: "A list of strongly recommended advantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       strongly_recommended_disadvantages: Optional({
         comment: "A list of strongly recommended disadvantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       weight: Required({
@@ -125,7 +125,7 @@ export const Race = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -174,7 +174,7 @@ The array only permits a single entry because no race specified more than one se
           }),
         }),
       },
-      { minProperties: 1 }
+      { minProperties: 1 },
     ),
 })
 
@@ -291,28 +291,28 @@ export const RaceVariant = Entity(import.meta.url, {
         comment: "A list of common advantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       common_disadvantages: Optional({
         comment: "A list of common disadvantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       uncommon_advantages: Optional({
         comment: "A list of uncommon advantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       uncommon_disadvantages: Optional({
         comment: "A list of uncommon disadvantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       hair_color: Optional({
@@ -354,7 +354,7 @@ export const RaceVariant = Entity(import.meta.url, {
             comment: "The respective uncommon disadvantages text from the source book.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "race",

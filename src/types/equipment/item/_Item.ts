@@ -76,7 +76,7 @@ export const DefaultItemTranslations = (singularName: string) =>
       errata: Optional({
         type: IncludeIdentifier(Errata),
       }),
-    })
+    }),
   )
 
 export const CombatUse = Enum(import.meta.url, {
@@ -137,7 +137,7 @@ export const FixedCost = TypeAlias(import.meta.url, {
         "FixedCost",
         Object({
           wrap_in_text,
-        })
+        }),
       ),
     }),
 })
@@ -159,7 +159,7 @@ const CostRange = TypeAlias(import.meta.url, {
         "CostRange",
         Object({
           wrap_in_text,
-        })
+        }),
       ),
     }),
 })

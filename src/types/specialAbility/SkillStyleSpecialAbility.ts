@@ -45,7 +45,7 @@ export const SkillStyleSpecialAbility = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

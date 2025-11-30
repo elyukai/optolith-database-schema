@@ -32,7 +32,7 @@ export const EquipmentPackage = Entity(import.meta.url, {
             comment: "The equipment package’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

@@ -14,7 +14,7 @@ export const Region = Entity(import.meta.url, {
             comment: "The region’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

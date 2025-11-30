@@ -76,7 +76,7 @@ export const Cantrip = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -138,7 +138,7 @@ const CommonCantripTraditionNote = TypeAlias(import.meta.url, {
             comment: "A note, appended to the generated string in parenthesis.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -203,7 +203,7 @@ const IndefiniteCantripDuration = TypeAlias(import.meta.url, {
             comment: "A description of the duration.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })

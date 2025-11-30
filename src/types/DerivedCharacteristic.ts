@@ -36,7 +36,7 @@ export const DerivedCharacteristic = Entity(import.meta.url, {
             comment: "Possible calculation strings for the final value.",
             type: IncludeIdentifier(CalculationTranslation),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

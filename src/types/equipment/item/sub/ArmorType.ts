@@ -19,7 +19,7 @@ export const ArmorType = Entity(import.meta.url, {
             comment: "The armor type’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

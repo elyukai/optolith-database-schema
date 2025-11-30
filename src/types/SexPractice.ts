@@ -33,7 +33,7 @@ export const SexPractice = Entity(import.meta.url, {
             comment: "Effects of a failed *Seduction* check.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

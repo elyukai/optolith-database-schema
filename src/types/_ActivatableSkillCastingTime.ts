@@ -55,7 +55,7 @@ There must always be at least one casting time value.`,
           type: IncludeIdentifier(CastingTimeDuringLovemaking),
         }),
       },
-      { minProperties: 1 }
+      { minProperties: 1 },
     ),
 })
 

@@ -17,6 +17,6 @@ export const ArcaneTraditionType =
             comment: "The arcane tradition’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     })

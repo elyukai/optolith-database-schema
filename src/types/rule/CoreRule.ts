@@ -38,7 +38,7 @@ export const CoreRule = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -86,7 +86,7 @@ const TextNode = TypeAlias(import.meta.url, {
             comment: "Markdown-formatted text.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -107,7 +107,7 @@ const ReferenceListNode = TypeAlias(import.meta.url, {
             comment: "Markdown-formatted text.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-        })
+        }),
       ),
     }),
 })

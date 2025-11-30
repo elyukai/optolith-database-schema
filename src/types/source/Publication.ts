@@ -61,7 +61,7 @@ export const Publication = Entity(import.meta.url, {
               "If this publication translation is not (fully) implemented and thus needs to be excluded from stable releases.",
             type: Boolean(),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

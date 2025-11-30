@@ -158,7 +158,7 @@ export const schema = Schema(
     Types.Weapon,
     Types.ZibiljaRitual,
   ],
-  Types.Locale
+  Types.Locale,
 )
 
 // /**

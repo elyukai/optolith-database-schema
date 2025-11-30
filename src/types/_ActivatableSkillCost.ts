@@ -62,7 +62,7 @@ const ModifiableOneTimeCost = TypeAlias(import.meta.url, {
             comment: "A replacement string.",
             type: IncludeIdentifier(ResponsiveTextReplace),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -95,7 +95,7 @@ const NonModifiableOneTimeCost = TypeAlias(import.meta.url, {
             comment: "A note, appended to the generated string in parenthesis.",
             type: IncludeIdentifier(ResponsiveTextOptional),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -116,7 +116,7 @@ const NonModifiableOneTimeCostPerCountable = TypeAlias(import.meta.url, {
             comment: "The countable entity name.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -133,7 +133,7 @@ export const IndefiniteOneTimeCost = TypeAlias(import.meta.url, {
             comment: "A description of where the cost come from.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -183,8 +183,8 @@ This will generate the exact same string as seen above – given it is set for a
               type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
@@ -214,7 +214,7 @@ const CostMapOption = TypeAlias(import.meta.url, {
               "The description of the option if used standalone. Only used if different from `label`.",
             type: IncludeIdentifier(ResponsiveTextOptional),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -285,7 +285,7 @@ const NonModifiableSustainedCostPerCountable = TypeAlias(import.meta.url, {
             comment: "The countable entity name.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })

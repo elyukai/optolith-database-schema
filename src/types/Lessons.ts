@@ -42,7 +42,7 @@ export const Guideline = Entity(import.meta.url, {
             comment: "The guideline’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -83,7 +83,7 @@ export const Curriculum = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -200,10 +200,10 @@ export const LessonPackage = Entity(import.meta.url, {
                 "The spell values difference of the lesson package. Use this field to specify a text that is displayed instead of the generated `spellwork_changes` list. The field is displayed even if no list is present.",
               type: String({ minLength: 1 }),
             }),
-          })
+          }),
         ),
       },
-      { minProperties: 3 }
+      { minProperties: 3 },
     ),
   parentReferenceKey: "curriculum",
   displayName: {},

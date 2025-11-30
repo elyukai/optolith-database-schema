@@ -14,7 +14,7 @@ export const Reach = Entity(import.meta.url, {
             comment: "The reach’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

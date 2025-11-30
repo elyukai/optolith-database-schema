@@ -46,7 +46,7 @@ export const BrawlingSpecialAbility = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

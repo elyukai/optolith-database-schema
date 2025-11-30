@@ -75,7 +75,7 @@ export const ElvenMagicalSong = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -117,7 +117,7 @@ const ElvenMagicalSongCost = TypeAlias(import.meta.url, {
             comment: "The cost have to be per a specific countable entity, e.g. `8 AE per person`.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -138,7 +138,7 @@ const ElvenMagicalSongPermanentCost = TypeAlias(import.meta.url, {
             comment: "A replacement string for the permanent cost.",
             type: IncludeIdentifier(ResponsiveTextReplace),
           }),
-        })
+        }),
       ),
     }),
 })

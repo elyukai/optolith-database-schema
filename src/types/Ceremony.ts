@@ -96,7 +96,7 @@ export const Ceremony = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
       enhancements: Required({
         type: ChildEntities(Enhancement),

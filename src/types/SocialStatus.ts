@@ -19,7 +19,7 @@ export const SocialStatus = Entity(import.meta.url, {
             comment: "The social status’ name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

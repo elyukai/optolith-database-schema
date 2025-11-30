@@ -37,7 +37,7 @@ A standalone sentence is connected to the previous prerequisite string with a pe
             comment: "The replacement text.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
 })

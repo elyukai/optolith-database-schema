@@ -95,7 +95,7 @@ export const Ritual = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
       enhancements: Required({
         type: ChildEntities(Enhancement),

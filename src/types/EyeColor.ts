@@ -14,7 +14,7 @@ export const EyeColor = Entity(import.meta.url, {
             comment: "The eye color’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

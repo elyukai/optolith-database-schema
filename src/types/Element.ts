@@ -14,7 +14,7 @@ export const Element = Entity(import.meta.url, {
             comment: "The element’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

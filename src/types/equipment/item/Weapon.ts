@@ -113,7 +113,7 @@ export const Weapon = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -171,8 +171,8 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
               type: String({ minLength: 1, isMarkdown: true }),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })

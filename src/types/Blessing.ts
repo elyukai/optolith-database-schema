@@ -57,7 +57,7 @@ export const Blessing = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -118,7 +118,7 @@ const IndefiniteBlessingDuration = TypeAlias(import.meta.url, {
             comment: "A description of the duration.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
 })

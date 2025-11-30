@@ -56,7 +56,7 @@ const PrerequisiteGroup = GenTypeAlias(import.meta.url, {
           text: Required({
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
 })

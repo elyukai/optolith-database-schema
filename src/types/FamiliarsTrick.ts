@@ -72,7 +72,7 @@ If no animal types are given, the animal disease applies to all animal types.`,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -98,7 +98,7 @@ const IndefiniteFamiliarsTrickProperty = TypeAlias(import.meta.url, {
             comment: "A description of the property.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -164,8 +164,8 @@ const FamiliarsTrickFixedOneTimeCost = TypeAlias(import.meta.url, {
               type: IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })

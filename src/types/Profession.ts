@@ -70,7 +70,7 @@ export const Profession = Entity(import.meta.url, {
     const [firstProfessionVersion, ...otherProfessionVersions] = getChildInstancesForInstanceId(
       Profession.name,
       instanceId,
-      ProfessionVersion.name
+      ProfessionVersion.name,
     )
 
     if (!firstProfessionVersion) {
@@ -87,7 +87,7 @@ export const Profession = Entity(import.meta.url, {
 
     return {
       ...displayName,
-      name: `${displayName.name} (+${otherProfessionVersions.length} version${
+      name: `${displayName.name} (+${otherProfessionVersions.length.toString()} version${
         otherProfessionVersions.length > 1 ? "s" : ""
       })`,
     }
@@ -146,14 +146,14 @@ export const ProfessionVersion = Entity(import.meta.url, {
         comment: "A list of typical advantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       suggested_disadvantages: Optional({
         comment: "A list of typical disadvantages.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       unsuitable_advantages: Optional({
@@ -161,7 +161,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
           "A list of advantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       unsuitable_disadvantages: Optional({
@@ -169,7 +169,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
           "A list of disadvantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
         type: Array(
           GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
+          { minItems: 1 },
         ),
       }),
       src,
@@ -207,7 +207,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "profession",
@@ -216,17 +216,15 @@ export const ProfessionVersion = Entity(import.meta.url, {
     pathInLocaleMap: "name.default",
   },
   displayNameCustomizer: ({ instance, instanceId, locales }) => {
-    if (typeof instance.translations === "object" && instance.translations !== null) {
-      const translations = Object.entries(instance.translations)
-      for (const locale of locales) {
-        const translation = translations.find(([key]) => key === locale)
-        if (translation) {
-          const [, value] = translation
-          return {
-            name:
-              value.name.default + (value.specification ? ` (${value.specification.default})` : ""),
-            localeId: locale,
-          }
+    const translations = Object.entries(instance.translations)
+    for (const locale of locales) {
+      const translation = translations.find(([key]) => key === locale)
+      if (translation) {
+        const [, value] = translation
+        return {
+          name:
+            value.name.default + (value.specification ? ` (${value.specification.default})` : ""),
+          localeId: locale,
         }
       }
     }
@@ -377,7 +375,7 @@ export const ProfessionVariant = Entity(import.meta.url, {
             comment: `A text that is appended to the generated text for the profession variant.`,
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "profession_package",
@@ -581,7 +579,7 @@ const ProfessionPackageOptions = TypeAlias(import.meta.url, {
           type: IncludeIdentifier(SkillsOptions),
         }),
       },
-      { minProperties: 1 }
+      { minProperties: 1 },
     ),
 })
 
@@ -622,7 +620,7 @@ const ProfessionVariantPackageOptions = TypeAlias(import.meta.url, {
           type: GenIncludeIdentifier(VariantOptionAction, [IncludeIdentifier(SkillsOptions)]),
         }),
       },
-      { minProperties: 1 }
+      { minProperties: 1 },
     ),
 })
 

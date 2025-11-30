@@ -93,7 +93,7 @@ If the rune has an option, the option’s name will/should not be included in th
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
@@ -214,7 +214,7 @@ const SingleMagicalRuneCost = TypeAlias(import.meta.url, {
             comment: "A note, appended to the generated string in parenthesis.",
             type: IncludeIdentifier(ResponsiveTextOptional),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -247,7 +247,7 @@ const MagicalRuneCraftingTime = TypeAlias(import.meta.url, {
               "The crafting time has to be per a specific countable entity, e.g. `8 actions per person`.",
             type: IncludeIdentifier(ResponsiveText),
           }),
-        })
+        }),
       ),
     }),
 })
@@ -309,7 +309,7 @@ The surrounding parenthesis will/should not be included, they will/should be gen
             comment: "The native name of the magical rune option.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   parentReferenceKey: "parent",
@@ -340,8 +340,8 @@ const CustomMagicalRuneSuboption = TypeAlias(import.meta.url, {
               type: Array(String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })

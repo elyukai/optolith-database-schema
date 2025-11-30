@@ -38,8 +38,8 @@ export const Range = TypeAlias(import.meta.url, {
               type: IncludeIdentifier(ResponsiveTextReplace),
             }),
           },
-          { minProperties: 1 }
-        )
+          { minProperties: 1 },
+        ),
       ),
     }),
 })

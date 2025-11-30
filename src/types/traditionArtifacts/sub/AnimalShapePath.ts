@@ -14,7 +14,7 @@ export const AnimalShapePath = Entity(import.meta.url, {
             comment: "The animal shape path’s name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},

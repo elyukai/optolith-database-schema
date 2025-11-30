@@ -16,7 +16,7 @@ export const Continent = Entity(import.meta.url, {
             comment: "The continent name.",
             type: String({ minLength: 1 }),
           }),
-        })
+        }),
       ),
     }),
   displayName: {},
