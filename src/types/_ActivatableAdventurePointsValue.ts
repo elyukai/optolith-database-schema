@@ -11,6 +11,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
+import { ActivatableIdentifier } from "./_IdentifierGroup.js"
 import { MathOperation } from "./_MathExpression.js"
 import { BySizeCategory } from "./_SizeCategory.js"
 import { NestedTranslationMap } from "./Locale.js"
@@ -22,6 +23,9 @@ const AdventurePointsValue = Enum(import.meta.url, {
     ByLevel: EnumCase({ type: IncludeIdentifier(AdventurePointsValueByLevel) }),
     DerivedFromSelection: EnumCase({
       type: IncludeIdentifier(AdventurePointsDerivedFromSelection),
+    }),
+    DependingOnActive: EnumCase({
+      type: IncludeIdentifier(AdventurePointsDependingOnActive),
     }),
     DependingOnActiveInstances: EnumCase({
       type: IncludeIdentifier(AdventurePointsDependingOnActiveInstances),
@@ -99,6 +103,26 @@ const AdventurePointsSingleValue = TypeAlias(import.meta.url, {
   name: "AdventurePointsSingleValue",
   comment: "A single adventure points value.",
   type: () => Integer({ minimum: 0 }),
+})
+
+export const AdventurePointsDependingOnActive = TypeAlias(import.meta.url, {
+  name: "AdventurePointsDependingOnActive",
+  comment: "The adventure points cost depends on if an instance of an entry is active.",
+  type: () =>
+    Object({
+      id: Required({
+        comment: "The identifier of the entry to that decides which AP value to pick.",
+        type: IncludeIdentifier(ActivatableIdentifier),
+      }),
+      active: Required({
+        comment: "The adventure points value if an instance of the referenced entry is active.",
+        type: IncludeIdentifier(AdventurePointsSingleValue),
+      }),
+      inactive: Required({
+        comment: "The adventure points value if no instance of the referenced entry is active.",
+        type: IncludeIdentifier(AdventurePointsSingleValue),
+      }),
+    }),
 })
 
 export const AdventurePointsDependingOnActiveInstances = Enum(import.meta.url, {
