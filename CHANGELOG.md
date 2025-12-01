@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.22.0](https://github.com/elyukai/optolith-database-schema/compare/v0.21.2...v0.22.0) (2025-12-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* Previous lists of values by level need to be wrapped in
+an object.
+
+### Features
+
+* add two-handed option to combat technique restriction ([92d9269](https://github.com/elyukai/optolith-database-schema/commit/92d9269a923ccaa9a99617c34de612947ddbcb88)), closes [#67](https://github.com/elyukai/optolith-database-schema/issues/67)
+* allow magical signs having AE cost ([f8e53e7](https://github.com/elyukai/optolith-database-schema/commit/f8e53e7dc3645e19a24cc60f1257ccd33f8579d6)), closes [#53](https://github.com/elyukai/optolith-database-schema/issues/53)
+* ap value may depend on (any) active instance ([80b726f](https://github.com/elyukai/optolith-database-schema/commit/80b726f945cd6fe4609dfc0b11195ee3801d6433)), closes [#49](https://github.com/elyukai/optolith-database-schema/issues/49)
+* ap value per level based on size category ([43b86db](https://github.com/elyukai/optolith-database-schema/commit/43b86dbf6b6940b6352a69d2a5e9c2f2430e2516)), closes [#43](https://github.com/elyukai/optolith-database-schema/issues/43)
+* enable automatic entries for advantages ([a3e3559](https://github.com/elyukai/optolith-database-schema/commit/a3e35594ccaf85a7d10db4425234bdf8adc7bca0))
+* make magical sign property optional ([5d5db60](https://github.com/elyukai/optolith-database-schema/commit/5d5db60ce3dba9330ed1b6f63b8ceb9e8b4c393b)), closes [#52](https://github.com/elyukai/optolith-database-schema/issues/52)
+* support levels for automatic entries ([dfd83bd](https://github.com/elyukai/optolith-database-schema/commit/dfd83bd28b68bf73df6936d566765f526b1879c4))
+
+
+### Bug Fixes
+
+* identifier access error ([782ae60](https://github.com/elyukai/optolith-database-schema/commit/782ae60ca8e20f9118448922946735313852fed8))
+
 ## [0.21.2](https://github.com/elyukai/optolith-database-schema/compare/v0.21.1...v0.21.2) (2025-11-30)
 
 
