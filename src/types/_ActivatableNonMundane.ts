@@ -608,6 +608,13 @@ export const property = () =>
     type: IncludeIdentifier(PropertyDeclaration),
   })
 
+export const propertyOptional = () =>
+  Optional({
+    comment:
+      "The magic property’s identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.",
+    type: IncludeIdentifier(PropertyDeclaration),
+  })
+
 export const aspect = () =>
   Required({
     comment: "The blessed aspect.",

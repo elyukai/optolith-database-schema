@@ -1,7 +1,7 @@
 import { Entity, IncludeIdentifier, Integer, Object, Optional, Required } from "tsondb/schema/def"
 import { effect, name, name_in_library } from "../_Activatable.js"
 import { ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
-import { property } from "../_ActivatableNonMundane.js"
+import { propertyOptional } from "../_ActivatableNonMundane.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
@@ -19,7 +19,7 @@ export const MagicalSign = Entity(import.meta.url, {
         comment: "The cost in AE.",
         type: Integer({ minimum: 0 }),
       }),
-      property: property(),
+      property: propertyOptional(),
       ap_value: Required({
         comment: "The adventure points value.",
         type: Integer({ minimum: 0 }),
