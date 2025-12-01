@@ -369,6 +369,7 @@ const ApplicableCloseCombatTechniquesRestriction = Enum(import.meta.url, {
     Mount: EnumCase({ type: null }),
     HasParry: EnumCase({ type: null }),
     OneHanded: EnumCase({ type: null }),
+    TwoHanded: EnumCase({ type: null }),
     ParryingWeapon: EnumCase({ type: null }),
     Race: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
     ExcludeCombatTechniques: EnumCase({
