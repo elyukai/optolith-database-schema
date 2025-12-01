@@ -1,12 +1,7 @@
 import { Entity, IncludeIdentifier, Integer, Object, Optional, Required } from "tsondb/schema/def"
-import {
-  ap_value_append,
-  ap_value_l10n,
-  effect,
-  name,
-  name_in_library,
-  property,
-} from "../_Activatable.js"
+import { effect, name, name_in_library } from "../_Activatable.js"
+import { ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
+import { property } from "../_ActivatableNonMundane.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"

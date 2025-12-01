@@ -1,5 +1,6 @@
 import { ReferenceIdentifier as R } from "tsondb/schema/def"
-import { GeneralSelectOption, NewSkillApplication, SkillUse } from "./_Activatable.js"
+import { GeneralSelectOption } from "./_ActivatableSelectOptions.js"
+import { NewSkillApplication, SkillUse } from "./_ActivatableSkillApplicationsAndUses.js"
 import { Enhancement } from "./_Enhancements.js"
 import { Influence } from "./_Influence.js"
 import { Advantage } from "./Advantage.js"

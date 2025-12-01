@@ -10,18 +10,10 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import {
-  ap_value,
-  ap_value_append,
-  ap_value_l10n,
-  explicit_select_options,
-  levels,
-  name,
-  name_in_library,
-  select_options,
-  skill_applications,
-  skill_uses,
-} from "../_Activatable.js"
+import { levels, name, name_in_library } from "../_Activatable.js"
+import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
+import { explicit_select_options, select_options } from "../_ActivatableSelectOptions.js"
+import { skill_applications, skill_uses } from "../_ActivatableSkillApplicationsAndUses.js"
 import {
   AttributeIdentifier,
   InfluenceIdentifier,

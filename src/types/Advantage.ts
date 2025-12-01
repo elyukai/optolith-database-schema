@@ -1,20 +1,8 @@
 import { Boolean, Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
-import {
-  ap_value,
-  ap_value_append,
-  ap_value_l10n,
-  explicit_select_options,
-  input,
-  levels,
-  maximum,
-  name,
-  name_in_library,
-  range_l10n,
-  rules,
-  select_options,
-  skill_applications,
-  skill_uses,
-} from "./_Activatable.js"
+import { input, levels, maximum, name, name_in_library, range_l10n, rules } from "./_Activatable.js"
+import { ap_value, ap_value_append, ap_value_l10n } from "./_ActivatableAdventurePointsValue.js"
+import { explicit_select_options, select_options } from "./_ActivatableSelectOptions.js"
+import { skill_applications, skill_uses } from "./_ActivatableSkillApplicationsAndUses.js"
 import { AdvantageDisadvantagePrerequisites } from "./_Prerequisite.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"

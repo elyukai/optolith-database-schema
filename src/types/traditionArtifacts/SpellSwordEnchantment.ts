@@ -1,22 +1,15 @@
 import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import { effect, levels, maximum, name, name_in_library } from "../_Activatable.js"
+import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import {
   aeCost,
-  ap_value,
-  ap_value_append,
-  ap_value_l10n,
   bindingCost,
   cost,
-  effect,
-  explicit_select_options,
-  levels,
-  maximum,
-  name,
-  name_in_library,
   property,
-  select_options,
   volume,
   volume_l10n,
-} from "../_Activatable.js"
+} from "../_ActivatableNonMundane.js"
+import { explicit_select_options, select_options } from "../_ActivatableSelectOptions.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"

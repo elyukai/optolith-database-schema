@@ -13,9 +13,9 @@ import {
 } from "tsondb/schema/def"
 import {
   AdventurePointsDependingOnActiveInstances,
-  ExplicitSelectOption,
   FixedAdventurePointsValue,
-} from "../../_Activatable.js"
+} from "../../_ActivatableAdventurePointsValue.js"
+import { ExplicitSelectOption } from "../../_ActivatableSelectOptions.js"
 import { PlainGeneralPrerequisites } from "../../_Prerequisite.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
