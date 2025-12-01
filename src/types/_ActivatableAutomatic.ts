@@ -4,6 +4,7 @@ import {
   Enum,
   EnumCase,
   IncludeIdentifier,
+  Integer,
   Object,
   Optional,
   Required,
@@ -78,6 +79,11 @@ const FixedAutomaticEntryTarget = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         type: IncludeIdentifier(ActivatableIdentifier),
+      }),
+      level: Optional({
+        comment:
+          "The level of the target entry to be added or removed. If this is omitted for a multi-level entry, level 1 is assumed.",
+        type: Integer({ minimum: 1 }),
       }),
     }),
 })
