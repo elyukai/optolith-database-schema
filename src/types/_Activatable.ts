@@ -45,6 +45,7 @@ import {
 import { MathOperation } from "./_MathExpression.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
 import { ResponsiveText, ResponsiveTextOptional } from "./_ResponsiveText.js"
+import { BySizeCategory } from "./_SizeCategory.js"
 import { DisplayOption } from "./prerequisites/DisplayOption.js"
 import { Errata } from "./source/_Erratum.js"
 import { optionalSrc } from "./source/_PublicationRef.js"
@@ -1259,9 +1260,20 @@ export const FixedAdventurePointsValue = TypeAlias(import.meta.url, {
 
 const AdventurePointsValueByLevel = TypeAlias(import.meta.url, {
   name: "AdventurePointsValueByLevel",
-  comment:
-    "An entry with levels may have different costs for each level. The length of the list must match the amount of levels the special ability has.",
-  type: () => Array(IncludeIdentifier(AdventurePointsSingleValue), { minItems: 2 }),
+  comment: "An entry with levels may have different costs for each level.",
+  type: () =>
+    Object({
+      list: Required({
+        comment:
+          "The list of adventure point values, where the position in the list corresponds to the level (i.e. the first value is for level I, the second value is for level II, and so on). The length of the list must match the amount of levels the special ability has.",
+        type: Array(IncludeIdentifier(AdventurePointsSingleValue), { minItems: 2 }),
+      }),
+      additionalBySizeCategory: Optional({
+        comment:
+          "Values may be added to each level based on the size category of the character. Negative values mean that the AP value is lowered.",
+        type: GenIncludeIdentifier(BySizeCategory, [Integer()]),
+      }),
+    }),
 })
 
 const AdventurePointsDerivedFromSelection = TypeAlias(import.meta.url, {
