@@ -15,6 +15,10 @@ export const MagicalSign = Entity(import.meta.url, {
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
+      cost: Optional({
+        comment: "The cost in AE.",
+        type: Integer({ minimum: 0 }),
+      }),
       property,
       ap_value: Required({
         comment: "The adventure points value.",
