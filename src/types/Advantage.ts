@@ -1,6 +1,7 @@
 import { Boolean, Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
 import { input, levels, maximum, name, name_in_library, range_l10n, rules } from "./_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "./_ActivatableAdventurePointsValue.js"
+import { automatic_entries } from "./_ActivatableAutomatic.js"
 import { explicit_select_options, select_options } from "./_ActivatableSelectOptions.js"
 import { skill_applications, skill_uses } from "./_ActivatableSkillApplicationsAndUses.js"
 import { AdvantageDisadvantagePrerequisites } from "./_Prerequisite.js"
@@ -19,6 +20,7 @@ export const Advantage = Entity(import.meta.url, {
       skill_applications,
       skill_uses,
       maximum,
+      automatic_entries,
       prerequisites: Optional({
         type: IncludeIdentifier(AdvantageDisadvantagePrerequisites),
       }),
