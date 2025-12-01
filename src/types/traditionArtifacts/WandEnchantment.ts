@@ -21,7 +21,7 @@ export const WandEnchantment = Entity(import.meta.url, {
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
       cost,
-      property,
+      property: property(),
       ap_value,
       src,
       translations: NestedTranslationMap(

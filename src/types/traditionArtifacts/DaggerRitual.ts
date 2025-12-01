@@ -42,7 +42,7 @@ export const DaggerRitual = Entity(import.meta.url, {
       cost: Optional({
         type: IncludeIdentifier(DaggerRitualCost),
       }),
-      property,
+      property: property(),
       ap_value,
       src,
       translations: NestedTranslationMap(

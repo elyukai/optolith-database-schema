@@ -35,7 +35,7 @@ export const CauldronEnchantment = Entity(import.meta.url, {
         type: BrewIdentifier(),
       }),
       cost,
-      property,
+      property: property(),
       ap_value,
       src,
       translations: NestedTranslationMap(

@@ -30,7 +30,7 @@ export const StaffEnchantment = Entity(import.meta.url, {
       }),
       volume,
       cost,
-      property,
+      property: property(),
       ap_value,
       src,
       translations: NestedTranslationMap(

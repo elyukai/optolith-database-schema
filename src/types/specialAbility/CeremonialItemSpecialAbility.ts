@@ -20,7 +20,7 @@ export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
       skill_applications,
       skill_uses,
       maximum,
-      aspect: aspectOptional,
+      aspect: aspectOptional(),
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),

@@ -601,18 +601,21 @@ const PropertyDeclaration = Enum(import.meta.url, {
   }),
 })
 
-export const property = Required({
-  comment:
-    "The magic property’s identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.",
-  type: IncludeIdentifier(PropertyDeclaration),
-})
+export const property = () =>
+  Required({
+    comment:
+      "The magic property’s identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.",
+    type: IncludeIdentifier(PropertyDeclaration),
+  })
 
-export const aspect = Required({
-  comment: "The blessed aspect.",
-  type: AspectIdentifier(),
-})
+export const aspect = () =>
+  Required({
+    comment: "The blessed aspect.",
+    type: AspectIdentifier(),
+  })
 
-export const aspectOptional = Optional({
-  comment: "The blessed aspect.",
-  type: AspectIdentifier(),
-})
+export const aspectOptional = () =>
+  Optional({
+    comment: "The blessed aspect.",
+    type: AspectIdentifier(),
+  })

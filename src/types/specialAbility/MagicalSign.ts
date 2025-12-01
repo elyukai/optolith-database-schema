@@ -19,7 +19,7 @@ export const MagicalSign = Entity(import.meta.url, {
         comment: "The cost in AE.",
         type: Integer({ minimum: 0 }),
       }),
-      property,
+      property: property(),
       ap_value: Required({
         comment: "The adventure points value.",
         type: Integer({ minimum: 0 }),

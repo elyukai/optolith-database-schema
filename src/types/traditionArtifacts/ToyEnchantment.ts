@@ -29,7 +29,7 @@ export const ToyEnchantment = Entity(import.meta.url, {
       }),
       volume,
       cost,
-      property,
+      property: property(),
       ap_value,
       src,
       translations: NestedTranslationMap(
