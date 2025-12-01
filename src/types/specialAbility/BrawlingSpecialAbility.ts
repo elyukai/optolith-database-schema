@@ -3,7 +3,6 @@ import {
   ap_value,
   ap_value_append,
   ap_value_l10n,
-  combat_techniques,
   explicit_select_options,
   levels,
   maximum,
@@ -11,8 +10,8 @@ import {
   name_in_library,
   rules,
   select_options,
-  usage_type,
 } from "../_Activatable.js"
+import { combat_techniques, usage_type } from "../_ActivatableCombat.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"

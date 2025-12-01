@@ -4,7 +4,6 @@ import {
   ap_value,
   ap_value_append,
   ap_value_l10n,
-  combat_techniques,
   explicit_select_options,
   levels,
   maximum,
@@ -14,9 +13,8 @@ import {
   select_options,
   skill_applications,
   skill_uses,
-  type,
-  usage_type,
 } from "../_Activatable.js"
+import { combat_techniques, type, usage_type } from "../_ActivatableCombat.js"
 import { AdvancedCombatSpecialAbilityIdentifier } from "../_Identifier.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
