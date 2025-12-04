@@ -1,5 +1,6 @@
 import {
   Array,
+  Boolean,
   Entity,
   Enum,
   EnumCase,
@@ -12,6 +13,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
+import { BlessedTraditionIdentifier, MagicalTraditionIdentifier } from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
@@ -189,4 +191,128 @@ export const ComplexComplexity = TypeAlias(import.meta.url, {
         type: Integer({ minimum: 1 }),
       }),
     }),
+})
+
+export const RestrictedTo = TypeAlias(import.meta.url, {
+  name: "RestrictedTo",
+  comment:
+    "If the item is in any case restricted to a subset of characters. The differenciating aspect may be tradition, race, culture, or a profession. Each element must be applicable to a character. ",
+  type: () =>
+    Object(
+      {
+        races: Optional({
+          comment:
+            "The item is restricted to one of a list of races. If only one race is allowed, the list may only have a single element.",
+          type: IncludeIdentifier(RestrictedToRaces),
+        }),
+        cultures: Optional({
+          comment:
+            "The item is restricted to one of a list of cultures. If only one culture is allowed, the list may only have a single element.",
+          type: IncludeIdentifier(RestrictedToCultures),
+        }),
+        professions: Optional({
+          comment:
+            "The item is restricted to one of a list of professions. If only one profession is allowed, the list may only have a single element.",
+          type: IncludeIdentifier(RestrictedToProfessions),
+        }),
+        magicalTraditions: Optional({
+          comment:
+            "The item is restricted to one of a list of magical traditions. If only one magical tradition is allowed, the list may only have a single element.",
+          type: IncludeIdentifier(RestrictedToMagicalTraditions),
+        }),
+        blessedTraditions: Optional({
+          comment:
+            "The item is restricted to one of a list of blessed traditions. If only one blessed tradition is allowed, the list may only have a single element.",
+          type: IncludeIdentifier(RestrictedToBlessedTraditions),
+        }),
+      },
+      { minProperties: 1 },
+    ),
+})
+
+export const RestrictedToRaces = TypeAlias(import.meta.url, {
+  name: "RestrictedToRaces",
+  comment:
+    "The item is restricted to one of a list of races. If only one race is allowed, the list may only have a single element.",
+  type: () =>
+    Object({
+      scope: Required({
+        comment:
+          "The item is restricted to one of a list of races. If only one race is allowed, the list may only have a single element.",
+        type: Array(MagicalTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
+      }),
+    }),
+})
+
+export const RestrictedToCultures = TypeAlias(import.meta.url, {
+  name: "RestrictedToCultures",
+  comment:
+    "The item is restricted to one of a list of cultures. If only one culture is allowed, the list may only have a single element.",
+  type: () =>
+    Object({
+      scope: Required({
+        comment:
+          "The item is restricted to one of a list of cultures. If only one culture is allowed, the list may only have a single element.",
+        type: Array(MagicalTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
+      }),
+    }),
+})
+
+export const RestrictedToProfessions = TypeAlias(import.meta.url, {
+  name: "RestrictedToProfessions",
+  comment:
+    "The item is restricted to one of a list of professions. If only one profession is allowed, the list may only have a single element.",
+  type: () =>
+    Object({
+      scope: Required({
+        comment:
+          "The item is restricted to one of a list of professions. If only one profession is allowed, the list may only have a single element.",
+        type: Array(MagicalTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
+      }),
+    }),
+})
+
+export const RestrictedToMagicalTraditions = TypeAlias(import.meta.url, {
+  name: "RestrictedToMagicalTraditions",
+  comment:
+    "The item is restricted to one of a list of magical traditions. If only one magical tradition is allowed, the list may only have a single element.",
+  type: () =>
+    Object({
+      scope: Required({
+        comment:
+          "The item is restricted to one of a list of magical traditions. If only one magical tradition is allowed, the list may only have a single element.",
+        type: Array(MagicalTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
+      }),
+    }),
+})
+
+export const RestrictedToBlessedTraditions = TypeAlias(import.meta.url, {
+  name: "RestrictedToBlessedTraditions",
+  comment:
+    "The item is restricted to one of a list of blessed traditions. If only one blessed tradition is allowed, the list may only have a single element. The item may also be declared as sanctified.",
+  type: () =>
+    Object({
+      scope: Required({
+        comment:
+          "The item is restricted to one of a list of blessed traditions. If only one blessed tradition is allowed, the list may only have a single element.",
+        type: IncludeIdentifier(RestrictedToBlessedTraditionsScope),
+      }),
+      isSanctifiedBy: Required({
+        comment: "The item is sanctified by the applicable listed tradition.",
+        type: Boolean(),
+      }),
+    }),
+})
+
+export const RestrictedToBlessedTraditionsScope = Enum(import.meta.url, {
+  name: "RestrictedToBlessedTraditionsScope",
+  comment:
+    "The item is restricted to one of a list of blessed traditions. If only one blessed tradition is allowed, the list may only have a single element. Instead of providing an specific set of traditions, the restriction may also cover a category of blessed traditions.",
+  values: () => ({
+    Specific: EnumCase({
+      type: Array(BlessedTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
+    }),
+    Church: EnumCase({ type: null }),
+    Shamanistic: EnumCase({ type: null }),
+  }),
 })

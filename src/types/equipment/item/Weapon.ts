@@ -1,8 +1,5 @@
 import {
-  Array,
   Entity,
-  Enum,
-  EnumCase,
   IncludeIdentifier,
   NestedEntityMap,
   Object,
@@ -11,17 +8,11 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import {
-  BlessedTraditionIdentifier,
-  CultureIdentifier,
-  MagicalTraditionIdentifier,
-  RaceIdentifier,
-} from "../../_Identifier.js"
 import { CloseCombatTechnique, RangedCombatTechnique } from "../../CombatTechnique.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
-import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
+import { Complexity, Cost, RestrictedTo, StructurePoints, Weight } from "./_Item.js"
 import { MeleeWeapon } from "./_MeleeWeapon.js"
 import { RangedWeapon } from "./_RangedWeapon.js"
 
@@ -67,19 +58,10 @@ export const Weapon = Entity(import.meta.url, {
           type: IncludeIdentifier(RangedWeapon),
         }),
       }),
-      sanctified_by: Optional({
-        comment: "If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.",
-        type: IncludeIdentifier(SanctifiedBy),
-      }),
-      restricted_to_cultures: Optional({
+      restrictedTo: Optional({
         comment:
-          "Define if during character creation this weapon can only be bought by characters of a specific race or culture.",
-        type: IncludeIdentifier(RestrictedToCultures),
-      }),
-      restricted_to_traditions: Optional({
-        comment:
-          "Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.",
-        type: Array(MagicalTraditionIdentifier(), { minItems: 1 }),
+          "Define if during character creation this weapon can only be bought by a specific subset of characters.",
+        type: IncludeIdentifier(RestrictedTo),
       }),
       src,
       translations: NestedTranslationMap(
@@ -143,19 +125,10 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
           type: IncludeIdentifier(RangedWeapon),
         }),
       }),
-      sanctified_by: Optional({
-        comment: "If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.",
-        type: IncludeIdentifier(SanctifiedBy),
-      }),
-      restricted_to_cultures: Optional({
+      restrictedTo: Optional({
         comment:
-          "Define if during character creation this weapon can only be bought by characters of a specific race or culture.",
-        type: IncludeIdentifier(RestrictedToCultures),
-      }),
-      restricted_to_traditions: Optional({
-        comment:
-          "Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.",
-        type: Array(MagicalTraditionIdentifier(), { minItems: 1 }),
+          "Define if during character creation this weapon can only be bought by a specific subset of characters.",
+        type: IncludeIdentifier(RestrictedTo),
       }),
       translations: NestedTranslationMap(
         Optional,
@@ -174,31 +147,5 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
           { minProperties: 1 },
         ),
       ),
-    }),
-})
-
-export const SanctifiedBy = TypeAlias(import.meta.url, {
-  name: "SanctifiedBy",
-  comment: "If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.",
-  type: () => Array(BlessedTraditionIdentifier(), { minItems: 1 }),
-})
-
-const RestrictedToCultures = Enum(import.meta.url, {
-  name: "RestrictedToCultures",
-  comment:
-    "Define if during character creation this weapon can only be bought by characters of a specific race or culture.",
-  values: () => ({
-    CulturesOfRace: EnumCase({ type: RaceIdentifier() }),
-    Cultures: EnumCase({ type: IncludeIdentifier(RestrictedToSpecificCultures) }),
-  }),
-})
-
-const RestrictedToSpecificCultures = TypeAlias(import.meta.url, {
-  name: "RestrictedToSpecificCultures",
-  type: () =>
-    Object({
-      list: Required({
-        type: Array(CultureIdentifier(), { minItems: 1 }),
-      }),
     }),
 })
