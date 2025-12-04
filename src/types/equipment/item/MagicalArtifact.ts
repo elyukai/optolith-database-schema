@@ -1,6 +1,13 @@
 import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
 import { src } from "../../source/_PublicationRef.js"
-import { CombatUse, Complexity, Cost, DefaultItemTranslations, Weight } from "./_Item.js"
+import {
+  CombatUse,
+  Complexity,
+  Cost,
+  DefaultItemTranslations,
+  StructurePoints,
+  Weight,
+} from "./_Item.js"
 
 export const MagicalArtifact = Entity(import.meta.url, {
   name: "MagicalArtifact",
@@ -18,6 +25,11 @@ export const MagicalArtifact = Entity(import.meta.url, {
       complexity: Optional({
         comment: "The complexity of crafting the item.",
         type: IncludeIdentifier(Complexity),
+      }),
+      structure_points: Optional({
+        comment:
+          "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
+        type: IncludeIdentifier(StructurePoints),
       }),
       combat_use: Optional({
         comment:
