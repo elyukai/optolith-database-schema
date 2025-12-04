@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.23.0](https://github.com/elyukai/optolith-database-schema/compare/v0.22.0...v0.23.0) (2025-12-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **gen:** duplicate translation postfix
+* This removes previous note and rules fields.
+* add map and permanent cost options to magical signs
+* add item restrictions to equipment of blessed ones
+* unify item restrictions and add profession restrictions
+* translation keys follow Unicode MessageFormat 2.0
+
+### Features
+
+* add expression-based poison duration option ([fcb30ba](https://github.com/elyukai/optolith-database-schema/commit/fcb30ba06b93924ce9399ea5481b98bd2689b229)), closes [#70](https://github.com/elyukai/optolith-database-schema/issues/70)
+* add item restrictions to armor ([6a14e81](https://github.com/elyukai/optolith-database-schema/commit/6a14e811fe71e2f6ade006572d4ba4740cc7b4cd)), closes [#68](https://github.com/elyukai/optolith-database-schema/issues/68)
+* add item restrictions to equipment of blessed ones ([d2418f4](https://github.com/elyukai/optolith-database-schema/commit/d2418f4036c52d5cf972208c67ecf1229e883c85)), closes [#72](https://github.com/elyukai/optolith-database-schema/issues/72)
+* add map and permanent cost options to magical signs ([6958dd7](https://github.com/elyukai/optolith-database-schema/commit/6958dd7f7bda88027d38ba2a3de75a0c645ff7f7)), closes [#75](https://github.com/elyukai/optolith-database-schema/issues/75)
+* add structure points option to some item categories ([6281812](https://github.com/elyukai/optolith-database-schema/commit/62818120f9e849ba7e95f3a68a3f00758fb8a514)), closes [#76](https://github.com/elyukai/optolith-database-schema/issues/76)
+* add translatable intoxicant addiction chance ([bd6fc3c](https://github.com/elyukai/optolith-database-schema/commit/bd6fc3c1448c4b6a221603f33197d8b44a743509)), closes [#71](https://github.com/elyukai/optolith-database-schema/issues/71)
+* allow penalty for combat style special abilities ([90ca20f](https://github.com/elyukai/optolith-database-schema/commit/90ca20f52f806824325a916b8a89f46070db941a)), closes [#77](https://github.com/elyukai/optolith-database-schema/issues/77)
+* optional intoxicant overdose ([90d3adc](https://github.com/elyukai/optolith-database-schema/commit/90d3adc6f4a214f3a4178fb402becc446984005d)), closes [#69](https://github.com/elyukai/optolith-database-schema/issues/69)
+* translation keys follow Unicode MessageFormat 2.0 ([b651562](https://github.com/elyukai/optolith-database-schema/commit/b651562db13d1531d160f8d3288485a04f9bfa3e))
+* unify item restrictions and add profession restrictions ([5611ba5](https://github.com/elyukai/optolith-database-schema/commit/5611ba54402ce6ac401d40160513b3db70327d8d)), closes [#51](https://github.com/elyukai/optolith-database-schema/issues/51)
+* use description, effect and cost for magical artifact ([a7988fc](https://github.com/elyukai/optolith-database-schema/commit/a7988fc426ad76f4b876071b4cde05b11d523212)), closes [#74](https://github.com/elyukai/optolith-database-schema/issues/74)
+
+
+### Bug Fixes
+
+* **gen:** duplicate translation postfix ([772da37](https://github.com/elyukai/optolith-database-schema/commit/772da37386622cff0a1ab4954a392eeaca1ac72a))
+
 ## [0.22.0](https://github.com/elyukai/optolith-database-schema/compare/v0.21.2...v0.22.0) (2025-12-01)
 
 
