@@ -48,6 +48,14 @@ export const MagicalArtifact = Entity(import.meta.url, {
             comment: "Description text.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
+          note: Optional({
+            comment: "A note.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          rules: Optional({
+            comment: "Rules text.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
           effect: Optional({
             comment: "Effect text.",
             type: String({ minLength: 1, isMarkdown: true }),
