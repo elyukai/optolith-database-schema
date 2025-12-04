@@ -2,7 +2,7 @@ import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/sc
 import { levels, maximum, name, name_in_library, rules } from "../_Activatable.js"
 import { advanced } from "../_ActivatableAdvanced.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
-import { combat_techniques, type, usage_type } from "../_ActivatableCombat.js"
+import { combat_techniques, penalty, type, usage_type } from "../_ActivatableCombat.js"
 import { explicit_select_options, select_options } from "../_ActivatableSelectOptions.js"
 import { skill_applications, skill_uses } from "../_ActivatableSkillApplicationsAndUses.js"
 import { AdvancedCombatSpecialAbilityIdentifier } from "../_Identifier.js"
@@ -24,6 +24,7 @@ export const CombatStyleSpecialAbility = Entity(import.meta.url, {
       skill_applications,
       skill_uses,
       maximum,
+      penalty,
       advanced: advanced(AdvancedCombatSpecialAbilityIdentifier()),
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
