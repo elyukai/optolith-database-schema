@@ -38,14 +38,14 @@ export const Locale = Entity(import.meta.url, {
         // prettier-ignore
         type: TranslationObject({
           // Menu
-          "About {0}": null,
+          "About {$app}": null,
           "Preferences …": null,
           "Services": null,
-          "Hide {0}": null,
+          "Hide {$app}": null,
           "Hide Others": null,
           "Show All": null,
-          "Quit {0}": null,
-          "File": null,
+          "Quit {$app}": null,
+          ".input {$os :string} {{File}}": null,
           "Close": null,
           "Quit": null,
           "Edit": null,
@@ -85,7 +85,7 @@ export const Locale = Entity(import.meta.url, {
           /**
            * - `0`: Version number
            */
-          "Version {0} is available! Do you wish to download and install?": null,
+          "Version {$version} is available! Do you wish to download and install?": null,
           "Download": null,
           "Download Later": null,
           "Downloading update …": null,
@@ -131,7 +131,7 @@ export const Locale = Entity(import.meta.url, {
           /**
            * - `0`: AP left
            */
-          "{0} AP Remaining": null,
+          "{$value} AP Remaining": null,
           "Save": null,
           "Show Settings": null,
           "Toggle DevTools": null,
@@ -142,93 +142,93 @@ export const Locale = Entity(import.meta.url, {
           /**
            * - `0`: AP value
            */
-          "{0} Adventure Points": null,
+          ".input {$value :number} {{{$value} Adventure Points}}": null,
           /**
            * - `0`: AP value
            */
-          "{0} AP": null,
+          "{$value} AP": null,
           /**
            * - `0`: AP Total
            */
-          "{0} Total AP": null,
+          "{$value} Total AP": null,
           /**
            * - `0`: AP Spent
            */
-          "{0} AP Spent": null,
+          "{$value} AP Spent": null,
           /**
            * - `0`: Current AP spent on advantages
            * - `1`: Maximum possible AP spent on advantages
            */
-          "{0}/{1} AP spent on advantages": null,
+          "{$value}/{$max} AP spent on advantages": null,
           /**
            * - `0`: Current AP spent on magic advantages
            * - `1`: Maximum possible AP spent on magic advantages
            */
-          "Thereof {0}/{1} on magic advantages": null,
+          "Thereof {$value}/{$max} on magic advantages": null,
           /**
            * - `0`: Current AP spent on blessed advantages
            * - `1`: Maximum possible AP spent on blessed advantages
            */
-          "Thereof {0}/{1} on blessed advantages": null,
+          "Thereof {$value}/{$max} on blessed advantages": null,
           /**
            * - `0`: Current AP spent on disadvantages
            * - `1`: Maximum possible AP spent on disadvantages
            */
-          "{0}/{1} AP received from disadvantages": null,
+          "{$value}/{$max} AP received from disadvantages": null,
           /**
            * - `0`: Current AP spent on magic disadvantages
            * - `1`: Maximum possible AP spent on magic disadvantages
            */
-          "Thereof {0}/{1} from magic disadvantages": null,
+          "Thereof {$value}/{$max} from magic disadvantages": null,
           /**
            * - `0`: Current AP spent on blessed disadvantages
            * - `1`: Maximum possible AP spent on blessed disadvantages
            */
-          "Thereof {0}/{1} from blessed disadvantages": null,
+          "Thereof {$value}/{$max} from blessed disadvantages": null,
           /**
            * - `0`: AP spent on race
            */
-          "{0} AP spent on race": null,
+          "{$value} AP spent on race": null,
           /**
            * - `0`: AP spent on profession
            */
-          "{0} AP spent on profession": null,
+          "{$value} AP spent on profession": null,
           /**
            * - `0`: AP spent on attributes
            */
-          "{0} AP spent on attributes": null,
+          "{$value} AP spent on attributes": null,
           /**
            * - `0`: AP spent on skills
            */
-          "{0} AP spent on skills": null,
+          "{$value} AP spent on skills": null,
           /**
            * - `0`: AP spent on combat techniques
            */
-          "{0} AP spent on combat techniques": null,
+          "{$value} AP spent on combat techniques": null,
           /**
            * - `0`: AP spent on spells
            */
-          "{0} AP spent on spells": null,
+          "{$value} AP spent on spells": null,
           /**
            * - `0`: AP spent on cantrips
            */
-          "{0} AP spent on cantrips": null,
+          "{$value} AP spent on cantrips": null,
           /**
            * - `0`: AP spent on liturgical chants
            */
-          "{0} AP spent on liturgical chants": null,
+          "{$value} AP spent on liturgical chants": null,
           /**
            * - `0`: AP spent on blessings
            */
-          "{0} AP spent on blessings": null,
+          "{$value} AP spent on blessings": null,
           /**
            * - `0`: AP spent on special abilities
            */
-          "{0} AP spent on special abilities": null,
+          "{$value} AP spent on special abilities": null,
           /**
            * - `0`: AP spent on energies (LP/AE/KP)
            */
-          "{0} AP spent on improving/buying back LP/AE/KP": null,
+          "{$value} AP spent on improving/buying back LP/AE/KP": null,
 
           "header.dialogs.herosaved": null,
           "header.dialogs.allsaved": null,
@@ -281,19 +281,19 @@ export const Locale = Entity(import.meta.url, {
           "Apply": null,
           "Add": null,
           "Not enough AP": null,
-          "You are missing {0} Adventure Points to do this.": null,
+          ".input {$value :number} {{You are missing {$value} Adventure Points to do this.}}": null,
           "Exceeding Adventure Points limit for advantages": null,
-          "You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP.": null,
+          "You cannot spend more than {$max} AP on advantages. You would exceed this limit by {$over} AP.": null,
           "Exceeding Adventure Points limit for magical advantages": null,
-          "You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP.": null,
+          "You cannot spend more than {$max} AP on magical advantages. You would exceed this limit by {$over} AP.": null,
           "Exceeding Adventure Points limit for blessed advantages": null,
-          "You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP.": null,
+          "You cannot spend more than {$max} AP on blessed advantages. You would exceed this limit by {$over} AP.": null,
           "Exceeding Adventure Points limit for disadvantages": null,
-          "You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP.": null,
+          "You cannot receive more than {$max} AP from disadvantages. You would exceed this limit by {$over} AP.": null,
           "Exceeding Adventure Points limit for magical disadvantages": null,
-          "You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP.": null,
+          "You cannot receive more than {$max} AP from magical disadvantages. You would exceed this limit by {$over} AP.": null,
           "Exceeding Adventure Points limit for blessed disadvantages": null,
-          "You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP.": null,
+          "You cannot receive more than {$max} AP from blessed disadvantages. You would exceed this limit by {$over} AP.": null,
 
           "heroes.filters.origin.allheroes": null,
           "heroes.filters.origin.ownheroes": null,
@@ -828,7 +828,7 @@ export const Locale = Entity(import.meta.url, {
           /**
            * - `0`: Entry name
            */
-          "AP Cost for {0}": null,
+          "AP Cost for {$category}": null,
           "Custom option": null,
 
           "specialabilities.nativetonguelevel": null,
@@ -965,9 +965,9 @@ export const Locale = Entity(import.meta.url, {
           "spells.traditions.general": null,
           "magicalactions.animistforces.tribes.general": null,
 
-          " (modified by {0})": null,
-          " (− {0})": null,
-          "{0} or {1}, depending on which value is higher": null,
+          " (modified by {$modifier})": null,
+          " (−{$modifier})": null,
+          "{$first} or {$second}, depending on which value is higher": null,
           "Invocation Difficulty": null,
           "ID": null,
           "Creation Difficulty": null,
@@ -996,86 +996,86 @@ export const Locale = Entity(import.meta.url, {
           " (you cannot use a modification on this ceremony’s cost)": null,
           " (you cannot use a modification on this ceremony’s range)": null,
           " (cannot modify)": null,
-          "{0} act": null,
+          "{$value} act": null,
           "act": null,
-          "{0} actions": null,
+          ".input {$value :number} {{{$value} actions}}": null,
           "actions": null,
-          "{0} s": null,
+          "{$value} s": null,
           "s": null,
-          "{0} seconds": null,
+          ".input {$value :number} {{{$value} seconds}}": null,
           "seconds": null,
-          "{0} min": null,
+          "{$value} min": null,
           "min": null,
-          "{0} minutes": null,
+          ".input {$value :number} {{{$value} minutes}}": null,
           "minutes": null,
-          "{0} h": null,
+          "{$value} h": null,
           "h": null,
-          "{0} hours": null,
+          ".input {$value :number} {{{$value} hours}}": null,
           "hours": null,
-          "{0} d": null,
+          "{$value} d": null,
           "d": null,
-          "{0} days": null,
+          ".input {$value :number} {{{$value} days}}": null,
           "days": null,
-          "{0} wks.": null,
+          ".input {$value :number} {{{$value} wks.}}": null,
           "wks.": null,
-          "{0} weeks": null,
+          ".input {$value :number} {{{$value} weeks}}": null,
           "weeks": null,
-          "{0} mos.": null,
+          ".input {$value :number} {{{$value} mos.}}": null,
           "mos.": null,
-          "{0} months": null,
+          ".input {$value :number} {{{$value} months}}": null,
           "months": null,
-          "{0} yrs.": null,
+          ".input {$value :number} {{{$value} yrs.}}": null,
           "yrs.": null,
-          "{0} years": null,
+          ".input {$value :number} {{{$value} years}}": null,
           "years": null,
-          "{0} cent.": null,
+          "{$value} cent.": null,
           "cent.": null,
-          "{0} centuries": null,
+          ".input {$value :number} {{{$value} centuries}}": null,
           "centuries": null,
-          "{0} SA": null,
-          "{0} seduction actions": null,
-          "{0} rnds": null,
-          "{0} rounds": null,
-          "{0} CR": null,
+          "{$value} SA": null,
+          ".input {$value :number} {{{$value} seduction actions}}": null,
+          "{$value} rnds": null,
+          ".input {$value :number} {{{$value} rounds}}": null,
+          "{$value} CR": null,
           "CR": null,
-          "{0} combat rounds": null,
+          ".input {$value :number} {{{$value} combat rounds}}": null,
           "combat rounds": null,
-          "{0} AE": null,
-          "{0} KP": null,
+          "{$value} AE": null,
+          "{$value} KP": null,
           "min. ": null,
           "at least ": null,
-          "min. {0}": null,
-          "at least {0}": null,
-          "/{0}": null,
-          " per {0}": null,
-          ", minimum of {0}": null,
-          " ({0} perm.)": null,
-          ", {0} of which are permanent": null,
+          "min. {$value}": null,
+          "at least {$value}": null,
+          "/{$value}": null,
+          " per {$value}": null,
+          ", minimum of {$value}": null,
+          " ({$value} perm.)": null,
+          ".input {$value :number} {{, {$value} of which are permanent}}": null,
           "half of the activation cost": null,
           " and ": null,
           " + ": null,
           " or ": null,
           " / ": null,
           " for ": null,
-          " (no more than {0})": null,
-          " (max. {0})": null,
-          "no more than {0}": null,
-          "max. {0}": null,
+          " (no more than {$value})": null,
+          " (max. {$value})": null,
+          "no more than {$value}": null,
+          "max. {$value}": null,
           "Immediate": null,
           "Permanent": null,
           "no more than ": null,
           "max. ": null,
           "Quality Levels": null,
           "QL": null,
-          "QL {0}": null,
+          "QL {$value}": null,
           "Skill Points": null,
           "SP": null,
           "Sustained": null,
           "(S)": null,
-          "{0} yards": null,
-          "{0} yd": null,
-          "{0} miles": null,
-          "{0} mi.": null,
+          ".input {$value :number} {{{$value} yards}}": null,
+          "{$value} yd": null,
+          ".input {$value :number} {{{$value} miles}}": null,
+          "{$value} mi.": null,
           "Sight": null,
           "Self": null,
           "Global": null,
@@ -1090,58 +1090,22 @@ export const Locale = Entity(import.meta.url, {
 
           "none": null,
           "State": null,
-          "Social Status {0} or higher": null,
-          "Person with {0}": null,
+          "Social Status {$minStatus} or higher": null,
+          "Person with {$sexualCharacteristic}": null,
           "Penis": null,
           "Vagina": null,
-          "the SR for {0} combined must add up to at least {1}": null,
-          "{0} on at least SR {1}: {2}": null,
-          "{0} arcane works with the property {1} at SR {2} or higher": null,
-          "{0} liturgical chants and ceremonies with the aspect {1} at SR {2} or higher": null,
-          "one of the following skills": null,
-          "two of the following skills": null,
-          "three of the following skills": null,
-          "four of the following skills": null,
-          "five of the following skills": null,
-          "six of the following skills": null,
-          "seven of the following skills": null,
-          "eight of the following skills": null,
-          "nine of the following skills": null,
-          "{0} of the following skills": null,
-          "one combat technique": null,
-          "two combat techniques": null,
-          "three combat techniques": null,
-          "four combat techniques": null,
-          "five combat techniques": null,
-          "six combat techniques": null,
-          "seven combat techniques": null,
-          "eight combat techniques": null,
-          "nine combat techniques": null,
-          "{0} combat techniques": null,
-          "one close combat technique": null,
-          "two close combat techniques": null,
-          "three close combat techniques": null,
-          "four close combat techniques": null,
-          "five close combat techniques": null,
-          "six close combat techniques": null,
-          "seven close combat techniques": null,
-          "eight close combat techniques": null,
-          "nine close combat techniques": null,
-          "{0} close combat techniques": null,
-          "one ranged combat technique": null,
-          "two ranged combat techniques": null,
-          "three ranged combat techniques": null,
-          "four ranged combat techniques": null,
-          "five ranged combat techniques": null,
-          "six ranged combat techniques": null,
-          "seven ranged combat techniques": null,
-          "eight ranged combat techniques": null,
-          "nine ranged combat techniques": null,
-          "{0} ranged combat techniques": null,
+          "the SR for {$skill} combined must add up to at least {$minRating}": null,
+          ".input {$count :number} .input {$minRating :number} {{{$count} on at least SR {$minRating}: {$list}}}": null,
+          ".input {$count :number} .input {$minRating :number} {{{$count} arcane works with the property {$property} at SR {$minRating} or higher}}": null,
+          ".input {$count :number} .input {$minRating :number} {{{$count} liturgical chants and ceremonies with the aspect {$aspect} at SR {$minRating} or higher}}": null,
+          ".input {$count :number} {{{$count} of the following skills}}": null,
+          ".input {$count :number} {{{$count} combat techniques}}": null,
+          ".input {$count :number} {{{$count} close combat techniques}}": null,
+          ".input {$count :number} {{{$count} ranged combat techniques}}": null,
           "special ability": null,
           "no special ability": null,
           "Tradition": null,
-          "Tradition ({0})": null,
+          "Tradition ({$tradition})": null,
           "Church": null,
           "Shaman": null,
           "Tradition must be able to use rituals": null,
@@ -1150,12 +1114,12 @@ export const Locale = Entity(import.meta.url, {
           "liturgical enhancement": null,
           "for": null,
           "no other ancestor blood advantage": null,
-          "Race, culture, or profession must have {0} as an automatic or suggested {1}": null,
+          "Race, culture, or profession must have {$entry} as an automatic or suggested {$itemOfCategory}": null,
           "advantage": null,
           "disadvantage": null,
-          "domain {0}": null,
-          "{0} level {1}": null,
-          "Level {0}:": null,
+          "domain {$domain}": null,
+          "{$pact} level {$pactLevel}": null,
+          "Level {$level}:": null,
 
           "inlinewiki.castingtime": null,
           "inlinewiki.ritualtime": null,
@@ -1371,9 +1335,9 @@ export const Locale = Entity(import.meta.url, {
 
           "Front Cover Inside": null,
           "Back Cover Inside": null,
-          "since the {0}. printing": null,
-          "removed in {0}. printing": null,
-        }),
+          ".input {$printing :number} {{since the {$printing}. printing}}": null,
+          ".input {$printing :number} {{removed in {$printing}. printing}}": null,
+        }, { allKeysAreRequired: true }),
       }),
     }),
 })
@@ -1400,3 +1364,59 @@ export const NestedTranslationMap = <
       type,
     }),
   })
+
+// /**
+//  * Any type that can be converted to a string via a `toString` method.
+//  */
+// interface Stringable {
+//   toString(): string
+// }
+
+// type Whitespace = " " | "\n" | "\t" | "\r"
+
+// /**
+//  * Removes leading and trailing whitespace from a string literal type.
+//  */
+// type Trim<L extends string> = L extends `${Whitespace}${infer Rest}`
+//   ? Trim<Rest>
+//   : L extends `${infer Rest}${Whitespace}`
+//     ? Trim<Rest>
+//     : L
+
+// /**
+//  * Maps the type function string to the actual TypeScript type.
+//  */
+// type ActualType<F extends string> = F extends "number" | "integer"
+//   ? number
+//   : F extends "string"
+//     ? string
+//     : F extends "datetime" | "date" | "time"
+//       ? Date
+//       : Stringable
+
+// /**
+//  * Makes the parameter types readable by removing any TypeScript-specific constructs.
+//  */
+// type ReadableParams<P extends object> = {
+//   [K in keyof P]: P[K]
+// }
+
+// /**
+//  * Extracts parameter names and their types from a simple message string. It also works for complex messages, but is not designed for that.
+//  */
+// type ParamsFromSimpleMessage<L extends string> = L extends `${infer Start}}${infer Rest}`
+//   ? Start extends `${string}{$${infer Name} :${infer TypeFunction}`
+//     ? { [K in Name]: ActualType<TypeFunction> } & Omit<ParamsFromSimpleMessage<Rest>, Name>
+//     : Start extends `${string}{$${infer Name}`
+//       ? ParamsFromSimpleMessage<Rest> extends { [K in Name]: Stringable }
+//         ? ParamsFromSimpleMessage<Rest>
+//         : { [K in Name]: Stringable } & ParamsFromSimpleMessage<Rest>
+//       : ParamsFromSimpleMessage<Rest>
+//   : object
+
+// /**
+//  * Extracts parameter names and their types from an Unicode MessageFormat 2.0 (MF2) string.
+//  */
+// export type ExtractParamsFromMessage<Msg extends string> = ReadableParams<
+//   ParamsFromSimpleMessage<Msg>
+// >
