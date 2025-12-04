@@ -1,7 +1,6 @@
-import { Array, Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
-import { BlessedTraditionIdentifier } from "../../_Identifier.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
 import { src } from "../../source/_PublicationRef.js"
-import { CombatUse, Cost, DefaultItemTranslations, StructurePoints } from "./_Item.js"
+import { CombatUse, Cost, DefaultItemTranslations, RestrictedTo, StructurePoints } from "./_Item.js"
 
 export const EquipmentOfBlessedOnes = Entity(import.meta.url, {
   name: "EquipmentOfBlessedOnes",
@@ -17,9 +16,10 @@ export const EquipmentOfBlessedOnes = Entity(import.meta.url, {
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
         type: IncludeIdentifier(StructurePoints),
       }),
-      associated_tradition: Required({
-        comment: "The deity/deities associated with the equipment item.",
-        type: Array(BlessedTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
+      restrictedTo: Optional({
+        comment:
+          "Define if during character creation this item can only be bought by a specific subset of characters.",
+        type: IncludeIdentifier(RestrictedTo),
       }),
       combat_use: Optional({
         comment:
