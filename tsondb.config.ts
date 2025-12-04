@@ -10,6 +10,9 @@ const config: GenerationConfig = {
       targetPath: join(import.meta.dirname, "gen", "types.d.ts"),
       rendererOptions: {
         generateEntityMapType: true,
+        inferTranslationParameters: {
+          format: "mf2",
+        },
       },
     }),
     // JsonSchemaOutput({
