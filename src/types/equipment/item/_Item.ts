@@ -57,7 +57,7 @@ export const DefaultItem = (sourceUrl: string, singularName: string, pluralName?
 export const DefaultItemTranslations = (singularName: string) =>
   NestedTranslationMap(
     Required,
-    `${singularName}Translation`,
+    singularName,
     Object({
       name: Required({
         comment: "The item’s name.",
