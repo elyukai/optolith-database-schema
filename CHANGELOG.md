@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.23.1](https://github.com/elyukai/optolith-database-schema/compare/v0.23.0...v0.23.1) (2025-12-04)
+
+
+### Bug Fixes
+
+* restore removed magical artifact translation properties ([d4b8ad3](https://github.com/elyukai/optolith-database-schema/commit/d4b8ad3bd854b32d2a6b05d1e79837c210910d4b))
+
 ## [0.23.0](https://github.com/elyukai/optolith-database-schema/compare/v0.22.0...v0.23.0) (2025-12-04)
 
 
