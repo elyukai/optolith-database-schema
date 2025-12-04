@@ -13,7 +13,13 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { BlessedTraditionIdentifier, MagicalTraditionIdentifier } from "../../_Identifier.js"
+import {
+  BlessedTraditionIdentifier,
+  CultureIdentifier,
+  MagicalTraditionIdentifier,
+  ProfessionIdentifier,
+  RaceIdentifier,
+} from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
@@ -239,7 +245,7 @@ export const RestrictedToRaces = TypeAlias(import.meta.url, {
       scope: Required({
         comment:
           "The item is restricted to one of a list of races. If only one race is allowed, the list may only have a single element.",
-        type: Array(MagicalTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: Array(RaceIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
@@ -253,7 +259,7 @@ export const RestrictedToCultures = TypeAlias(import.meta.url, {
       scope: Required({
         comment:
           "The item is restricted to one of a list of cultures. If only one culture is allowed, the list may only have a single element.",
-        type: Array(MagicalTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: Array(CultureIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
@@ -267,7 +273,7 @@ export const RestrictedToProfessions = TypeAlias(import.meta.url, {
       scope: Required({
         comment:
           "The item is restricted to one of a list of professions. If only one profession is allowed, the list may only have a single element.",
-        type: Array(MagicalTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: Array(ProfessionIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
