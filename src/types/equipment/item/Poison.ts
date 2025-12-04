@@ -446,7 +446,7 @@ export const Intoxicant = TypeAlias(import.meta.url, {
               "The intoxicants side effects that always happen, no matter whether the intoxicant has the default or the reduced effect.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-          overdose: Required({
+          overdose: Optional({
             comment:
               "What happens if the intoxicant has been overdosed, that is, it has been ingested another time within the duration.",
             type: String({ minLength: 1, isMarkdown: true }),
