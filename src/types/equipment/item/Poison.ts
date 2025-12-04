@@ -519,6 +519,17 @@ export const IntoxicantAddiction = TypeAlias(import.meta.url, {
           "The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
         type: IncludeIdentifier(IntoxicantAddictionInterval),
       }),
+      translations: NestedTranslationMap(
+        Optional,
+        "IntoxicantAddiction",
+        Object({
+          chance: Required({
+            comment:
+              "The chance of getting addicted after an ingestion. Use if and only if the plain constant percent is not sufficient.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+        }),
+      ),
     }),
 })
 
