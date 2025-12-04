@@ -16,7 +16,7 @@ import { ArmorIdentifier, ArmorTypeIdentifier } from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
-import { ComplexComplexity, Cost, Weight } from "./_Item.js"
+import { ComplexComplexity, Cost, RestrictedTo, Weight } from "./_Item.js"
 
 export const Armor = Entity(import.meta.url, {
   name: "Armor",
@@ -54,6 +54,11 @@ export const Armor = Entity(import.meta.url, {
       hit_zone: Optional({
         comment: "Specify if armor is only available for a specific hit zone.",
         type: IncludeIdentifier(HitZone),
+      }),
+      restrictedTo: Optional({
+        comment:
+          "Define if during character creation this weapon can only be bought by a specific subset of characters.",
+        type: IncludeIdentifier(RestrictedTo),
       }),
       src,
       translations: NestedTranslationMap(
@@ -116,6 +121,11 @@ export const SecondaryArmor = TypeAlias(import.meta.url, {
       hit_zone: Optional({
         comment: "Specify if armor is only available for a specific hit zone.",
         type: IncludeIdentifier(HitZone),
+      }),
+      restrictedTo: Optional({
+        comment:
+          "Define if during character creation this armor can only be bought by a specific subset of characters.",
+        type: IncludeIdentifier(RestrictedTo),
       }),
       translations: NestedTranslationMap(
         Optional,
