@@ -1,13 +1,8 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
+import { NestedTranslationMap } from "../../Locale.js"
+import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
-import {
-  CombatUse,
-  Complexity,
-  Cost,
-  DefaultItemTranslations,
-  StructurePoints,
-  Weight,
-} from "./_Item.js"
+import { CombatUse, Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
 
 export const MagicalArtifact = Entity(import.meta.url, {
   name: "MagicalArtifact",
@@ -37,7 +32,35 @@ export const MagicalArtifact = Entity(import.meta.url, {
         type: IncludeIdentifier(CombatUse),
       }),
       src,
-      translations: DefaultItemTranslations("MagicalArtifact"),
+      translations: NestedTranslationMap(
+        Required,
+        `MagicalArtifact`,
+        Object({
+          name: Required({
+            comment: "The item’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          secondary_name: Optional({
+            comment: "An auxiliary name or label of the item, if available.",
+            type: String({ minLength: 1 }),
+          }),
+          description: Optional({
+            comment: "Description text.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          effect: Optional({
+            comment: "Effect text.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          cost: Optional({
+            comment: "Cost text.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        }),
+      ),
     }),
   displayName: {},
 })
