@@ -19,6 +19,7 @@ import { NestedTranslationMap } from "../../Locale.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { Dice } from "../../_Dice.js"
 import { Reduceable, Resistance } from "../../_DiseasePoison.js"
+import { MathOperation } from "../../_MathExpression.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { EffectType, LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
@@ -112,6 +113,7 @@ const PoisonDuration = Enum(import.meta.url, {
     Instant: EnumCase({ type: null }),
     Constant: EnumCase({ type: IncludeIdentifier(ConstantPoisonTime) }),
     DiceBased: EnumCase({ type: IncludeIdentifier(DiceBasedPoisonTime) }),
+    ExpressionBased: EnumCase({ type: IncludeIdentifier(ExpressionBasedPoisonTime) }),
     Indefinite: EnumCase({ type: IncludeIdentifier(IndefinitePoisonTime) }),
   }),
 })
@@ -188,6 +190,35 @@ export const DiceBasedPoisonTime = TypeAlias(import.meta.url, {
         type: IncludeIdentifier(PoisonTimeUnit),
       }),
     }),
+})
+
+export const ExpressionBasedPoisonTime = TypeAlias(import.meta.url, {
+  name: "ExpressionBasedPoisonTime",
+  type: () =>
+    Object({
+      value: Required({
+        type: IncludeIdentifier(ExpressionBasedPoisonTimeValue),
+      }),
+      unit: Required({
+        type: IncludeIdentifier(PoisonTimeUnit),
+      }),
+    }),
+})
+
+export const ExpressionBasedPoisonTimeValue = TypeAlias(import.meta.url, {
+  name: "ExpressionBasedPoisonTimeValue",
+  type: () =>
+    GenIncludeIdentifier(MathOperation, [
+      IncludeIdentifier(ExpressionBasedPoisonTimeExpressionValue),
+    ]),
+})
+
+export const ExpressionBasedPoisonTimeExpressionValue = Enum(import.meta.url, {
+  name: "ExpressionBasedPoisonTimeExpressionValue",
+  values: () => ({
+    Constant: EnumCase({ type: Integer({ minimum: 1 }) }),
+    Dice: EnumCase({ type: IncludeIdentifier(Dice) }),
+  }),
 })
 
 const PoisonTimeUnit = Enum(import.meta.url, {
