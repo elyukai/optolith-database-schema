@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.24.0](https://github.com/elyukai/optolith-database-schema/compare/v0.23.2...v0.24.0) (2025-12-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* The prerequisites field is moved from profession
+versions to profession packages.
+
+### Bug Fixes
+
+* arcane traditions and elements can be requirable select options ([d1c9795](https://github.com/elyukai/optolith-database-schema/commit/d1c9795e8378b8f7da69e47491c48df6514661a8))
+* profession prerequisites can differ per profession version ([08a7d8d](https://github.com/elyukai/optolith-database-schema/commit/08a7d8d2c88beff69ea7b4d68995b1eb6d2528a6))
+
 ## [0.23.2](https://github.com/elyukai/optolith-database-schema/compare/v0.23.1...v0.23.2) (2025-12-04)
 
 
