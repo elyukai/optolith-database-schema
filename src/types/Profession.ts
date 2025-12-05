@@ -132,11 +132,6 @@ export const ProfessionVersion = Entity(import.meta.url, {
         comment: "The associated profession.",
         type: ProfessionIdentifier(),
       }),
-      prerequisites: Optional({
-        comment:
-          "Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.",
-        type: IncludeIdentifier(ProfessionPrerequisites),
-      }),
       package: Required({
         comment:
           "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
@@ -252,6 +247,11 @@ export const ProfessionPackage = Entity(import.meta.url, {
       ap_value: Required({
         comment: "What does the professional package cost in adventure points?",
         type: Integer({ minimum: 0 }),
+      }),
+      prerequisites: Optional({
+        comment:
+          "Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.",
+        type: IncludeIdentifier(ProfessionPrerequisites),
       }),
       options: Optional({
         comment:
