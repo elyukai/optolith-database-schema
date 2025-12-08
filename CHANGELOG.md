@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.24.1](https://github.com/elyukai/optolith-database-schema/compare/v0.24.0...v0.24.1) (2025-12-08)
+
+
+### Features
+
+* add and adjust translation strings ([5cd59ca](https://github.com/elyukai/optolith-database-schema/commit/5cd59ca6ce600c0ffbc62ef49e0609cc02cfd3d2))
+
+
+### Bug Fixes
+
+* double name ([d2b8a44](https://github.com/elyukai/optolith-database-schema/commit/d2b8a4450dc032c3411190b58bea9c1ee7df94d7))
+* fixed blessing range without values ([0751823](https://github.com/elyukai/optolith-database-schema/commit/075182370c4ed81ea30af1c8552aa95fcd2aa669))
+
 ## [0.24.0](https://github.com/elyukai/optolith-database-schema/compare/v0.23.2...v0.24.0) (2025-12-05)
 
 
