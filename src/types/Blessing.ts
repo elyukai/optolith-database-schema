@@ -11,6 +11,7 @@ import {
   TypeAlias,
 } from "tsondb/schema/def"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
+import { FixedRange } from "./_ActivatableSkillRange.js"
 import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
@@ -78,7 +79,7 @@ const BlessingRange = Enum(import.meta.url, {
   values: () => ({
     Self: EnumCase({ type: null }),
     Touch: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: null }),
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedRange) }),
   }),
 })
 
