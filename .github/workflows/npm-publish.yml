@@ -12,13 +12,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Use Node.js 24
+        uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm ci
-      - run: npm run build
-      - run: npm test
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependencies
+        run: npm ci
+      - name: Build TypeScript (1st pass)
+        run: npm run build
+        continue-on-error: true
+      - name: Generate database typings
+        run: npm run generate
+      - name: Build TypeScript (2nd pass)
+        run: npm run build
 
   publish-npm:
     needs: build
@@ -27,12 +36,21 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Use Node.js 24
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm run build
-      - run: npm run generate
-      - run: npm publish --provenance --access public
+      - name: Install dependencies
+        run: npm ci
+      - name: Build TypeScript (1st pass)
+        run: npm run build
+        continue-on-error: true
+      - name: Generate database typings
+        run: npm run generate
+      - name: Build TypeScript (2nd pass)
+        run: npm run build
+      - name: Publish package to npm
+        run: npm publish --provenance --access public

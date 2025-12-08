@@ -12,8 +12,6 @@
     "target": "ESNext",
   },
   "include": [
-    "src/types/**/*",
-    "src/main.ts",
-    "src/test.ts",
+    "src",
   ]
 }

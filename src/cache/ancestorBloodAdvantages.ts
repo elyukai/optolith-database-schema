@@ -1,30 +1,24 @@
-import type { CacheConfig } from "../cacheConfig.js"
+import type { CacheBuilder } from "./cacheConfig.js"
 
 export type AncestorBloodAdvantagesCache = {
-  ids: number[]
+  ids: string[]
 }
 
-export const config: CacheConfig<AncestorBloodAdvantagesCache> = {
-  builder(database) {
-    return {
-      ids: database.advantages
-        .filter(([id, advantage]) =>
-          advantage.prerequisites?.some(p => {
-            switch (p.prerequisite.tag) {
-              case "Single":
-                return p.prerequisite.single.tag === "NoOtherAncestorBloodAdvantage"
-              case "Disjunction":
-                return p.prerequisite.disjunction.list.some(
-                  d => d.tag === "NoOtherAncestorBloodAdvantage"
-                )
-              case "Group":
-                return p.prerequisite.group.list.some(
-                  g => g.tag === "NoOtherAncestorBloodAdvantage"
-                )
-            }
-          })
-        )
-        .map(([id]) => id),
-    }
-  },
-}
+export const build: CacheBuilder<AncestorBloodAdvantagesCache> = ({ getAllInstances }) => ({
+  ids: getAllInstances("Advantage")
+    .filter(([id, advantage]) =>
+      advantage.prerequisites?.some(p => {
+        switch (p.prerequisite.kind) {
+          case "Single":
+            return p.prerequisite.Single.kind === "NoOtherAncestorBloodAdvantage"
+          case "Disjunction":
+            return p.prerequisite.Disjunction.list.some(
+              d => d.kind === "NoOtherAncestorBloodAdvantage",
+            )
+          case "Group":
+            return p.prerequisite.Group.list.some(g => g.kind === "NoOtherAncestorBloodAdvantage")
+        }
+      }),
+    )
+    .map(([id]) => id),
+})

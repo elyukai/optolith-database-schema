@@ -1,60 +1,14 @@
 import { isNotNullish } from "@optolith/helpers/nullable"
 import { mapObject } from "@optolith/helpers/object"
 import { assertExhaustive } from "@optolith/helpers/typeSafety"
-import type { CacheConfig } from "../cacheConfig.js"
-import { TypeMap } from "../config/types.js"
-import { ValidResults } from "../main.js"
-import { Aspect } from "../types/Aspect.js"
-import { Element } from "../types/Element.js"
-import { Property } from "../types/Property.js"
-import { TargetCategory } from "../types/TargetCategory.js"
-import {
-  ExplicitSelectOption,
-  SelectOptions,
-  SkillApplication,
-  SkillApplications,
-  SkillUse,
-  SkillUses,
-} from "../types/_Activatable.js"
-import {
-  SelectOptionCategory,
-  SelectOptionsAdventurePointsValue,
-  SkillApplicationOrUse,
-  SkillSelectOptionCategoryPrerequisite,
-  SpecificFromSkillSelectOptionCategoryCategory,
-  SpecificTargetCategory,
-} from "../types/_ActivatableSelectOptionCategory.js"
-import {
-  CeremonyIdentifier,
-  CloseCombatTechniqueIdentifier,
-  LiturgicalChantIdentifier,
-  RangedCombatTechniqueIdentifier,
-  RitualIdentifier,
-  SkillIdentifier,
-  SpellIdentifier,
-} from "../types/_Identifier.js"
-import {
-  ActivatableIdentifier,
-  CombatTechniqueIdentifier,
-  SelectOptionIdentifier,
-  SkillishIdentifier as SkillIdentifierGroup,
-} from "../types/_IdentifierGroup.js"
-import { ImprovementCost } from "../types/_ImprovementCost.js"
-import { LocaleMap } from "../types/_LocaleMap.js"
-import { GeneralPrerequisites, PrerequisiteForLevel } from "../types/_Prerequisite.js"
-import { Poison } from "../types/equipment/item/Poison.js"
-import { GeneralPrerequisiteGroup } from "../types/prerequisites/PrerequisiteGroups.js"
-import { Errata } from "../types/source/_Erratum.js"
-import { PublicationRefs } from "../types/source/_PublicationRef.js"
-import { BlessedTradition } from "../types/specialAbility/BlessedTradition.js"
-import { Language } from "../types/specialAbility/sub/Language.js"
+import * as Database from "../../gen/types.js"
 
 const PRINCIPLES_ID = 31
 const PROPERTY_KNOWLEDGE_ID = 3
 const ASPECT_KNOWLEDGE_ID = 1
 
 export type ResolvedSelectOption = {
-  id: SelectOptionIdentifier
+  id: Database.RequirableSelectOptionIdentifier
 
   /**
    * Sometimes, professions use specific text selections that are not
@@ -99,7 +53,7 @@ export type ResolvedSelectOption = {
    */
   ap_value?: number
 
-  src?: PublicationRefs
+  src?: Database.PublicationRefs
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
@@ -129,10 +83,10 @@ export type ResolvedSelectOptionTranslation = {
 }
 const matchesSpecificSkillishIdList = <T>(
   id: T,
-  config: SpecificFromSkillSelectOptionCategoryCategory<{ id: T }>,
-  equalsId: (a: T, b: T) => boolean
+  config: Database.SpecificFromSkillSelectOptionCategoryCategory<{ id: T }>,
+  equalsId: (a: T, b: T) => boolean,
 ): boolean => {
-  switch (config.operation) {
+  switch (config.operation.kind) {
     case "Intersection":
       return config.list.some(ref => equalsId(ref.id, id))
     case "Difference":
@@ -143,8 +97,8 @@ const matchesSpecificSkillishIdList = <T>(
 }
 
 const getSkillishPrerequisites = (
-  ps: SkillSelectOptionCategoryPrerequisite[] | undefined,
-  id: SkillIdentifierGroup | CombatTechniqueIdentifier
+  ps: Database.SkillSelectOptionCategoryPrerequisite[] | undefined,
+  id: SkillishIdentifier | Database.CombatTechniqueIdentifier,
 ): GeneralPrerequisites | undefined => {
   if (ps === undefined) {
     return undefined
@@ -190,7 +144,7 @@ const getSkillishPrerequisites = (
 
 const equalsSkillishIdGroup = (
   a: SkillIdentifierGroup | CombatTechniqueIdentifier,
-  b: SkillIdentifierGroup | CombatTechniqueIdentifier
+  b: SkillIdentifierGroup | CombatTechniqueIdentifier,
 ): boolean => {
   switch (a.tag) {
     case "Skill":
@@ -221,7 +175,7 @@ const getApValueForSkillish = (
     | SelectOptionsAdventurePointsValue<SkillIdentifierGroup | CombatTechniqueIdentifier>
     | undefined,
   id: SkillIdentifierGroup | CombatTechniqueIdentifier,
-  ic: ImprovementCost
+  ic: ImprovementCost,
 ): number | undefined => {
   if (config === undefined) {
     return undefined
@@ -259,7 +213,7 @@ const getApValueForSkillish = (
 
 const convertSkillApplicationOrUse = (
   id: SkillIdentifier,
-  applicationOrUse: SkillApplicationOrUse
+  applicationOrUse: SkillApplicationOrUse,
 ): SkillApplication | SkillUse => ({
   id: applicationOrUse.id,
   skill: { tag: "Single", single: { id } },
@@ -269,7 +223,7 @@ const convertSkillApplicationOrUse = (
 const getDerivedSelectOptions = (
   selectOptionCategory: SelectOptionCategory,
   entryId: ActivatableIdentifier,
-  database: ValidResults
+  database: ValidResults,
 ): ResolvedSelectOption[] => {
   switch (selectOptionCategory.tag) {
     case "Blessings":
@@ -317,14 +271,14 @@ const getDerivedSelectOptions = (
             .toSorted(([_1, a], [_2, b]) => a.size.id - b.size.id)
             .map(([id]) => id),
         }),
-        {}
+        {},
       )
 
       return database.animalShapes.map(([_, animalShape]) => {
         const path = database.animalShapePaths.find(([id]) => id === animalShape.path.id)?.[1]
         const size = database.animalShapeSizes.find(([id]) => id === animalShape.size.id)?.[1]
         const pathIndex =
-          path !== undefined ? pathsWithOrderedIds[path.id]?.indexOf(animalShape.id) ?? -1 : -1
+          path !== undefined ? (pathsWithOrderedIds[path.id]?.indexOf(animalShape.id) ?? -1) : -1
         return {
           id: { tag: "AnimalShape", animal_shape: animalShape.id },
           prerequisites:
@@ -333,7 +287,7 @@ const getDerivedSelectOptions = (
                 ? database.animalShapePaths
                     .filter(
                       ([id]) =>
-                        id !== animalShape.path.id && pathsWithOrderedIds[id]?.[0] !== undefined
+                        id !== animalShape.path.id && pathsWithOrderedIds[id]?.[0] !== undefined,
                     )
                     .map(([id]) => ({
                       level: 1,
@@ -445,7 +399,7 @@ const getDerivedSelectOptions = (
             translations: mapObject(race.translations, t10n => ({
               name: t10n.name,
             })),
-          })
+          }),
         ),
         ...database.cultures.map(
           ([_, culture]): ResolvedSelectOption => ({
@@ -454,13 +408,13 @@ const getDerivedSelectOptions = (
             translations: mapObject(culture.translations, t10n => ({
               name: t10n.name,
             })),
-          })
+          }),
         ),
       ]
 
     case "BlessedTraditions": {
       const getPrerequisites = (
-        blessedTradition: BlessedTradition
+        blessedTradition: BlessedTradition,
       ): GeneralPrerequisites | undefined => {
         if (
           selectOptionCategory.blessed_traditions.require_principles &&
@@ -500,7 +454,7 @@ const getDerivedSelectOptions = (
     case "Elements": {
       const mapToResolvedSelectOption = ([_, element]: [
         number,
-        Element
+        Element,
       ]): ResolvedSelectOption => ({
         id: { tag: "Element", element: element.id },
         translations: mapObject(element.translations, t10n => ({
@@ -511,7 +465,7 @@ const getDerivedSelectOptions = (
       if (selectOptionCategory.elements.specific) {
         return database.elements
           .filter(([id]) =>
-            selectOptionCategory.elements.specific!.some(ref => ref.id.element === id)
+            selectOptionCategory.elements.specific!.some(ref => ref.id.element === id),
           )
           .map(mapToResolvedSelectOption)
       }
@@ -650,9 +604,9 @@ const getDerivedSelectOptions = (
                   ? undefined
                   : {
                       name: t10n.master_of_aspect_suffix,
-                    }
+                    },
               ),
-            })
+            }),
           )
           .filter(value => Object.keys(value.translations).length > 0)
       }
@@ -759,7 +713,7 @@ const getDerivedSelectOptions = (
                 const matchesGroupRequirement =
                   category.skills.groups === undefined ||
                   category.skills.groups.some(
-                    ref => ref.id.skill_group === skill.group.id.skill_group
+                    ref => ref.id.skill_group === skill.group.id.skill_group,
                   )
 
                 const matchesIdRequirement =
@@ -767,7 +721,7 @@ const getDerivedSelectOptions = (
                   matchesSpecificSkillishIdList<SkillIdentifier>(
                     { tag: "Skill", skill: skill.id },
                     category.skills.specific,
-                    equalsSkillishIdGroup
+                    equalsSkillishIdGroup,
                   )
 
                 return matchesGroupRequirement && matchesIdRequirement
@@ -777,16 +731,16 @@ const getDerivedSelectOptions = (
                 return {
                   id,
                   skill_uses: category.skills.skill_uses?.map(use =>
-                    convertSkillApplicationOrUse(id, use)
+                    convertSkillApplicationOrUse(id, use),
                   ),
                   skill_applications: category.skills.skill_applications?.map(use =>
-                    convertSkillApplicationOrUse(id, use)
+                    convertSkillApplicationOrUse(id, use),
                   ),
                   prerequisites: getSkillishPrerequisites(category.skills.prerequisites, id),
                   ap_value: getApValueForSkillish(
                     category.skills.ap_value ?? apValueGen,
                     id,
-                    skill.improvement_cost
+                    skill.improvement_cost,
                   ),
                   src: skill.src,
                   translations: mapObject(skill.translations, t10n => ({
@@ -802,8 +756,8 @@ const getDerivedSelectOptions = (
                   matchesSpecificSkillishIdList<SpellIdentifier>(
                     { tag: "Spell", spell: spell.id },
                     category.spells.specific,
-                    equalsSkillishIdGroup
-                  )
+                    equalsSkillishIdGroup,
+                  ),
               )
               .map(([_, spell]): ResolvedSelectOption => {
                 const id: SpellIdentifier = { tag: "Spell", spell: spell.id }
@@ -825,8 +779,8 @@ const getDerivedSelectOptions = (
                   matchesSpecificSkillishIdList<RitualIdentifier>(
                     { tag: "Ritual", ritual: ritual.id },
                     category.rituals.specific,
-                    equalsSkillishIdGroup
-                  )
+                    equalsSkillishIdGroup,
+                  ),
               )
               .map(([_, ritual]): ResolvedSelectOption => {
                 const id: RitualIdentifier = { tag: "Ritual", ritual: ritual.id }
@@ -848,8 +802,8 @@ const getDerivedSelectOptions = (
                   matchesSpecificSkillishIdList<LiturgicalChantIdentifier>(
                     { tag: "LiturgicalChant", liturgical_chant: liturgicalChant.id },
                     category.liturgical_chants.specific,
-                    equalsSkillishIdGroup
-                  )
+                    equalsSkillishIdGroup,
+                  ),
               )
               .map(([_, liturgicalChant]): ResolvedSelectOption => {
                 const id: LiturgicalChantIdentifier = {
@@ -860,7 +814,7 @@ const getDerivedSelectOptions = (
                   id,
                   prerequisites: getSkillishPrerequisites(
                     category.liturgical_chants.prerequisites,
-                    id
+                    id,
                   ),
                   ap_value: getApValueForSkillish(apValueGen, id, liturgicalChant.improvement_cost),
                   src: liturgicalChant.src,
@@ -877,8 +831,8 @@ const getDerivedSelectOptions = (
                   matchesSpecificSkillishIdList<CeremonyIdentifier>(
                     { tag: "Ceremony", ceremony: ceremony.id },
                     category.ceremonies.specific,
-                    equalsSkillishIdGroup
-                  )
+                    equalsSkillishIdGroup,
+                  ),
               )
               .map(([_, ceremony]): ResolvedSelectOption => {
                 const id: CeremonyIdentifier = { tag: "Ceremony", ceremony: ceremony.id }
@@ -914,8 +868,8 @@ const getDerivedSelectOptions = (
                       close_combat_technique: closeCombatTechnique.id,
                     },
                     category.close_combat_techniques.specific,
-                    equalsSkillishIdGroup
-                  )
+                    equalsSkillishIdGroup,
+                  ),
               )
               .map(([_, closeCombatTechnique]): ResolvedSelectOption => {
                 const id: CloseCombatTechniqueIdentifier = {
@@ -926,12 +880,12 @@ const getDerivedSelectOptions = (
                   id,
                   prerequisites: getSkillishPrerequisites(
                     category.close_combat_techniques.prerequisites,
-                    id
+                    id,
                   ),
                   ap_value: getApValueForSkillish(
                     apValueGen,
                     id,
-                    closeCombatTechnique.improvement_cost
+                    closeCombatTechnique.improvement_cost,
                   ),
                   src: closeCombatTechnique.src,
                   translations: mapObject(closeCombatTechnique.translations, t10n => ({
@@ -950,8 +904,8 @@ const getDerivedSelectOptions = (
                       ranged_combat_technique: rangedCombatTechnique.id,
                     },
                     category.ranged_combat_techniques.specific,
-                    equalsSkillishIdGroup
-                  )
+                    equalsSkillishIdGroup,
+                  ),
               )
               .map(([_, rangedCombatTechnique]): ResolvedSelectOption => {
                 const id: RangedCombatTechniqueIdentifier = {
@@ -962,12 +916,12 @@ const getDerivedSelectOptions = (
                   id,
                   prerequisites: getSkillishPrerequisites(
                     category.ranged_combat_techniques.prerequisites,
-                    id
+                    id,
                   ),
                   ap_value: getApValueForSkillish(
                     apValueGen,
                     id,
-                    rangedCombatTechnique.improvement_cost
+                    rangedCombatTechnique.improvement_cost,
                   ),
                   src: rangedCombatTechnique.src,
                   translations: mapObject(rangedCombatTechnique.translations, t10n => ({
@@ -984,7 +938,7 @@ const getDerivedSelectOptions = (
     case "TargetCategories": {
       const mapToResolvedSelectOption = (
         targetCategory: TargetCategory,
-        specificTargetCategory?: SpecificTargetCategory
+        specificTargetCategory?: SpecificTargetCategory,
       ): ResolvedSelectOption => ({
         id: { tag: "TargetCategory", target_category: targetCategory.id },
         volume: specificTargetCategory?.volume,
@@ -996,15 +950,15 @@ const getDerivedSelectOptions = (
       if (selectOptionCategory.target_categories.list) {
         return database.targetCategories
           .filter(([id]) =>
-            selectOptionCategory.target_categories.list!.some(ref => ref.id.target_category === id)
+            selectOptionCategory.target_categories.list!.some(ref => ref.id.target_category === id),
           )
           .map(([id, targetCategory]) =>
             mapToResolvedSelectOption(
               targetCategory,
               selectOptionCategory.target_categories.list!.find(
-                ref => ref.id.target_category === id
-              )
-            )
+                ref => ref.id.target_category === id,
+              ),
+            ),
           )
       }
 
@@ -1019,7 +973,7 @@ const getDerivedSelectOptions = (
 const joinLocaleMaps = <T, U, V>(
   a: LocaleMap<T>,
   b: LocaleMap<U>,
-  join: (a?: T, b?: U) => V
+  join: (a?: T, b?: U) => V,
 ): LocaleMap<NonNullable<V>> => {
   const combinedLocaleMap: LocaleMap<NonNullable<V>> = {}
   for (const key of new Set([...Object.keys(a), ...Object.keys(b)])) {
@@ -1033,7 +987,7 @@ const joinLocaleMaps = <T, U, V>(
 
 const getExplicitSelectOptions = (
   explicitSelectOptions: ExplicitSelectOption[],
-  database: ValidResults
+  database: ValidResults,
 ): ResolvedSelectOption[] =>
   explicitSelectOptions
     .map((explicitSelectOption): ResolvedSelectOption | undefined => {
@@ -1053,16 +1007,16 @@ const getExplicitSelectOptions = (
             ...explicitSelectOption.skill,
             id,
             skill_applications: explicitSelectOption.skill.skill_applications?.map(use =>
-              convertSkillApplicationOrUse(id, use)
+              convertSkillApplicationOrUse(id, use),
             ),
             skill_uses: explicitSelectOption.skill.skill_uses?.map(use =>
-              convertSkillApplicationOrUse(id, use)
+              convertSkillApplicationOrUse(id, use),
             ),
             translations: joinLocaleMaps(
               explicitSelectOption.skill.translations ?? {},
               skill.translations,
               (explicit, base) =>
-                base === undefined ? undefined : { ...explicit, name: base.name }
+                base === undefined ? undefined : { ...explicit, name: base.name },
             ),
           }
         }
@@ -1071,7 +1025,7 @@ const getExplicitSelectOptions = (
             case "CloseCombatTechnique": {
               const id = explicitSelectOption.combat_technique.id.close_combat_technique
               const closeCombatTechnique = database.closeCombatTechniques.find(
-                p => p[0] === id
+                p => p[0] === id,
               )?.[1]
               if (closeCombatTechnique === undefined) {
                 return undefined
@@ -1083,14 +1037,14 @@ const getExplicitSelectOptions = (
                   explicitSelectOption.combat_technique.translations ?? {},
                   closeCombatTechnique.translations,
                   (explicit, base) =>
-                    base === undefined ? undefined : { ...explicit, name: base.name }
+                    base === undefined ? undefined : { ...explicit, name: base.name },
                 ),
               }
             }
             case "RangedCombatTechnique": {
               const id = explicitSelectOption.combat_technique.id.ranged_combat_technique
               const rangedCombatTechnique = database.rangedCombatTechniques.find(
-                p => p[0] === id
+                p => p[0] === id,
               )?.[1]
               if (rangedCombatTechnique === undefined) {
                 return undefined
@@ -1102,7 +1056,7 @@ const getExplicitSelectOptions = (
                   explicitSelectOption.combat_technique.translations ?? {},
                   rangedCombatTechnique.translations,
                   (explicit, base) =>
-                    base === undefined ? undefined : { ...explicit, name: base.name }
+                    base === undefined ? undefined : { ...explicit, name: base.name },
                 ),
               }
             }
@@ -1118,7 +1072,7 @@ const getExplicitSelectOptions = (
 const getSelectOptions = (
   selectOptions: SelectOptions,
   id: ActivatableIdentifier,
-  database: ValidResults
+  database: ValidResults,
 ): ResolvedSelectOption[] => [
   ...(selectOptions.derived === undefined
     ? []
@@ -1131,7 +1085,7 @@ const getSelectOptions = (
 const getSelectOptionsForResults = (
   database: ValidResults,
   idTag: ActivatableIdentifier["tag"],
-  results: [id: number, data: { select_options?: SelectOptions }][]
+  results: [id: number, data: { select_options?: SelectOptions }][],
 ) =>
   results.reduce<{
     [id: number]: ResolvedSelectOption[]
@@ -1247,7 +1201,7 @@ const getSelectOptionsForResults = (
             return assertExhaustive(idTag)
         }
       })(),
-      database
+      database,
     )
     if (options.length > 0) {
       acc[id] = options

@@ -19,10 +19,9 @@
   "exports": {
     ".": "./lib/main.js",
     "./gen": "./gen/types.d.ts",
-    "./errors": "./lib/errors.js",
+    "./utils": "./lib/utils.js",
     "./cache/*": "./lib/cache/*.js",
     "./config/*": "./lib/config/*.js",
-    "./rendering/*": "./lib/rendering/*.js",
     "./types": "./lib/types/index.js",
     "./types/*": "./lib/types/*.js"
   },
