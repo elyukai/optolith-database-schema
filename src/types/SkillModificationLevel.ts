@@ -50,14 +50,27 @@ export const SkillModificationLevel = Entity(import.meta.url, {
       ),
     }),
   displayName: null,
-  displayNameCustomizer: ({ instance, locales }) => ({
-    name: `${instance.fast.casting_time.toString()} Act. / ${instance.slow.casting_time.value.toString()} ${instance.slow.casting_time.unit.kind} (fast/slow) — ${
-      instance.fast.range === instance.slow.range
-        ? instance.fast.range.toString()
-        : `${instance.fast.range.toString()}/${instance.slow.range.toString()} (fast/slow)`
-    } m — ${instance.fast.cost.toString()}/${instance.slow.cost.toString()} (fast/slow) AE or KP`,
-    localeId: locales[0],
-  }),
+  displayNameCustomizer: ({ instance, locales }) => {
+    const getRangeTranslationOrNormalValue = (type: "slow" | "fast") => {
+      const translation =
+        locales.reduce(
+          (acc: string | undefined, locale) =>
+            acc ?? instance.translations?.[locale]?.[type]?.range,
+          undefined,
+        ) ?? instance[type].range
+
+      return typeof translation === "number" ? `${translation.toString()} m` : translation
+    }
+
+    return {
+      name: `${instance.fast.casting_time.toString()} Act. / ${instance.slow.casting_time.value.toString()} ${instance.slow.casting_time.unit.kind} (fast/slow) — ${
+        instance.fast.range === instance.slow.range
+          ? getRangeTranslationOrNormalValue("fast")
+          : `${getRangeTranslationOrNormalValue("fast")}/${getRangeTranslationOrNormalValue("slow")} (fast/slow)`
+      } — ${instance.fast.cost.toString()}/${instance.slow.cost.toString()} (fast/slow) AE or KP`,
+      localeId: locales[0],
+    }
+  },
 })
 
 const FastSkillModificationLevelConfig = TypeAlias(import.meta.url, {
