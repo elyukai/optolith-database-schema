@@ -11,7 +11,7 @@ import { PactCategoryIdentifier, PactDomainIdentifier } from "../../_Identifier.
 import { DisplayOption } from "../DisplayOption.js"
 
 export const PactPrerequisite = TypeAlias(import.meta.url, {
-  name: "PactPrerequisitePactPrerequisite",
+  name: "PactPrerequisite",
   comment: "Requires a specific pact.",
   type: () =>
     Object({
