@@ -2,7 +2,7 @@ import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "t
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
-import { Cost } from "./_Item.js"
+import { Cost, Weight } from "./_Item.js"
 
 export const GemOrPreciousStone = Entity(import.meta.url, {
   name: "GemOrPreciousStone",
@@ -12,6 +12,10 @@ export const GemOrPreciousStone = Entity(import.meta.url, {
       cost: Required({
         comment: "The cost in silverthalers.",
         type: IncludeIdentifier(Cost),
+      }),
+      weight: Optional({
+        comment: "The weight in kg.",
+        type: IncludeIdentifier(Weight),
       }),
       src,
       translations: NestedTranslationMap(
