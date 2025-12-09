@@ -404,6 +404,7 @@ const ApplicableSpecificCombatTechniquesRestriction = Enum(import.meta.url, {
     Race: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
     Level: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesLevelRestriction) }),
     Weapons: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesWeaponRestriction) }),
+    OneBluntSide: EnumCase({ type: null }),
   }),
 })
 
