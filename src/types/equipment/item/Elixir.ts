@@ -23,6 +23,10 @@ export const Elixir = Entity(import.meta.url, {
         comment: "Effect type(s) of an alchemical poison.",
         type: Array(IncludeIdentifier(EffectType), { minItems: 1, uniqueItems: true }),
       }),
+      value: Optional({
+        comment: "The raw (ingredients) value per level, in silverthalers.",
+        type: Integer({ minimum: 1 }),
+      }),
       cost_per_ingredient_level: Required({
         comment: "The cost per ingredient level in silverthalers.",
         type: Integer({ minimum: 1 }),
