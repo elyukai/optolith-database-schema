@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.24.2](https://github.com/elyukai/optolith-database-schema/compare/v0.24.1...v0.24.2) (2025-12-09)
+
+
+### Features
+
+* add input option to advanced combat special abilities ([254f683](https://github.com/elyukai/optolith-database-schema/commit/254f683dd219ba8dfefffb30568e7898cbebb974)), closes [#80](https://github.com/elyukai/optolith-database-schema/issues/80)
+* add one blunt side as an option for specific combat techniques ([18e2059](https://github.com/elyukai/optolith-database-schema/commit/18e2059118f1f1ba8af443d5d40636a6e4ceafab)), closes [#79](https://github.com/elyukai/optolith-database-schema/issues/79)
+* add personality trait prerequisite to personality traits ([5f521c1](https://github.com/elyukai/optolith-database-schema/commit/5f521c113d0ae1932062d086747dd4cf21b37124)), closes [#83](https://github.com/elyukai/optolith-database-schema/issues/83)
+* add tradition artifact entities for achaz ([b071ac9](https://github.com/elyukai/optolith-database-schema/commit/b071ac927a28bd1aee38a354406145a4e86bbb03)), closes [#81](https://github.com/elyukai/optolith-database-schema/issues/81)
+* modification level translation in display name ([6995b8c](https://github.com/elyukai/optolith-database-schema/commit/6995b8cebd943be4742e545c93e54208362f2e9c))
+* optional weight for gems and precious stones ([7e93d95](https://github.com/elyukai/optolith-database-schema/commit/7e93d95232efc17b005edf3100788287e42bdc62)), closes [#78](https://github.com/elyukai/optolith-database-schema/issues/78)
+
+
+### Bug Fixes
+
+* achaz enchantments as select option parent ([71f9d59](https://github.com/elyukai/optolith-database-schema/commit/71f9d5981bd566189713dc2c46b32bdcb0f272d1))
+
 ## [0.24.1](https://github.com/elyukai/optolith-database-schema/compare/v0.24.0...v0.24.1) (2025-12-08)
 
 
