@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.24.3](https://github.com/elyukai/optolith-database-schema/compare/v0.24.2...v0.24.3) (2025-12-09)
+
+
+### Features
+
+* add raw value option to elixirs ([f14ecf0](https://github.com/elyukai/optolith-database-schema/commit/f14ecf01b4eb6acbaee8b27abb95e9907a41aed4)), closes [#84](https://github.com/elyukai/optolith-database-schema/issues/84)
+
+
+### Bug Fixes
+
+* profession variants could not be entered ([df21ff3](https://github.com/elyukai/optolith-database-schema/commit/df21ff3e992c9976a5111de1a46f644f26f8c122))
+
 ## [0.24.2](https://github.com/elyukai/optolith-database-schema/compare/v0.24.1...v0.24.2) (2025-12-09)
 
 
