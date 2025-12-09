@@ -285,7 +285,7 @@ export const ProfessionPackage = Entity(import.meta.url, {
         comment: "If the selection of a profession variant is required.",
         type: Boolean(),
       }),
-      variants: Optional({
+      variants: Required({
         comment:
           "Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.",
         type: ChildEntities(ProfessionVariant),
