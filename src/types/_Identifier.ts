@@ -132,13 +132,16 @@ import { State } from "./State.js"
 import { TargetCategory } from "./TargetCategory.js"
 import { ArcaneOrbEnchantment } from "./traditionArtifacts/ArcaneOrbEnchantment.js"
 import { AttireEnchantment } from "./traditionArtifacts/AttireEnchantment.js"
+import { Beutelzauber } from "./traditionArtifacts/Beutelzauber.js"
 import { BowlEnchantment } from "./traditionArtifacts/BowlEnchantment.js"
 import { CauldronEnchantment } from "./traditionArtifacts/CauldronEnchantment.js"
 import { ChronicleEnchantment } from "./traditionArtifacts/ChronicleEnchantment.js"
 import { DaggerRitual } from "./traditionArtifacts/DaggerRitual.js"
 import { FoolsHatEnchantment } from "./traditionArtifacts/FoolsHatEnchantment.js"
+import { Haubenzauber } from "./traditionArtifacts/Haubenzauber.js"
 import { InstrumentEnchantment } from "./traditionArtifacts/InstrumentEnchantment.js"
 import { Krallenkettenzauber } from "./traditionArtifacts/Krallenkettenzauber.js"
+import { Kristallkugelzauber } from "./traditionArtifacts/Kristallkugelzauber.js"
 import { OrbEnchantment } from "./traditionArtifacts/OrbEnchantment.js"
 import { RingEnchantment } from "./traditionArtifacts/RingEnchantment.js"
 import { SickleRitual } from "./traditionArtifacts/SickleRitual.js"
@@ -178,6 +181,7 @@ export const AspectIdentifier: () => R = () => R(Aspect)
 export const AttireEnchantmentIdentifier: () => R = () => R(AttireEnchantment)
 export const AttributeIdentifier: () => R = () => R(Attribute)
 export const BandageOrRemedyIdentifier: () => R = () => R(BandageOrRemedy)
+export const BeutelzauberIdentifier: () => R = () => R(Beutelzauber)
 export const BlessedTraditionIdentifier: () => R = () => R(BlessedTradition)
 export const BlessingIdentifier: () => R = () => R(Blessing)
 export const BookIdentifier: () => R = () => R(Book)
@@ -226,6 +230,7 @@ export const GeneralSpecialAbilityIdentifier: () => R = () => R(GeneralSpecialAb
 export const GeodeRitualIdentifier: () => R = () => R(GeodeRitual)
 export const GuidelineIdentifier: () => R = () => R(Guideline)
 export const HairColorIdentifier: () => R = () => R(HairColor)
+export const HaubenzauberIdentifier: () => R = () => R(Haubenzauber)
 export const IlluminationLightSourceIdentifier: () => R = () => R(IlluminationLightSource)
 export const IlluminationRefillsOrSuppliesIdentifier: () => R = () => R(IlluminationRefillOrSupply)
 export const InfluenceIdentifier: () => R = () => R(Influence)
@@ -234,6 +239,7 @@ export const JesterTrickIdentifier: () => R = () => R(JesterTrick)
 export const JewelryIdentifier: () => R = () => R(Jewelry)
 export const KarmaSpecialAbilityIdentifier: () => R = () => R(KarmaSpecialAbility)
 export const KrallenkettenzauberIdentifier: () => R = () => R(Krallenkettenzauber)
+export const KristallkugelzauberIdentifier: () => R = () => R(Kristallkugelzauber)
 export const LaboratoryIdentifier: () => R = () => R(Laboratory)
 export const LanguageIdentifier: () => R = () => R(Language)
 export const LanguageSpecializationIdentifier: () => R = () => R(LanguageSpecialization)
