@@ -6,6 +6,7 @@ import { CulturePrerequisite } from "./single/CulturePrerequisite.js"
 import { EnhancementPrerequisite } from "./single/EnhancementPrerequisite.js"
 import { InfluencePrerequisite } from "./single/InfluencePrerequisite.js"
 import { PactPrerequisite } from "./single/PactPrerequisite.js"
+import { PersonalityTraitPrerequisite } from "./single/PersonalityTraitPrerequisite.js"
 import { PrimaryAttributePrerequisite } from "./single/PrimaryAttributePrerequisite.js"
 import { PublicationPrerequisite } from "./single/PublicationPrerequisite.js"
 import { RacePrerequisite } from "./single/RacePrerequisite.js"
@@ -120,6 +121,7 @@ export const PersonalityTraitPrerequisiteGroup = Enum(import.meta.url, {
   values: () => ({
     Race: EnumCase({ type: IncludeIdentifier(RacePrerequisite) }),
     Culture: EnumCase({ type: IncludeIdentifier(CulturePrerequisite) }),
+    PersonalityTrait: EnumCase({ type: IncludeIdentifier(PersonalityTraitPrerequisite) }),
     Text: EnumCase({ type: IncludeIdentifier(TextPrerequisite) }),
   }),
 })
