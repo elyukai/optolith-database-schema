@@ -71,6 +71,26 @@ export const PactType = Entity(import.meta.url, {
     }),
   parentReferenceKey: "parent",
   displayName: {},
+  displayNameCustomizer: ({
+    instance,
+    instanceDisplayName,
+    instanceDisplayNameLocaleId,
+    getDisplayNameForInstanceId,
+  }) => ({
+    name: `${getDisplayNameForInstanceId(instance.parent)?.name ?? ""} — ${instanceDisplayName}`,
+    localeId: instanceDisplayNameLocaleId,
+  }),
+  uniqueConstraints: [
+    [
+      {
+        keyPath: "parent",
+      },
+      {
+        entityMapKeyPath: "translations",
+        keyPathInEntityMap: "name",
+      },
+    ],
+  ],
 })
 
 export const PactDomain = Entity(import.meta.url, {
@@ -95,4 +115,24 @@ export const PactDomain = Entity(import.meta.url, {
     }),
   parentReferenceKey: "parent",
   displayName: {},
+  displayNameCustomizer: ({
+    instance,
+    instanceDisplayName,
+    instanceDisplayNameLocaleId,
+    getDisplayNameForInstanceId,
+  }) => ({
+    name: `${getDisplayNameForInstanceId(instance.parent)?.name ?? ""} — ${instanceDisplayName}`,
+    localeId: instanceDisplayNameLocaleId,
+  }),
+  uniqueConstraints: [
+    [
+      {
+        keyPath: "parent",
+      },
+      {
+        entityMapKeyPath: "translations",
+        keyPathInEntityMap: "name",
+      },
+    ],
+  ],
 })
