@@ -12,13 +12,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm ci
-      - run: npm run build
-      - run: npm test
+      - name: Install dependencies
+        run: npm ci
+      - name: Build TypeScript (first pass)
+        run: npm run build
+        continue-on-error: true
+      - name: Generate Typings
+        run: npm run generate
+      - name: Build TypeScript (second pass)
+        run: npm run build
+      - name: Lint
+        run: npm run lint
+      - name: Check code formatting
+        run: npm run format:check
+      - name: Test schema validity
+        run: npm test
 
   publish-npm:
     needs: build
@@ -27,12 +41,21 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm run build
-      - run: npm run generate
-      - run: npm publish --provenance --access public
+      - name: Install dependencies
+        run: npm ci
+      - name: Build TypeScript (first pass)
+        run: npm run build
+        continue-on-error: true
+      - name: Generate Typings
+        run: npm run generate
+      - name: Build TypeScript (second pass)
+        run: npm run build
+      - name: Publish to npm
+        run: npm publish --provenance --access public

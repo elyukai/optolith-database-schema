@@ -1,5 +1,13 @@
 import { Schema } from "tsondb/schema"
+import type { ChildEntityMap, EntityMap } from "../gen/types.js"
 import * as Types from "./types/index.js"
+
+declare module "tsondb/schema" {
+  interface Register {
+    entityMap: EntityMap
+    childEntityMap: ChildEntityMap
+  }
+}
 
 export const schema = Schema(
   [

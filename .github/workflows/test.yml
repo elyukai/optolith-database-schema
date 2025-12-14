@@ -20,14 +20,25 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm run lint
-    - run: npm run format:check
-    - run: npm test
+    - name: Install dependencies
+      run: npm ci
+    - name: Build TypeScript (first pass)
+      run: npm run build
+      continue-on-error: true
+    - name: Generate Typings
+      run: npm run generate
+    - name: Build TypeScript (second pass)
+      run: npm run build
+    - name: Lint
+      run: npm run lint
+    - name: Check code formatting
+      run: npm run format:check
+    - name: Test schema validity
+      run: npm test
