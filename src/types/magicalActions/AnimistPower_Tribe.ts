@@ -23,4 +23,10 @@ export const Tribe = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

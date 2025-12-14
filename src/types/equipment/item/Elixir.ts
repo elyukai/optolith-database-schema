@@ -84,4 +84,10 @@ export const Elixir = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

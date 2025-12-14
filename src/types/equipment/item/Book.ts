@@ -78,6 +78,12 @@ export const Book = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const BookType = Enum(import.meta.url, {

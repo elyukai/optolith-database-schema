@@ -65,6 +65,12 @@ export const Publication = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 export const PublicationCategory = Enum(import.meta.url, {

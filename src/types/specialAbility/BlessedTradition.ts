@@ -104,6 +104,13 @@ export const BlessedTradition = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name_in_library",
+      keyPathInEntityMapFallback: "name",
+    },
+  ],
 })
 
 const RestrictedBlessings = Enum(import.meta.url, {

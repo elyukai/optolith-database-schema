@@ -91,6 +91,12 @@ export const JesterTrick = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 export const JesterTrickPerformanceParameters = TypeAlias(import.meta.url, {

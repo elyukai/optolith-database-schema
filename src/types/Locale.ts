@@ -1358,6 +1358,16 @@ export const Locale = Entity(import.meta.url, {
         }, { allKeysAreRequired: true }),
       }),
     }),
+  uniqueConstraints: [
+    [
+      {
+        keyPath: "name",
+      },
+      {
+        keyPath: "region",
+      },
+    ],
+  ],
 })
 
 export const NestedTranslationMap = <

@@ -55,6 +55,12 @@ export const IlluminationLightSource = Entity(import.meta.url, {
       translations: DefaultItemTranslations("IlluminationLightSource"),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const BurningTime = Enum(import.meta.url, {

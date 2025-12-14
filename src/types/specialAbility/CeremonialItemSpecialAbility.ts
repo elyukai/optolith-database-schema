@@ -42,4 +42,16 @@ export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    [
+      {
+        keyPath: "aspect",
+      },
+      {
+        entityMapKeyPath: "translations",
+        keyPathInEntityMap: "name_in_library",
+        keyPathInEntityMapFallback: "name",
+      },
+    ],
+  ],
 })

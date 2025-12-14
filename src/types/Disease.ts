@@ -20,4 +20,10 @@ export const Disease = Entity(import.meta.url, {
       translations: NestedTranslationMap(Required, "Disease", DiseaseTranslation),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

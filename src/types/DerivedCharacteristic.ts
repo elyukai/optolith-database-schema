@@ -40,6 +40,16 @@ export const DerivedCharacteristic = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "abbreviation",
+    },
+  ],
 })
 
 const CalculationTranslation = TypeAlias(import.meta.url, {

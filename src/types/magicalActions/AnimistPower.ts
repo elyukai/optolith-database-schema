@@ -94,6 +94,12 @@ If no tribe tradition is given, the animist power is generally available to all 
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const AnimistPowerLevel = TypeAlias(import.meta.url, {

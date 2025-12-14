@@ -58,6 +58,12 @@ export const CloseCombatTechnique = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const CloseCombatTechniqueSpecialRules = TypeAlias(import.meta.url, {
@@ -118,6 +124,12 @@ export const RangedCombatTechnique = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const RangedCombatTechniqueSpecialRules = TypeAlias(import.meta.url, {

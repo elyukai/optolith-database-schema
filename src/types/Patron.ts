@@ -87,6 +87,12 @@ export const Patron = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const PatronCulture = TypeAlias(import.meta.url, {

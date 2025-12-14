@@ -28,4 +28,10 @@ If no causes are given, the disease is not communicable to intelligent creatures
       translations: NestedTranslationMap(Required, "AnimalDisease", DiseaseTranslation),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

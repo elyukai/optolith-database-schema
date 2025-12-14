@@ -99,6 +99,12 @@ export const Weapon = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 export const ImprovisedWeapon = TypeAlias(import.meta.url, {

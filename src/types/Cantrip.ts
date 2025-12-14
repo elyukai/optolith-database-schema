@@ -80,6 +80,12 @@ export const Cantrip = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const CantripNote = Enum(import.meta.url, {

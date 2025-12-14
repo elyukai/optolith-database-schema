@@ -15,4 +15,10 @@ export const Animal = Entity(import.meta.url, {
       translations: DefaultItemTranslations("Animal"),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

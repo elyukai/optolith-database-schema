@@ -54,6 +54,12 @@ export const PersonalityTrait = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const PersonalityTraitEffect = TypeAlias(import.meta.url, {

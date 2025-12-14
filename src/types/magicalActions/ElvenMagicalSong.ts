@@ -79,6 +79,12 @@ export const ElvenMagicalSong = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const ElvenMagicalSongPerformanceParameters = TypeAlias(import.meta.url, {

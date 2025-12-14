@@ -42,6 +42,12 @@ export const CoreRule = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const ContentNode = Enum(import.meta.url, {

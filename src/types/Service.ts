@@ -45,6 +45,12 @@ export const Service = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const ServiceAvailability = Enum(import.meta.url, {

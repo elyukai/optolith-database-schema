@@ -102,4 +102,10 @@ export const Ritual = Entity(import.meta.url, {
       }),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

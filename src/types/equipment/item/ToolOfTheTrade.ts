@@ -28,4 +28,10 @@ export const ToolOfTheTrade = Entity(import.meta.url, {
       translations: DefaultItemTranslations("ToolOfTheTrade"),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

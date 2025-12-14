@@ -89,6 +89,12 @@ export const GeodeRitual = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const GeodeRitualPerformanceParameters = TypeAlias(import.meta.url, {

@@ -57,6 +57,12 @@ export const Talisman = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const TalismanType = Enum(import.meta.url, {

@@ -97,6 +97,12 @@ If the rune has an option, the option’s name will/should not be included in th
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const OldParameterBySpeed = TypeAlias(import.meta.url, {

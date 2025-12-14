@@ -42,6 +42,12 @@ export const Influence = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const InfluenceEffect = TypeAlias(import.meta.url, {

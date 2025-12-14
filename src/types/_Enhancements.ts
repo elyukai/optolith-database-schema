@@ -93,4 +93,15 @@ export const Enhancement = Entity(import.meta.url, {
     } — ${instanceDisplayName}`,
     localeId: instanceDisplayNameLocaleId,
   }),
+  uniqueConstraints: [
+    [
+      {
+        keyPath: "parent",
+      },
+      {
+        entityMapKeyPath: "translations",
+        keyPathInEntityMap: "name",
+      },
+    ],
+  ],
 })

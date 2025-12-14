@@ -46,6 +46,12 @@ export const Guideline = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 export const Curriculum = Entity(import.meta.url, {
@@ -87,6 +93,12 @@ export const Curriculum = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const ElectiveSpellworks = Enum(import.meta.url, {

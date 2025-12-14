@@ -95,6 +95,12 @@ export const MagicalMelody = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const MagicalMelodyPerformanceParameters = TypeAlias(import.meta.url, {

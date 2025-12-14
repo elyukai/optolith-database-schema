@@ -40,4 +40,10 @@ export const MusicalInstrument = Entity(import.meta.url, {
       translations: DefaultItemTranslations("MusicalInstrument"),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

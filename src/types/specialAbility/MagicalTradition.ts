@@ -119,6 +119,13 @@ export const MagicalTradition = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name_in_library",
+      keyPathInEntityMapFallback: "name",
+    },
+  ],
 })
 
 export const PrimaryAttribute = TypeAlias(import.meta.url, {

@@ -85,6 +85,12 @@ export const Poison = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const PoisonApplicationType = Enum(import.meta.url, {

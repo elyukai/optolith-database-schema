@@ -9,7 +9,10 @@ const config: GenerationConfig = {
     TypeScriptOutput({
       targetPath: join(import.meta.dirname, "gen", "types.d.ts"),
       rendererOptions: {
-        generateEntityMapType: true,
+        generateHelpers: {
+          entityMap: true,
+          childEntityMap: true,
+        },
         inferTranslationParameters: {
           format: "mf2",
         },

@@ -142,6 +142,12 @@ export const Culture = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const AreaKnowledge = TypeAlias(import.meta.url, {

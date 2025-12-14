@@ -129,6 +129,12 @@ export const Race = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const BaseValues = TypeAlias(import.meta.url, {
@@ -359,6 +365,17 @@ export const RaceVariant = Entity(import.meta.url, {
     }),
   parentReferenceKey: "race",
   displayName: {},
+  uniqueConstraints: [
+    [
+      {
+        keyPath: "race",
+      },
+      {
+        entityMapKeyPath: "translations",
+        keyPathInEntityMap: "name",
+      },
+    ],
+  ],
 })
 
 const RandomHeightGeneration = TypeAlias(import.meta.url, {

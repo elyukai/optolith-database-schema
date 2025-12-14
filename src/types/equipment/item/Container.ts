@@ -40,4 +40,10 @@ export const Container = Entity(import.meta.url, {
       translations: DefaultItemTranslations("Container"),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

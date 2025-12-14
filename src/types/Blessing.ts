@@ -62,6 +62,12 @@ export const Blessing = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const BlessingPerformanceParameters = TypeAlias(import.meta.url, {

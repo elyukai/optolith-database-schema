@@ -76,6 +76,12 @@ If no animal types are given, the animal disease applies to all animal types.`,
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const FamiliarsTrickProperty = Enum(import.meta.url, {

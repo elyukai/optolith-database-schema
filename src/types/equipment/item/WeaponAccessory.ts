@@ -40,4 +40,10 @@ export const WeaponAccessory = Entity(import.meta.url, {
       translations: DefaultItemTranslations("WeaponAccessory"),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

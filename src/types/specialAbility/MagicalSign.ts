@@ -52,6 +52,13 @@ export const MagicalSign = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name_in_library",
+      keyPathInEntityMapFallback: "name",
+    },
+  ],
 })
 
 const MagicalSignCost = Enum(import.meta.url, {

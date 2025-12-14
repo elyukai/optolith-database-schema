@@ -41,6 +41,12 @@ export const PactCategory = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 export const PactType = Entity(import.meta.url, {

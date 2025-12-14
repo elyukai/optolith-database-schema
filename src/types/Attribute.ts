@@ -27,4 +27,14 @@ export const Attribute = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "abbreviation",
+    },
+  ],
 })

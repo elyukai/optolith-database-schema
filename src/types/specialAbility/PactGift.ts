@@ -53,6 +53,13 @@ export const PactGift = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name_in_library",
+      keyPathInEntityMapFallback: "name",
+    },
+  ],
 })
 
 const PactGiftPermanentDemonicConsumption = Enum(import.meta.url, {

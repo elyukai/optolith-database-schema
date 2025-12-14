@@ -36,6 +36,12 @@ export const EquipmentPackage = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const EquipmentPackageItem = TypeAlias(import.meta.url, {

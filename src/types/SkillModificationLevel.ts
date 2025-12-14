@@ -71,6 +71,14 @@ export const SkillModificationLevel = Entity(import.meta.url, {
       localeId: locales[0],
     }
   },
+  uniqueConstraints: [
+    { keyPath: ["fast", "casting_time"] },
+    { keyPath: ["fast", "range"] },
+    { keyPath: ["fast", "cost"] },
+    { keyPath: ["slow", "casting_time"] },
+    { keyPath: ["slow", "range"] },
+    { keyPath: ["slow", "cost"] },
+  ],
 })
 
 const FastSkillModificationLevelConfig = TypeAlias(import.meta.url, {

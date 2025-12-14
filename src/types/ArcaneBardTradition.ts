@@ -6,4 +6,10 @@ export const ArcaneBardTradition = Entity(import.meta.url, {
   namePlural: "ArcaneBardTraditions",
   type: ArcaneTraditionType("ArcaneBardTraditionTranslation"),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

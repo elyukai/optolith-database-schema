@@ -70,6 +70,12 @@ export const DominationRitual = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const DominationRitualPerformanceParameters = TypeAlias(import.meta.url, {

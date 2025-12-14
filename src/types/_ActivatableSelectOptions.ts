@@ -131,6 +131,17 @@ export const GeneralSelectOption = Entity(import.meta.url, {
     } — ${instanceDisplayName}`,
     localeId: instanceDisplayNameLocaleId,
   }),
+  uniqueConstraints: [
+    [
+      {
+        keyPath: "parent",
+      },
+      {
+        entityMapKeyPath: "translations",
+        keyPathInEntityMap: "name",
+      },
+    ],
+  ],
 })
 
 export const explicit_select_options = Required({

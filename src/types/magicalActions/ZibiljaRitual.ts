@@ -89,6 +89,12 @@ export const ZibiljaRitual = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const ZibiljaRitualPerformanceParameters = TypeAlias(import.meta.url, {

@@ -23,6 +23,12 @@ export const AnimalCare = Entity(import.meta.url, {
       translations: DefaultItemTranslations("AnimalCare"),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const AnimalCareType = Enum(import.meta.url, {

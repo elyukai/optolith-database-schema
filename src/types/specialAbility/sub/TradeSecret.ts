@@ -63,6 +63,12 @@ export const TradeSecret = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const TradeSecretSelectOptions = TypeAlias(import.meta.url, {

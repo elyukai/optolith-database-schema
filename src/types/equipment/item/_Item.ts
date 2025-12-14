@@ -58,6 +58,12 @@ export const DefaultItem = (sourceUrl: string, singularName: string, pluralName?
         translations: DefaultItemTranslations(singularName),
       }),
     displayName: {},
+    uniqueConstraints: [
+      {
+        entityMapKeyPath: "translations",
+        keyPathInEntityMap: "name",
+      },
+    ],
   })
 
 export const DefaultItemTranslations = (singularName: string) =>

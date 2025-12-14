@@ -93,6 +93,12 @@ export const Skill = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 export const Applications = TypeAlias(import.meta.url, {
@@ -143,6 +149,15 @@ export const SkillApplication = Entity(import.meta.url, {
     }),
   parentReferenceKey: "parent",
   displayName: {},
+  uniqueConstraints: [
+    [
+      { keyPath: "parent" },
+      {
+        entityMapKeyPath: "translations",
+        keyPathInEntityMap: "name",
+      },
+    ],
+  ],
 })
 
 export const EncumbranceInfluence = Enum(import.meta.url, {

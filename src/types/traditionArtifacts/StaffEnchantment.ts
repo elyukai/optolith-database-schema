@@ -56,4 +56,11 @@ export const StaffEnchantment = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name_in_library",
+      keyPathInEntityMapFallback: "name",
+    },
+  ],
 })

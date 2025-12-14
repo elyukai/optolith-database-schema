@@ -66,6 +66,12 @@ export const Language = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 export const LanguageSpecialization = Entity(import.meta.url, {

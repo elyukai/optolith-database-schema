@@ -80,6 +80,12 @@ export const MagicalDance = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const MagicalDancePerformanceParameters = TypeAlias(import.meta.url, {

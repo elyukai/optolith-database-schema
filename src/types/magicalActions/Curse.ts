@@ -71,6 +71,12 @@ export const Curse = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const CursePerformanceParameters = TypeAlias(import.meta.url, {

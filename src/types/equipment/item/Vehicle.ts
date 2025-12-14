@@ -23,4 +23,10 @@ export const Vehicle = Entity(import.meta.url, {
       translations: DefaultItemTranslations("Vehicle"),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })

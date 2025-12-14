@@ -38,6 +38,12 @@ export const Jewelry = Entity(import.meta.url, {
       translations: DefaultItemTranslations("Jewelry"),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 const JewelryMaterialDifference = GenTypeAlias(import.meta.url, {

@@ -96,6 +96,12 @@ export const Armor = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  uniqueConstraints: [
+    {
+      entityMapKeyPath: "translations",
+      keyPathInEntityMap: "name",
+    },
+  ],
 })
 
 export const SecondaryArmor = TypeAlias(import.meta.url, {
