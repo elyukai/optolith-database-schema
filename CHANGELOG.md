@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.25.0](https://github.com/elyukai/optolith-database-schema/compare/v0.24.3...v0.25.0) (2025-12-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* add unique constraints
+
+### Features
+
+* add unique constraints ([8bacb48](https://github.com/elyukai/optolith-database-schema/commit/8bacb489d804d280801b38111d96732fb9a317fc))
+* adjust display names of pact domains and types ([6086a6d](https://github.com/elyukai/optolith-database-schema/commit/6086a6d89160f7f09f9f6474cc240acd4d518f43))
+
 ## [0.24.3](https://github.com/elyukai/optolith-database-schema/compare/v0.24.2...v0.24.3) (2025-12-09)
 
 
