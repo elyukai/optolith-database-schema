@@ -578,6 +578,9 @@ const ProfessionPackageOptions = TypeAlias(import.meta.url, {
         skills: Optional({
           type: IncludeIdentifier(SkillsOptions),
         }),
+        liturgies: Optional({
+          type: IncludeIdentifier(LiturgiesOptions),
+        }),
       },
       { minProperties: 1 },
     ),
@@ -618,6 +621,9 @@ const ProfessionVariantPackageOptions = TypeAlias(import.meta.url, {
         }),
         skills: Optional({
           type: GenIncludeIdentifier(VariantOptionAction, [IncludeIdentifier(SkillsOptions)]),
+        }),
+        liturgies: Optional({
+          type: GenIncludeIdentifier(VariantOptionAction, [IncludeIdentifier(LiturgiesOptions)]),
         }),
       },
       { minProperties: 1 },
@@ -754,6 +760,18 @@ const SkillsOptions = TypeAlias(import.meta.url, {
       }),
       ap_value: Required({
         comment: "The AP value you can buy skills for.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
+
+const LiturgiesOptions = TypeAlias(import.meta.url, {
+  name: "LiturgiesOptions",
+  comment: `Buy liturgical chants and ceremonies for a specific amount of AP.`,
+  type: () =>
+    ObjectType({
+      ap_value: Required({
+        comment: "The AP value you can buy liturgical chants and ceremonies for.",
         type: Integer({ minimum: 1 }),
       }),
     }),
