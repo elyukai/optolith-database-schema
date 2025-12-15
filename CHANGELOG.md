@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.26.0](https://github.com/elyukai/optolith-database-schema/compare/v0.25.0...v0.26.0) (2025-12-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* Combat techniques need to specify special rules
+differently.
+
+### Features
+
+* add profession liturgies for ap sum option ([a1316af](https://github.com/elyukai/optolith-database-schema/commit/a1316af0c1f8b85e79f5f393eed2c3bec5204645)), closes [#86](https://github.com/elyukai/optolith-database-schema/issues/86)
+* custom constraint for weapon values ([02be29d](https://github.com/elyukai/optolith-database-schema/commit/02be29dab7bca40fb4c370c48a9f775ccf8aaf7d))
+
 ## [0.25.0](https://github.com/elyukai/optolith-database-schema/compare/v0.24.3...v0.25.0) (2025-12-14)
 
 
