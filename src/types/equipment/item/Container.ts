@@ -8,6 +8,7 @@ import {
   StructurePoints,
   Weight,
 } from "./_Item.js"
+import { checkWeaponCombatTechniqueIntegrity } from "./_Weapon.js"
 
 export const Container = Entity(import.meta.url, {
   name: "Container",
@@ -46,4 +47,17 @@ export const Container = Entity(import.meta.url, {
       keyPathInEntityMap: "name",
     },
   ],
+  customConstraints: ({ instanceContent, ...rest }) => {
+    if (instanceContent.combat_use && instanceContent.combat_use.kind === "Weapon") {
+      return checkWeaponCombatTechniqueIntegrity(
+        {
+          ...rest,
+          instanceContent: instanceContent.combat_use.Weapon,
+        },
+        true,
+      )
+    }
+
+    return []
+  },
 })

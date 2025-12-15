@@ -1,7 +1,8 @@
 import {
   Array,
-  Boolean,
   Entity,
+  Enum,
+  EnumCase,
   IncludeIdentifier,
   Integer,
   Object,
@@ -66,6 +67,25 @@ export const CloseCombatTechnique = Entity(import.meta.url, {
   ],
 })
 
+const WeaponCombatTechniqueValueRule = Enum(import.meta.url, {
+  name: "WeaponCombatTechniqueValueRule",
+  comment: "Defines if the weapon must/can/must not define a value for this parameter.",
+  values: () => ({
+    Required: EnumCase({
+      comment: "The parameter must be present in all weapons for this combat technique.",
+      type: null,
+    }),
+    Optional: EnumCase({
+      comment: "The parameter can be present in any weapons for this combat technique.",
+      type: null,
+    }),
+    Prohibited: EnumCase({
+      comment: "The parameter must not be present in any weapon for this combat technique.",
+      type: null,
+    }),
+  }),
+})
+
 const CloseCombatTechniqueSpecialRules = TypeAlias(import.meta.url, {
   name: "CloseCombatTechniqueSpecialRules",
   comment: "Special rules for the combat technique that apply to all weapons in this category.",
@@ -73,12 +93,12 @@ const CloseCombatTechniqueSpecialRules = TypeAlias(import.meta.url, {
     Object({
       can_parry: Required({
         comment: "Is parrying possible with this combat technique?",
-        type: Boolean(),
+        type: IncludeIdentifier(WeaponCombatTechniqueValueRule),
       }),
-      has_damage_threshold: Required({ type: Boolean() }),
-      has_reach: Required({ type: Boolean() }),
-      has_length: Required({ type: Boolean() }),
-      has_shield_size: Required({ type: Boolean() }),
+      has_damage_threshold: Required({ type: IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
+      has_reach: Required({ type: IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
+      has_length: Required({ type: IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
+      has_shield_size: Required({ type: IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
     }),
 })
 
@@ -137,6 +157,6 @@ const RangedCombatTechniqueSpecialRules = TypeAlias(import.meta.url, {
   comment: "Special rules for the combat technique that apply to all weapons in this category.",
   type: () =>
     Object({
-      has_ammunition: Required({ type: Boolean() }),
+      has_ammunition: Required({ type: IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
     }),
 })

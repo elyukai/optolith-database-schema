@@ -4,10 +4,17 @@ import {
   EnumCase,
   IncludeIdentifier,
   Integer,
-  Object,
+  ObjectType,
   Required,
   TypeAlias,
+  type GetDisplayNameWithId,
+  type GetInstanceById,
 } from "tsondb/schema/def"
+import type {
+  MeleeWeapon,
+  RangedWeapon,
+  WeaponCombatTechniqueValueRule,
+} from "../../../../gen/types.js"
 import { AttributeIdentifier } from "../../_Identifier.js"
 
 export const PrimaryAttributeDamageThreshold = Enum(import.meta.url, {
@@ -23,7 +30,7 @@ export const PrimaryAttributeDamageThreshold = Enum(import.meta.url, {
 const DefaultPrimaryAttributeDamageThreshold = TypeAlias(import.meta.url, {
   name: "DefaultPrimaryAttributeDamageThreshold",
   type: () =>
-    Object({
+    ObjectType({
       threshold: Required({
         comment:
           "The attribute value representing the damage threshold for the primary attribute of the item's combat technique.",
@@ -35,7 +42,7 @@ const DefaultPrimaryAttributeDamageThreshold = TypeAlias(import.meta.url, {
 const PrimaryAttributeDamageThresholdList = TypeAlias(import.meta.url, {
   name: "PrimaryAttributeDamageThresholdList",
   type: () =>
-    Object({
+    ObjectType({
       list: Required({
         comment: "A list of primary attributes with their associated threshold.",
         type: Array(IncludeIdentifier(SinglePrimaryAttributeDamageThreshold), {
@@ -49,7 +56,7 @@ const PrimaryAttributeDamageThresholdList = TypeAlias(import.meta.url, {
 const SinglePrimaryAttributeDamageThreshold = TypeAlias(import.meta.url, {
   name: "SinglePrimaryAttributeDamageThreshold",
   type: () =>
-    Object({
+    ObjectType({
       attribute: Required({
         comment: "The primary attribute.",
         type: AttributeIdentifier(),
@@ -66,3 +73,60 @@ export const Length = TypeAlias(import.meta.url, {
   comment: "The length of the weapon in cm/halffingers.",
   type: () => Integer({ minimum: 1 }),
 })
+
+export const checkWeaponCombatTechniqueIntegrity = (
+  {
+    instanceContent,
+    getInstanceById,
+    getDisplayNameWithId,
+  }: {
+    instanceContent: {
+      melee_uses?: Record<string, MeleeWeapon>
+      ranged_uses?: Record<string, RangedWeapon>
+    }
+    getInstanceById: GetInstanceById
+    getDisplayNameWithId: GetDisplayNameWithId
+  },
+  _secondary: boolean,
+): string[] => {
+  const checkPart = (
+    rule: WeaponCombatTechniqueValueRule,
+    value: unknown,
+    name: string,
+    type: "close" | "ranged",
+    id: string,
+  ): string | undefined =>
+    (rule.kind === "Prohibited") === (value === undefined) || rule.kind === "Optional"
+      ? undefined
+      : `${name} must${rule.kind === "Required" ? "" : " not"} be provided for ${type} combat technique ${getDisplayNameWithId(type === "close" ? "CloseCombatTechnique" : "RangedCombatTechnique", id)}`
+
+  return [
+    instanceContent.melee_uses === undefined && instanceContent.ranged_uses === undefined
+      ? "either melee uses or ranged uses have to be provided"
+      : undefined,
+    ...Object.entries(instanceContent.melee_uses ?? {}).flatMap(([ctId, meleeUse]) => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- integrity has been checked, it must be present
+      const ct = getInstanceById("CloseCombatTechnique", ctId)!
+      return [
+        checkPart(ct.special.can_parry, meleeUse.parryModifier, "a parry modifier", "close", ctId),
+        checkPart(
+          ct.special.has_damage_threshold,
+          meleeUse.damage_threshold,
+          "a damage threshold",
+          "close",
+          ctId,
+        ),
+        checkPart(ct.special.has_length, meleeUse.length, "a length", "close", ctId),
+        checkPart(ct.special.has_reach, meleeUse.reach, "a reach", "close", ctId),
+        checkPart(ct.special.has_shield_size, meleeUse.size, "a shield size", "close", ctId),
+      ].filter(v => v !== undefined)
+    }),
+    ...Object.entries(instanceContent.ranged_uses ?? {}).flatMap(([ctId, rangedUse]) => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- integrity has been checked, it must be present
+      const ct = getInstanceById("RangedCombatTechnique", ctId)!
+      return [
+        checkPart(ct.special.has_ammunition, rangedUse.ammunition, "an ammunition", "ranged", ctId),
+      ].filter(v => v !== undefined)
+    }),
+  ].filter(v => v !== undefined)
+}

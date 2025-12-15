@@ -1,6 +1,7 @@
 import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
 import { src } from "../../source/_PublicationRef.js"
 import { CombatUse, Cost, DefaultItemTranslations, RestrictedTo, StructurePoints } from "./_Item.js"
+import { checkWeaponCombatTechniqueIntegrity } from "./_Weapon.js"
 
 export const EquipmentOfBlessedOnes = Entity(import.meta.url, {
   name: "EquipmentOfBlessedOnes",
@@ -36,4 +37,17 @@ export const EquipmentOfBlessedOnes = Entity(import.meta.url, {
       keyPathInEntityMap: "name",
     },
   ],
+  customConstraints: ({ instanceContent, ...rest }) => {
+    if (instanceContent.combat_use && instanceContent.combat_use.kind === "Weapon") {
+      return checkWeaponCombatTechniqueIntegrity(
+        {
+          ...rest,
+          instanceContent: instanceContent.combat_use.Weapon,
+        },
+        true,
+      )
+    }
+
+    return []
+  },
 })

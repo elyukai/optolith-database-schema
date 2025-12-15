@@ -2,7 +2,7 @@ import {
   Entity,
   IncludeIdentifier,
   NestedEntityMap,
-  Object,
+  ObjectType,
   Optional,
   Required,
   String,
@@ -15,12 +15,13 @@ import { src } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, RestrictedTo, StructurePoints, Weight } from "./_Item.js"
 import { MeleeWeapon } from "./_MeleeWeapon.js"
 import { RangedWeapon } from "./_RangedWeapon.js"
+import { checkWeaponCombatTechniqueIntegrity } from "./_Weapon.js"
 
 export const Weapon = Entity(import.meta.url, {
   name: "Weapon",
   namePlural: "Weapons",
   type: () =>
-    Object({
+    ObjectType({
       cost: Required({
         comment: "The cost in silverthalers.",
         type: IncludeIdentifier(Cost),
@@ -67,7 +68,7 @@ export const Weapon = Entity(import.meta.url, {
       translations: NestedTranslationMap(
         Required,
         "Weapon",
-        Object({
+        ObjectType({
           name: Required({
             comment: "The item’s name.",
             type: String({ minLength: 1 }),
@@ -105,12 +106,13 @@ export const Weapon = Entity(import.meta.url, {
       keyPathInEntityMap: "name",
     },
   ],
+  customConstraints: params => checkWeaponCombatTechniqueIntegrity(params, false),
 })
 
 export const ImprovisedWeapon = TypeAlias(import.meta.url, {
   name: "ImprovisedWeapon",
   type: () =>
-    Object({
+    ObjectType({
       melee_uses: Optional({
         comment:
           "A list of stat blocks for each close combat technique this weapon can be used with.",
@@ -139,7 +141,7 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
       translations: NestedTranslationMap(
         Optional,
         "ImprovisedWeapon",
-        Object(
+        ObjectType(
           {
             advantage: Optional({
               comment: "The weapon advantage text.",

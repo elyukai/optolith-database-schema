@@ -13,6 +13,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
+import type { CombatUse as CombatUseType } from "../../../../gen/types.js"
 import {
   BlessedTraditionIdentifier,
   CultureIdentifier,
@@ -23,8 +24,11 @@ import {
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
+import { checkWeaponCombatTechniqueIntegrity } from "./_Weapon.js"
 import { SecondaryArmor } from "./Armor.js"
 import { ImprovisedWeapon } from "./Weapon.js"
+
+const COMBAT_USE = "combat_use"
 
 export const DefaultItem = (sourceUrl: string, singularName: string, pluralName?: string) =>
   Entity(sourceUrl, {
@@ -49,7 +53,7 @@ export const DefaultItem = (sourceUrl: string, singularName: string, pluralName?
             "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
           type: IncludeIdentifier(StructurePoints),
         }),
-        combat_use: Optional({
+        [COMBAT_USE]: Optional({
           comment:
             "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
           type: IncludeIdentifier(CombatUse),
@@ -64,6 +68,25 @@ export const DefaultItem = (sourceUrl: string, singularName: string, pluralName?
         keyPathInEntityMap: "name",
       },
     ],
+    customConstraints: ({ instanceContent, ...rest }) => {
+      const combatUse = (
+        instanceContent as {
+          [K in typeof COMBAT_USE]?: CombatUseType
+        }
+      ).combat_use
+
+      if (combatUse && combatUse.kind === "Weapon") {
+        return checkWeaponCombatTechniqueIntegrity(
+          {
+            ...rest,
+            instanceContent: combatUse.Weapon,
+          },
+          true,
+        )
+      }
+
+      return []
+    },
   })
 
 export const DefaultItemTranslations = (singularName: string) =>
