@@ -41,7 +41,7 @@
   "license": "MPL-2.0",
   "dependencies": {
     "@optolith/helpers": "^0.2.2",
-    "tsondb": "^0.15.0",
+    "tsondb": "^0.16.0",
     "yaml": "^2.8.1"
   },
   "devDependencies": {
