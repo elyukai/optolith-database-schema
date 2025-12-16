@@ -492,7 +492,7 @@ const MagicalSkillRating = TypeAlias(import.meta.url, {
       }),
       rating_modifier: Required({
         comment:
-          "The rating bonus provided for the (selected) magical skill. If used in a profession variant, it can also be used to lower the bonus of the base profession.\n\n**Note:** This is a rating *bonus*, so it will be *added* to the default value of 6.",
+          "The rating bonus provided for the (selected) magical skill. If used in a profession variant, it can also be used to lower the bonus of the base profession.\n\n**Note:** If due to a variant a spell rating is lowered to 0, the spell is considered deactivated. Both setting the value for a spell and deactivating it by setting it to 0 takes into account the additional activation cost for spells.",
         type: Integer(),
       }),
     }),
@@ -544,7 +544,7 @@ const LiturgicalChantRating = TypeAlias(import.meta.url, {
       }),
       rating_modifier: Required({
         comment:
-          "The rating bonus provided for the selected liturgical chant. If used in a profession variant, it can also be used to lower the bonus of the base profession.\n\n**Note:** This is a rating *bonus*, so it will be *added* to the default value of 6.",
+          "The rating bonus provided for the selected liturgical chant. If used in a profession variant, it can also be used to lower the bonus of the base profession.\n\n**Note:** If due to a variant a liturgical chant rating is lowered to 0, the liturgical chant is considered deactivated. Both setting the value for a liturgical chant and deactivating it by setting it to 0 takes into account the additional activation cost for liturgical chants.",
         type: Integer(),
       }),
     }),
