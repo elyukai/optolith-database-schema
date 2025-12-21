@@ -87,6 +87,10 @@ const AdventurePointsDerivedFromSelection = TypeAlias(import.meta.url, {
         "AdventurePointsDerivedFromSelection",
         Object(
           {
+            listPrepend: Optional({
+              comment: "Place a string between the `for` and the grouped option names.",
+              type: String({ minLength: 1 }),
+            }),
             replacement: Optional({
               comment:
                 "A replacement for the generated text if it would not match the original one.",
