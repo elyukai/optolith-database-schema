@@ -563,7 +563,7 @@ const BindingCostMapOption = TypeAlias(import.meta.url, {
         type: Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        Required,
         "BindingCostMapOption",
         Object({
           label: Required({
