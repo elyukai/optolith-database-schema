@@ -252,6 +252,13 @@ const CombatTechniquesSelectOptionCategory = TypeAlias(import.meta.url, {
           minItems: 1,
         }),
       }),
+      bindingCost: Optional({
+        comment:
+          "Generate binding cost values for each entry.\n\n*Note: This only works if the entry it is defined on supports binding costs, i.e. is a tradition artifact enchantment.*",
+        type: GenIncludeIdentifier(SelectOptionsBindingCostValue, [
+          IncludeIdentifier(CombatTechniqueIdentifier),
+        ]),
+      }),
       ap_value: Optional({
         comment: "Generate AP values for each entry.",
         type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [
@@ -446,6 +453,54 @@ const SelectOptionsFixedAdventurePointsValueMapping = GenTypeAlias(import.meta.u
       }),
       ap_value: Required({
         comment: "The AP value for the specified entry.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
+
+const SelectOptionsBindingCostValue = GenEnum(import.meta.url, {
+  name: "SelectOptionsBindingCostValue",
+  comment: "Generate binding cost for each entry.",
+  parameters: [Param("Identifier")],
+  values: Identifier => ({
+    Fixed: EnumCase({
+      type: GenIncludeIdentifier(SelectOptionsFixedBindingCostValue, [TypeArgument(Identifier)]),
+    }),
+  }),
+})
+
+const SelectOptionsFixedBindingCostValue = GenTypeAlias(import.meta.url, {
+  name: "SelectOptionsFixedBindingCostValue",
+  parameters: [Param("Identifier")],
+  type: Identifier =>
+    Object({
+      map: Required({
+        comment: "A mapping of skill identifiers to their specific binding cost values.",
+        type: Array(
+          GenIncludeIdentifier(SelectOptionsFixedBindingCostValueMapping, [
+            TypeArgument(Identifier),
+          ]),
+        ),
+      }),
+      default: Required({
+        comment:
+          "The default value of an entry. Used as a fallback if no value is found in `list`.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
+
+const SelectOptionsFixedBindingCostValueMapping = GenTypeAlias(import.meta.url, {
+  name: "SelectOptionsFixedBindingCostValueMapping",
+  parameters: [Param("Identifier")],
+  type: Identifier =>
+    Object({
+      id: Required({
+        comment: "The entry’s identifier.",
+        type: TypeArgument(Identifier),
+      }),
+      bindingCost: Required({
+        comment: "The binding cost for the specified entry.",
         type: Integer({ minimum: 1 }),
       }),
     }),

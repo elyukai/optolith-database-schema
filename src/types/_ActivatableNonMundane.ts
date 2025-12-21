@@ -588,6 +588,24 @@ const BindingCostDerivedFromSelection = TypeAlias(import.meta.url, {
         comment: "The binding cost for the selection if it does not define a specific one.",
         type: Integer({ minimum: 0 }),
       }),
+      translations: NestedTranslationMap(
+        Optional,
+        "BindingCostDerivedFromSelection",
+        Object(
+          {
+            listPrepend: Optional({
+              comment: "Place a string between the `for` and the grouped option names.",
+              type: String({ minLength: 1 }),
+            }),
+            replacement: Optional({
+              comment:
+                "A replacement for the generated text if it would not match the original one.",
+              type: String({ minLength: 1, isMarkdown: true }),
+            }),
+          },
+          { minProperties: 1 },
+        ),
+      ),
     }),
 })
 
