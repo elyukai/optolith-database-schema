@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.26.2](https://github.com/elyukai/optolith-database-schema/compare/v0.26.1...v0.26.2) (2025-12-23)
+
+
+### Bug Fixes
+
+* add homunculus type to schema ([59a6d41](https://github.com/elyukai/optolith-database-schema/commit/59a6d4119dc8a7ea5b76bdd79ddb6a856ad64897))
+
 ## [0.26.1](https://github.com/elyukai/optolith-database-schema/compare/v0.26.0...v0.26.1) (2025-12-23)
 
 
