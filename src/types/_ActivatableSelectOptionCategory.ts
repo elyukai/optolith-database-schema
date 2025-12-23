@@ -49,6 +49,7 @@ export const SelectOptionCategory = Enum(import.meta.url, {
     Races: EnumCase({ type: null }),
     Cultures: EnumCase({ type: null }),
     RacesAndCultures: EnumCase({ type: null }),
+    HomunculusTypes: EnumCase({ type: null }),
     BlessedTraditions: EnumCase({ type: IncludeIdentifier(BlessedTraditionsSelectOptionCategory) }),
     Elements: EnumCase({ type: IncludeIdentifier(ElementsSelectOptionCategory) }),
     Properties: EnumCase({ type: IncludeIdentifier(PropertiesSelectOptionCategory) }),
