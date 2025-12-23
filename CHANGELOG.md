@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.26.1](https://github.com/elyukai/optolith-database-schema/compare/v0.26.0...v0.26.1) (2025-12-23)
+
+
+### Features
+
+* add homunculus type entity ([4fb42d3](https://github.com/elyukai/optolith-database-schema/commit/4fb42d3f8497fa1b06a4e7ba2a0853ef5844fd8e))
+* allow homunculus types as derived select options ([8062836](https://github.com/elyukai/optolith-database-schema/commit/8062836e9c2ebc290da58842b6acf17679451514))
+* customize AP value string generation ([2dc62b5](https://github.com/elyukai/optolith-database-schema/commit/2dc62b5907a178e450b831b92b8e8788de832cd1))
+* streamline trade secret select options ([8eaab37](https://github.com/elyukai/optolith-database-schema/commit/8eaab37e9b92f0dfca1bab67a5ebbb6dcf30003d))
+* support binding cost generation for select options ([c8de5a7](https://github.com/elyukai/optolith-database-schema/commit/c8de5a74bd7e7277b4d141b5abd5e1e949634f5e))
+
+
+### Bug Fixes
+
+* note on profession spells and liturgies ([fd52e85](https://github.com/elyukai/optolith-database-schema/commit/fd52e8525623cbc6b2dbcac5e7934c8c9206a99e)), closes [#98](https://github.com/elyukai/optolith-database-schema/issues/98)
+* require binding cost map option translations ([b2c23c7](https://github.com/elyukai/optolith-database-schema/commit/b2c23c7099809ff96ba4b3ee9ad24fde710e05c2))
+
 ## [0.26.0](https://github.com/elyukai/optolith-database-schema/compare/v0.25.0...v0.26.0) (2025-12-15)
 
 
