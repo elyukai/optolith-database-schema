@@ -63,6 +63,33 @@ export const SelectOptionCategory = Enum(import.meta.url, {
   }),
 })
 
+export const TradeSecretSelectOptionCategory = Enum(import.meta.url, {
+  name: "TradeSecretSelectOptionCategory",
+  values: () => ({
+    Blessings: EnumCase({ type: null }),
+    Cantrips: EnumCase({ type: null }),
+    Scripts: EnumCase({ type: null }),
+    AnimalShapes: EnumCase({ type: null }),
+    ArcaneBardTraditions: EnumCase({ type: null }),
+    ArcaneDancerTraditions: EnumCase({ type: null }),
+    SexPractices: EnumCase({ type: null }),
+    Races: EnumCase({ type: null }),
+    Cultures: EnumCase({ type: null }),
+    RacesAndCultures: EnumCase({ type: null }),
+    HomunculusTypes: EnumCase({ type: null }),
+    BlessedTraditions: EnumCase({ type: IncludeIdentifier(BlessedTraditionsSelectOptionCategory) }),
+    Elements: EnumCase({ type: IncludeIdentifier(ElementsSelectOptionCategory) }),
+    Properties: EnumCase({ type: IncludeIdentifier(PropertiesSelectOptionCategory) }),
+    Aspects: EnumCase({ type: IncludeIdentifier(AspectSelectOptionCategory) }),
+    Diseases: EnumCase({ type: IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
+    Poisons: EnumCase({ type: IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
+    Languages: EnumCase({ type: IncludeIdentifier(LanguagesSelectOptionCategory) }),
+    Skills: EnumCase({ type: IncludeIdentifier(SkillsSelectOptionCategory) }),
+    CombatTechniques: EnumCase({ type: IncludeIdentifier(CombatTechniquesSelectOptionCategory) }),
+    TargetCategories: EnumCase({ type: IncludeIdentifier(TargetCategoriesSelectOptionCategory) }),
+  }),
+})
+
 const BlessedTraditionsSelectOptionCategory = TypeAlias(import.meta.url, {
   name: "BlessedTraditionsSelectOptionCategory",
   type: () =>

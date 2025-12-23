@@ -1,5 +1,4 @@
 import {
-  Array,
   Boolean,
   Entity,
   Enum,
@@ -15,11 +14,13 @@ import {
   AdventurePointsDependingOnActiveInstances,
   FixedAdventurePointsValue,
 } from "../../_ActivatableAdventurePointsValue.js"
-import { ExplicitSelectOption } from "../../_ActivatableSelectOptions.js"
 import { PlainGeneralPrerequisites } from "../../_Prerequisite.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
+import { name_in_library } from "../../_Activatable.js"
+import { explicit_select_options } from "../../_ActivatableSelectOptions.js"
+import { TradeSecretSelectOptionCategory } from "../../_ActivatableSelectOptionCategory.js"
 
 export const TradeSecret = Entity(import.meta.url, {
   name: "TradeSecret",
@@ -32,6 +33,7 @@ export const TradeSecret = Entity(import.meta.url, {
       Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
         type: IncludeIdentifier(TradeSecretSelectOptions),
       }),
+      explicit_select_options,
       ap_value: Required({
         comment: "The trade secret’s adventure point value",
         type: IncludeIdentifier(TradeSecretAdventurePointsValue),
@@ -52,6 +54,7 @@ export const TradeSecret = Entity(import.meta.url, {
             comment: "The trade secret’s name.",
             type: String({ minLength: 1 }),
           }),
+          name_in_library,
           description: Optional({
             comment: "The description of the trade secret.",
             type: String({ minLength: 1, isMarkdown: true }),
@@ -79,9 +82,9 @@ Note that this is only a full definition of options for simple logic that can be
   type: () =>
     Object(
       {
-        explicit: Optional({
-          comment: `A list of explicit select options. If the identifier has a specific type, its entry is the base of this select option, where values defined here override values from the base. Define the \`src\` property if the options are not derived from the rules text of the advantage/disadvantage/special ability but instead are listed in a separate block and/or on a separate page.`,
-          type: Array(IncludeIdentifier(ExplicitSelectOption), { minItems: 1 }),
+        derived: Optional({
+          comment: `An entry category with optional further configuration. All available entries from the specified categories will be included as separate select options. You can also specify a set of groups that should only be included. Groups not mentioned will be excluded then.`,
+          type: IncludeIdentifier(TradeSecretSelectOptionCategory),
         }),
       },
       { minProperties: 1 },
