@@ -86,6 +86,7 @@ export const schema = Schema(
     Types.Guideline,
     Types.HairColor,
     Types.Haubenzauber,
+    Types.HomunculusType,
     Types.IlluminationLightSource,
     Types.IlluminationRefillOrSupply,
     Types.InstrumentEnchantment,
