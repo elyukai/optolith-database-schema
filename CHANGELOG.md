@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.26.3](https://github.com/elyukai/optolith-database-schema/compare/v0.26.2...v0.26.3) (2025-12-28)
+
+
+### Features
+
+* add spellworks as target category option ([13413e2](https://github.com/elyukai/optolith-database-schema/commit/13413e236f73832c7ef625f57778ccff483a7ecd)), closes [#100](https://github.com/elyukai/optolith-database-schema/issues/100)
+
+
+### Bug Fixes
+
+* general select option display name ([498014a](https://github.com/elyukai/optolith-database-schema/commit/498014a55afecf91fa1bac6ada00a35402b0837a))
+
 ## [0.26.2](https://github.com/elyukai/optolith-database-schema/compare/v0.26.1...v0.26.2) (2025-12-23)
 
 
