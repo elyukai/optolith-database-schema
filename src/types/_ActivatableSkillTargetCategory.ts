@@ -42,6 +42,7 @@ const SpecificAffectedTargetCategoryIdentifier = Enum(import.meta.url, {
     Zone: EnumCase({ type: null }),
     LiturgicalChantsAndCeremonies: EnumCase({ type: null }),
     Cantrips: EnumCase({ type: null }),
+    Spellworks: EnumCase({ type: null }),
     Predefined: EnumCase({ type: TargetCategoryIdentifier() }),
   }),
 })
