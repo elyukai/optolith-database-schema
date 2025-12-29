@@ -21,5 +21,6 @@ export const SkillCheckPenalty = Enum(import.meta.url, {
     HigherOfSpiritAndToughness: EnumCase({ type: null }),
     SummoningDifficulty: EnumCase({ type: null }),
     CreationDifficulty: EnumCase({ type: null }),
+    Object: EnumCase({ type: null }),
   }),
 })
