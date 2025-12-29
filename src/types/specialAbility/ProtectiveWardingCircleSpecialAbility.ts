@@ -43,7 +43,7 @@ export const ProtectiveWardingCircleSpecialAbility = Entity(import.meta.url, {
             comment: "The rules for the protective circle variant.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
-          warding_circle: Required({
+          warding_circle: Optional({
             comment: "The rules for the warding circle variant.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
