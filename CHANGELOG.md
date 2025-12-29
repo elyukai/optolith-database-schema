@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.26.5](https://github.com/elyukai/optolith-database-schema/compare/v0.26.4...v0.26.5) (2025-12-29)
+
+
+### Features
+
+* add some display names ([6cb3f40](https://github.com/elyukai/optolith-database-schema/commit/6cb3f40f7e1cb43ec02fcb48030b72613d194701))
+
+
+### Bug Fixes
+
+* duplicate cost map translation identifier ([6fad16b](https://github.com/elyukai/optolith-database-schema/commit/6fad16bf98ede7dc3f41ec6afb153eb2ad4b9d84))
+
 ## [0.26.4](https://github.com/elyukai/optolith-database-schema/compare/v0.26.3...v0.26.4) (2025-12-29)
 
 
