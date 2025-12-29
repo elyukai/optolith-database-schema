@@ -35,17 +35,20 @@ const AdventurePointsValue = Enum(import.meta.url, {
 })
 
 export const ap_value = Required({
+  displayName: "AP Value",
   comment: "The adventure points value.",
   type: IncludeIdentifier(AdventurePointsValue),
 })
 
 export const ap_value_l10n = Optional({
+  displayName: "AP Value",
   comment: "The adventure points value.",
   isDeprecated: true,
   type: String({ minLength: 1 }),
 })
 
 export const ap_value_append = Optional({
+  displayName: "AP Value Suffix",
   comment: "The string to append to the generated AP value text.",
   isDeprecated: true,
   type: String({ minLength: 1 }),

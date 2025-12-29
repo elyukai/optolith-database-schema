@@ -27,6 +27,8 @@ import { src } from "./source/_PublicationRef.js"
 export const FamiliarsTrick = Entity(import.meta.url, {
   name: "FamiliarsTrick",
   namePlural: "FamiliarsTricks",
+  displayName: "Familiar’s Trick",
+  displayNamePlural: "Familiar’s Tricks",
   type: () =>
     Object({
       animal_types: Required({

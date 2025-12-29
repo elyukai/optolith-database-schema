@@ -18,6 +18,8 @@ import { src } from "../source/_PublicationRef.js"
 export const FoolsHatEnchantment = Entity(import.meta.url, {
   name: "FoolsHatEnchantment",
   namePlural: "FoolsHatEnchantments",
+  displayName: "Fool’s Hat Enchantment",
+  displayNamePlural: "Fool’s Hat Enchantments",
   type: () =>
     Object({
       levels,
