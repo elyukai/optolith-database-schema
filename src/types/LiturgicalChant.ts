@@ -102,7 +102,7 @@ export const LiturgicalChant = Entity(import.meta.url, {
         type: ChildEntities(Enhancement),
       }),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

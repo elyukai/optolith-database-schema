@@ -44,7 +44,7 @@ export const MetaCondition = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

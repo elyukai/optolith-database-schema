@@ -70,7 +70,7 @@ export const Curse = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

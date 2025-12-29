@@ -27,7 +27,7 @@ export const ToolOfTheTrade = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("ToolOfTheTrade"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

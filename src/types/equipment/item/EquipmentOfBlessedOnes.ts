@@ -30,7 +30,7 @@ export const EquipmentOfBlessedOnes = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("EquipmentOfBlessedOnes"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

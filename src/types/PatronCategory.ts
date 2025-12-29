@@ -23,7 +23,7 @@ export const PatronCategory = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

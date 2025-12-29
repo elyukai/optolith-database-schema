@@ -41,7 +41,7 @@ export const CoreRule = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

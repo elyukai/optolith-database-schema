@@ -22,7 +22,7 @@ export const SocialStatus = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     { keyPath: "order" },
     {

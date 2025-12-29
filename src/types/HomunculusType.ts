@@ -17,5 +17,5 @@ export const HomunculusType = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
 })

@@ -40,7 +40,7 @@ export const Clothes = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("Clothes"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

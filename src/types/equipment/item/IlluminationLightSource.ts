@@ -55,7 +55,7 @@ export const IlluminationLightSource = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("IlluminationLightSource"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

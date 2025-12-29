@@ -17,5 +17,5 @@ export const Brew = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
 })

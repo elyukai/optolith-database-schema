@@ -40,7 +40,7 @@ export const LuxuryGood = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("LuxuryGood"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

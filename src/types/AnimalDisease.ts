@@ -27,7 +27,7 @@ If no causes are given, the disease is not communicable to intelligent creatures
       src,
       translations: NestedTranslationMap(Required, "AnimalDisease", DiseaseTranslation),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

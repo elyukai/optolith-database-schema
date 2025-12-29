@@ -93,7 +93,7 @@ If no tribe tradition is given, the animist power is generally available to all 
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

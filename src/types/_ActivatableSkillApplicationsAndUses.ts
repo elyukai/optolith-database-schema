@@ -46,8 +46,8 @@ export const NewSkillApplication = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "parent",
-  displayName: {},
-  displayNameCustomizer: ({
+  instanceDisplayName: {},
+  instanceDisplayNameCustomizer: ({
     instance,
     instanceDisplayName,
     instanceDisplayNameLocaleId,
@@ -99,8 +99,8 @@ export const SkillUse = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "parent",
-  displayName: {},
-  displayNameCustomizer: ({
+  instanceDisplayName: {},
+  instanceDisplayNameCustomizer: ({
     instance,
     instanceDisplayName,
     instanceDisplayNameLocaleId,

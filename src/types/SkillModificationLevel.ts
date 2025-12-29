@@ -49,8 +49,8 @@ export const SkillModificationLevel = Entity(import.meta.url, {
         ),
       ),
     }),
-  displayName: null,
-  displayNameCustomizer: ({ instance, locales }) => {
+  instanceDisplayName: null,
+  instanceDisplayNameCustomizer: ({ instance, locales }) => {
     const getRangeTranslationOrNormalValue = (type: "slow" | "fast") => {
       const translation =
         locales.reduce(

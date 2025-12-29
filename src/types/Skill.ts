@@ -92,7 +92,7 @@ export const Skill = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",
@@ -148,7 +148,7 @@ export const SkillApplication = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "parent",
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     [
       { keyPath: "parent" },

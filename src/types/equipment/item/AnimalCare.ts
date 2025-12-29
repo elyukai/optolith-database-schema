@@ -22,7 +22,7 @@ export const AnimalCare = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("AnimalCare"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

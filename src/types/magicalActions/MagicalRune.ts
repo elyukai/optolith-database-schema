@@ -96,7 +96,7 @@ If the rune has an option, the option’s name will/should not be included in th
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",
@@ -319,7 +319,7 @@ The surrounding parenthesis will/should not be included, they will/should be gen
       ),
     }),
   parentReferenceKey: "parent",
-  displayName: {},
+  instanceDisplayName: {},
 })
 
 const MagicalRuneSuboption = Enum(import.meta.url, {

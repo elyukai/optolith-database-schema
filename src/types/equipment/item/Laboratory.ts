@@ -26,7 +26,7 @@ export const Laboratory = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("Laboratory"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

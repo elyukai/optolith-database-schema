@@ -25,5 +25,5 @@ export const AnimalShapeSize = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
 })

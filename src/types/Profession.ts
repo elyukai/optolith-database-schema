@@ -61,8 +61,8 @@ export const Profession = Entity(import.meta.url, {
         type: ChildEntities(ProfessionVersion),
       }),
     }),
-  displayName: null,
-  displayNameCustomizer: ({
+  instanceDisplayName: null,
+  instanceDisplayNameCustomizer: ({
     instanceId,
     getDisplayNameForInstanceId,
     getChildInstancesForInstanceId,
@@ -206,11 +206,11 @@ export const ProfessionVersion = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "profession",
-  displayName: {
+  instanceDisplayName: {
     pathToLocaleMap: "translations",
     pathInLocaleMap: "name.default",
   },
-  displayNameCustomizer: ({ instance, instanceId, locales }) => {
+  instanceDisplayNameCustomizer: ({ instance, instanceId, locales }) => {
     const translations = Object.entries(instance.translations)
     for (const locale of locales) {
       const translation = translations.find(([key]) => key === locale)
@@ -292,8 +292,8 @@ export const ProfessionPackage = Entity(import.meta.url, {
       }),
     }),
   parentReferenceKey: "profession_version",
-  displayName: null,
-  displayNameCustomizer: ({ instance, getDisplayNameForInstanceId }) => {
+  instanceDisplayName: null,
+  instanceDisplayNameCustomizer: ({ instance, getDisplayNameForInstanceId }) => {
     const baseName = getDisplayNameForInstanceId(instance.profession_version)
 
     if (!baseName) {
@@ -379,7 +379,7 @@ export const ProfessionVariant = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "profession_package",
-  displayName: {
+  instanceDisplayName: {
     pathToLocaleMap: "translations",
     pathInLocaleMap: "name.default",
   },

@@ -45,7 +45,7 @@ export const Guideline = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",
@@ -92,7 +92,7 @@ export const Curriculum = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",
@@ -218,7 +218,7 @@ export const LessonPackage = Entity(import.meta.url, {
       { minProperties: 3 },
     ),
   parentReferenceKey: "curriculum",
-  displayName: {},
+  instanceDisplayName: {},
 })
 
 const SpellworkChange = TypeAlias(import.meta.url, {

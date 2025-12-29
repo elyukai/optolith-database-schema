@@ -40,7 +40,7 @@ export const TravelGearOrTool = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("TravelGearOrTool"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

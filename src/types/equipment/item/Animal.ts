@@ -14,7 +14,7 @@ export const Animal = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("Animal"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

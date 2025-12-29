@@ -89,7 +89,6 @@ export const Race = Entity(import.meta.url, {
               type: IncludeIdentifier(Dice),
             }),
           }),
-          displayName: null,
         }),
       }),
       variants: Required({
@@ -128,7 +127,7 @@ export const Race = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",
@@ -364,7 +363,7 @@ export const RaceVariant = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "race",
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     [
       {

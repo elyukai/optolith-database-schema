@@ -26,5 +26,5 @@ export const AnimalShape = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
 })

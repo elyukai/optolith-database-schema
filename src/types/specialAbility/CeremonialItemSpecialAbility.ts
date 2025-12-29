@@ -41,7 +41,7 @@ export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     [
       {

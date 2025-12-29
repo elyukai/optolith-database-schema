@@ -18,5 +18,5 @@ export const PlayerType = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
 })

@@ -40,7 +40,7 @@ export const PactCategory = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",
@@ -70,8 +70,8 @@ export const PactType = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "parent",
-  displayName: {},
-  displayNameCustomizer: ({
+  instanceDisplayName: {},
+  instanceDisplayNameCustomizer: ({
     instance,
     instanceDisplayName,
     instanceDisplayNameLocaleId,
@@ -114,8 +114,8 @@ export const PactDomain = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "parent",
-  displayName: {},
-  displayNameCustomizer: ({
+  instanceDisplayName: {},
+  instanceDisplayNameCustomizer: ({
     instance,
     instanceDisplayName,
     instanceDisplayNameLocaleId,

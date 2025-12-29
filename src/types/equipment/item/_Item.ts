@@ -61,7 +61,7 @@ export const DefaultItem = (sourceUrl: string, singularName: string, pluralName?
         src,
         translations: DefaultItemTranslations(singularName),
       }),
-    displayName: {},
+    instanceDisplayName: {},
     uniqueConstraints: [
       {
         entityMapKeyPath: "translations",

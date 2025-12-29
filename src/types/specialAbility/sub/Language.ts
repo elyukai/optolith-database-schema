@@ -65,7 +65,7 @@ export const Language = Entity(import.meta.url, {
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",
@@ -100,7 +100,7 @@ export const LanguageSpecialization = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "parent",
-  displayName: {},
+  instanceDisplayName: {},
 })
 
 const IndefiniteSpecializations = TypeAlias(import.meta.url, {

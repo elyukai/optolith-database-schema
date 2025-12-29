@@ -40,7 +40,7 @@ export const Liebesspielzeug = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("Liebesspielzeug"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

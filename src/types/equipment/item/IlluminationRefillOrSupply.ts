@@ -40,7 +40,7 @@ export const IlluminationRefillOrSupply = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("IlluminationRefillOrSupply"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

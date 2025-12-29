@@ -45,7 +45,7 @@ export const CeremonialItem = Entity(import.meta.url, {
       src,
       translations: DefaultItemTranslations("CeremonialItem"),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",

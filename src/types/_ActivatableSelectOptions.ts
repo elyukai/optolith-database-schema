@@ -117,8 +117,8 @@ export const GeneralSelectOption = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "parent",
-  displayName: {},
-  displayNameCustomizer: ({
+  instanceDisplayName: {},
+  instanceDisplayNameCustomizer: ({
     instance,
     instanceDisplayName,
     instanceDisplayNameLocaleId,

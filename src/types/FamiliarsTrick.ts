@@ -75,7 +75,7 @@ If no animal types are given, the animal disease applies to all animal types.`,
         }),
       ),
     }),
-  displayName: {},
+  instanceDisplayName: {},
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",
