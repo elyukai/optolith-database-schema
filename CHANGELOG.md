@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.26.4](https://github.com/elyukai/optolith-database-schema/compare/v0.26.3...v0.26.4) (2025-12-29)
+
+
+### Features
+
+* add object as skill check penalty ([f3ea105](https://github.com/elyukai/optolith-database-schema/commit/f3ea105280387cbfb70c988aecd4285fb9e91572)), closes [#101](https://github.com/elyukai/optolith-database-schema/issues/101)
+* add race as requirable select option ([e3bd65f](https://github.com/elyukai/optolith-database-schema/commit/e3bd65f71194c136130265d5bff24d9fe71f3dcc)), closes [#99](https://github.com/elyukai/optolith-database-schema/issues/99)
+* add rated option to enhancement prerequisite ([ae43d2a](https://github.com/elyukai/optolith-database-schema/commit/ae43d2ab12e9313260b96bac931a75e730d69423)), closes [#103](https://github.com/elyukai/optolith-database-schema/issues/103)
+* add sustained skill cost map ([1fd987d](https://github.com/elyukai/optolith-database-schema/commit/1fd987de4fe3b0a5e72eaa49f95252c9cb7e6cdb)), closes [#102](https://github.com/elyukai/optolith-database-schema/issues/102)
+* warding circle text is optional ([8a4903e](https://github.com/elyukai/optolith-database-schema/commit/8a4903ebdcd1e2e8c77a220cc272421913f42493)), closes [#105](https://github.com/elyukai/optolith-database-schema/issues/105)
+
 ## [0.26.3](https://github.com/elyukai/optolith-database-schema/compare/v0.26.2...v0.26.3) (2025-12-28)
 
 
