@@ -184,6 +184,7 @@ export const EnhancementPrerequisiteGroup = Enum(import.meta.url, {
   name: "EnhancementPrerequisiteGroup",
   values: () => ({
     Enhancement: EnumCase({ type: IncludeIdentifier(EnhancementPrerequisite) }),
+    Rated: EnumCase({ type: IncludeIdentifier(RatedPrerequisite) }),
   }),
 })
 
