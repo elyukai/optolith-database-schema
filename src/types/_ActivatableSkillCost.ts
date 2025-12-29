@@ -21,7 +21,7 @@ export const OneTimeCost = Enum(import.meta.url, {
     Single: EnumCase({ type: IncludeIdentifier(SingleOneTimeCost) }),
     Conjunction: EnumCase({ type: IncludeIdentifier(MultipleOneTimeCosts) }),
     Disjunction: EnumCase({ type: IncludeIdentifier(MultipleOneTimeCosts) }),
-    Map: EnumCase({ type: IncludeIdentifier(CostMap) }),
+    Map: EnumCase({ type: IncludeIdentifier(OneTimeCostMap) }),
   }),
 })
 
@@ -138,8 +138,8 @@ export const IndefiniteOneTimeCost = TypeAlias(import.meta.url, {
     }),
 })
 
-export const CostMap = TypeAlias(import.meta.url, {
-  name: "CostMap",
+export const OneTimeCostMap = TypeAlias(import.meta.url, {
+  name: "OneTimeCostMap",
   comment: `A content that is \`2/4/8/16 AE for an item the size of a cup/chest/door/castle gate\` may be respresented as the following map:
 
 \`\`\`yaml
@@ -160,7 +160,7 @@ This will generate the exact same string as seen above – given it is set for a
     Object({
       options: Required({
         comment: "The possible costs and associated labels.",
-        type: Array(IncludeIdentifier(CostMapOption), {
+        type: Array(IncludeIdentifier(OneTimeCostMapOption), {
           minItems: 2,
         }),
       }),
@@ -189,8 +189,8 @@ This will generate the exact same string as seen above – given it is set for a
     }),
 })
 
-const CostMapOption = TypeAlias(import.meta.url, {
-  name: "CostMapOption",
+const OneTimeCostMapOption = TypeAlias(import.meta.url, {
+  name: "OneTimeCostMapOption",
   type: () =>
     Object({
       value: Required({
@@ -203,7 +203,7 @@ const CostMapOption = TypeAlias(import.meta.url, {
       }),
       translations: NestedTranslationMap(
         Optional,
-        "CostMapOption",
+        "OneTimeCostMapOption",
         Object({
           label: Required({
             comment: "The description of the option for cost string generation.",
@@ -211,7 +211,7 @@ const CostMapOption = TypeAlias(import.meta.url, {
           }),
           label_standalone: Optional({
             comment:
-              "The description of the option if used standalone. Only used if different from `label`.",
+              "The description of the option if used standalone (e.g. in an in-game tool where you can select how many AE you have to pay). Only used if different from `label`.",
             type: IncludeIdentifier(ResponsiveTextOptional),
           }),
         }),
@@ -222,12 +222,9 @@ const CostMapOption = TypeAlias(import.meta.url, {
 export const SustainedCost = Enum(import.meta.url, {
   name: "SustainedCost",
   values: () => ({
-    Modifiable: EnumCase({
-      type: IncludeIdentifier(ModifiableSustainedCost),
-    }),
-    NonModifiable: EnumCase({
-      type: IncludeIdentifier(NonModifiableSustainedCost),
-    }),
+    Modifiable: EnumCase({ type: IncludeIdentifier(ModifiableSustainedCost) }),
+    NonModifiable: EnumCase({ type: IncludeIdentifier(NonModifiableSustainedCost) }),
+    Map: EnumCase({ type: IncludeIdentifier(SustainedCostMap) }),
   }),
 })
 
@@ -284,6 +281,71 @@ const NonModifiableSustainedCostPerCountable = TypeAlias(import.meta.url, {
           countable: Required({
             comment: "The countable entity name.",
             type: IncludeIdentifier(ResponsiveText),
+          }),
+        }),
+      ),
+    }),
+})
+
+export const SustainedCostMap = TypeAlias(import.meta.url, {
+  name: "SustainedCostMap",
+  comment: `A content that is \`2/4/8/16 AE (activation) + 1/2/4/8 per 5 minutes for an item the size of a cup/chest/door/castle gate\` can be represented as a cost map.
+
+The \`an item the size of a\` would be the *list prefix* string, while the list of options would contain four options with the activation cost and the name.`,
+  type: () =>
+    Object({
+      options: Required({
+        comment: "The possible costs and associated labels.",
+        type: Array(IncludeIdentifier(SustainedCostMapOption), {
+          minItems: 2,
+        }),
+      }),
+      translations: NestedTranslationMap(
+        Optional,
+        "CostMap",
+        Object(
+          {
+            listPrefix: Optional({
+              comment: "Place a string between the `for` and the grouped map option labels.",
+              type: IncludeIdentifier(ResponsiveTextOptional),
+            }),
+            listSuffix: Optional({
+              comment: "Place a string after the grouped map option labels.",
+              type: IncludeIdentifier(ResponsiveTextOptional),
+            }),
+            replacement: Optional({
+              comment:
+                "If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.",
+              type: IncludeIdentifier(ResponsiveTextOptional),
+            }),
+          },
+          { minProperties: 1 },
+        ),
+      ),
+    }),
+})
+
+const SustainedCostMapOption = TypeAlias(import.meta.url, {
+  name: "SustainedCostMapOption",
+  type: () =>
+    Object({
+      value: Required({
+        comment:
+          "The activation cost value for this option. The interval cost is always half of this value.",
+        type: Integer({ minimum: 1 }),
+      }),
+      translations: NestedTranslationMap(
+        Optional,
+        "SustainedCostMapOption",
+        Object({
+          label: Required({
+            comment: "The description of the option for cost string generation.",
+            type: IncludeIdentifier(ResponsiveTextOptional),
+          }),
+          standaloneLabel: Optional({
+            comment:
+              "The description of the option if used standalone (e.g. in an in-game tool where you can select how many AE you have to pay). Only used if different from `label`.",
+            type: IncludeIdentifier(ResponsiveTextOptional),
           }),
         }),
       ),

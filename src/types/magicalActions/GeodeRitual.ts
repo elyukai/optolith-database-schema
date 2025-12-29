@@ -12,7 +12,7 @@ import {
 } from "tsondb/schema/def"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { SlowSkillNonModifiableCastingTime } from "../_ActivatableSkillCastingTime.js"
-import { CostMap } from "../_ActivatableSkillCost.js"
+import { OneTimeCostMap } from "../_ActivatableSkillCost.js"
 import { CheckResultBasedDuration, DurationUnitValue } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { AffectedTargetCategories } from "../_ActivatableSkillTargetCategory.js"
@@ -125,7 +125,7 @@ const GeodeRitualCost = Enum(import.meta.url, {
   name: "GeodeRitualCost",
   values: () => ({
     Fixed: EnumCase({ type: IncludeIdentifier(FixedGeodeRitualCost) }),
-    Map: EnumCase({ type: IncludeIdentifier(CostMap) }),
+    Map: EnumCase({ type: IncludeIdentifier(OneTimeCostMap) }),
   }),
 })
 
