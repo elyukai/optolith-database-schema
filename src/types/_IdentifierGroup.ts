@@ -492,6 +492,7 @@ export const RequirableSelectOptionIdentifier = Enum(import.meta.url, {
   name: "RequirableSelectOptionIdentifier",
   values: () => ({
     General: EnumCase({ type: GeneralIdentifier() }),
+    Race: EnumCase({ type: RaceIdentifier() }),
     Skill: EnumCase({ type: SkillIdentifier() }),
     SkillApplication: EnumCase({ type: SkillApplicationIdentifier() }),
     CloseCombatTechnique: EnumCase({ type: CloseCombatTechniqueIdentifier() }),
