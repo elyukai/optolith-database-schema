@@ -24,7 +24,9 @@ export const PublicationRefs = TypeAlias(import.meta.url, {
 })
 
 const srcConfig = {
-  comment: "All translations for the entry, identified by IETF language tag (BCP47).",
+  displayName: "Source References",
+  comment:
+    "References to where in which publications this entry has been defined. Entries may also be added or removed in later printings.",
   type: IncludeIdentifier(PublicationRefs),
 }
 
