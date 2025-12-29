@@ -166,7 +166,7 @@ This will generate the exact same string as seen above – given it is set for a
       }),
       translations: NestedTranslationMap(
         Optional,
-        "CostMap",
+        "OneTimeCostMap",
         Object(
           {
             list_prepend: Optional({
@@ -302,7 +302,7 @@ The \`an item the size of a\` would be the *list prefix* string, while the list 
       }),
       translations: NestedTranslationMap(
         Optional,
-        "CostMap",
+        "SustainedCostMap",
         Object(
           {
             listPrefix: Optional({
