@@ -7,12 +7,16 @@ import {
   Boolean,
   Enum,
   EnumCase,
+  GenIncludeIdentifier,
+  GenTypeAlias,
   IncludeIdentifier,
   Integer,
   Object,
   Optional,
+  Param,
   Required,
   TypeAlias,
+  TypeArgument,
 } from "tsondb/schema/def"
 import { Dice } from "../../_Dice.js"
 import { AmmunitionIdentifier } from "../../_Identifier.js"
@@ -47,12 +51,17 @@ const DefaultRangedDamage = TypeAlias(import.meta.url, {
 
 export const RangedWeapon = TypeAlias(import.meta.url, {
   name: "RangedWeapon",
-  type: () =>
+  type: () => GenIncludeIdentifier(GenRangedWeapon, [IncludeIdentifier(RangedDamage)]),
+})
+
+export const GenRangedWeapon = GenTypeAlias(import.meta.url, {
+  name: "GenRangedWeapon",
+  parameters: [Param("Damage")],
+  type: Damage =>
     Object({
       damage: Required({
-        comment:
-          "The damage of a weapon consists of a random part using dice and an optional flat part.",
-        type: IncludeIdentifier(RangedDamage),
+        comment: "The damage of a weapon can consist of random dice rolls and flat damage.",
+        type: TypeArgument(Damage),
       }),
       reload_time: Required({
         comment: "One or multiple reload times.",

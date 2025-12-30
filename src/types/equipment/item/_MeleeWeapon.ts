@@ -6,12 +6,16 @@ import {
   Boolean,
   Enum,
   EnumCase,
+  GenIncludeIdentifier,
+  GenTypeAlias,
   IncludeIdentifier,
   Integer,
   Object,
   Optional,
+  Param,
   Required,
   TypeAlias,
+  TypeArgument,
 } from "tsondb/schema/def"
 import { Dice } from "../../_Dice.js"
 import { ReachIdentifier } from "../../_Identifier.js"
@@ -69,12 +73,17 @@ const LargeShieldSize = TypeAlias(import.meta.url, {
 
 export const MeleeWeapon = TypeAlias(import.meta.url, {
   name: "MeleeWeapon",
-  type: () =>
+  type: () => GenIncludeIdentifier(GenMeleeWeapon, [IncludeIdentifier(MeleeDamage)]),
+})
+
+export const GenMeleeWeapon = GenTypeAlias(import.meta.url, {
+  name: "GenMeleeWeapon",
+  parameters: [Param("Damage")],
+  type: Damage =>
     Object({
       damage: Required({
-        comment:
-          "The damage of a weapon consists of a random part using dice and an optional flat part.",
-        type: IncludeIdentifier(MeleeDamage),
+        comment: "The damage of a weapon can consist of random dice rolls and flat damage.",
+        type: TypeArgument(Damage),
       }),
       damage_threshold: Optional({
         comment: "The primary attribute damage and threshold value.",
