@@ -2,8 +2,6 @@ import {
   Boolean,
   ChildEntities,
   Entity,
-  Enum,
-  EnumCase,
   getAnyEnumCaseValue,
   IncludeIdentifier,
   Integer,
@@ -16,8 +14,7 @@ import {
 import { NestedTranslationMap } from "./Locale.js"
 import { SelectOptionCategory } from "./_ActivatableSelectOptionCategory.js"
 import { NewSkillApplication, SkillUse } from "./_ActivatableSkillApplicationsAndUses.js"
-import { GeneralIdentifier, SkillIdentifier } from "./_Identifier.js"
-import { CombatTechniqueIdentifier, SelectOptionParentIdentifier } from "./_IdentifierGroup.js"
+import { SelectOptionParentIdentifier } from "./_IdentifierGroup.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
 import { Errata } from "./source/_Erratum.js"
 import { optionalSrc } from "./source/_PublicationRef.js"
@@ -44,15 +41,6 @@ export const select_options = Optional({
 
 Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
   type: IncludeIdentifier(SelectOptions),
-})
-
-export const ExplicitSelectOption = Enum(import.meta.url, {
-  name: "ExplicitSelectOption",
-  values: () => ({
-    General: EnumCase({ type: GeneralIdentifier() }),
-    Skill: EnumCase({ type: IncludeIdentifier(ExplicitSkillSelectOption) }),
-    CombatTechnique: EnumCase({ type: IncludeIdentifier(ExplicitCombatTechniqueSelectOption) }),
-  }),
 })
 
 export const GeneralSelectOption = Entity(import.meta.url, {
@@ -147,80 +135,6 @@ export const explicit_select_options = Required({
 
 Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
   type: ChildEntities(GeneralSelectOption),
-})
-
-const ExplicitSkillSelectOption = TypeAlias(import.meta.url, {
-  name: "ExplicitSkillSelectOption",
-  type: () =>
-    Object({
-      id: Required({
-        comment: "The skill’s identifier.",
-        type: SkillIdentifier(),
-      }),
-      prerequisites: Optional({
-        comment: "Prerequisites for the select option.",
-        type: IncludeIdentifier(GeneralPrerequisites),
-      }),
-      binding_cost: Optional({
-        comment:
-          "Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.",
-        type: Integer({ minimum: 0 }),
-      }),
-      ap_value: Optional({
-        comment: "Specific AP cost for the select option.",
-        type: Integer({ minimum: 1 }),
-      }),
-      src: optionalSrc,
-      translations: NestedTranslationMap(
-        Optional,
-        "ExplicitSkillSelectOption",
-        Object(
-          {
-            errata: Optional({
-              type: IncludeIdentifier(Errata),
-            }),
-          },
-          { minProperties: 1 },
-        ),
-      ),
-    }),
-})
-
-const ExplicitCombatTechniqueSelectOption = TypeAlias(import.meta.url, {
-  name: "ExplicitCombatTechniqueSelectOption",
-  type: () =>
-    Object({
-      id: Required({
-        comment: "The combat technique’s identifier.",
-        type: IncludeIdentifier(CombatTechniqueIdentifier),
-      }),
-      prerequisites: Optional({
-        comment: "Prerequisites for the select option.",
-        type: IncludeIdentifier(GeneralPrerequisites),
-      }),
-      binding_cost: Optional({
-        comment:
-          "Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.",
-        type: Integer({ minimum: 0 }),
-      }),
-      ap_value: Optional({
-        comment: "Specific AP cost for the select option.",
-        type: Integer({ minimum: 1 }),
-      }),
-      src: optionalSrc,
-      translations: NestedTranslationMap(
-        Optional,
-        "ExplicitCombatTechniqueSelectOption",
-        Object(
-          {
-            errata: Optional({
-              type: IncludeIdentifier(Errata),
-            }),
-          },
-          { minProperties: 1 },
-        ),
-      ),
-    }),
 })
 
 // "Options": {
