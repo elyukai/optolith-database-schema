@@ -11,8 +11,8 @@ import {
   type GetInstanceById,
 } from "tsondb/schema/def"
 import type {
-  MeleeWeapon,
-  RangedWeapon,
+  GenMeleeWeapon,
+  GenRangedWeapon,
   WeaponCombatTechniqueValueRule,
 } from "../../../../gen/types.js"
 import { AttributeIdentifier } from "../../_Identifier.js"
@@ -81,8 +81,8 @@ export const checkWeaponCombatTechniqueIntegrity = (
     getDisplayNameWithId,
   }: {
     instanceContent: {
-      melee_uses?: Record<string, MeleeWeapon>
-      ranged_uses?: Record<string, RangedWeapon>
+      melee_uses?: Record<string, GenMeleeWeapon<unknown>>
+      ranged_uses?: Record<string, GenRangedWeapon<unknown>>
     }
     getInstanceById: GetInstanceById
     getDisplayNameWithId: GetDisplayNameWithId
