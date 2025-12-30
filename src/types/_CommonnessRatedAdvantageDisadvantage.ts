@@ -1,4 +1,13 @@
-import { GenTypeAlias, Object, Param, Required, TypeArgument } from "tsondb/schema/def"
+import {
+  GenTypeAlias,
+  Object,
+  Optional,
+  Param,
+  Required,
+  String,
+  TypeArgument,
+} from "tsondb/schema/def"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const CommonnessRatedAdvantageDisadvantage = GenTypeAlias(import.meta.url, {
   name: "CommonnessRatedAdvantageDisadvantage",
@@ -11,5 +20,15 @@ export const CommonnessRatedAdvantageDisadvantage = GenTypeAlias(import.meta.url
         comment: "The advantage's or disadvantage's identifier.",
         type: TypeArgument(Identifier),
       }),
+      translations: NestedTranslationMap(
+        Optional,
+        "CommonnessRatedAdvantageDisadvantage",
+        Object({
+          options: Required({
+            comment: "The options the commonness rating applies to.",
+            type: String({ minLength: 1 }),
+          }),
+        }),
+      ),
     }),
 })
