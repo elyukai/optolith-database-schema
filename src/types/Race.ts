@@ -5,14 +5,17 @@ import {
   Enum,
   EnumCase,
   GenIncludeIdentifier,
+  GenTypeAlias,
   IncludeIdentifier,
   Integer,
   NestedEntityMap,
   Object,
   Optional,
+  Param,
   Required,
   String,
   TypeAlias,
+  TypeArgument,
 } from "tsondb/schema/def"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { Dice, DieType } from "./_Dice.js"
@@ -51,7 +54,17 @@ export const Race = Entity(import.meta.url, {
       automatic_advantages: Optional({
         comment:
           "A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.",
-        type: Array(IncludeIdentifier(AutomaticAdvantage), { minItems: 1 }),
+        type: Array(GenIncludeIdentifier(AutomaticAdvantageDisadvantage, [AdvantageIdentifier()]), {
+          minItems: 1,
+        }),
+      }),
+      automatic_disadvantages: Optional({
+        comment:
+          "A list of automatically applied disadvantages. This does only work for disadvantages with no further configuration such as level or special selection.",
+        type: Array(
+          GenIncludeIdentifier(AutomaticAdvantageDisadvantage, [DisadvantageIdentifier()]),
+          { minItems: 1 },
+        ),
       }),
       strongly_recommended_advantages: Optional({
         comment: "A list of strongly recommended advantages.",
@@ -111,6 +124,10 @@ export const Race = Entity(import.meta.url, {
           }),
           automatic_advantages: Optional({
             comment: "The respective automatic advantages text from the source book.",
+            type: String({ minLength: 1 }),
+          }),
+          automatic_disadvantages: Optional({
+            comment: "The respective automatic disadvantages text from the source book.",
             type: String({ minLength: 1 }),
           }),
           strongly_recommended_advantages: Optional({
@@ -218,15 +235,16 @@ const SelectableAttributeAdjustment = TypeAlias(import.meta.url, {
     }),
 })
 
-const AutomaticAdvantage = TypeAlias(import.meta.url, {
-  name: "AutomaticAdvantage",
+const AutomaticAdvantageDisadvantage = GenTypeAlias(import.meta.url, {
+  name: "AutomaticAdvantageDisadvantage",
   comment:
-    "An advantage that is automatically applied to the character after selecting the race. This does only work for advantages with no further configuration such as level or special selection.",
-  type: () =>
+    "An advantage or disadvantage that is automatically applied to the character after selecting the race. This does only work for advantages or disadvantages with no further configuration such as level or special selection.",
+  parameters: [Param("Identifier")],
+  type: Identifier =>
     Object({
       id: Required({
-        comment: "The automatic advantage.",
-        type: AdvantageIdentifier(),
+        comment: "The automatic advantage or disadvantage.",
+        type: TypeArgument(Identifier),
       }),
     }),
 })
