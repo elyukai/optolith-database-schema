@@ -28,7 +28,7 @@ export type MathOperation = Enum<
   {
     Value: EnumCase<TypeArgument>
   } & BinaryMathOperation,
-  [Value: TypeParameter]
+  [Value: TypeParameter<"Value">]
 >
 
 export const MathOperation: MathOperation = GenEnum(import.meta.url, {
