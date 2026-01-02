@@ -49,17 +49,20 @@ export const PublicationRef = TypeAlias(import.meta.url, {
           name: "Occurrence",
           namePlural: "Occurrences",
           secondaryEntity: Locale,
-          type: Object({
-            initial: Required({
-              comment: "The initial occurrence of the entry.",
-              type: IncludeIdentifier(InitialOccurrence),
-            }),
-            revisions: Optional({
-              comment:
-                "Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.",
-              type: Array(IncludeIdentifier(Revision), { minItems: 1 }),
-            }),
-          }),
+          type: Object(
+            {
+              initial: Optional({
+                comment: "The initial occurrence of the entry.",
+                type: IncludeIdentifier(InitialOccurrence),
+              }),
+              revisions: Optional({
+                comment:
+                  "Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.",
+                type: Array(IncludeIdentifier(Revision), { minItems: 1 }),
+              }),
+            },
+            { minProperties: 1 },
+          ),
         }),
       }),
     }),
@@ -81,6 +84,41 @@ const InitialOccurrence = TypeAlias(import.meta.url, {
     }),
 })
 
+const _PrintingOccurrence = TypeAlias(import.meta.url, {
+  name: "PrintingOccurrence",
+  comment: "The publication’s printing where the entry has been added, changed, or removed.",
+  type: () =>
+    Object({
+      printing: Required({
+        comment: "The printing number.",
+        type: Integer({ minimum: 1 }),
+      }),
+      changes: Required({
+        comment: "The changes made in this printing.",
+        type: IncludeIdentifier(PrintingChanges),
+      }),
+    }),
+})
+
+const PrintingChanges = Enum(import.meta.url, {
+  name: "PrintingChanges",
+  comment:
+    "A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.",
+  values: () => ({
+    AddOrUpdate: EnumCase({
+      displayName: "Add or Update",
+      comment:
+        "The entry has been added, re-added or changed page(s) in this printing. The page references override any previously set ones in case an entry has been moved to a different page in a later printing.",
+      type: Array(IncludeIdentifier(PageRange), { minItems: 1 }),
+    }),
+    Remove: EnumCase({
+      comment:
+        "The entry has been removed in this printing.\n\nThis can also be used if the entry hss been removed by the release of this publication (that is, the first printing), which can be useful for books that introduce major revisions of rules into the game.",
+      type: null,
+    }),
+  }),
+})
+
 const Revision = Enum(import.meta.url, {
   name: "Revision",
   comment:
@@ -98,7 +136,7 @@ const Since = TypeAlias(import.meta.url, {
       printing: Required({
         comment:
           "The publication’s printing since which the entry is present again or has changed page references.",
-        type: Integer({ minimum: 2 }),
+        type: Integer({ minimum: 1 }),
       }),
       pages: Required({
         comment: "The changed or new page references.",
@@ -112,8 +150,9 @@ const Deprecation = TypeAlias(import.meta.url, {
   type: () =>
     Object({
       printing: Required({
-        comment: "The publication’s printing since which the entry has been removed.",
-        type: Integer({ minimum: 2 }),
+        comment:
+          "The publication’s printing since which the entry has been removed.\n\nThis can also be used if the entry hss been removed by the release of this publication (that is, the first printing).",
+        type: Integer({ minimum: 1 }),
       }),
     }),
 })
