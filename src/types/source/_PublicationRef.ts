@@ -84,6 +84,24 @@ const InitialOccurrence = TypeAlias(import.meta.url, {
     }),
 })
 
+// const PrintingOccurrences = TypeAlias(import.meta.url, {
+//   name: "PrintingOccurrences",
+//   comment: "The history of changes this publication’s printings introduced.",
+//   type: () => Array(IncludeIdentifier(PrintingOccurrence), { minItems: 1 }),
+//   customConstraints: ({ value }) => {
+//     const firstEntry = value[0]
+//     if (!firstEntry) {
+//       return ["At least one printing occurrence must be provided."]
+//     }
+//     if (firstEntry.printing > 1 && firstEntry.changes.kind === "Remove") {
+//       return [
+//         "The first printing occurrence cannot be a removal if the printing number is greater than 1. It must have been present in the previous printing then, which needs to be provided.",
+//       ]
+//     }
+//     return []
+//   },
+// })
+
 const _PrintingOccurrence = TypeAlias(import.meta.url, {
   name: "PrintingOccurrence",
   comment: "The publication’s printing where the entry has been added, changed, or removed.",

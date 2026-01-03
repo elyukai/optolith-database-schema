@@ -12,6 +12,8 @@ const config: GenerationConfig = {
         generateHelpers: {
           entityMap: true,
           childEntityMap: true,
+          enumMap: true,
+          typeAliasMap: true,
         },
         inferTranslationParameters: {
           format: "mf2",
