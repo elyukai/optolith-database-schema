@@ -1,4 +1,4 @@
-import { Entity, IncludeIdentifier, Object, Required, String } from "tsondb/schema/def"
+import { Entity, IncludeIdentifier, Integer, Object, Required, String } from "tsondb/schema/def"
 import { SkillCheck } from "./_SkillCheck.js"
 import { NestedTranslationMap } from "./Locale.js"
 
@@ -7,6 +7,10 @@ export const SkillGroup = Entity(import.meta.url, {
   namePlural: "SkillGroups",
   type: () =>
     Object({
+      position: Required({
+        comment: "The position of the skill group in lists. This has to be a unique value.",
+        type: Integer({ minimum: 0 }),
+      }),
       check: Required({
         comment: "The skill group’s skill check attributes",
         type: IncludeIdentifier(SkillCheck),
@@ -27,7 +31,13 @@ export const SkillGroup = Entity(import.meta.url, {
       ),
     }),
   instanceDisplayName: {},
+  sortOrder: {
+    keyPath: "position",
+  },
   uniqueConstraints: [
+    {
+      keyPath: "position",
+    },
     {
       entityMapKeyPath: "translations",
       keyPathInEntityMap: "name",

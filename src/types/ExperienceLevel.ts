@@ -47,7 +47,13 @@ export const ExperienceLevel = Entity(import.meta.url, {
       ),
     }),
   instanceDisplayName: {},
+  sortOrder: {
+    keyPath: "adventure_points",
+  },
   uniqueConstraints: [
+    {
+      keyPath: "adventure_points",
+    },
     {
       entityMapKeyPath: "translations",
       keyPathInEntityMap: "name",

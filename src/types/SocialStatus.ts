@@ -6,9 +6,9 @@ export const SocialStatus = Entity(import.meta.url, {
   namePlural: "SocialStatuses",
   type: () =>
     Object({
-      order: Required({
+      position: Required({
         comment:
-          "The social status’ order. The higher the order, the more powerful the social status. This has to be a unique value.",
+          "The social status’ position. The higher the position, the more powerful the social status. This has to be a unique value.",
         type: Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
@@ -24,7 +24,7 @@ export const SocialStatus = Entity(import.meta.url, {
     }),
   instanceDisplayName: {},
   uniqueConstraints: [
-    { keyPath: "order" },
+    { keyPath: "position" },
     {
       entityMapKeyPath: "translations",
       keyPathInEntityMap: "name",

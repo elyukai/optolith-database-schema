@@ -1,6 +1,7 @@
 import {
   Entity,
   IncludeIdentifier,
+  Integer,
   Object,
   Optional,
   Required,
@@ -16,6 +17,11 @@ export const DerivedCharacteristic = Entity(import.meta.url, {
   namePlural: "DerivedCharacteristics",
   type: () =>
     Object({
+      position: Required({
+        comment:
+          "The position of the derived characteristic in lists. This has to be a unique value.",
+        type: Integer({ minimum: 0 }),
+      }),
       prerequisites: Optional({
         type: IncludeIdentifier(DerivedCharacteristicPrerequisites),
       }),
@@ -40,7 +46,13 @@ export const DerivedCharacteristic = Entity(import.meta.url, {
       ),
     }),
   instanceDisplayName: {},
+  sortOrder: {
+    keyPath: "position",
+  },
   uniqueConstraints: [
+    {
+      keyPath: "position",
+    },
     {
       entityMapKeyPath: "translations",
       keyPathInEntityMap: "name",
