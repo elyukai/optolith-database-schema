@@ -54,7 +54,7 @@ export const MusicalInstrument = Entity(import.meta.url, {
           ...rest,
           instanceContent: instanceContent.combat_use.Weapon,
         },
-        true,
+        { secondary: true },
       )
     }
 

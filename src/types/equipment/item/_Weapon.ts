@@ -87,7 +87,7 @@ export const checkWeaponCombatTechniqueIntegrity = (
     getInstanceById: GetInstanceById
     getDisplayNameWithId: GetDisplayNameWithId
   },
-  _secondary: boolean,
+  { secondary: _secondary }: { secondary: boolean },
 ): string[] => {
   const checkPart = (
     rule: WeaponCombatTechniqueValueRule,

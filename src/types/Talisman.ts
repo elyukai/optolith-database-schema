@@ -41,25 +41,32 @@ export const Talisman = Entity(import.meta.url, {
         comment: "The AP value for the required trade secret, if possible.",
         type: Integer({ minimum: 5, multipleOf: 5 }),
       }),
-      meleeUses: Optional({
-        comment:
-          "A list of stat blocks for each close combat technique this talisman can be used with.",
-        type: NestedEntityMap({
-          name: "MeleeTalismanUse",
-          namePlural: "MeleeTalismanUses",
-          secondaryEntity: CloseCombatTechnique,
-          type: IncludeIdentifier(TalismanMeleeWeapon),
-        }),
-      }),
-      rangedUses: Optional({
-        comment:
-          "A list of stat blocks for each ranged combat technique this talisman can be used with.",
-        type: NestedEntityMap({
-          name: "RangedTalismanUse",
-          namePlural: "RangedTalismanUses",
-          secondaryEntity: RangedCombatTechnique,
-          type: IncludeIdentifier(TalismanRangedWeapon),
-        }),
+      combatUse: Optional({
+        type: Object(
+          {
+            melee_uses: Optional({
+              comment:
+                "A list of stat blocks for each close combat technique this talisman can be used with.",
+              type: NestedEntityMap({
+                name: "MeleeTalismanUse",
+                namePlural: "MeleeTalismanUses",
+                secondaryEntity: CloseCombatTechnique,
+                type: IncludeIdentifier(TalismanMeleeWeapon),
+              }),
+            }),
+            ranged_uses: Optional({
+              comment:
+                "A list of stat blocks for each ranged combat technique this talisman can be used with.",
+              type: NestedEntityMap({
+                name: "RangedTalismanUse",
+                namePlural: "RangedTalismanUses",
+                secondaryEntity: RangedCombatTechnique,
+                type: IncludeIdentifier(TalismanRangedWeapon),
+              }),
+            }),
+          },
+          { minProperties: 1 },
+        ),
       }),
       src,
       translations: NestedTranslationMap(
@@ -92,17 +99,16 @@ export const Talisman = Entity(import.meta.url, {
     },
   ],
   customConstraints: ({ instanceContent, getInstanceById, getDisplayNameWithId }) =>
-    checkWeaponCombatTechniqueIntegrity(
-      {
-        instanceContent: {
-          melee_uses: instanceContent.meleeUses,
-          ranged_uses: instanceContent.rangedUses,
-        },
-        getDisplayNameWithId,
-        getInstanceById,
-      },
-      true,
-    ),
+    instanceContent.combatUse
+      ? checkWeaponCombatTechniqueIntegrity(
+          {
+            instanceContent: instanceContent.combatUse,
+            getDisplayNameWithId,
+            getInstanceById,
+          },
+          { secondary: true },
+        )
+      : [],
 })
 
 const TalismanMeleeWeapon = TypeAlias(import.meta.url, {

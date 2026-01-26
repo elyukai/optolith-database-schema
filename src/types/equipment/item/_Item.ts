@@ -81,7 +81,7 @@ export const DefaultItem = (sourceUrl: string, singularName: string, pluralName?
             ...rest,
             instanceContent: combatUse.Weapon,
           },
-          true,
+          { secondary: true },
         )
       }
 

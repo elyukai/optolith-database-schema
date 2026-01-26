@@ -54,7 +54,7 @@ export const Clothes = Entity(import.meta.url, {
           ...rest,
           instanceContent: instanceContent.combat_use.Weapon,
         },
-        true,
+        { secondary: true },
       )
     }
 
