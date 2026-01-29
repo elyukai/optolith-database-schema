@@ -5,7 +5,6 @@
 import {
   ChildEntities,
   Entity,
-  getAnyEnumCaseValue,
   IncludeIdentifier,
   Integer,
   Object,
@@ -88,9 +87,7 @@ export const Enhancement = Entity(import.meta.url, {
     instanceDisplayNameLocaleId,
     getDisplayNameForInstanceId,
   }) => ({
-    name: `${
-      getDisplayNameForInstanceId(getAnyEnumCaseValue(instance.parent))?.name ?? ""
-    } — ${instanceDisplayName}`,
+    name: `${getDisplayNameForInstanceId(instance.parent)?.name ?? ""} — ${instanceDisplayName}`,
     localeId: instanceDisplayNameLocaleId,
   }),
   uniqueConstraints: [

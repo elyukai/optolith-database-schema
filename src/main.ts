@@ -11,7 +11,14 @@ declare module "tsondb/schema" {
   }
 }
 
-export const schema = Schema(
+export interface TSONDBTypes {
+  entityMap: EntityMap
+  childEntityMap: ChildEntityMap
+  enumMap: EnumMap
+  typeAliasMap: TypeAliasMap
+}
+
+export const schema = new Schema<TSONDBTypes>(
   [
     Types.AdvancedCombatSpecialAbility,
     Types.AdvancedKarmaSpecialAbility,

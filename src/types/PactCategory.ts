@@ -77,7 +77,7 @@ export const PactType = Entity(import.meta.url, {
     instanceDisplayNameLocaleId,
     getDisplayNameForInstanceId,
   }) => ({
-    name: `${getDisplayNameForInstanceId(instance.parent)?.name ?? ""} — ${instanceDisplayName}`,
+    name: `${getDisplayNameForInstanceId("PactCategory", instance.parent)?.name ?? ""} — ${instanceDisplayName}`,
     localeId: instanceDisplayNameLocaleId,
   }),
   uniqueConstraints: [
@@ -121,7 +121,7 @@ export const PactDomain = Entity(import.meta.url, {
     instanceDisplayNameLocaleId,
     getDisplayNameForInstanceId,
   }) => ({
-    name: `${getDisplayNameForInstanceId(instance.parent)?.name ?? ""} — ${instanceDisplayName}`,
+    name: `${getDisplayNameForInstanceId("PactCategory", instance.parent)?.name ?? ""} — ${instanceDisplayName}`,
     localeId: instanceDisplayNameLocaleId,
   }),
   uniqueConstraints: [

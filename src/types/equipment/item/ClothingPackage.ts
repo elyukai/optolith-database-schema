@@ -20,5 +20,5 @@ export const ClothingPackage = Entity(import.meta.url, {
     }),
   instanceDisplayName: null,
   instanceDisplayNameCustomizer: ({ instance, instanceId, getDisplayNameForInstanceId }) =>
-    getDisplayNameForInstanceId(instance.socialStatus) ?? { name: instanceId },
+    getDisplayNameForInstanceId("SocialStatus", instance.socialStatus) ?? { name: instanceId },
 })

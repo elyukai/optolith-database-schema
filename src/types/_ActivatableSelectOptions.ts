@@ -2,7 +2,6 @@ import {
   Boolean,
   ChildEntities,
   Entity,
-  getAnyEnumCaseValue,
   IncludeIdentifier,
   Integer,
   Object,
@@ -113,7 +112,7 @@ export const GeneralSelectOption = Entity(import.meta.url, {
     getDisplayNameForInstanceId,
   }) => ({
     name: `${
-      getDisplayNameForInstanceId(getAnyEnumCaseValue(instance.parent))?.name ?? "[unknown parent]"
+      getDisplayNameForInstanceId(instance.parent)?.name ?? "[unknown parent]"
     } — ${instanceDisplayName}`,
     localeId: instanceDisplayNameLocaleId,
   }),

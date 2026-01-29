@@ -65,19 +65,21 @@ export const Profession = Entity(import.meta.url, {
   instanceDisplayNameCustomizer: ({
     instanceId,
     getDisplayNameForInstanceId,
-    getChildInstancesForInstanceId,
+    getAllChildInstancesForParent,
   }) => {
-    const [firstProfessionVersion, ...otherProfessionVersions] = getChildInstancesForInstanceId(
-      Profession.name,
+    const [firstProfessionVersion, ...otherProfessionVersions] = getAllChildInstancesForParent(
+      "ProfessionVersion",
       instanceId,
-      ProfessionVersion.name,
     )
 
     if (!firstProfessionVersion) {
       return { name: "(Profession with no version)" }
     }
 
-    const displayName = getDisplayNameForInstanceId(firstProfessionVersion.id) ?? {
+    const displayName = getDisplayNameForInstanceId(
+      "ProfessionVersion",
+      firstProfessionVersion.id,
+    ) ?? {
       name: firstProfessionVersion.id,
     }
 
@@ -294,14 +296,17 @@ export const ProfessionPackage = Entity(import.meta.url, {
   parentReferenceKey: "profession_version",
   instanceDisplayName: null,
   instanceDisplayNameCustomizer: ({ instance, getDisplayNameForInstanceId }) => {
-    const baseName = getDisplayNameForInstanceId(instance.profession_version)
+    const baseName = getDisplayNameForInstanceId("ProfessionVersion", instance.profession_version)
 
     if (!baseName) {
       return { name: "(Profession Package with no Profession Version)" }
     }
 
     if (instance.experience_level) {
-      const experienceLevelName = getDisplayNameForInstanceId(instance.profession_version)
+      const experienceLevelName = getDisplayNameForInstanceId(
+        "ExperienceLevel",
+        instance.experience_level,
+      )
       return {
         ...baseName,
         name: `${baseName.name} [${experienceLevelName?.name ?? instance.experience_level}]`,

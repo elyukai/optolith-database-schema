@@ -7,7 +7,7 @@ import {
   ObjectType,
   Required,
   TypeAlias,
-  type GetDisplayNameWithId,
+  type GetDisplayNameAndId,
   type GetInstanceById,
 } from "tsondb/schema/def"
 import type {
@@ -78,14 +78,14 @@ export const checkWeaponCombatTechniqueIntegrity = (
   {
     instanceContent,
     getInstanceById,
-    getDisplayNameWithId,
+    getDisplayNameAndId,
   }: {
     instanceContent: {
       melee_uses?: Record<string, GenMeleeWeapon<unknown>>
       ranged_uses?: Record<string, GenRangedWeapon<unknown>>
     }
     getInstanceById: GetInstanceById
-    getDisplayNameWithId: GetDisplayNameWithId
+    getDisplayNameAndId: GetDisplayNameAndId
   },
   { secondary: _secondary }: { secondary: boolean },
 ): string[] => {
@@ -98,7 +98,7 @@ export const checkWeaponCombatTechniqueIntegrity = (
   ): string | undefined =>
     (rule.kind === "Prohibited") === (value === undefined) || rule.kind === "Optional"
       ? undefined
-      : `${name} must${rule.kind === "Required" ? "" : " not"} be provided for ${type} combat technique ${getDisplayNameWithId(type === "close" ? "CloseCombatTechnique" : "RangedCombatTechnique", id)}`
+      : `${name} must${rule.kind === "Required" ? "" : " not"} be provided for ${type} combat technique ${getDisplayNameAndId(type === "close" ? "CloseCombatTechnique" : "RangedCombatTechnique", id)}`
 
   return [
     instanceContent.melee_uses === undefined && instanceContent.ranged_uses === undefined

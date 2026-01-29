@@ -2,7 +2,6 @@ import {
   Array,
   ChildEntities,
   Entity,
-  getAnyEnumCaseValue,
   IncludeIdentifier,
   Integer,
   Object,
@@ -56,7 +55,7 @@ export const NewSkillApplication = Entity(import.meta.url, {
     name:
       instanceDisplayName.length > 0
         ? instanceDisplayName
-        : (getDisplayNameForInstanceId(getAnyEnumCaseValue(instance.parent))?.name ?? ""),
+        : (getDisplayNameForInstanceId(instance.parent)?.name ?? ""),
     localeId: instanceDisplayNameLocaleId,
   }),
 })
@@ -109,7 +108,7 @@ export const SkillUse = Entity(import.meta.url, {
     name:
       instanceDisplayName.length > 0
         ? instanceDisplayName
-        : (getDisplayNameForInstanceId(getAnyEnumCaseValue(instance.parent))?.name ?? ""),
+        : (getDisplayNameForInstanceId(instance.parent)?.name ?? ""),
     localeId: instanceDisplayNameLocaleId,
   }),
 })
