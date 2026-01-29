@@ -1,4 +1,4 @@
-import { filterNonNullable } from "@optolith/helpers/array"
+import { filterNonNullable } from "@elyukai/utils/array"
 import { TypeValidationError } from "../main.js"
 import { collator } from "./i18n.js"
 import { IntegrityError } from "./validation/builders/integrity.js"

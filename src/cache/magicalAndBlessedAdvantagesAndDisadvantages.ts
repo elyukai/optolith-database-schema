@@ -1,8 +1,5 @@
-import { assertExhaustive } from "@optolith/helpers/typeSafety"
+import { assertExhaustive } from "@elyukai/utils/typeSafety"
 import type { CacheConfig } from "../cacheConfig.js"
-import { ActivatableIdentifier, RatedIdentifier } from "../types/_IdentifierGroup.js"
-import { AdvantageDisadvantagePrerequisites } from "../types/_Prerequisite.js"
-import { AdvantageDisadvantagePrerequisiteGroup } from "../types/prerequisites/PrerequisiteGroups.js"
 
 const BLESSED_ID = 12
 const SPELLCASTER_ID = 47
@@ -59,9 +56,9 @@ const isPrerequisiteFor = (
   type: "Magical" | "Blessed",
   prerequisite: AdvantageDisadvantagePrerequisiteGroup,
   getById: (
-    id: ActivatableIdentifier
+    id: ActivatableIdentifier,
   ) => { id: number; prerequisites?: AdvantageDisadvantagePrerequisites } | undefined,
-  traversedIds: number[]
+  traversedIds: number[],
 ): boolean => {
   switch (prerequisite.tag) {
     case "Activatable": {
@@ -105,9 +102,9 @@ const is = (
   type: "Magical" | "Blessed",
   entry: { id: number; prerequisites?: AdvantageDisadvantagePrerequisites },
   getById: (
-    id: ActivatableIdentifier
+    id: ActivatableIdentifier,
   ) => { id: number; prerequisites?: AdvantageDisadvantagePrerequisites } | undefined,
-  traversedIds: number[]
+  traversedIds: number[],
 ): boolean => {
   if (!entry.prerequisites || traversedIds.includes(entry.id)) {
     return false
@@ -123,11 +120,11 @@ const is = (
           return isPrerequisiteFor(type, prerequisite.prerequisite.single, getById, newTraversedIds)
         case "Disjunction":
           return prerequisite.prerequisite.disjunction.list.some(p =>
-            isPrerequisiteFor(type, p, getById, newTraversedIds)
+            isPrerequisiteFor(type, p, getById, newTraversedIds),
           )
         case "Group":
           return prerequisite.prerequisite.group.list.some(p =>
-            isPrerequisiteFor(type, p, getById, newTraversedIds)
+            isPrerequisiteFor(type, p, getById, newTraversedIds),
           )
         default:
           return assertExhaustive(prerequisite.prerequisite)
