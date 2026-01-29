@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.27.0](https://github.com/elyukai/optolith-database-schema/compare/v0.26.5...v0.27.0) (2026-01-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* The position values need to be added. Also, the
+"order" value for social statuses has been renamed to "position" to
+align with other specially sorted entities.
+
+### Features
+
+* allow deprecation as only source reference ([fb251d1](https://github.com/elyukai/optolith-database-schema/commit/fb251d1bb6e47b9ca6bbe97e37e124188e037816))
+* allow options text with reference ([260f74d](https://github.com/elyukai/optolith-database-schema/commit/260f74dcd2de9d5c43c983a58060524a6581b119))
+* automatic race disadvantages ([21b8fcc](https://github.com/elyukai/optolith-database-schema/commit/21b8fcc7d273109f1399027ceb56253bed7e0971)), closes [#113](https://github.com/elyukai/optolith-database-schema/issues/113)
+* custom sort orders and position values ([aca931d](https://github.com/elyukai/optolith-database-schema/commit/aca931d66818f1e425a6283e846b4c5c10003b2b))
+* talisman melee and ranged uses ([5a1fc2f](https://github.com/elyukai/optolith-database-schema/commit/5a1fc2f2f5dd35b1b426ab4b6f12852082863aaa)), closes [#60](https://github.com/elyukai/optolith-database-schema/issues/60)
+
+
+### Bug Fixes
+
+* add type parameter name ([d42253c](https://github.com/elyukai/optolith-database-schema/commit/d42253c483b9e2291ba2bd58f3d879c66b1f2991))
+* make unique constraint work with any damage ([8af0910](https://github.com/elyukai/optolith-database-schema/commit/8af09109ba1dd433973aca185f2566978ac89750))
+* src comment and display name ([0a073b5](https://github.com/elyukai/optolith-database-schema/commit/0a073b5d6706a3a87f4ae5935651f28eaed0ad0b))
+* talisman combat use nesting and constraint ([1f8823f](https://github.com/elyukai/optolith-database-schema/commit/1f8823fa5fc075ed60cabfb81276db58e47ecae0))
+
 ## [0.26.5](https://github.com/elyukai/optolith-database-schema/compare/v0.26.4...v0.26.5) (2025-12-29)
 
 
