@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.27.1](https://github.com/elyukai/optolith-database-schema/compare/v0.27.0...v0.27.1) (2026-02-01)
+
+
+### Features
+
+* add reversalis fields to spells and rituals ([73edb6c](https://github.com/elyukai/optolith-database-schema/commit/73edb6cb5dd4a209e20b8e68eb4503c0e7e48f64))
+
 ## [0.27.0](https://github.com/elyukai/optolith-database-schema/compare/v0.26.5...v0.27.0) (2026-01-29)
 
 
