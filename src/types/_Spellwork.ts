@@ -1,5 +1,5 @@
-import { Array, Enum, EnumCase } from "tsondb/schema/def"
-import { MagicalTraditionIdentifier } from "./_Identifier.js"
+import { Array, Enum, EnumCase, Optional, String } from "tsondb/schema/def"
+import { MagicalTraditionIdentifier, PropertyIdentifier } from "./_Identifier.js"
 
 export const SpellworkTraditions = Enum(import.meta.url, {
   name: "SpellworkTraditions",
@@ -13,3 +13,37 @@ export const SpellworkTraditions = Enum(import.meta.url, {
     }),
   }),
 })
+
+export const ReversalisProperty = () =>
+  Optional({
+    comment: "The associated property of the reversed spell.",
+    type: PropertyIdentifier(),
+  })
+
+export const ReversalisEffect = () =>
+  Optional({
+    comment: "The effect of the reversed spell.",
+    type: String({ minLength: 1, isMarkdown: true }),
+  })
+
+export const checkReversalis = (object: {
+  propertyReversalis?: string
+  translations: { [locale: string]: { effectReversalis?: string } }
+}): string[] => {
+  const hasProperty = object.propertyReversalis !== undefined
+  const hasAnyEffect = Object.values(object.translations).some(
+    t => t.effectReversalis !== undefined,
+  )
+
+  if (hasProperty && !hasAnyEffect) {
+    return [
+      "If 'propertyReversalis' is set, at least one translation must have 'effectReversalis' defined.",
+    ]
+  }
+
+  if (!hasProperty && hasAnyEffect) {
+    return ["If any translation has 'effectReversalis' defined, 'propertyReversalis' must be set."]
+  }
+
+  return []
+}
