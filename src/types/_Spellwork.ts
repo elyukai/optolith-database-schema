@@ -1,5 +1,16 @@
-import { Array, Enum, EnumCase, Optional, String } from "tsondb/schema/def"
+import {
+  Array,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { MagicalTraditionIdentifier, PropertyIdentifier } from "./_Identifier.js"
+import { NestedTranslationMap } from "./Locale.js"
 
 export const SpellworkTraditions = Enum(import.meta.url, {
   name: "SpellworkTraditions",
@@ -14,36 +25,36 @@ export const SpellworkTraditions = Enum(import.meta.url, {
   }),
 })
 
-export const ReversalisProperty = () =>
-  Optional({
-    comment: "The associated property of the reversed spell.",
-    type: PropertyIdentifier(),
-  })
+export const Reversalis = TypeAlias(import.meta.url, {
+  name: "Reversalis",
+  comment: "Possible effects of the reversed spell.",
+  type: () => Array(IncludeIdentifier(ReversalisEffect), { minItems: 1 }),
+})
 
-export const ReversalisEffect = () =>
-  Optional({
-    comment: "The effect of the reversed spell.",
-    type: String({ minLength: 1, isMarkdown: true }),
-  })
+export const reversalis = Optional({
+  comment: "Possible effects of the reversed spell.",
+  type: IncludeIdentifier(Reversalis),
+})
 
-export const checkReversalis = (object: {
-  propertyReversalis?: string
-  translations: { [locale: string]: { effectReversalis?: string } }
-}): string[] => {
-  const hasProperty = object.propertyReversalis !== undefined
-  const hasAnyEffect = Object.values(object.translations).some(
-    t => t.effectReversalis !== undefined,
-  )
-
-  if (hasProperty && !hasAnyEffect) {
-    return [
-      "If 'propertyReversalis' is set, at least one translation must have 'effectReversalis' defined.",
-    ]
-  }
-
-  if (!hasProperty && hasAnyEffect) {
-    return ["If any translation has 'effectReversalis' defined, 'propertyReversalis' must be set."]
-  }
-
-  return []
-}
+const ReversalisEffect = TypeAlias(import.meta.url, {
+  name: "ReversalisEffect",
+  comment:
+    "A single possible effect of the reversed spell. A reversed spell can have a different property than the original spell.",
+  type: () =>
+    Object({
+      property: Required({
+        comment: "The associated property of the reversed spell.",
+        type: PropertyIdentifier(),
+      }),
+      translations: NestedTranslationMap(
+        Required,
+        "ReversalisEffect",
+        Object({
+          effect: Required({
+            comment: "The effect description of the reversed spell.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+        }),
+      ),
+    }),
+})

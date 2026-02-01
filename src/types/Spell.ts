@@ -15,12 +15,7 @@ import { PropertyIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { SpellworkPrerequisites } from "./_Prerequisite.js"
 import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck.js"
-import {
-  checkReversalis,
-  ReversalisEffect,
-  ReversalisProperty,
-  SpellworkTraditions,
-} from "./_Spellwork.js"
+import { reversalis, SpellworkTraditions } from "./_Spellwork.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
@@ -50,7 +45,6 @@ export const Spell = Entity(import.meta.url, {
         comment: "The associated property.",
         type: PropertyIdentifier(),
       }),
-      propertyReversalis: ReversalisProperty(),
       traditions: Required({
         comment:
           "The tradition(s) the spell is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.",
@@ -64,6 +58,7 @@ export const Spell = Entity(import.meta.url, {
         comment: "The prerequisites for the spell.",
         type: IncludeIdentifier(SpellworkPrerequisites),
       }),
+      reversalis,
       src,
       translations: NestedTranslationMap(
         Required,
@@ -78,7 +73,6 @@ export const Spell = Entity(import.meta.url, {
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
             type: IncludeIdentifier(ActivatableSkillEffect),
           }),
-          effectReversalis: ReversalisEffect(),
           casting_time: Optional({
             isDeprecated: true,
             type: IncludeIdentifier(OldParameter),
@@ -115,5 +109,4 @@ export const Spell = Entity(import.meta.url, {
       keyPathInEntityMap: "name",
     },
   ],
-  customConstraints: ({ instanceContent }) => checkReversalis(instanceContent),
 })
