@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.28.0](https://github.com/elyukai/optolith-database-schema/compare/v0.27.1...v0.28.0) (2026-02-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* remodel reversalis
+
+### Features
+
+* remodel reversalis ([99d3bc4](https://github.com/elyukai/optolith-database-schema/commit/99d3bc425cac0693237860d0eedde790e60da0d3))
+
 ## [0.27.1](https://github.com/elyukai/optolith-database-schema/compare/v0.27.0...v0.27.1) (2026-02-01)
 
 
