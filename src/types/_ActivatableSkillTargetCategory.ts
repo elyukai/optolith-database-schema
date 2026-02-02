@@ -17,7 +17,7 @@ export const AffectedTargetCategories = TypeAlias(import.meta.url, {
   comment: `The target category – the kind of creature or object – the skill affects.
 
 If no target categories are given, the skill applies to all target categories.`,
-  type: () => Array(IncludeIdentifier(SpecificAffectedTargetCategory)),
+  type: () => Array(IncludeIdentifier(SpecificAffectedTargetCategory), { minItems: 1 }),
 })
 
 const SpecificAffectedTargetCategory = TypeAlias(import.meta.url, {
