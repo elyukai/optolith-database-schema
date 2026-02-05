@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.28.1](https://github.com/elyukai/optolith-database-schema/compare/v0.28.0...v0.28.1) (2026-02-05)
+
+
+### Bug Fixes
+
+* empty target categories must be possible ([b7d449a](https://github.com/elyukai/optolith-database-schema/commit/b7d449a5f0a42b4b927c3c0bf4a07745222ba03f))
+* require at least one target category ([b251679](https://github.com/elyukai/optolith-database-schema/commit/b2516791a1a2cf6725c6560bee3bf89c41fb0786))
+
 ## [0.28.0](https://github.com/elyukai/optolith-database-schema/compare/v0.27.1...v0.28.0) (2026-02-01)
 
 
