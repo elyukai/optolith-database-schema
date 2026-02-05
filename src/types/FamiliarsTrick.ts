@@ -1,16 +1,4 @@
-import {
-  Array,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { OldParameter } from "./_ActivatableSkill.js"
 import { IndefiniteOneTimeCost } from "./_ActivatableSkillCost.js"
 import {
@@ -24,55 +12,55 @@ import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const FamiliarsTrick = Entity(import.meta.url, {
+export const FamiliarsTrick = DB.Entity(import.meta.url, {
   name: "FamiliarsTrick",
   namePlural: "FamiliarsTricks",
   displayName: "Familiar’s Trick",
   displayNamePlural: "Familiar’s Tricks",
   type: () =>
-    Object({
-      animal_types: Required({
+    DB.Object({
+      animal_types: DB.Required({
         comment: `The animal types this trick is available to. Either it is available to all or only a list of specific animal types.
 
 If no animal types are given, the animal disease applies to all animal types.`,
-        type: Array(AnimalTypeIdentifier(), { uniqueItems: true }),
+        type: DB.Array(AnimalTypeIdentifier(), { uniqueItems: true }),
       }),
-      parameters: Required({
+      parameters: DB.Required({
         comment: "Measurable parameters of a familiar’s trick.",
-        type: IncludeIdentifier(FamiliarsTrickPerformanceParameters),
+        type: DB.IncludeIdentifier(FamiliarsTrickPerformanceParameters),
       }),
-      property: Required({
+      property: DB.Required({
         comment: "The associated property.",
-        type: IncludeIdentifier(FamiliarsTrickProperty),
+        type: DB.IncludeIdentifier(FamiliarsTrickProperty),
       }),
-      ap_value: Optional({
+      ap_value: DB.Optional({
         comment:
           "The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "FamiliarsTrick",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The familiar’s trick’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment: "The effect description.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          duration: Optional({
+          duration: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -86,90 +74,94 @@ If no animal types are given, the animal disease applies to all animal types.`,
   ],
 })
 
-const FamiliarsTrickProperty = Enum(import.meta.url, {
+const FamiliarsTrickProperty = DB.Enum(import.meta.url, {
   name: "FamiliarsTrickProperty",
   values: () => ({
-    Fixed: EnumCase({ type: PropertyIdentifier() }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteFamiliarsTrickProperty) }),
+    Fixed: DB.EnumCase({ type: PropertyIdentifier() }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteFamiliarsTrickProperty) }),
   }),
 })
 
-const IndefiniteFamiliarsTrickProperty = TypeAlias(import.meta.url, {
+const IndefiniteFamiliarsTrickProperty = DB.TypeAlias(import.meta.url, {
   name: "IndefiniteFamiliarsTrickProperty",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "IndefiniteFamiliarsTrickProperty",
-        Object({
-          description: Required({
+        DB.Object({
+          description: DB.Required({
             comment: "A description of the property.",
-            type: IncludeIdentifier(ResponsiveText),
+            type: DB.IncludeIdentifier(ResponsiveText),
           }),
         }),
       ),
     }),
 })
 
-const FamiliarsTrickPerformanceParameters = Enum(import.meta.url, {
+const FamiliarsTrickPerformanceParameters = DB.Enum(import.meta.url, {
   name: "FamiliarsTrickPerformanceParameters",
   comment: "Measurable parameters of a familiar’s trick.",
   values: () => ({
-    OneTime: EnumCase({ type: IncludeIdentifier(FamiliarsTrickOneTimePerformanceParameters) }),
-    OneTimeInterval: EnumCase({
-      type: IncludeIdentifier(FamiliarsTrickOneTimeIntervalPerformanceParameters),
+    OneTime: DB.EnumCase({
+      type: DB.IncludeIdentifier(FamiliarsTrickOneTimePerformanceParameters),
     }),
-    Sustained: EnumCase({ type: IncludeIdentifier(FamiliarsTrickSustainedPerformanceParameters) }),
+    OneTimeInterval: DB.EnumCase({
+      type: DB.IncludeIdentifier(FamiliarsTrickOneTimeIntervalPerformanceParameters),
+    }),
+    Sustained: DB.EnumCase({
+      type: DB.IncludeIdentifier(FamiliarsTrickSustainedPerformanceParameters),
+    }),
   }),
 })
 
-const FamiliarsTrickOneTimePerformanceParameters = TypeAlias(import.meta.url, {
+const FamiliarsTrickOneTimePerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "FamiliarsTrickOneTimePerformanceParameters",
   type: () =>
-    Object({
-      cost: Required({
-        type: IncludeIdentifier(FamiliarsTrickOneTimeCost),
+    DB.Object({
+      cost: DB.Required({
+        type: DB.IncludeIdentifier(FamiliarsTrickOneTimeCost),
       }),
-      duration: Required({
-        type: IncludeIdentifier(FamiliarsTrickOneTimeDuration),
+      duration: DB.Required({
+        type: DB.IncludeIdentifier(FamiliarsTrickOneTimeDuration),
       }),
     }),
 })
 
-const FamiliarsTrickOneTimeCost = Enum(import.meta.url, {
+const FamiliarsTrickOneTimeCost = DB.Enum(import.meta.url, {
   name: "FamiliarsTrickOneTimeCost",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(FamiliarsTrickFixedOneTimeCost) }),
-    All: EnumCase({ type: IncludeIdentifier(FamiliarsTrickAllOneTimeCost) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteOneTimeCost) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FamiliarsTrickFixedOneTimeCost) }),
+    All: DB.EnumCase({ type: DB.IncludeIdentifier(FamiliarsTrickAllOneTimeCost) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteOneTimeCost) }),
   }),
 })
 
-const FamiliarsTrickFixedOneTimeCost = TypeAlias(import.meta.url, {
+const FamiliarsTrickFixedOneTimeCost = DB.TypeAlias(import.meta.url, {
   name: "FamiliarsTrickFixedOneTimeCost",
   type: () =>
-    Object({
-      ae_value: Required({
+    DB.Object({
+      ae_value: DB.Required({
         comment: "The AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      lp_value: Optional({
+      lp_value: DB.Optional({
         comment: "The LP cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      interval: Optional({
+      interval: DB.Optional({
         comment: "The interval in which you have to pay the AE cost again.",
-        type: IncludeIdentifier(DurationUnitValue),
+        type: DB.IncludeIdentifier(DurationUnitValue),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "FamiliarsTrickFixedOneTimeCost",
-        Object(
+        DB.Object(
           {
-            per: Optional({
+            per: DB.Optional({
               comment:
                 "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
-              type: IncludeIdentifier(ResponsiveTextOptional),
+              type: DB.IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
           { minProperties: 1 },
@@ -178,80 +170,80 @@ const FamiliarsTrickFixedOneTimeCost = TypeAlias(import.meta.url, {
     }),
 })
 
-const FamiliarsTrickAllOneTimeCost = TypeAlias(import.meta.url, {
+const FamiliarsTrickAllOneTimeCost = DB.TypeAlias(import.meta.url, {
   name: "FamiliarsTrickAllOneTimeCost",
   type: () =>
-    Object({
-      minimum: Optional({
+    DB.Object({
+      minimum: DB.Optional({
         comment: "The minimum AE the familiar has to have/spend.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const FamiliarsTrickOneTimeDuration = Enum(import.meta.url, {
+const FamiliarsTrickOneTimeDuration = DB.Enum(import.meta.url, {
   name: "FamiliarsTrickOneTimeDuration",
   values: () => ({
-    Immediate: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedDuration) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteDuration) }),
+    Immediate: DB.EnumCase({ type: null }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedDuration) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteDuration) }),
   }),
 })
 
-const FamiliarsTrickOneTimeIntervalPerformanceParameters = TypeAlias(import.meta.url, {
+const FamiliarsTrickOneTimeIntervalPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "FamiliarsTrickOneTimeIntervalPerformanceParameters",
   type: () =>
-    Object({
-      cost: Required({
-        type: IncludeIdentifier(FamiliarsTrickOneTimeIntervalCost),
+    DB.Object({
+      cost: DB.Required({
+        type: DB.IncludeIdentifier(FamiliarsTrickOneTimeIntervalCost),
       }),
     }),
 })
 
-const FamiliarsTrickOneTimeIntervalCost = TypeAlias(import.meta.url, {
+const FamiliarsTrickOneTimeIntervalCost = DB.TypeAlias(import.meta.url, {
   name: "FamiliarsTrickOneTimeIntervalCost",
   type: () =>
-    Object({
-      ae_value: Required({
+    DB.Object({
+      ae_value: DB.Required({
         comment: "The AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      lp_value: Optional({
+      lp_value: DB.Optional({
         comment: "The LP cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      interval: Required({
+      interval: DB.Required({
         comment: "The duration granted/added by paying the given AE cost.",
-        type: IncludeIdentifier(DurationUnitValue),
+        type: DB.IncludeIdentifier(DurationUnitValue),
       }),
     }),
 })
 
-const FamiliarsTrickSustainedPerformanceParameters = TypeAlias(import.meta.url, {
+const FamiliarsTrickSustainedPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "FamiliarsTrickSustainedPerformanceParameters",
   type: () =>
-    Object({
-      cost: Required({
-        type: IncludeIdentifier(FamiliarsTrickSustainedCost),
+    DB.Object({
+      cost: DB.Required({
+        type: DB.IncludeIdentifier(FamiliarsTrickSustainedCost),
       }),
     }),
 })
 
-const FamiliarsTrickSustainedCost = TypeAlias(import.meta.url, {
+const FamiliarsTrickSustainedCost = DB.TypeAlias(import.meta.url, {
   name: "FamiliarsTrickSustainedCost",
   type: () =>
-    Object({
-      ae_value: Required({
+    DB.Object({
+      ae_value: DB.Required({
         comment: "The AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      lp_value: Optional({
+      lp_value: DB.Optional({
         comment: "The LP cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      interval: Optional({
+      interval: DB.Optional({
         comment: "The interval in which you have to pay the AE cost again.",
-        type: IncludeIdentifier(DurationUnitValue),
+        type: DB.IncludeIdentifier(DurationUnitValue),
       }),
     }),
 })

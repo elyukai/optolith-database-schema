@@ -1,17 +1,4 @@
-import {
-  Array,
-  ChildEntities,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { name_in_library } from "../_Activatable.js"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
@@ -25,73 +12,73 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const MagicalRune = Entity(import.meta.url, {
+export const MagicalRune = DB.Entity(import.meta.url, {
   name: "MagicalRune",
   namePlural: "MagicalRunes",
   type: () =>
-    Object({
-      options: Required({
+    DB.Object({
+      options: DB.Required({
         comment: `The options the magical rune has, if any.
 
 If there are multiple options, the magical rune may be activated for each option, that is, multiple times.`,
-        type: ChildEntities(MagicalRuneOption),
+        type: DB.ChildEntities(MagicalRuneOption),
       }),
-      check: Required({
+      check: DB.Required({
         comment: "Lists the linked three attributes used to make a skill check.",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
-      check_penalty: Optional({
+      check_penalty: DB.Optional({
         comment: "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-        type: IncludeIdentifier(MagicalRuneCheckPenalty),
+        type: DB.IncludeIdentifier(MagicalRuneCheckPenalty),
       }),
-      parameters: Required({
+      parameters: DB.Required({
         comment: "Measurable parameters of a magical rune.",
-        type: IncludeIdentifier(MagicalRunePerformanceParameters),
+        type: DB.IncludeIdentifier(MagicalRunePerformanceParameters),
       }),
-      property: Required({
+      property: DB.Required({
         comment: "The associated property.",
         type: PropertyIdentifier(),
       }),
-      improvement_cost: Required({
+      improvement_cost: DB.Required({
         comment: "States which column is used to improve the skill.",
-        type: IncludeIdentifier(MagicalRuneImprovementCost),
+        type: DB.IncludeIdentifier(MagicalRuneImprovementCost),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "MagicalRune",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: `The magical rune’s name.
 
 If the rune has an option, the option’s name will/should not be included in the name as well as its surrounding parenthesis. It will/should be combined on demand.`,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
           name_in_library,
-          native_name: Optional({
+          native_name: DB.Optional({
             comment:
               "The native name of the magical rune. It has to be specified unless it is defined by an option.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment:
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
+            type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          crafting_time: Optional({
+          crafting_time: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameterBySpeed),
+            type: DB.IncludeIdentifier(OldParameterBySpeed),
           }),
-          duration: Optional({
+          duration: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameterBySpeed),
+            type: DB.IncludeIdentifier(OldParameterBySpeed),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -105,215 +92,220 @@ If the rune has an option, the option’s name will/should not be included in th
   ],
 })
 
-const OldParameterBySpeed = TypeAlias(import.meta.url, {
+const OldParameterBySpeed = DB.TypeAlias(import.meta.url, {
   name: "OldParameterBySpeed",
   type: () =>
-    Object({
-      slow: Required({
-        type: IncludeIdentifier(OldParameter),
+    DB.Object({
+      slow: DB.Required({
+        type: DB.IncludeIdentifier(OldParameter),
       }),
-      fast: Required({
-        type: IncludeIdentifier(OldParameter),
+      fast: DB.Required({
+        type: DB.IncludeIdentifier(OldParameter),
       }),
     }),
 })
 
-const MagicalRuneCheckPenalty = Enum(import.meta.url, {
+const MagicalRuneCheckPenalty = DB.Enum(import.meta.url, {
   name: "MagicalRuneCheckPenalty",
   values: () => ({
-    CombatTechnique: EnumCase({ type: IncludeIdentifier(MagicalRuneCombatTechniqueCheckPenalty) }),
+    CombatTechnique: DB.EnumCase({
+      type: DB.IncludeIdentifier(MagicalRuneCombatTechniqueCheckPenalty),
+    }),
   }),
 })
 
-const MagicalRuneCombatTechniqueCheckPenalty = TypeAlias(import.meta.url, {
+const MagicalRuneCombatTechniqueCheckPenalty = DB.TypeAlias(import.meta.url, {
   name: "MagicalRuneCombatTechniqueCheckPenalty",
   type: () =>
-    Object({
-      map: Required({
+    DB.Object({
+      map: DB.Required({
         comment: "A map from combat techniques to their modifiers.",
-        type: Array(IncludeIdentifier(MagicalRuneCombatTechniqueCheckPenaltyMapping), {
+        type: DB.Array(DB.IncludeIdentifier(MagicalRuneCombatTechniqueCheckPenaltyMapping), {
           minItems: 1,
         }),
       }),
-      rest: Required({
-        type: IncludeIdentifier(MagicalRuneCombatTechniqueCheckPenaltyRest),
+      rest: DB.Required({
+        type: DB.IncludeIdentifier(MagicalRuneCombatTechniqueCheckPenaltyRest),
       }),
     }),
 })
 
-const MagicalRuneCombatTechniqueCheckPenaltyMapping = TypeAlias(import.meta.url, {
+const MagicalRuneCombatTechniqueCheckPenaltyMapping = DB.TypeAlias(import.meta.url, {
   name: "MagicalRuneCombatTechniqueCheckPenaltyMapping",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The combat technique’s identifier.",
-        type: IncludeIdentifier(CombatTechniqueIdentifier),
+        type: DB.IncludeIdentifier(CombatTechniqueIdentifier),
       }),
-      modifier: Required({
+      modifier: DB.Required({
         comment: "The check modifier for the specified combat technique.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const MagicalRuneCombatTechniqueCheckPenaltyRest = TypeAlias(import.meta.url, {
+const MagicalRuneCombatTechniqueCheckPenaltyRest = DB.TypeAlias(import.meta.url, {
   name: "MagicalRuneCombatTechniqueCheckPenaltyRest",
   type: () =>
-    Object({
-      modifier: Required({
+    DB.Object({
+      modifier: DB.Required({
         comment: "The check modifier for combat techniques not specified in `map`.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const MagicalRunePerformanceParameters = TypeAlias(import.meta.url, {
+const MagicalRunePerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "MagicalRunePerformanceParameters",
   comment: "Measurable parameters of a magical rune.",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The AE cost.",
-        type: IncludeIdentifier(MagicalRuneCost),
+        type: DB.IncludeIdentifier(MagicalRuneCost),
       }),
-      crafting_time: Required({
+      crafting_time: DB.Required({
         comment: "The crafting time.",
-        type: IncludeIdentifier(MagicalRuneCraftingTime),
+        type: DB.IncludeIdentifier(MagicalRuneCraftingTime),
       }),
-      duration: Required({
+      duration: DB.Required({
         comment: "The duration.",
-        type: IncludeIdentifier(MagicalRuneDuration),
+        type: DB.IncludeIdentifier(MagicalRuneDuration),
       }),
     }),
 })
 
-const MagicalRuneCost = Enum(import.meta.url, {
+const MagicalRuneCost = DB.Enum(import.meta.url, {
   name: "MagicalRuneCost",
   values: () => ({
-    Single: EnumCase({ type: IncludeIdentifier(SingleMagicalRuneCost) }),
-    Disjunction: EnumCase({ type: IncludeIdentifier(MagicalRuneCostDisjunction) }),
-    DerivedFromOption: EnumCase({ type: null }),
+    Single: DB.EnumCase({ type: DB.IncludeIdentifier(SingleMagicalRuneCost) }),
+    Disjunction: DB.EnumCase({ type: DB.IncludeIdentifier(MagicalRuneCostDisjunction) }),
+    DerivedFromOption: DB.EnumCase({ type: null }),
   }),
 })
 
-const MagicalRuneOptionCost = Enum(import.meta.url, {
+const MagicalRuneOptionCost = DB.Enum(import.meta.url, {
   name: "MagicalRuneOptionCost",
   values: () => ({
-    Single: EnumCase({ type: IncludeIdentifier(SingleMagicalRuneCost) }),
-    Disjunction: EnumCase({ type: IncludeIdentifier(MagicalRuneCostDisjunction) }),
+    Single: DB.EnumCase({ type: DB.IncludeIdentifier(SingleMagicalRuneCost) }),
+    Disjunction: DB.EnumCase({ type: DB.IncludeIdentifier(MagicalRuneCostDisjunction) }),
   }),
 })
 
-const SingleMagicalRuneCost = TypeAlias(import.meta.url, {
+const SingleMagicalRuneCost = DB.TypeAlias(import.meta.url, {
   name: "SingleMagicalRuneCost",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "SingleMagicalRuneCost",
-        Object({
-          note: Required({
+        DB.Object({
+          note: DB.Required({
             comment: "A note, appended to the generated string in parenthesis.",
-            type: IncludeIdentifier(ResponsiveTextOptional),
+            type: DB.IncludeIdentifier(ResponsiveTextOptional),
           }),
         }),
       ),
     }),
 })
 
-const MagicalRuneCostDisjunction = TypeAlias(import.meta.url, {
+const MagicalRuneCostDisjunction = DB.TypeAlias(import.meta.url, {
   name: "MagicalRuneCostDisjunction",
   type: () =>
-    Object({
-      list: Required({
+    DB.Object({
+      list: DB.Required({
         comment: "A set of possible AE cost values.",
-        type: Array(IncludeIdentifier(SingleMagicalRuneCost), { minItems: 2, uniqueItems: true }),
+        type: DB.Array(DB.IncludeIdentifier(SingleMagicalRuneCost), {
+          minItems: 2,
+          uniqueItems: true,
+        }),
       }),
     }),
 })
 
-const MagicalRuneCraftingTime = TypeAlias(import.meta.url, {
+const MagicalRuneCraftingTime = DB.TypeAlias(import.meta.url, {
   name: "MagicalRuneCraftingTime",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The crafting time in actions.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "MagicalRuneCraftingTime",
-        Object({
-          per: Required({
+        DB.Object({
+          per: DB.Required({
             comment:
               "The crafting time has to be per a specific countable entity, e.g. `8 actions per person`.",
-            type: IncludeIdentifier(ResponsiveText),
+            type: DB.IncludeIdentifier(ResponsiveText),
           }),
         }),
       ),
     }),
 })
 
-const MagicalRuneDuration = TypeAlias(import.meta.url, {
+const MagicalRuneDuration = DB.TypeAlias(import.meta.url, {
   name: "MagicalRuneDuration",
   type: () =>
-    Object({
-      slow: Required({
+    DB.Object({
+      slow: DB.Required({
         comment: "The duration on slow rune application.",
-        type: IncludeIdentifier(CheckResultBasedDuration),
+        type: DB.IncludeIdentifier(CheckResultBasedDuration),
       }),
-      fast: Required({
+      fast: DB.Required({
         comment: "The duration on fast rune application.",
-        type: IncludeIdentifier(CheckResultBasedDuration),
+        type: DB.IncludeIdentifier(CheckResultBasedDuration),
       }),
     }),
 })
 
-const MagicalRuneImprovementCost = Enum(import.meta.url, {
+const MagicalRuneImprovementCost = DB.Enum(import.meta.url, {
   name: "MagicalRuneImprovementCost",
   values: () => ({
-    Constant: EnumCase({ type: IncludeIdentifier(ImprovementCost) }),
-    DerivedFromOption: EnumCase({ type: null }),
+    Constant: DB.EnumCase({ type: DB.IncludeIdentifier(ImprovementCost) }),
+    DerivedFromOption: DB.EnumCase({ type: null }),
   }),
 })
 
-export const MagicalRuneOption = Entity(import.meta.url, {
+export const MagicalRuneOption = DB.Entity(import.meta.url, {
   name: "MagicalRuneOption",
   namePlural: "MagicalRuneOptions",
   type: () =>
-    Object({
-      parent: Required({
+    DB.Object({
+      parent: DB.Required({
         comment: "The magical rune this option belongs to.",
         type: MagicalRuneIdentifier(),
       }),
-      cost: Optional({
+      cost: DB.Optional({
         comment: "The option-specific AE cost.",
-        type: IncludeIdentifier(MagicalRuneOptionCost),
+        type: DB.IncludeIdentifier(MagicalRuneOptionCost),
       }),
-      improvement_cost: Optional({
+      improvement_cost: DB.Optional({
         comment: "The option-specific improvement cost.",
-        type: IncludeIdentifier(ImprovementCost),
+        type: DB.IncludeIdentifier(ImprovementCost),
       }),
-      suboption: Optional({
-        type: IncludeIdentifier(MagicalRuneSuboption),
+      suboption: DB.Optional({
+        type: DB.IncludeIdentifier(MagicalRuneSuboption),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "MagicalRuneOption",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: `The magical rune option’s name.
 
 The surrounding parenthesis will/should not be included, they will/should be generated.`,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          native_name: Required({
+          native_name: DB.Required({
             comment: "The native name of the magical rune option.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
@@ -322,28 +314,28 @@ The surrounding parenthesis will/should not be included, they will/should be gen
   instanceDisplayName: {},
 })
 
-const MagicalRuneSuboption = Enum(import.meta.url, {
+const MagicalRuneSuboption = DB.Enum(import.meta.url, {
   name: "MagicalRuneSuboption",
   values: () => ({
-    Custom: EnumCase({
+    Custom: DB.EnumCase({
       comment: "The sub-option may be defined by the user (as a arbitrary text).",
-      type: IncludeIdentifier(CustomMagicalRuneSuboption),
+      type: DB.IncludeIdentifier(CustomMagicalRuneSuboption),
     }),
   }),
 })
 
-const CustomMagicalRuneSuboption = TypeAlias(import.meta.url, {
+const CustomMagicalRuneSuboption = DB.TypeAlias(import.meta.url, {
   name: "CustomMagicalRuneSuboption",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "CustomMagicalRuneSuboption",
-        Object(
+        DB.Object(
           {
-            examples: Optional({
+            examples: DB.Optional({
               comment: "One or more examples for the suboption.",
-              type: Array(String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
+              type: DB.Array(DB.String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
             }),
           },
           { minProperties: 1 },

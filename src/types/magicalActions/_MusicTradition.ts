@@ -1,64 +1,55 @@
-import {
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Object,
-  type ReferenceIdentifier,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../Locale.js"
 
-export const MusicTraditionReference = (traditionIdentifier: ReferenceIdentifier) =>
-  TypeAlias(import.meta.url, {
+export const MusicTraditionReference = (traditionIdentifier: DB.ReferenceIdentifier) =>
+  DB.TypeAlias(import.meta.url, {
     name: traditionIdentifier.entity.name + "Reference",
     comment:
       "A reference to a music tradition with the music-tradition-specific name of the entry.",
     type: () =>
-      Object({
-        id: Required({
+      DB.Object({
+        id: DB.Required({
           comment: "The music tradition’s identifier.",
           type: traditionIdentifier,
         }),
         translations: NestedTranslationMap(
-          Required,
+          DB.Required,
           traditionIdentifier.entity.name + "ReferenceTranslation",
-          Object({
-            name: Required({
+          DB.Object({
+            name: DB.Required({
               comment: "The music-tradition-specific name of the entry.",
-              type: String({ minLength: 1 }),
+              type: DB.String({ minLength: 1 }),
             }),
           }),
         ),
       }),
   })
 
-export const MusicDuration = TypeAlias(import.meta.url, {
+export const MusicDuration = DB.TypeAlias(import.meta.url, {
   name: "MusicDuration",
   type: () =>
-    Object({
-      length: Required({
-        type: IncludeIdentifier(MusicLength),
+    DB.Object({
+      length: DB.Required({
+        type: DB.IncludeIdentifier(MusicLength),
       }),
-      reusability: Required({
-        type: IncludeIdentifier(MusicReusability),
+      reusability: DB.Required({
+        type: DB.IncludeIdentifier(MusicReusability),
       }),
     }),
 })
 
-const MusicLength = Enum(import.meta.url, {
+const MusicLength = DB.Enum(import.meta.url, {
   name: "MusicLength",
   values: () => ({
-    Long: EnumCase({ type: null }),
-    Short: EnumCase({ type: null }),
+    Long: DB.EnumCase({ type: null }),
+    Short: DB.EnumCase({ type: null }),
   }),
 })
 
-const MusicReusability = Enum(import.meta.url, {
+const MusicReusability = DB.Enum(import.meta.url, {
   name: "MusicReusability",
   values: () => ({
-    OneTime: EnumCase({ type: null }),
-    Sustainable: EnumCase({ type: null }),
+    OneTime: DB.EnumCase({ type: null }),
+    Sustainable: DB.EnumCase({ type: null }),
   }),
 })

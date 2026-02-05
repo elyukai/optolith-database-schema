@@ -1,23 +1,23 @@
-import { Entity, ObjectType, Optional, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { TargetCategoryIdentifier } from "./_Identifier.js"
 
-export const TargetCategory = Entity(import.meta.url, {
+export const TargetCategory = DB.Entity(import.meta.url, {
   name: "TargetCategory",
   namePlural: "TargetCategories",
   type: () =>
-    ObjectType({
-      parent: Optional({
+    DB.Object({
+      parent: DB.Optional({
         comment: "A superordinate target category, if present.",
         type: TargetCategoryIdentifier(),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "TargetCategory",
-        ObjectType({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The target category’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

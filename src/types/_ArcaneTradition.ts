@@ -1,21 +1,21 @@
-import { IncludeIdentifier, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { ArcaneTraditionPrerequisites } from "./_Prerequisite.js"
 
 export const ArcaneTraditionType =
   <TN extends string>(translationName: TN) =>
   () =>
-    Object({
-      prerequisites: Required({
-        type: IncludeIdentifier(ArcaneTraditionPrerequisites),
+    DB.Object({
+      prerequisites: DB.Required({
+        type: DB.IncludeIdentifier(ArcaneTraditionPrerequisites),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         translationName,
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The arcane tradition’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

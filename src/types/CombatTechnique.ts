@@ -1,59 +1,47 @@
-import {
-  Array,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { AttributeIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const CloseCombatTechnique = Entity(import.meta.url, {
+export const CloseCombatTechnique = DB.Entity(import.meta.url, {
   name: "CloseCombatTechnique",
   namePlural: "CloseCombatTechniques",
   type: () =>
-    Object({
-      special: Required({
+    DB.Object({
+      special: DB.Required({
         comment:
           "Special rules for the combat technique that apply to all weapons in this category.",
-        type: IncludeIdentifier(CloseCombatTechniqueSpecialRules),
+        type: DB.IncludeIdentifier(CloseCombatTechniqueSpecialRules),
       }),
-      primary_attribute: Required({
+      primary_attribute: DB.Required({
         comment: "The primary attribute(s).",
-        type: Array(AttributeIdentifier(), { minItems: 1, maxItems: 2, uniqueItems: true }),
+        type: DB.Array(AttributeIdentifier(), { minItems: 1, maxItems: 2, uniqueItems: true }),
       }),
-      breaking_point_rating: Required({
+      breaking_point_rating: DB.Required({
         comment: "The *Breaking Point Rating* of the respective combat technique.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      improvement_cost: Required({
+      improvement_cost: DB.Required({
         comment: "States which column is used to improve the combat technique.",
-        type: IncludeIdentifier(ImprovementCost),
+        type: DB.IncludeIdentifier(ImprovementCost),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "CloseCombatTechnique",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The combat technique’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          special: Optional({
+          special: DB.Optional({
             comment: "Additional rules for the combat technique, if applicable.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -67,78 +55,80 @@ export const CloseCombatTechnique = Entity(import.meta.url, {
   ],
 })
 
-const WeaponCombatTechniqueValueRule = Enum(import.meta.url, {
+const WeaponCombatTechniqueValueRule = DB.Enum(import.meta.url, {
   name: "WeaponCombatTechniqueValueRule",
   comment: "Defines if the weapon must/can/must not define a value for this parameter.",
   values: () => ({
-    Required: EnumCase({
+    Required: DB.EnumCase({
       comment: "The parameter must be present in all weapons for this combat technique.",
       type: null,
     }),
-    Optional: EnumCase({
+    Optional: DB.EnumCase({
       comment: "The parameter can be present in any weapons for this combat technique.",
       type: null,
     }),
-    Prohibited: EnumCase({
+    Prohibited: DB.EnumCase({
       comment: "The parameter must not be present in any weapon for this combat technique.",
       type: null,
     }),
   }),
 })
 
-const CloseCombatTechniqueSpecialRules = TypeAlias(import.meta.url, {
+const CloseCombatTechniqueSpecialRules = DB.TypeAlias(import.meta.url, {
   name: "CloseCombatTechniqueSpecialRules",
   comment: "Special rules for the combat technique that apply to all weapons in this category.",
   type: () =>
-    Object({
-      can_parry: Required({
+    DB.Object({
+      can_parry: DB.Required({
         comment: "Is parrying possible with this combat technique?",
-        type: IncludeIdentifier(WeaponCombatTechniqueValueRule),
+        type: DB.IncludeIdentifier(WeaponCombatTechniqueValueRule),
       }),
-      has_damage_threshold: Required({ type: IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
-      has_reach: Required({ type: IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
-      has_length: Required({ type: IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
-      has_shield_size: Required({ type: IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
+      has_damage_threshold: DB.Required({
+        type: DB.IncludeIdentifier(WeaponCombatTechniqueValueRule),
+      }),
+      has_reach: DB.Required({ type: DB.IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
+      has_length: DB.Required({ type: DB.IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
+      has_shield_size: DB.Required({ type: DB.IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
     }),
 })
 
-export const RangedCombatTechnique = Entity(import.meta.url, {
+export const RangedCombatTechnique = DB.Entity(import.meta.url, {
   name: "RangedCombatTechnique",
   namePlural: "RangedCombatTechniques",
   type: () =>
-    Object({
-      special: Required({
+    DB.Object({
+      special: DB.Required({
         comment:
           "Special rules for the combat technique that apply to all weapons in this category.",
-        type: IncludeIdentifier(RangedCombatTechniqueSpecialRules),
+        type: DB.IncludeIdentifier(RangedCombatTechniqueSpecialRules),
       }),
-      primary_attribute: Required({
+      primary_attribute: DB.Required({
         comment: "The primary attribute(s).",
-        type: Array(AttributeIdentifier(), { minItems: 1, maxItems: 2, uniqueItems: true }),
+        type: DB.Array(AttributeIdentifier(), { minItems: 1, maxItems: 2, uniqueItems: true }),
       }),
-      breaking_point_rating: Required({
+      breaking_point_rating: DB.Required({
         comment: "The *Breaking Point Rating* of the respective combat technique.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      improvement_cost: Required({
+      improvement_cost: DB.Required({
         comment: "States which column is used to improve the combat technique.",
-        type: IncludeIdentifier(ImprovementCost),
+        type: DB.IncludeIdentifier(ImprovementCost),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "RangedCombatTechnique",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The combat technique’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          special: Optional({
+          special: DB.Optional({
             comment: "Additional rules for the combat technique, if applicable.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -152,11 +142,11 @@ export const RangedCombatTechnique = Entity(import.meta.url, {
   ],
 })
 
-const RangedCombatTechniqueSpecialRules = TypeAlias(import.meta.url, {
+const RangedCombatTechniqueSpecialRules = DB.TypeAlias(import.meta.url, {
   name: "RangedCombatTechniqueSpecialRules",
   comment: "Special rules for the combat technique that apply to all weapons in this category.",
   type: () =>
-    Object({
-      has_ammunition: Required({ type: IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
+    DB.Object({
+      has_ammunition: DB.Required({ type: DB.IncludeIdentifier(WeaponCombatTechniqueValueRule) }),
     }),
 })

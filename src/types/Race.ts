@@ -1,22 +1,4 @@
-import {
-  Array,
-  ChildEntities,
-  Entity,
-  Enum,
-  EnumCase,
-  GenIncludeIdentifier,
-  GenTypeAlias,
-  IncludeIdentifier,
-  Integer,
-  NestedEntityMap,
-  Object,
-  Optional,
-  Param,
-  Required,
-  String,
-  TypeAlias,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { Dice, DieType } from "./_Dice.js"
 import {
@@ -33,113 +15,116 @@ import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Race = Entity(import.meta.url, {
+export const Race = DB.Entity(import.meta.url, {
   name: "Race",
   namePlural: "Races",
   type: () =>
-    Object({
-      ap_value: Required({
+    DB.Object({
+      ap_value: DB.Required({
         comment: "How many Adventure Points does the race cost during character creation?",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      base_values: Required({
+      base_values: DB.Required({
         comment: "The race’s base values.",
-        type: IncludeIdentifier(BaseValues),
+        type: DB.IncludeIdentifier(BaseValues),
       }),
-      attribute_adjustments: Required({
+      attribute_adjustments: DB.Required({
         comment:
           "Describes how to raise or lower maximum attribute values during character creation.",
-        type: IncludeIdentifier(AttributeAdjustments),
+        type: DB.IncludeIdentifier(AttributeAdjustments),
       }),
-      automatic_advantages: Optional({
+      automatic_advantages: DB.Optional({
         comment:
           "A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.",
-        type: Array(GenIncludeIdentifier(AutomaticAdvantageDisadvantage, [AdvantageIdentifier()]), {
-          minItems: 1,
-        }),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(AutomaticAdvantageDisadvantage, [AdvantageIdentifier()]),
+          {
+            minItems: 1,
+          },
+        ),
       }),
-      automatic_disadvantages: Optional({
+      automatic_disadvantages: DB.Optional({
         comment:
           "A list of automatically applied disadvantages. This does only work for disadvantages with no further configuration such as level or special selection.",
-        type: Array(
-          GenIncludeIdentifier(AutomaticAdvantageDisadvantage, [DisadvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(AutomaticAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      strongly_recommended_advantages: Optional({
+      strongly_recommended_advantages: DB.Optional({
         comment: "A list of strongly recommended advantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      strongly_recommended_disadvantages: Optional({
+      strongly_recommended_disadvantages: DB.Optional({
         comment: "A list of strongly recommended disadvantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      weight: Required({
+      weight: DB.Required({
         comment: "Configuration for random weight generation.",
-        type: IncludeIdentifier(RandomWeightGeneration),
+        type: DB.IncludeIdentifier(RandomWeightGeneration),
       }),
-      starting_age: Required({
+      starting_age: DB.Required({
         comment:
           "Defines the starting ages for the race. It depends on the selected experience level.",
-        type: NestedEntityMap({
+        type: DB.NestedEntityMap({
           name: "StartingAgeConfigForExperienceLevel",
           namePlural: "StartingAgeConfigsForExperienceLevel",
           secondaryEntity: ExperienceLevel,
-          type: Object({
-            base: Required({
+          type: DB.Object({
+            base: DB.Required({
               comment: "The base value for the selected experience level.",
-              type: Integer({ minimum: 1 }),
+              type: DB.Integer({ minimum: 1 }),
             }),
-            random: Required({
+            random: DB.Required({
               comment:
                 "The random value for the selected experience level. It is going to be added to the base value.",
-              type: IncludeIdentifier(Dice),
+              type: DB.IncludeIdentifier(Dice),
             }),
           }),
         }),
       }),
-      variants: Required({
+      variants: DB.Required({
         comment:
           "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
-        type: ChildEntities(RaceVariant),
+        type: DB.ChildEntities(RaceVariant),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Race",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The race’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          attribute_adjustments: Required({
+          attribute_adjustments: DB.Required({
             comment: "The respective attribute adjustments text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          automatic_advantages: Optional({
+          automatic_advantages: DB.Optional({
             comment: "The respective automatic advantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          automatic_disadvantages: Optional({
+          automatic_disadvantages: DB.Optional({
             comment: "The respective automatic disadvantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          strongly_recommended_advantages: Optional({
+          strongly_recommended_advantages: DB.Optional({
             comment: "The respective strongly recommended advantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          strongly_recommended_disadvantages: Optional({
+          strongly_recommended_disadvantages: DB.Optional({
             comment: "The respective strongly recommended disadvantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -153,44 +138,44 @@ export const Race = Entity(import.meta.url, {
   ],
 })
 
-const BaseValues = TypeAlias(import.meta.url, {
+const BaseValues = DB.TypeAlias(import.meta.url, {
   name: "BaseValues",
   type: () =>
-    Object({
-      life_points: Required({
+    DB.Object({
+      life_points: DB.Required({
         comment: "The race’s life point base value.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      spirit: Required({
+      spirit: DB.Required({
         comment: "The race’s Spirit base value.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      toughness: Required({
+      toughness: DB.Required({
         comment: "The race’s Toughness base value.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      movement: Required({
+      movement: DB.Required({
         comment: "The race’s tactical movement rate.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const AttributeAdjustments = TypeAlias(import.meta.url, {
+const AttributeAdjustments = DB.TypeAlias(import.meta.url, {
   name: "AttributeAdjustments",
   comment: "Describes how to raise or lower maximum attribute values during character creation.",
   type: () =>
-    Object(
+    DB.Object(
       {
-        fixed: Optional({
+        fixed: DB.Optional({
           comment: "The values by which the maximum of the respective attribute is modified.",
-          type: Array(IncludeIdentifier(FixedAttributeAdjustment), { minItems: 1 }),
+          type: DB.Array(DB.IncludeIdentifier(FixedAttributeAdjustment), { minItems: 1 }),
         }),
-        selectable: Optional({
+        selectable: DB.Optional({
           comment: `An array of attribute maximum modifiers, where the attribute they apply to is selected from a list of options.
 
 The array only permits a single entry because no race specified more than one selectable attribute adjustment so far. But the schema allows for multiple entries to be future-proof.`,
-          type: Array(IncludeIdentifier(SelectableAttributeAdjustment), {
+          type: DB.Array(DB.IncludeIdentifier(SelectableAttributeAdjustment), {
             minItems: 1,
             maxItems: 1,
           }),
@@ -200,182 +185,182 @@ The array only permits a single entry because no race specified more than one se
     ),
 })
 
-const FixedAttributeAdjustment = TypeAlias(import.meta.url, {
+const FixedAttributeAdjustment = DB.TypeAlias(import.meta.url, {
   name: "FixedAttributeAdjustment",
   comment: "A value by which the maximum of the respective attribute is modified.",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The attribute the modifier applies to.",
         type: AttributeIdentifier(),
       }),
-      value: Required({
+      value: DB.Required({
         comment:
           "The value by which the specified attribute’s maximum is modified (negative values will lower the maximum).",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const SelectableAttributeAdjustment = TypeAlias(import.meta.url, {
+const SelectableAttributeAdjustment = DB.TypeAlias(import.meta.url, {
   name: "SelectableAttributeAdjustment",
   comment:
     "A value that will be added to the current maximum of the selected attribute that has been chosen from the listed attributes (negative values will lower the maximum).",
   type: () =>
-    Object({
-      list: Required({
+    DB.Object({
+      list: DB.Required({
         comment: "A list of attributes the player has to choose from.",
-        type: Array(AttributeIdentifier(), { minItems: 2 }),
+        type: DB.Array(AttributeIdentifier(), { minItems: 2 }),
       }),
-      value: Required({
+      value: DB.Required({
         comment:
           "The value by which the selected attribute’s maximum is modified (negative values will lower the maximum).",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const AutomaticAdvantageDisadvantage = GenTypeAlias(import.meta.url, {
+const AutomaticAdvantageDisadvantage = DB.GenTypeAlias(import.meta.url, {
   name: "AutomaticAdvantageDisadvantage",
   comment:
     "An advantage or disadvantage that is automatically applied to the character after selecting the race. This does only work for advantages or disadvantages with no further configuration such as level or special selection.",
-  parameters: [Param("Identifier")],
+  parameters: [DB.Param("Identifier")],
   type: Identifier =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The automatic advantage or disadvantage.",
-        type: TypeArgument(Identifier),
+        type: DB.TypeArgument(Identifier),
       }),
     }),
 })
 
-const RandomWeightGeneration = TypeAlias(import.meta.url, {
+const RandomWeightGeneration = DB.TypeAlias(import.meta.url, {
   name: "RandomWeightGeneration",
   comment: "Configuration for random weight generation.",
   type: () =>
-    Object({
-      base: Required({
+    DB.Object({
+      base: DB.Required({
         comment:
           "The base value used for random weight. The height subtrahend; in case of `Height - 110 + 2D6` it is `110`.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      random: Required({
+      random: DB.Required({
         comment: "The dice used for random weight.",
-        type: Array(IncludeIdentifier(WeightDice), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(WeightDice), { minItems: 1 }),
       }),
     }),
 })
 
-const WeightDice = TypeAlias(import.meta.url, {
+const WeightDice = DB.TypeAlias(import.meta.url, {
   name: "WeightDice",
   type: () =>
-    Object({
-      number: Required({
+    DB.Object({
+      number: DB.Required({
         comment: "Number of dice of the same type. Example: 2 in 2D6.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      sides: Required({
+      sides: DB.Required({
         comment: "Number of sides on every die. Example: 6 in 2D6.",
-        type: IncludeIdentifier(DieType),
+        type: DB.IncludeIdentifier(DieType),
       }),
-      offset_strategy: Required({
+      offset_strategy: DB.Required({
         comment:
           "The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.",
-        type: IncludeIdentifier(WeightDiceOffsetStrategy),
+        type: DB.IncludeIdentifier(WeightDiceOffsetStrategy),
       }),
     }),
 })
 
-const WeightDiceOffsetStrategy = Enum(import.meta.url, {
+const WeightDiceOffsetStrategy = DB.Enum(import.meta.url, {
   name: "WeightDiceOffsetStrategy",
   comment:
     "The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.",
   values: () => ({
-    Add: EnumCase({ type: null }),
-    Subtract: EnumCase({ type: null }),
-    AddEvenSubtractOdd: EnumCase({ type: null }),
+    Add: DB.EnumCase({ type: null }),
+    Subtract: DB.EnumCase({ type: null }),
+    AddEvenSubtractOdd: DB.EnumCase({ type: null }),
   }),
 })
 
-export const RaceVariant = Entity(import.meta.url, {
+export const RaceVariant = DB.Entity(import.meta.url, {
   name: "RaceVariant",
   namePlural: "RaceVariants",
   type: () =>
-    Object({
-      race: Required({
+    DB.Object({
+      race: DB.Required({
         comment: "The associated race.",
         type: RaceIdentifier(),
       }),
-      common_cultures: Optional({
+      common_cultures: DB.Optional({
         comment: "The list of common cultures.",
-        type: Array(CultureIdentifier(), { minItems: 1 }),
+        type: DB.Array(CultureIdentifier(), { minItems: 1 }),
       }),
-      common_advantages: Optional({
+      common_advantages: DB.Optional({
         comment: "A list of common advantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      common_disadvantages: Optional({
+      common_disadvantages: DB.Optional({
         comment: "A list of common disadvantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      uncommon_advantages: Optional({
+      uncommon_advantages: DB.Optional({
         comment: "A list of uncommon advantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      uncommon_disadvantages: Optional({
+      uncommon_disadvantages: DB.Optional({
         comment: "A list of uncommon disadvantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      hair_color: Optional({
+      hair_color: DB.Optional({
         comment:
           "An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.",
-        type: Array(HairColorIdentifier(), { minItems: 20, maxItems: 20 }),
+        type: DB.Array(HairColorIdentifier(), { minItems: 20, maxItems: 20 }),
       }),
-      eye_color: Optional({
+      eye_color: DB.Optional({
         comment:
           "An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.",
-        type: Array(EyeColorIdentifier(), { minItems: 20, maxItems: 20 }),
+        type: DB.Array(EyeColorIdentifier(), { minItems: 20, maxItems: 20 }),
       }),
-      height: Required({
+      height: DB.Required({
         comment: "Configuration for random height generation.",
-        type: IncludeIdentifier(RandomHeightGeneration),
+        type: DB.IncludeIdentifier(RandomHeightGeneration),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "RaceVariant",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment:
               "The race variant’s name. If this is the only variant for a base race and thus just provides the missing information without actually being able to select, fill in the name of the base race.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          common_advantages: Optional({
+          common_advantages: DB.Optional({
             comment: "The respective common advantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          common_disadvantages: Optional({
+          common_disadvantages: DB.Optional({
             comment: "The respective common disadvantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          uncommon_advantages: Optional({
+          uncommon_advantages: DB.Optional({
             comment: "The respective uncommon advantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          uncommon_disadvantages: Optional({
+          uncommon_disadvantages: DB.Optional({
             comment: "The respective uncommon disadvantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
@@ -395,18 +380,18 @@ export const RaceVariant = Entity(import.meta.url, {
   ],
 })
 
-const RandomHeightGeneration = TypeAlias(import.meta.url, {
+const RandomHeightGeneration = DB.TypeAlias(import.meta.url, {
   name: "RandomHeightGeneration",
   comment: "Configuration for random height generation.",
   type: () =>
-    Object({
-      base: Required({
+    DB.Object({
+      base: DB.Required({
         comment: "The base value used for random height.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      random: Required({
+      random: DB.Required({
         comment: "The dice used for random height.",
-        type: Array(IncludeIdentifier(Dice), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(Dice), { minItems: 1 }),
       }),
     }),
 })

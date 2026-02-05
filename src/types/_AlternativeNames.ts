@@ -1,16 +1,16 @@
-import { Object, Optional, Required, String, TypeAlias } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 
-export const AlternativeName = TypeAlias(import.meta.url, {
+export const AlternativeName = DB.TypeAlias(import.meta.url, {
   name: "AlternativeName",
   type: () =>
-    Object({
-      name: Required({
+    DB.Object({
+      name: DB.Required({
         comment: "An alternative name of the disease.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
-      region: Optional({
+      region: DB.Optional({
         comment: "The region where this alternative name is used.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
     }),
 })

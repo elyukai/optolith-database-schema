@@ -1,23 +1,23 @@
-import { Entity, Integer, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 
-export const SocialStatus = Entity(import.meta.url, {
+export const SocialStatus = DB.Entity(import.meta.url, {
   name: "SocialStatus",
   namePlural: "SocialStatuses",
   type: () =>
-    Object({
-      position: Required({
+    DB.Object({
+      position: DB.Required({
         comment:
           "The social status’ position. The higher the position, the more powerful the social status. This has to be a unique value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "SocialStatus",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The social status’ name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

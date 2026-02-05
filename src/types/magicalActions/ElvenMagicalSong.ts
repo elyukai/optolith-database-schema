@@ -1,14 +1,4 @@
-import {
-  Array,
-  Entity,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { DurationUnitValue } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
@@ -20,60 +10,60 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const ElvenMagicalSong = Entity(import.meta.url, {
+export const ElvenMagicalSong = DB.Entity(import.meta.url, {
   name: "ElvenMagicalSong",
   namePlural: "ElvenMagicalSongs",
   type: () =>
-    Object({
-      check: Required({
+    DB.Object({
+      check: DB.Required({
         comment: "Lists the linked three attributes used to make a skill check.",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
-      check_penalty: Optional({
+      check_penalty: DB.Optional({
         comment: "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-        type: IncludeIdentifier(SkillCheckPenalty),
+        type: DB.IncludeIdentifier(SkillCheckPenalty),
       }),
-      parameters: Required({
+      parameters: DB.Required({
         comment: "Measurable parameters of an Elven magical song.",
-        type: IncludeIdentifier(ElvenMagicalSongPerformanceParameters),
+        type: DB.IncludeIdentifier(ElvenMagicalSongPerformanceParameters),
       }),
-      skill: Required({
+      skill: DB.Required({
         comment:
           "To enhance their songs, elves can make a check on either *Singing (Two-Voiced Singing)* or *Music (appropriate application)* (or both) before making the check for the song.",
-        type: Array(SkillIdentifier(), {
+        type: DB.Array(SkillIdentifier(), {
           minItems: 1,
           maxItems: 2,
           uniqueItems: true,
         }),
       }),
-      property: Required({
+      property: DB.Required({
         comment: "The associated property.",
         type: PropertyIdentifier(),
       }),
-      improvement_cost: Required({
+      improvement_cost: DB.Required({
         comment: "States which column is used to improve the skill.",
-        type: IncludeIdentifier(ImprovementCost),
+        type: DB.IncludeIdentifier(ImprovementCost),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "ElvenMagicalSong",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The Elven magical song’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment:
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
+            type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -87,62 +77,62 @@ export const ElvenMagicalSong = Entity(import.meta.url, {
   ],
 })
 
-const ElvenMagicalSongPerformanceParameters = TypeAlias(import.meta.url, {
+const ElvenMagicalSongPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "ElvenMagicalSongPerformanceParameters",
   comment: "Measurable parameters of an Elven magical song.",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The AE cost.",
-        type: IncludeIdentifier(ElvenMagicalSongCost),
+        type: DB.IncludeIdentifier(ElvenMagicalSongCost),
       }),
     }),
 })
 
-const ElvenMagicalSongCost = TypeAlias(import.meta.url, {
+const ElvenMagicalSongCost = DB.TypeAlias(import.meta.url, {
   name: "ElvenMagicalSongCost",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The (temporary) AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      interval: Optional({
+      interval: DB.Optional({
         comment: "Specified if the AE cost `value` has to be paid for each time interval.",
-        type: IncludeIdentifier(DurationUnitValue),
+        type: DB.IncludeIdentifier(DurationUnitValue),
       }),
-      permanent: Optional({
+      permanent: DB.Optional({
         comment: "A permanent AE cost, independent from a possible interval.",
-        type: IncludeIdentifier(ElvenMagicalSongPermanentCost),
+        type: DB.IncludeIdentifier(ElvenMagicalSongPermanentCost),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "ElvenMagicalSongCost",
-        Object({
-          per: Required({
+        DB.Object({
+          per: DB.Required({
             comment: "The cost have to be per a specific countable entity, e.g. `8 AE per person`.",
-            type: IncludeIdentifier(ResponsiveText),
+            type: DB.IncludeIdentifier(ResponsiveText),
           }),
         }),
       ),
     }),
 })
 
-const ElvenMagicalSongPermanentCost = TypeAlias(import.meta.url, {
+const ElvenMagicalSongPermanentCost = DB.TypeAlias(import.meta.url, {
   name: "ElvenMagicalSongPermanentCost",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The permanent AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "ElvenMagicalSongPermanentCost",
-        Object({
-          replacement: Required({
+        DB.Object({
+          replacement: DB.Required({
             comment: "A replacement string for the permanent cost.",
-            type: IncludeIdentifier(ResponsiveTextReplace),
+            type: DB.IncludeIdentifier(ResponsiveTextReplace),
           }),
         }),
       ),

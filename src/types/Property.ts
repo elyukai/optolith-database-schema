@@ -1,24 +1,24 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { SkillCheck } from "./_SkillCheck.js"
 import { NestedTranslationMap } from "./Locale.js"
 
-export const Property = Entity(import.meta.url, {
+export const Property = DB.Entity(import.meta.url, {
   name: "Property",
   namePlural: "Properties",
   type: () =>
-    Object({
-      check: Optional({
+    DB.Object({
+      check: DB.Optional({
         comment:
           "The property check’s attributes. Only the properties from the Core Rules have defined property checks.",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Property",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The property’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

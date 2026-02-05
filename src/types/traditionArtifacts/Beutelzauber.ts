@@ -1,4 +1,4 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { effect, levels, maximum, name, name_in_library } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import {
@@ -15,17 +15,17 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const Beutelzauber = Entity(import.meta.url, {
+export const Beutelzauber = DB.Entity(import.meta.url, {
   name: "Beutelzauber",
   namePlural: "Beutelzauber",
   type: () =>
-    Object({
+    DB.Object({
       levels,
       select_options,
       explicit_select_options,
       maximum,
-      prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(GeneralPrerequisites),
       }),
       volume,
       cost,
@@ -33,9 +33,9 @@ export const Beutelzauber = Entity(import.meta.url, {
       ap_value,
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Beutelzauber",
-        Object({
+        DB.Object({
           name,
           name_in_library,
           effect,
@@ -44,8 +44,8 @@ export const Beutelzauber = Entity(import.meta.url, {
           volume: volume_l10n,
           ap_value_append,
           ap_value: ap_value_l10n,
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

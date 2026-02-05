@@ -1,15 +1,4 @@
-import {
-  Array,
-  ChildEntities,
-  Entity,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { LanguageIdentifier } from "../../_Identifier.js"
 import { LanguagePrerequisites } from "../../_Prerequisite.js"
@@ -18,49 +7,49 @@ import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { AssociatedContinent } from "./_LanguageScript.js"
 
-export const Language = Entity(import.meta.url, {
+export const Language = DB.Entity(import.meta.url, {
   name: "Language",
   namePlural: "Languages",
   type: () =>
-    Object({
-      continent: Required({
+    DB.Object({
+      continent: DB.Required({
         comment: "The continents this language is present on.",
-        type: Array(IncludeIdentifier(AssociatedContinent), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(AssociatedContinent), { minItems: 1 }),
       }),
-      specializations: Optional({
-        type: ChildEntities(LanguageSpecialization),
+      specializations: DB.Optional({
+        type: DB.ChildEntities(LanguageSpecialization),
       }),
-      customSpecializations: Optional({
+      customSpecializations: DB.Optional({
         comment: "If applicable, a description of what may be a specialization.",
-        type: IncludeIdentifier(IndefiniteSpecializations),
+        type: DB.IncludeIdentifier(IndefiniteSpecializations),
       }),
-      prerequisites: Optional({
-        type: IncludeIdentifier(LanguagePrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(LanguagePrerequisites),
       }),
-      max_level: Optional({
+      max_level: DB.Optional({
         comment:
           "The maximum possible level of the language. Only specified if lower than default of 3.",
-        type: Integer({ minimum: 1, maximum: 2 }),
+        type: DB.Integer({ minimum: 1, maximum: 2 }),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Language",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The language’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          alternative_names: Optional({
+          alternative_names: DB.Optional({
             comment: "A list of alternative names.",
-            type: Array(IncludeIdentifier(AlternativeName), { minItems: 1 }),
+            type: DB.Array(DB.IncludeIdentifier(AlternativeName), { minItems: 1 }),
           }),
-          description: Optional({
+          description: DB.Optional({
             comment: "The description of the language.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -74,27 +63,27 @@ export const Language = Entity(import.meta.url, {
   ],
 })
 
-export const LanguageSpecialization = Entity(import.meta.url, {
+export const LanguageSpecialization = DB.Entity(import.meta.url, {
   name: "LanguageSpecialization",
   namePlural: "LanguageSpecializations",
   type: () =>
-    Object({
-      parent: Required({
+    DB.Object({
+      parent: DB.Required({
         comment: "The language this specialization belongs to.",
         type: LanguageIdentifier(),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "LanguageSpecialization",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The specialization’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          description: Optional({
+          description: DB.Optional({
             comment:
               "The specialization description. It will be appended to the name in parenthesis.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
@@ -103,22 +92,22 @@ export const LanguageSpecialization = Entity(import.meta.url, {
   instanceDisplayName: {},
 })
 
-const IndefiniteSpecializations = TypeAlias(import.meta.url, {
+const IndefiniteSpecializations = DB.TypeAlias(import.meta.url, {
   name: "IndefiniteSpecializations",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "IndefiniteSpecializations",
-        Object({
-          description: Required({
+        DB.Object({
+          description: DB.Required({
             comment: "The specializations description.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          label: Optional({
+          label: DB.Optional({
             comment:
               "An input label or placeholder text for an UI element if it differs from the `description`.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

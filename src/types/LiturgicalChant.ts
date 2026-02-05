@@ -1,13 +1,4 @@
-import {
-  Array,
-  ChildEntities,
-  Entity,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { FastPerformanceParameters, OldParameter } from "./_ActivatableSkill.js"
 import { ActivatableSkillEffect } from "./_ActivatableSkillEffect.js"
 import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"
@@ -20,86 +11,86 @@ import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const LiturgicalChant = Entity(import.meta.url, {
+export const LiturgicalChant = DB.Entity(import.meta.url, {
   name: "LiturgicalChant",
   namePlural: "LiturgicalChants",
   type: () =>
-    Object({
-      check: Required({
+    DB.Object({
+      check: DB.Required({
         comment: "Lists the linked three attributes used to make a skill check.",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
-      check_penalty: Optional({
+      check_penalty: DB.Optional({
         comment: "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-        type: IncludeIdentifier(SkillCheckPenalty),
+        type: DB.IncludeIdentifier(SkillCheckPenalty),
       }),
-      parameters: Required({
+      parameters: DB.Required({
         comment: "Measurable parameters of a liturgical chant.",
-        type: IncludeIdentifier(FastPerformanceParameters),
+        type: DB.IncludeIdentifier(FastPerformanceParameters),
       }),
-      target: Required({
+      target: DB.Required({
         comment: "The target category – the kind of creature or object – the skill affects.",
-        type: IncludeIdentifier(AffectedTargetCategories),
+        type: DB.IncludeIdentifier(AffectedTargetCategories),
       }),
-      traditions: Required({
+      traditions: DB.Required({
         comment:
           "The tradition(s) the liturgical chant is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way.",
-        type: Array(IncludeIdentifier(LiturgyTradition), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(LiturgyTradition), { minItems: 1 }),
       }),
-      improvement_cost: Required({
+      improvement_cost: DB.Required({
         comment: "States which column is used to improve the skill.",
-        type: IncludeIdentifier(ImprovementCost),
+        type: DB.IncludeIdentifier(ImprovementCost),
       }),
-      prerequisites: Optional({
+      prerequisites: DB.Optional({
         comment: "The prerequisites for the liturgical chant.",
-        type: IncludeIdentifier(LiturgyPrerequisites),
+        type: DB.IncludeIdentifier(LiturgyPrerequisites),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "LiturgicalChant",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The liturgical chant’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          name_compressed: Optional({
+          name_compressed: DB.Optional({
             comment:
               "A compressed name of the liturgical chant for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment:
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
+            type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
-          casting_time: Optional({
+          casting_time: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          range: Optional({
+          range: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          duration: Optional({
+          duration: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          target: Optional({
+          target: DB.Optional({
             isDeprecated: true,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
-      enhancements: Required({
-        type: ChildEntities(Enhancement),
+      enhancements: DB.Required({
+        type: DB.ChildEntities(Enhancement),
       }),
     }),
   instanceDisplayName: {},

@@ -1,28 +1,28 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, DefaultItemTranslations, StructurePoints, Weight } from "./_Item.js"
 
-export const ToolOfTheTrade = Entity(import.meta.url, {
+export const ToolOfTheTrade = DB.Entity(import.meta.url, {
   name: "ToolOfTheTrade",
   namePlural: "ToolsOfTheTrade",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
-      weight: Required({
+      weight: DB.Required({
         comment: "The weight in kg.",
-        type: IncludeIdentifier(Weight),
+        type: DB.IncludeIdentifier(Weight),
       }),
-      complexity: Optional({
+      complexity: DB.Optional({
         comment: "The complexity of crafting the item.",
-        type: IncludeIdentifier(Complexity),
+        type: DB.IncludeIdentifier(Complexity),
       }),
-      structure_points: Required({
+      structure_points: DB.Required({
         comment:
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
-        type: IncludeIdentifier(StructurePoints),
+        type: DB.IncludeIdentifier(StructurePoints),
       }),
       src,
       translations: DefaultItemTranslations("ToolOfTheTrade"),

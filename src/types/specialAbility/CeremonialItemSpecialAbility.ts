@@ -1,4 +1,4 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { effect, levels, maximum, name, name_in_library } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { aspectOptional } from "../_ActivatableNonMundane.js"
@@ -9,11 +9,11 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
+export const CeremonialItemSpecialAbility = DB.Entity(import.meta.url, {
   name: "CeremonialItemSpecialAbility",
   namePlural: "CeremonialItemSpecialAbilities",
   type: () =>
-    Object({
+    DB.Object({
       levels,
       select_options,
       explicit_select_options,
@@ -21,22 +21,22 @@ export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
       skill_uses,
       maximum,
       aspect: aspectOptional(),
-      prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(GeneralPrerequisites),
       }),
       ap_value,
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "CeremonialItemSpecialAbility",
-        Object({
+        DB.Object({
           name,
           name_in_library,
           effect,
           ap_value_append,
           ap_value: ap_value_l10n,
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

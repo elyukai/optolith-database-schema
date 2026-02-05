@@ -1,17 +1,17 @@
-import { IncludeIdentifier, Object, Optional, Required, TypeAlias } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { BinarySex } from "../../_Sex.js"
 import { DisplayOption } from "../DisplayOption.js"
 
-export const SexPrerequisite = TypeAlias(import.meta.url, {
+export const SexPrerequisite = DB.TypeAlias(import.meta.url, {
   name: "SexPrerequisite",
   comment: "Requires a specific sex.",
   type: () =>
-    Object({
-      id: Required({
-        type: IncludeIdentifier(BinarySex),
+    DB.Object({
+      id: DB.Required({
+        type: DB.IncludeIdentifier(BinarySex),
       }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
+      display_option: DB.Optional({
+        type: DB.IncludeIdentifier(DisplayOption),
       }),
     }),
 })

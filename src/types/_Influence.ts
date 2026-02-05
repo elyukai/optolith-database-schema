@@ -1,42 +1,33 @@
-import {
-  Array,
-  Entity,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { InfluencePrerequisites } from "./_Prerequisite.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Influence = Entity(import.meta.url, {
+export const Influence = DB.Entity(import.meta.url, {
   name: "Influence",
   namePlural: "Influences",
   type: () =>
-    Object({
-      prerequisites: Optional({
-        type: IncludeIdentifier(InfluencePrerequisites),
+    DB.Object({
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(InfluencePrerequisites),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Influence",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The influence’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effects: Optional({
+          effects: DB.Optional({
             comment:
               "The effects of the influence. They should be sorted like they are in the book.",
-            type: Array(IncludeIdentifier(InfluenceEffect), { minItems: 1 }),
+            type: DB.Array(DB.IncludeIdentifier(InfluenceEffect), { minItems: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -50,17 +41,17 @@ export const Influence = Entity(import.meta.url, {
   ],
 })
 
-const InfluenceEffect = TypeAlias(import.meta.url, {
+const InfluenceEffect = DB.TypeAlias(import.meta.url, {
   name: "InfluenceEffect",
   type: () =>
-    Object({
-      label: Optional({
+    DB.Object({
+      label: DB.Optional({
         comment: "An optional label that is displayed and placed before the actual text.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
-      text: Required({
+      text: DB.Required({
         comment: "The effect text.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
     }),
 })

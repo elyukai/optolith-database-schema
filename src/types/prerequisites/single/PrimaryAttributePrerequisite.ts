@@ -1,37 +1,28 @@
-import {
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { DisplayOption } from "../DisplayOption.js"
 
-export const PrimaryAttributePrerequisite = TypeAlias(import.meta.url, {
+export const PrimaryAttributePrerequisite = DB.TypeAlias(import.meta.url, {
   name: "PrimaryAttributePrerequisite",
   type: () =>
-    Object({
-      category: Required({
+    DB.Object({
+      category: DB.Required({
         comment: "Is the required primary attribute for spellcasters or blessed ones?",
-        type: IncludeIdentifier(PrimaryAttributeCategory),
+        type: DB.IncludeIdentifier(PrimaryAttributeCategory),
       }),
-      value: Required({
+      value: DB.Required({
         comment: "Required value of the attribute.",
-        type: Integer({ minimum: 9 }),
+        type: DB.Integer({ minimum: 9 }),
       }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
+      display_option: DB.Optional({
+        type: DB.IncludeIdentifier(DisplayOption),
       }),
     }),
 })
 
-const PrimaryAttributeCategory = Enum(import.meta.url, {
+const PrimaryAttributeCategory = DB.Enum(import.meta.url, {
   name: "PrimaryAttributeCategory",
   values: () => ({
-    Blessed: EnumCase({ type: null }),
-    Magical: EnumCase({ type: null }),
+    Blessed: DB.EnumCase({ type: null }),
+    Magical: DB.EnumCase({ type: null }),
   }),
 })

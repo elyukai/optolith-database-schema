@@ -1,46 +1,37 @@
-import {
-  Entity,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { DerivedCharacteristicPrerequisites } from "./_Prerequisite.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const DerivedCharacteristic = Entity(import.meta.url, {
+export const DerivedCharacteristic = DB.Entity(import.meta.url, {
   name: "DerivedCharacteristic",
   namePlural: "DerivedCharacteristics",
   type: () =>
-    Object({
-      position: Required({
+    DB.Object({
+      position: DB.Required({
         comment:
           "The position of the derived characteristic in lists. This has to be a unique value.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      prerequisites: Optional({
-        type: IncludeIdentifier(DerivedCharacteristicPrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(DerivedCharacteristicPrerequisites),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "DerivedCharacteristic",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The derived characteristic’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          abbreviation: Required({
+          abbreviation: DB.Required({
             comment: "The derived characteristic’s abbreviation.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          calculation: Optional({
+          calculation: DB.Optional({
             comment: "Possible calculation strings for the final value.",
-            type: IncludeIdentifier(CalculationTranslation),
+            type: DB.IncludeIdentifier(CalculationTranslation),
           }),
         }),
       ),
@@ -64,21 +55,21 @@ export const DerivedCharacteristic = Entity(import.meta.url, {
   ],
 })
 
-const CalculationTranslation = TypeAlias(import.meta.url, {
+const CalculationTranslation = DB.TypeAlias(import.meta.url, {
   name: "CalculationTranslation",
   type: () =>
-    Object({
-      default: Required({
+    DB.Object({
+      default: DB.Required({
         comment: "The default calculation string.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
-      half_primary: Optional({
+      half_primary: DB.Optional({
         comment: "The calculation string if only half of the primary attribute is used.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
-      no_primary: Optional({
+      no_primary: DB.Optional({
         comment: "The calculation string if no primary attribute is used.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
     }),
 })

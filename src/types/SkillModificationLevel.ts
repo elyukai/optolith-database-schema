@@ -2,47 +2,36 @@
  * @main SkillModificationLevel
  */
 
-import {
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 
-export const SkillModificationLevel = Entity(import.meta.url, {
+export const SkillModificationLevel = DB.Entity(import.meta.url, {
   name: "SkillModificationLevel",
   namePlural: "SkillModificationLevels",
   type: () =>
-    Object({
-      fast: Required({
+    DB.Object({
+      fast: DB.Required({
         comment: "Configuration for this level for fast skills (spells, liturgical chants).",
-        type: IncludeIdentifier(FastSkillModificationLevelConfig),
+        type: DB.IncludeIdentifier(FastSkillModificationLevelConfig),
       }),
-      slow: Required({
+      slow: DB.Required({
         comment: "Configuration for this level for slow skills (rituals, ceremonies).",
-        type: IncludeIdentifier(SlowSkillModificationLevelConfig),
+        type: DB.IncludeIdentifier(SlowSkillModificationLevelConfig),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "SkillModificationLevel",
-        Object(
+        DB.Object(
           {
-            fast: Optional({
+            fast: DB.Optional({
               comment:
                 "Configuration for this level for fast skills (spells, liturgical chants). Values set here override the default generated text.",
-              type: IncludeIdentifier(LevelTypeConfigTranslation),
+              type: DB.IncludeIdentifier(LevelTypeConfigTranslation),
             }),
-            slow: Optional({
+            slow: DB.Optional({
               comment:
                 "Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text.",
-              type: IncludeIdentifier(LevelTypeConfigTranslation),
+              type: DB.IncludeIdentifier(LevelTypeConfigTranslation),
             }),
           },
           { minProperties: 1 },
@@ -84,75 +73,75 @@ export const SkillModificationLevel = Entity(import.meta.url, {
   ],
 })
 
-const FastSkillModificationLevelConfig = TypeAlias(import.meta.url, {
+const FastSkillModificationLevelConfig = DB.TypeAlias(import.meta.url, {
   name: "FastSkillModificationLevelConfig",
   type: () =>
-    Object({
-      casting_time: Required({
+    DB.Object({
+      casting_time: DB.Required({
         comment: "The casting time in actions.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      range: Required({
+      range: DB.Required({
         comment: "The range in meters.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      cost: Required({
+      cost: DB.Required({
         comment: "The cost in AE/KP.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const SlowSkillModificationLevelConfig = TypeAlias(import.meta.url, {
+const SlowSkillModificationLevelConfig = DB.TypeAlias(import.meta.url, {
   name: "SlowSkillModificationLevelConfig",
   type: () =>
-    Object({
-      casting_time: Required({
+    DB.Object({
+      casting_time: DB.Required({
         comment: "The casting time.",
-        type: IncludeIdentifier(SlowSkillCastingTime),
+        type: DB.IncludeIdentifier(SlowSkillCastingTime),
       }),
-      range: Required({
+      range: DB.Required({
         comment: "The range in meters.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      cost: Required({
+      cost: DB.Required({
         comment: "The cost in AE/KP.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const SlowSkillCastingTime = TypeAlias(import.meta.url, {
+const SlowSkillCastingTime = DB.TypeAlias(import.meta.url, {
   name: "SlowSkillCastingTime",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The (unitless) casting time.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      unit: Required({
+      unit: DB.Required({
         comment: "The unit for the `value`.",
-        type: IncludeIdentifier(SlowSkillCastingTimeUnit),
+        type: DB.IncludeIdentifier(SlowSkillCastingTimeUnit),
       }),
     }),
 })
 
-export const SlowSkillCastingTimeUnit = Enum(import.meta.url, {
+export const SlowSkillCastingTimeUnit = DB.Enum(import.meta.url, {
   name: "SlowSkillCastingTimeUnit",
   values: () => ({
-    Minutes: EnumCase({ type: null }),
-    Hours: EnumCase({ type: null }),
+    Minutes: DB.EnumCase({ type: null }),
+    Hours: DB.EnumCase({ type: null }),
   }),
 })
 
-const LevelTypeConfigTranslation = TypeAlias(import.meta.url, {
+const LevelTypeConfigTranslation = DB.TypeAlias(import.meta.url, {
   name: "LevelTypeConfigTranslation",
   comment:
     "Configuration translation of a type for a level. Values set here override the default generated text.",
   type: () =>
-    Object({
-      range: Required({
-        type: String({ minLength: 1 }),
+    DB.Object({
+      range: DB.Required({
+        type: DB.String({ minLength: 1 }),
       }),
     }),
 })

@@ -1,15 +1,4 @@
-import {
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
 import { FixedRange } from "./_ActivatableSkillRange.js"
 import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"
@@ -17,46 +6,46 @@ import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Blessing = Entity(import.meta.url, {
+export const Blessing = DB.Entity(import.meta.url, {
   name: "Blessing",
   namePlural: "Blessings",
   type: () =>
-    Object({
-      parameters: Required({
+    DB.Object({
+      parameters: DB.Required({
         comment: "Measurable parameters of a blessing.",
-        type: IncludeIdentifier(BlessingPerformanceParameters),
+        type: DB.IncludeIdentifier(BlessingPerformanceParameters),
       }),
-      target: Required({
+      target: DB.Required({
         comment: "The target category – the kind of creature or object – the skill affects.",
-        type: IncludeIdentifier(AffectedTargetCategories),
+        type: DB.IncludeIdentifier(AffectedTargetCategories),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Blessing",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The blessing’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment: "The effect description.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          range: Required({
+          range: DB.Required({
             isDeprecated: true,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          duration: Required({
+          duration: DB.Required({
             isDeprecated: true,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          target: Required({
+          target: DB.Required({
             isDeprecated: true,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -70,60 +59,60 @@ export const Blessing = Entity(import.meta.url, {
   ],
 })
 
-const BlessingPerformanceParameters = TypeAlias(import.meta.url, {
+const BlessingPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "BlessingPerformanceParameters",
   comment: "Measurable parameters of a blessing.",
   type: () =>
-    Object({
-      range: Required({ type: IncludeIdentifier(BlessingRange) }),
-      duration: Required({ type: IncludeIdentifier(BlessingDuration) }),
+    DB.Object({
+      range: DB.Required({ type: DB.IncludeIdentifier(BlessingRange) }),
+      duration: DB.Required({ type: DB.IncludeIdentifier(BlessingDuration) }),
     }),
 })
 
-const BlessingRange = Enum(import.meta.url, {
+const BlessingRange = DB.Enum(import.meta.url, {
   name: "BlessingRange",
   values: () => ({
-    Self: EnumCase({ type: null }),
-    Touch: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedRange) }),
+    Self: DB.EnumCase({ type: null }),
+    Touch: DB.EnumCase({ type: null }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedRange) }),
   }),
 })
 
-const BlessingDuration = Enum(import.meta.url, {
+const BlessingDuration = DB.Enum(import.meta.url, {
   name: "BlessingDuration",
   values: () => ({
-    Immediate: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedBlessingDuration) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteBlessingDuration) }),
+    Immediate: DB.EnumCase({ type: null }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedBlessingDuration) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteBlessingDuration) }),
   }),
 })
 
-const FixedBlessingDuration = TypeAlias(import.meta.url, {
+const FixedBlessingDuration = DB.TypeAlias(import.meta.url, {
   name: "FixedBlessingDuration",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The (unitless) duration.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      unit: Required({
+      unit: DB.Required({
         comment: "The duration unit.",
-        type: IncludeIdentifier(DurationUnit),
+        type: DB.IncludeIdentifier(DurationUnit),
       }),
     }),
 })
 
-const IndefiniteBlessingDuration = TypeAlias(import.meta.url, {
+const IndefiniteBlessingDuration = DB.TypeAlias(import.meta.url, {
   name: "IndefiniteBlessingDuration",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "IndefiniteBlessingDuration",
-        Object({
-          description: Required({
+        DB.Object({
+          description: DB.Required({
             comment: "A description of the duration.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

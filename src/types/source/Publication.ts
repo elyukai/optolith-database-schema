@@ -1,65 +1,54 @@
-import {
-  Boolean,
-  Date,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../Locale.js"
 import { PublicationPrerequisites } from "../_Prerequisite.js"
 
-export const Publication = Entity(import.meta.url, {
+export const Publication = DB.Entity(import.meta.url, {
   name: "Publication",
   namePlural: "Publications",
   comment:
     "A (usually physical) self-contained document with rules and crunch elements relevant for character creation, character development, and game play.",
   type: () =>
-    Object({
-      category: Required({
+    DB.Object({
+      category: DB.Required({
         comment: "The publication category.",
-        type: IncludeIdentifier(PublicationCategory),
+        type: DB.IncludeIdentifier(PublicationCategory),
       }),
-      containsAdultContent: Required({
+      containsAdultContent: DB.Required({
         comment: "If the publication may contain adult content.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      isMissingImplementation: Required({
+      isMissingImplementation: DB.Required({
         comment:
           "If the publication is not (fully) implemented and thus needs to be excluded from stable releases.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      prerequisites: Optional({
-        type: IncludeIdentifier(PublicationPrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(PublicationPrerequisites),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Publication",
-        Object({
-          publisherId: Optional({
+        DB.Object({
+          publisherId: DB.Optional({
             comment: "The publisher’s publication identifier.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          name: Required({
+          name: DB.Required({
             comment: "The publication’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          abbreviation: Required({
+          abbreviation: DB.Required({
             comment: "The publication’s abbreviation.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          release_date: Optional({
+          release_date: DB.Optional({
             comment: "The publication’s release date.",
-            type: Date(),
+            type: DB.Date(),
           }),
-          isMissingImplementation: Required({
+          isMissingImplementation: DB.Required({
             comment:
               "If this publication translation is not (fully) implemented and thus needs to be excluded from stable releases.",
-            type: Boolean(),
+            type: DB.Boolean(),
           }),
         }),
       ),
@@ -73,13 +62,13 @@ export const Publication = Entity(import.meta.url, {
   ],
 })
 
-export const PublicationCategory = Enum(import.meta.url, {
+export const PublicationCategory = DB.Enum(import.meta.url, {
   name: "PublicationCategory",
   values: () => ({
-    CoreRules: EnumCase({ type: null }),
-    ExpansionRules: EnumCase({ type: null }),
-    Sourcebook: EnumCase({ type: null }),
-    RegionalSourcebook: EnumCase({ type: null }),
-    Adventure: EnumCase({ type: null }),
+    CoreRules: DB.EnumCase({ type: null }),
+    ExpansionRules: DB.EnumCase({ type: null }),
+    Sourcebook: DB.EnumCase({ type: null }),
+    RegionalSourcebook: DB.EnumCase({ type: null }),
+    Adventure: DB.EnumCase({ type: null }),
   }),
 })

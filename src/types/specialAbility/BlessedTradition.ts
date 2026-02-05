@@ -1,17 +1,4 @@
-import {
-  Array,
-  Boolean,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { name, name_in_library } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { explicit_select_options, select_options } from "../_ActivatableSelectOptions.js"
@@ -29,76 +16,76 @@ import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 import { SpecialRule } from "./_Tradition.js"
 
-export const BlessedTradition = Entity(import.meta.url, {
+export const BlessedTradition = DB.Entity(import.meta.url, {
   name: "BlessedTradition",
   namePlural: "BlessedTraditions",
   type: () =>
-    Object({
+    DB.Object({
       select_options,
       explicit_select_options,
       skill_applications,
       skill_uses,
-      primary: Optional({
+      primary: DB.Optional({
         comment:
           "The tradition’s primary attribute. Leave empty if the tradition does not have one.",
         type: AttributeIdentifier(),
       }),
-      aspects: Optional({
+      aspects: DB.Optional({
         comment: "The tradition’s aspects, if any.",
-        type: Array(AspectIdentifier(), { minItems: 2, maxItems: 2 }),
+        type: DB.Array(AspectIdentifier(), { minItems: 2, maxItems: 2 }),
       }),
-      restricted_blessings: Optional({
+      restricted_blessings: DB.Optional({
         comment:
           "If a tradition restricts the possible blessings, the blessings that are **not** allowed.",
-        type: IncludeIdentifier(RestrictedBlessings),
+        type: DB.IncludeIdentifier(RestrictedBlessings),
       }),
-      favored_combat_techniques: Optional({
+      favored_combat_techniques: DB.Optional({
         comment: "A list of favored combat techniques.",
-        type: IncludeIdentifier(FavoredCombatTechniques),
+        type: DB.IncludeIdentifier(FavoredCombatTechniques),
       }),
-      favored_skills: Required({
+      favored_skills: DB.Required({
         comment: "A list of favored skills.",
-        type: Array(SkillIdentifier(), { minItems: 1 }),
+        type: DB.Array(SkillIdentifier(), { minItems: 1 }),
       }),
-      favored_skills_selection: Optional({
+      favored_skills_selection: DB.Optional({
         comment:
           "On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored.",
-        type: IncludeIdentifier(FavoredSkillsSelection),
+        type: DB.IncludeIdentifier(FavoredSkillsSelection),
       }),
-      type: Required({
+      type: DB.Required({
         comment: "The type of the tradition. May be either church or shamanistic.",
-        type: IncludeIdentifier(BlessedTraditionType),
+        type: DB.IncludeIdentifier(BlessedTraditionType),
       }),
-      associated_principles_id: Optional({
+      associated_principles_id: DB.Optional({
         comment:
           "The select option’s identifier of the disadvantage *Principles* that represent this tradition’s code, if any.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(GeneralPrerequisites),
       }),
       ap_value,
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "BlessedTradition",
-        Object({
+        DB.Object({
           name,
-          name_compressed: Optional({
+          name_compressed: DB.Optional({
             comment:
               "A shorter name of the tradition’s name, used in liturgical chant descriptions. This is not the same as the name in the library.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
           name_in_library,
-          special_rules: Required({
+          special_rules: DB.Required({
             comment:
               "The special rules of the tradition. They should be sorted like they are in the book.",
-            type: Array(IncludeIdentifier(SpecialRule), { minItems: 1 }),
+            type: DB.Array(DB.IncludeIdentifier(SpecialRule), { minItems: 1 }),
           }),
           ap_value_append,
           ap_value: ap_value_l10n,
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -113,33 +100,33 @@ export const BlessedTradition = Entity(import.meta.url, {
   ],
 })
 
-const RestrictedBlessings = Enum(import.meta.url, {
+const RestrictedBlessings = DB.Enum(import.meta.url, {
   name: "RestrictedBlessings",
   comment:
     "If a tradition restricts the possible blessings, the blessings that are **not** allowed.",
   values: () => ({
-    Three: EnumCase({ type: Array(BlessingIdentifier(), { minItems: 3, maxItems: 3 }) }),
-    Six: EnumCase({ type: Array(BlessingIdentifier(), { minItems: 6, maxItems: 6 }) }),
+    Three: DB.EnumCase({ type: DB.Array(BlessingIdentifier(), { minItems: 3, maxItems: 3 }) }),
+    Six: DB.EnumCase({ type: DB.Array(BlessingIdentifier(), { minItems: 6, maxItems: 6 }) }),
   }),
 })
 
-const FavoredCombatTechniques = Enum(import.meta.url, {
+const FavoredCombatTechniques = DB.Enum(import.meta.url, {
   name: "FavoredCombatTechniques",
   values: () => ({
-    All: EnumCase({ type: null }),
-    AllClose: EnumCase({ type: null }),
-    AllUsedInHunting: EnumCase({ type: null }),
-    Specific: EnumCase({ type: IncludeIdentifier(SpecificFavoredCombatTechniques) }),
+    All: DB.EnumCase({ type: null }),
+    AllClose: DB.EnumCase({ type: null }),
+    AllUsedInHunting: DB.EnumCase({ type: null }),
+    Specific: DB.EnumCase({ type: DB.IncludeIdentifier(SpecificFavoredCombatTechniques) }),
   }),
 })
 
-const SpecificFavoredCombatTechniques = TypeAlias(import.meta.url, {
+const SpecificFavoredCombatTechniques = DB.TypeAlias(import.meta.url, {
   name: "SpecificFavoredCombatTechniques",
   type: () =>
-    Object({
-      list: Required({
+    DB.Object({
+      list: DB.Required({
         comment: "A list of specific favored combat techniques.",
-        type: Array(IncludeIdentifier(CombatTechniqueIdentifier), {
+        type: DB.Array(DB.IncludeIdentifier(CombatTechniqueIdentifier), {
           minItems: 1,
           uniqueItems: true,
         }),
@@ -147,37 +134,37 @@ const SpecificFavoredCombatTechniques = TypeAlias(import.meta.url, {
     }),
 })
 
-const FavoredSkillsSelection = TypeAlias(import.meta.url, {
+const FavoredSkillsSelection = DB.TypeAlias(import.meta.url, {
   name: "FavoredSkillsSelection",
   type: () =>
-    Object({
-      number: Required({
+    DB.Object({
+      number: DB.Required({
         comment: "The number of skills that can be selected.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      options: Required({
+      options: DB.Required({
         comment: "The possible set of skills.",
-        type: Array(SkillIdentifier(), { minItems: 2, uniqueItems: true }),
+        type: DB.Array(SkillIdentifier(), { minItems: 2, uniqueItems: true }),
       }),
     }),
 })
 
-const BlessedTraditionType = Enum(import.meta.url, {
+const BlessedTraditionType = DB.Enum(import.meta.url, {
   name: "BlessedTraditionType",
   comment: "The type of the tradition. May be either church or shamanistic.",
   values: () => ({
-    Church: EnumCase({ type: null }),
-    Shamanistic: EnumCase({ type: IncludeIdentifier(ShamanisticBlessedTradition) }),
+    Church: DB.EnumCase({ type: null }),
+    Shamanistic: DB.EnumCase({ type: DB.IncludeIdentifier(ShamanisticBlessedTradition) }),
   }),
 })
 
-const ShamanisticBlessedTradition = TypeAlias(import.meta.url, {
+const ShamanisticBlessedTradition = DB.TypeAlias(import.meta.url, {
   name: "ShamanisticBlessedTradition",
   comment: "Additional rules for shamanistic traditions.",
   type: () =>
-    Object({
-      can_use_bone_mace_as_ceremonial_item: Required({
-        type: Boolean(),
+    DB.Object({
+      can_use_bone_mace_as_ceremonial_item: DB.Required({
+        type: DB.Boolean(),
       }),
     }),
 })

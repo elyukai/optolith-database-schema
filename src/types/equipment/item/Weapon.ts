@@ -1,13 +1,4 @@
-import {
-  Entity,
-  IncludeIdentifier,
-  NestedEntityMap,
-  ObjectType,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { CloseCombatTechnique, RangedCombatTechnique } from "../../CombatTechnique.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
@@ -17,84 +8,84 @@ import { MeleeWeapon } from "./_MeleeWeapon.js"
 import { RangedWeapon } from "./_RangedWeapon.js"
 import { checkWeaponCombatTechniqueIntegrity } from "./_Weapon.js"
 
-export const Weapon = Entity(import.meta.url, {
+export const Weapon = DB.Entity(import.meta.url, {
   name: "Weapon",
   namePlural: "Weapons",
   type: () =>
-    ObjectType({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
-      weight: Required({
+      weight: DB.Required({
         comment: "The weight in kg.",
-        type: IncludeIdentifier(Weight),
+        type: DB.IncludeIdentifier(Weight),
       }),
-      complexity: Optional({
+      complexity: DB.Optional({
         comment: "The complexity of crafting the item.",
-        type: IncludeIdentifier(Complexity),
+        type: DB.IncludeIdentifier(Complexity),
       }),
-      structure_points: Optional({
+      structure_points: DB.Optional({
         comment:
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
-        type: IncludeIdentifier(StructurePoints),
+        type: DB.IncludeIdentifier(StructurePoints),
       }),
-      melee_uses: Optional({
+      melee_uses: DB.Optional({
         comment:
           "A list of stat blocks for each close combat technique this weapon can be used with.",
-        type: NestedEntityMap({
+        type: DB.NestedEntityMap({
           name: "MeleeWeaponUse",
           namePlural: "MeleeWeaponUses",
           secondaryEntity: CloseCombatTechnique,
-          type: IncludeIdentifier(MeleeWeapon),
+          type: DB.IncludeIdentifier(MeleeWeapon),
         }),
       }),
-      ranged_uses: Optional({
+      ranged_uses: DB.Optional({
         comment:
           "A list of stat blocks for each ranged combat technique this weapon can be used with.",
-        type: NestedEntityMap({
+        type: DB.NestedEntityMap({
           name: "RangedWeaponUse",
           namePlural: "RangedWeaponUses",
           secondaryEntity: RangedCombatTechnique,
-          type: IncludeIdentifier(RangedWeapon),
+          type: DB.IncludeIdentifier(RangedWeapon),
         }),
       }),
-      restrictedTo: Optional({
+      restrictedTo: DB.Optional({
         comment:
           "Define if during character creation this weapon can only be bought by a specific subset of characters.",
-        type: IncludeIdentifier(RestrictedTo),
+        type: DB.IncludeIdentifier(RestrictedTo),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Weapon",
-        ObjectType({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The item’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          secondary_name: Optional({
+          secondary_name: DB.Optional({
             comment: "An auxiliary name or label of the item, if available.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          note: Optional({
+          note: DB.Optional({
             comment: "Note text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          rules: Optional({
+          rules: DB.Optional({
             comment: "Special rules text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          advantage: Optional({
+          advantage: DB.Optional({
             comment: "The weapon advantage text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          disadvantage: Optional({
+          disadvantage: DB.Optional({
             comment: "The weapon disadvantage text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -109,47 +100,47 @@ export const Weapon = Entity(import.meta.url, {
   customConstraints: params => checkWeaponCombatTechniqueIntegrity(params, { secondary: false }),
 })
 
-export const ImprovisedWeapon = TypeAlias(import.meta.url, {
+export const ImprovisedWeapon = DB.TypeAlias(import.meta.url, {
   name: "ImprovisedWeapon",
   type: () =>
-    ObjectType({
-      melee_uses: Optional({
+    DB.Object({
+      melee_uses: DB.Optional({
         comment:
           "A list of stat blocks for each close combat technique this weapon can be used with.",
-        type: NestedEntityMap({
+        type: DB.NestedEntityMap({
           name: "ImprovisedMeleeWeaponUse",
           namePlural: "ImprovisedMeleeWeaponUses",
           secondaryEntity: CloseCombatTechnique,
-          type: IncludeIdentifier(MeleeWeapon),
+          type: DB.IncludeIdentifier(MeleeWeapon),
         }),
       }),
-      ranged_uses: Optional({
+      ranged_uses: DB.Optional({
         comment:
           "A list of stat blocks for each ranged combat technique this weapon can be used with.",
-        type: NestedEntityMap({
+        type: DB.NestedEntityMap({
           name: "ImprovisedRangedWeaponUse",
           namePlural: "ImprovisedRangedWeaponUses",
           secondaryEntity: RangedCombatTechnique,
-          type: IncludeIdentifier(RangedWeapon),
+          type: DB.IncludeIdentifier(RangedWeapon),
         }),
       }),
-      restrictedTo: Optional({
+      restrictedTo: DB.Optional({
         comment:
           "Define if during character creation this weapon can only be bought by a specific subset of characters.",
-        type: IncludeIdentifier(RestrictedTo),
+        type: DB.IncludeIdentifier(RestrictedTo),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "ImprovisedWeapon",
-        ObjectType(
+        DB.Object(
           {
-            advantage: Optional({
+            advantage: DB.Optional({
               comment: "The weapon advantage text.",
-              type: String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, isMarkdown: true }),
             }),
-            disadvantage: Optional({
+            disadvantage: DB.Optional({
               comment: "The weapon disadvantage text.",
-              type: String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, isMarkdown: true }),
             }),
           },
           { minProperties: 1 },

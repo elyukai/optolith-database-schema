@@ -1,24 +1,24 @@
-import { Array, Entity, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { CultureIdentifier } from "./_Identifier.js"
 
-export const PatronCategory = Entity(import.meta.url, {
+export const PatronCategory = DB.Entity(import.meta.url, {
   name: "PatronCategory",
   namePlural: "PatronCategories",
   type: () =>
-    Object({
-      primary_patron_cultures: Required({
+    DB.Object({
+      primary_patron_cultures: DB.Required({
         comment:
           "The list of cultures where patrons from this category can be the primary patron of.",
-        type: Array(CultureIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(CultureIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "PatronCategory",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The patron category’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

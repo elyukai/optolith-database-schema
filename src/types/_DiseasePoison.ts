@@ -2,146 +2,131 @@
  * This file defines some shared types for different diseases and poisons.
  */
 
-import {
-  Array,
-  Enum,
-  EnumCase,
-  GenIncludeIdentifier,
-  GenTypeAlias,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Param,
-  Required,
-  String,
-  TypeAlias,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { AlternativeName } from "./_AlternativeNames.js"
 import { Errata } from "./source/_Erratum.js"
 
-export const level = Required({
+export const level = DB.Required({
   comment: "The disease’s level.",
-  type: Integer({ minimum: 1 }),
+  type: DB.Integer({ minimum: 1 }),
 })
 
-export const Resistance = Enum(import.meta.url, {
+export const Resistance = DB.Enum(import.meta.url, {
   name: "Resistance",
   comment:
     "Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.",
   values: () => ({
-    Spirit: EnumCase({ type: null }),
-    Toughness: EnumCase({ type: null }),
-    LowerOfSpiritAndToughness: EnumCase({ type: null }),
+    Spirit: DB.EnumCase({ type: null }),
+    Toughness: DB.EnumCase({ type: null }),
+    LowerOfSpiritAndToughness: DB.EnumCase({ type: null }),
   }),
 })
 
-export const resistance = Required({
+export const resistance = DB.Required({
   comment:
     "Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.",
-  type: IncludeIdentifier(Resistance),
+  type: DB.IncludeIdentifier(Resistance),
 })
 
-export const Cause = TypeAlias(import.meta.url, {
+export const Cause = DB.TypeAlias(import.meta.url, {
   name: "Cause",
   comment:
     "What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.",
   type: () =>
-    Object({
-      chance: Optional({
+    DB.Object({
+      chance: DB.Optional({
         comment:
           "The chance to get infected by this cause, in percent. Some causes do not have a specific chance.",
-        type: Integer({ minimum: 5, multipleOf: 5, maximum: 100 }),
+        type: DB.Integer({ minimum: 5, multipleOf: 5, maximum: 100 }),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Cause",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The cause’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          chance: Optional({
+          chance: DB.Optional({
             comment:
               "The chance to get infected by this cause. If present for this language, this overrides the universal `chance` field; they cannot be used at the same time.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          note: Optional({
+          note: DB.Optional({
             comment: "An additional note about this cause.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
     }),
 })
 
-export const cause = Required({
+export const cause = DB.Required({
   comment:
     "What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.",
-  type: Array(IncludeIdentifier(Cause), { minItems: 1 }),
+  type: DB.Array(DB.IncludeIdentifier(Cause), { minItems: 1 }),
 })
 
-export const Reduceable = GenTypeAlias(import.meta.url, {
+export const Reduceable = DB.GenTypeAlias(import.meta.url, {
   name: "Reduceable",
   comment: `An effect or other parameter that may be reduced by a failed disease check for lessening or a degraded poison.
 
 This streamlines the wording for diseases and poison by using a unified wording for *lessened* (disease) and *degraded* (poison).`,
-  parameters: [Param("Content")],
+  parameters: [DB.Param("Content")],
   type: Content =>
-    Object({
-      default: Required({
+    DB.Object({
+      default: DB.Required({
         comment: "The default value. In the source, it's the text before the slash.",
-        type: TypeArgument(Content),
+        type: DB.TypeArgument(Content),
       }),
-      reduced: Optional({
+      reduced: DB.Optional({
         comment:
           "The reduced value. In the source, it's the text after the slash. Some entries may not have a reduced value.",
-        type: TypeArgument(Content),
+        type: DB.TypeArgument(Content),
       }),
     }),
 })
 
-export const DiseaseTranslation = Object({
-  name: Required({
+export const DiseaseTranslation = DB.Object({
+  name: DB.Required({
     comment: "The disease’s name.",
-    type: String({ minLength: 1 }),
+    type: DB.String({ minLength: 1 }),
   }),
-  alternative_names: Optional({
+  alternative_names: DB.Optional({
     comment: "A list of alternative names.",
-    type: Array(IncludeIdentifier(AlternativeName), { minItems: 1 }),
+    type: DB.Array(DB.IncludeIdentifier(AlternativeName), { minItems: 1 }),
   }),
-  progress: Required({
+  progress: DB.Required({
     comment: "The disease’s progress, in detail.",
-    type: String({ minLength: 1, isMarkdown: true }),
+    type: DB.String({ minLength: 1, isMarkdown: true }),
   }),
-  incubation_time: Required({
+  incubation_time: DB.Required({
     comment: "After infection, how much time passes before symptoms appear?",
-    type: String({ minLength: 1 }),
+    type: DB.String({ minLength: 1 }),
   }),
-  damage: Required({
+  damage: DB.Required({
     comment:
       "The damage caused by the disease. If the disease check fails, apply the lessened effects.",
-    type: GenIncludeIdentifier(Reduceable, [String({ minLength: 1, isMarkdown: true })]),
+    type: DB.GenIncludeIdentifier(Reduceable, [DB.String({ minLength: 1, isMarkdown: true })]),
   }),
-  duration: Required({
+  duration: DB.Required({
     comment: "The duration of the disease. If the disease check fails, use the lessened duration.",
-    type: GenIncludeIdentifier(Reduceable, [String({ minLength: 1, isMarkdown: true })]),
+    type: DB.GenIncludeIdentifier(Reduceable, [DB.String({ minLength: 1, isMarkdown: true })]),
   }),
-  special: Optional({
+  special: DB.Optional({
     comment: "Special information about the disease.",
-    type: String({ minLength: 1, isMarkdown: true }),
+    type: DB.String({ minLength: 1, isMarkdown: true }),
   }),
-  treatment: Required({
+  treatment: DB.Required({
     comment: "Methods known to lessen the disease’s progress or relieve symptoms.",
-    type: String({ minLength: 1, isMarkdown: true }),
+    type: DB.String({ minLength: 1, isMarkdown: true }),
   }),
-  cure: Required({
+  cure: DB.Required({
     comment: "Known remedies for the disease.",
-    type: String({ minLength: 1, isMarkdown: true }),
+    type: DB.String({ minLength: 1, isMarkdown: true }),
   }),
-  errata: Optional({
-    type: IncludeIdentifier(Errata),
+  errata: DB.Optional({
+    type: DB.IncludeIdentifier(Errata),
   }),
 })

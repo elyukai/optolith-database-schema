@@ -1,22 +1,4 @@
-import {
-  Array,
-  Boolean,
-  ChildEntities,
-  Entity,
-  Enum,
-  EnumCase,
-  GenEnum,
-  GenIncludeIdentifier,
-  IncludeIdentifier,
-  Integer,
-  ObjectType,
-  Optional,
-  Param,
-  Required,
-  String,
-  TypeAlias,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import {
   AdvantageIdentifier,
@@ -45,20 +27,20 @@ import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Profession = Entity(import.meta.url, {
+export const Profession = DB.Entity(import.meta.url, {
   name: "Profession",
   namePlural: "Professions",
   type: () =>
-    ObjectType({
-      group: Required({
+    DB.Object({
+      group: DB.Required({
         comment: "The profession group.",
-        type: IncludeIdentifier(ProfessionGroup),
+        type: DB.IncludeIdentifier(ProfessionGroup),
       }),
-      versions: Required({
+      versions: DB.Required({
         comment: `A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook.
 
       The profession representation may feature different values for different explicitly mentioned experience levels. In most cases, there is only one stats package, which targets the experience level *Experienced*.`,
-        type: ChildEntities(ProfessionVersion),
+        type: DB.ChildEntities(ProfessionVersion),
       }),
     }),
   instanceDisplayName: null,
@@ -96,113 +78,113 @@ export const Profession = Entity(import.meta.url, {
   },
 })
 
-const ProfessionGroup = Enum(import.meta.url, {
+const ProfessionGroup = DB.Enum(import.meta.url, {
   name: "ProfessionGroup",
   values: () => ({
-    Mundane: EnumCase({ type: IncludeIdentifier(MundaneProfessionGroup) }),
-    Magical: EnumCase({ type: IncludeIdentifier(MagicalProfessionGroup) }),
-    Blessed: EnumCase({ type: null }),
+    Mundane: DB.EnumCase({ type: DB.IncludeIdentifier(MundaneProfessionGroup) }),
+    Magical: DB.EnumCase({ type: DB.IncludeIdentifier(MagicalProfessionGroup) }),
+    Blessed: DB.EnumCase({ type: null }),
   }),
 })
 
-export const MundaneProfessionGroup = Enum(import.meta.url, {
+export const MundaneProfessionGroup = DB.Enum(import.meta.url, {
   name: "MundaneProfessionGroup",
   values: () => ({
-    Profane: EnumCase({ type: null }),
-    Fighter: EnumCase({ type: null }),
-    Religious: EnumCase({ type: null }),
+    Profane: DB.EnumCase({ type: null }),
+    Fighter: DB.EnumCase({ type: null }),
+    Religious: DB.EnumCase({ type: null }),
   }),
 })
 
-const MagicalProfessionGroup = TypeAlias(import.meta.url, {
+const MagicalProfessionGroup = DB.TypeAlias(import.meta.url, {
   name: "MagicalProfessionGroup",
   type: () =>
-    ObjectType({
-      curriculum: Optional({
+    DB.Object({
+      curriculum: DB.Optional({
         comment: "The curriculum/academy associated with this magical profession, if any.",
         type: CurriculumIdentifier(),
       }),
     }),
 })
 
-export const ProfessionVersion = Entity(import.meta.url, {
+export const ProfessionVersion = DB.Entity(import.meta.url, {
   name: "ProfessionVersion",
   namePlural: "ProfessionVersions",
   type: () =>
-    ObjectType({
-      profession: Required({
+    DB.Object({
+      profession: DB.Required({
         comment: "The associated profession.",
         type: ProfessionIdentifier(),
       }),
-      package: Required({
+      package: DB.Required({
         comment:
           "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
-        type: ChildEntities(ProfessionPackage),
+        type: DB.ChildEntities(ProfessionPackage),
       }),
-      suggested_advantages: Optional({
+      suggested_advantages: DB.Optional({
         comment: "A list of typical advantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      suggested_disadvantages: Optional({
+      suggested_disadvantages: DB.Optional({
         comment: "A list of typical disadvantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      unsuitable_advantages: Optional({
+      unsuitable_advantages: DB.Optional({
         comment:
           "A list of advantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      unsuitable_disadvantages: Optional({
+      unsuitable_disadvantages: DB.Optional({
         comment:
           "A list of disadvantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "ProfessionVersion",
-        ObjectType({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The basic profession’s name.",
-            type: IncludeIdentifier(ProfessionName),
+            type: DB.IncludeIdentifier(ProfessionName),
           }),
-          specification: Optional({
+          specification: DB.Optional({
             comment:
               "A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis, but the database entry must not contain parenthesis.",
-            type: IncludeIdentifier(ProfessionName),
+            type: DB.IncludeIdentifier(ProfessionName),
           }),
-          suggested_advantages: Optional({
+          suggested_advantages: DB.Optional({
             comment: "A list of typical advantages.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          suggested_disadvantages: Optional({
+          suggested_disadvantages: DB.Optional({
             comment: "A list of typical disadvantages.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          unsuitable_advantages: Optional({
+          unsuitable_advantages: DB.Optional({
             comment:
               "A list of advantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          unsuitable_disadvantages: Optional({
+          unsuitable_disadvantages: DB.Optional({
             comment:
               "A list of disadvantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -232,65 +214,65 @@ export const ProfessionVersion = Entity(import.meta.url, {
   },
 })
 
-export const ProfessionPackage = Entity(import.meta.url, {
+export const ProfessionPackage = DB.Entity(import.meta.url, {
   name: "ProfessionPackage",
   namePlural: "ProfessionPackages",
   type: () =>
-    ObjectType({
-      profession_version: Required({
+    DB.Object({
+      profession_version: DB.Required({
         comment: "The associated profession version.",
         type: ProfessionVersionIdentifier(),
       }),
-      experience_level: Optional({
+      experience_level: DB.Optional({
         comment:
           "The associated experience level. By default, profession packages are associated with the experience level *Experienced*.",
         type: ExperienceLevelIdentifier(),
       }),
-      ap_value: Required({
+      ap_value: DB.Required({
         comment: "What does the professional package cost in adventure points?",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      prerequisites: Optional({
+      prerequisites: DB.Optional({
         comment:
           "Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.",
-        type: IncludeIdentifier(ProfessionPrerequisites),
+        type: DB.IncludeIdentifier(ProfessionPrerequisites),
       }),
-      options: Optional({
+      options: DB.Optional({
         comment:
           "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.",
-        type: IncludeIdentifier(ProfessionPackageOptions),
+        type: DB.IncludeIdentifier(ProfessionPackageOptions),
       }),
-      special_abilities: Optional({
+      special_abilities: DB.Optional({
         comment: "Any special abilities the profession receives from the package.",
-        type: Array(IncludeIdentifier(ProfessionSpecialAbility), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(ProfessionSpecialAbility), { minItems: 1 }),
       }),
-      combat_techniques: Optional({
+      combat_techniques: DB.Optional({
         comment:
           "Provides ratings for the combat techniques that the hero receives from the package.",
-        type: Array(IncludeIdentifier(CombatTechniqueRating), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(CombatTechniqueRating), { minItems: 1 }),
       }),
-      skills: Optional({
+      skills: DB.Optional({
         comment: "The skill ratings the package grants to the hero.",
-        type: Array(IncludeIdentifier(SkillRating), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(SkillRating), { minItems: 1 }),
       }),
-      spells: Optional({
+      spells: DB.Optional({
         comment:
           "The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.",
-        type: Array(IncludeIdentifier(MagicalSkillRating), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(MagicalSkillRating), { minItems: 1 }),
       }),
-      liturgical_chants: Optional({
+      liturgical_chants: DB.Optional({
         comment:
           "Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.",
-        type: Array(IncludeIdentifier(LiturgicalChantRating), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(LiturgicalChantRating), { minItems: 1 }),
       }),
-      is_variant_selection_required: Required({
+      is_variant_selection_required: DB.Required({
         comment: "If the selection of a profession variant is required.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      variants: Required({
+      variants: DB.Required({
         comment:
           "Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.",
-        type: ChildEntities(ProfessionVariant),
+        type: DB.ChildEntities(ProfessionVariant),
       }),
     }),
   parentReferenceKey: "profession_version",
@@ -317,68 +299,68 @@ export const ProfessionPackage = Entity(import.meta.url, {
   },
 })
 
-export const ProfessionVariant = Entity(import.meta.url, {
+export const ProfessionVariant = DB.Entity(import.meta.url, {
   name: "ProfessionVariant",
   namePlural: "ProfessionVariants",
   type: () =>
-    ObjectType({
-      profession_package: Required({
+    DB.Object({
+      profession_package: DB.Required({
         comment: "The associated profession package.",
         type: ProfessionPackageIdentifier(),
       }),
-      ap_value: Optional({
+      ap_value: DB.Optional({
         comment:
           "The AP value you have to pay for the package variant. Some variants may reduce the AP value of the base package.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      prerequisites: Optional({
+      prerequisites: DB.Optional({
         comment:
           "Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.",
-        type: IncludeIdentifier(ProfessionPrerequisites),
+        type: DB.IncludeIdentifier(ProfessionPrerequisites),
       }),
-      options: Optional({
+      options: DB.Optional({
         comment:
           "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. The variant may override or remove those options.",
-        type: IncludeIdentifier(ProfessionVariantPackageOptions),
+        type: DB.IncludeIdentifier(ProfessionVariantPackageOptions),
       }),
-      special_abilities: Optional({
+      special_abilities: DB.Optional({
         comment: "Any special abilities the profession receives from the package variant.",
-        type: Array(IncludeIdentifier(ProfessionVariantSpecialAbility), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(ProfessionVariantSpecialAbility), { minItems: 1 }),
       }),
-      combat_techniques: Optional({
+      combat_techniques: DB.Optional({
         comment:
           "Provides ratings for the combat techniques that the hero receives from the package variant.",
-        type: Array(IncludeIdentifier(CombatTechniqueRating), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(CombatTechniqueRating), { minItems: 1 }),
       }),
-      skills: Optional({
+      skills: DB.Optional({
         comment: "The skill ratings the package variant grants to the hero.",
-        type: Array(IncludeIdentifier(SkillRating), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(SkillRating), { minItems: 1 }),
       }),
-      spells: Optional({
+      spells: DB.Optional({
         comment:
           "The skill ratings a magical profession variant receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.",
-        type: Array(IncludeIdentifier(MagicalSkillRating), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(MagicalSkillRating), { minItems: 1 }),
       }),
-      liturgical_chants: Optional({
+      liturgical_chants: DB.Optional({
         comment:
           "Clerical profession variants receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.",
-        type: Array(IncludeIdentifier(LiturgicalChantRating), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(LiturgicalChantRating), { minItems: 1 }),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "ProfessionVariant",
-        ObjectType({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The profession variant’s name.",
-            type: IncludeIdentifier(ProfessionName),
+            type: DB.IncludeIdentifier(ProfessionName),
           }),
-          full_text: Optional({
+          full_text: DB.Optional({
             comment: "A text that replaces the generated text for the profession variant.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          concluding_text: Optional({
+          concluding_text: DB.Optional({
             comment: `A text that is appended to the generated text for the profession variant.`,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
@@ -390,136 +372,136 @@ export const ProfessionVariant = Entity(import.meta.url, {
   },
 })
 
-const VariantSpecialAbilityAction = Enum(import.meta.url, {
+const VariantSpecialAbilityAction = DB.Enum(import.meta.url, {
   name: "VariantSpecialAbilityAction",
   values: () => ({
-    Remove: EnumCase({ type: null }),
-    Override: EnumCase({ type: null }),
+    Remove: DB.EnumCase({ type: null }),
+    Override: DB.EnumCase({ type: null }),
   }),
 })
 
-const ProfessionSpecialAbility = Enum(import.meta.url, {
+const ProfessionSpecialAbility = DB.Enum(import.meta.url, {
   name: "ProfessionSpecialAbility",
   values: () => ({
-    Constant: EnumCase({ type: IncludeIdentifier(ConstantProfessionSpecialAbility) }),
-    Selection: EnumCase({ type: IncludeIdentifier(ProfessionSpecialAbilitySelection) }),
+    Constant: DB.EnumCase({ type: DB.IncludeIdentifier(ConstantProfessionSpecialAbility) }),
+    Selection: DB.EnumCase({ type: DB.IncludeIdentifier(ProfessionSpecialAbilitySelection) }),
   }),
 })
 
-const ConstantProfessionSpecialAbility = TypeAlias(import.meta.url, {
+const ConstantProfessionSpecialAbility = DB.TypeAlias(import.meta.url, {
   name: "ConstantProfessionSpecialAbility",
   type: () =>
-    ObjectType({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The identifier of the special ability to grant.",
-        type: IncludeIdentifier(SpecialAbilityIdentifier),
+        type: DB.IncludeIdentifier(SpecialAbilityIdentifier),
       }),
-      level: Optional({
+      level: DB.Optional({
         comment:
           "The level of the received special ability. If not specified and the special ability has levels, level 1 is used automatically.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      options: Optional({
+      options: DB.Optional({
         comment:
           "Received select options. Order is important. Typically, you only need the first array index, though.",
-        type: Array(IncludeIdentifier(RequirableSelectOptionIdentifier), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(RequirableSelectOptionIdentifier), { minItems: 1 }),
       }),
     }),
 })
 
-const ProfessionSpecialAbilitySelection = TypeAlias(import.meta.url, {
+const ProfessionSpecialAbilitySelection = DB.TypeAlias(import.meta.url, {
   name: "ProfessionSpecialAbilitySelection",
   type: () =>
-    ObjectType({
-      options: Required({
+    DB.Object({
+      options: DB.Required({
         comment: `The list of special abilities to choose from. Must contain at least two entries.`,
-        type: Array(IncludeIdentifier(ConstantProfessionSpecialAbility), { minItems: 2 }),
+        type: DB.Array(DB.IncludeIdentifier(ConstantProfessionSpecialAbility), { minItems: 2 }),
       }),
     }),
 })
 
-const ProfessionVariantSpecialAbility = TypeAlias(import.meta.url, {
+const ProfessionVariantSpecialAbility = DB.TypeAlias(import.meta.url, {
   name: "ProfessionVariantSpecialAbility",
   type: () =>
-    ObjectType({
-      action: Required({
+    DB.Object({
+      action: DB.Required({
         comment:
           "If the selection is added to the base profession or if it removes a selection from the base profession with the same values.",
-        type: IncludeIdentifier(VariantSpecialAbilityAction),
+        type: DB.IncludeIdentifier(VariantSpecialAbilityAction),
       }),
-      value: Required({
+      value: DB.Required({
         comment: "The special ability to add or remove.",
-        type: IncludeIdentifier(ProfessionSpecialAbility),
+        type: DB.IncludeIdentifier(ProfessionSpecialAbility),
       }),
     }),
 })
 
-const CombatTechniqueRating = TypeAlias(import.meta.url, {
+const CombatTechniqueRating = DB.TypeAlias(import.meta.url, {
   name: "CombatTechniqueRating",
   type: () =>
-    ObjectType({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The identifier of the combat technique to provide the rating for.",
-        type: IncludeIdentifier(CombatTechniqueIdentifier),
+        type: DB.IncludeIdentifier(CombatTechniqueIdentifier),
       }),
-      rating_modifier: Required({
+      rating_modifier: DB.Required({
         comment:
           "The rating bonus provided for the combat technique. If used in a profession variant, it can also be used to lower the bonus of the base profession.\n\n**Note:** This is a rating *bonus*, so it will be *added* to the default value of 6.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-export const SkillRating = TypeAlias(import.meta.url, {
+export const SkillRating = DB.TypeAlias(import.meta.url, {
   name: "SkillRating",
   type: () =>
-    ObjectType({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The identifier of the skill to provide the rating for.",
         type: SkillIdentifier(),
       }),
-      rating_modifier: Required({
+      rating_modifier: DB.Required({
         comment:
           "The rating bonus provided for the skill. If used in a profession variant, it can also be used to lower the bonus of the base profession",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const MagicalSkillRating = TypeAlias(import.meta.url, {
+const MagicalSkillRating = DB.TypeAlias(import.meta.url, {
   name: "MagicalSkillRating",
   type: () =>
-    ObjectType({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment:
           "The identifier(s) of the spell(s) to choose from to provide the rating for. If multiple spells are provided, they must all have the same improvement cost.",
-        type: Array(IncludeIdentifier(ProfessionMagicalSkillIdentifier), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(ProfessionMagicalSkillIdentifier), { minItems: 1 }),
       }),
-      rating_modifier: Required({
+      rating_modifier: DB.Required({
         comment:
           "The rating bonus provided for the (selected) magical skill. If used in a profession variant, it can also be used to lower the bonus of the base profession.\n\n**Note:** If due to a variant a spell rating is lowered to 0, the spell is considered deactivated. Both setting the value for a spell and deactivating it by setting it to 0 takes into account the additional activation cost for spells.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const ProfessionMagicalSkillIdentifier = Enum(import.meta.url, {
+const ProfessionMagicalSkillIdentifier = DB.Enum(import.meta.url, {
   name: "ProfessionMagicalSkillIdentifier",
   values: () => ({
-    Spellwork: EnumCase({ type: IncludeIdentifier(ProfessionSpellworkIdentifier) }),
-    MagicalAction: EnumCase({ type: IncludeIdentifier(ProfessionMagicalActionIdentifier) }),
+    Spellwork: DB.EnumCase({ type: DB.IncludeIdentifier(ProfessionSpellworkIdentifier) }),
+    MagicalAction: DB.EnumCase({ type: DB.IncludeIdentifier(ProfessionMagicalActionIdentifier) }),
   }),
 })
 
-const ProfessionSpellworkIdentifier = TypeAlias(import.meta.url, {
+const ProfessionSpellworkIdentifier = DB.TypeAlias(import.meta.url, {
   name: "ProfessionSpellworkIdentifier",
   type: () =>
-    ObjectType({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The identifier of the spell to provide the rating for.",
-        type: IncludeIdentifier(SpellworkIdentifier),
+        type: DB.IncludeIdentifier(SpellworkIdentifier),
       }),
-      tradition: Optional({
+      tradition: DB.Optional({
         comment:
           "If the spell is not part of the magical tradition required by the package, this references the magical tradition it is part of. It can also be used to define the target magical tradition of a spell if multiple magical traditions are required and the spell is available to multiple of them.",
         type: MagicalTraditionIdentifier(),
@@ -527,279 +509,283 @@ const ProfessionSpellworkIdentifier = TypeAlias(import.meta.url, {
     }),
 })
 
-const ProfessionMagicalActionIdentifier = TypeAlias(import.meta.url, {
+const ProfessionMagicalActionIdentifier = DB.TypeAlias(import.meta.url, {
   name: "ProfessionMagicalActionIdentifier",
   type: () =>
-    ObjectType({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The identifier of the magical action to provide the rating for.",
-        type: IncludeIdentifier(MagicalActionIdentifier),
+        type: DB.IncludeIdentifier(MagicalActionIdentifier),
       }),
     }),
 })
 
-const LiturgicalChantRating = TypeAlias(import.meta.url, {
+const LiturgicalChantRating = DB.TypeAlias(import.meta.url, {
   name: "LiturgicalChantRating",
   type: () =>
-    ObjectType({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment:
           "The identifier(s) of the liturgical chant(s) to choose from to provide the rating for. If multiple liturgical chants are provided, they must all have the same improvement cost.",
-        type: Array(IncludeIdentifier(LiturgyIdentifier), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(LiturgyIdentifier), { minItems: 1 }),
       }),
-      rating_modifier: Required({
+      rating_modifier: DB.Required({
         comment:
           "The rating bonus provided for the selected liturgical chant. If used in a profession variant, it can also be used to lower the bonus of the base profession.\n\n**Note:** If due to a variant a liturgical chant rating is lowered to 0, the liturgical chant is considered deactivated. Both setting the value for a liturgical chant and deactivating it by setting it to 0 takes into account the additional activation cost for liturgical chants.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const ProfessionPackageOptions = TypeAlias(import.meta.url, {
+const ProfessionPackageOptions = DB.TypeAlias(import.meta.url, {
   name: "ProfessionPackageOptions",
   comment:
     "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.",
   type: () =>
-    ObjectType(
+    DB.Object(
       {
-        skill_specialization: Optional({
-          type: IncludeIdentifier(SkillSpecializationOptions),
+        skill_specialization: DB.Optional({
+          type: DB.IncludeIdentifier(SkillSpecializationOptions),
         }),
-        languages_scripts: Optional({
-          type: IncludeIdentifier(LanguagesScriptsOptions),
+        languages_scripts: DB.Optional({
+          type: DB.IncludeIdentifier(LanguagesScriptsOptions),
         }),
-        combat_techniques: Optional({
-          type: IncludeIdentifier(CombatTechniquesOptions),
+        combat_techniques: DB.Optional({
+          type: DB.IncludeIdentifier(CombatTechniquesOptions),
         }),
-        cantrips: Optional({
-          type: IncludeIdentifier(CantripsOptions),
+        cantrips: DB.Optional({
+          type: DB.IncludeIdentifier(CantripsOptions),
         }),
-        curses: Optional({
-          type: IncludeIdentifier(CursesOptions),
+        curses: DB.Optional({
+          type: DB.IncludeIdentifier(CursesOptions),
         }),
-        terrain_knowledge: Optional({
-          type: IncludeIdentifier(TerrainKnowledgeOptions),
+        terrain_knowledge: DB.Optional({
+          type: DB.IncludeIdentifier(TerrainKnowledgeOptions),
         }),
-        skills: Optional({
-          type: IncludeIdentifier(SkillsOptions),
+        skills: DB.Optional({
+          type: DB.IncludeIdentifier(SkillsOptions),
         }),
-        liturgies: Optional({
-          type: IncludeIdentifier(LiturgiesOptions),
+        liturgies: DB.Optional({
+          type: DB.IncludeIdentifier(LiturgiesOptions),
         }),
       },
       { minProperties: 1 },
     ),
 })
 
-const ProfessionVariantPackageOptions = TypeAlias(import.meta.url, {
+const ProfessionVariantPackageOptions = DB.TypeAlias(import.meta.url, {
   name: "ProfessionVariantPackageOptions",
   comment:
     "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. The variant may override or remove those options.",
   type: () =>
-    ObjectType(
+    DB.Object(
       {
-        skill_specialization: Optional({
-          type: GenIncludeIdentifier(VariantOptionAction, [
-            IncludeIdentifier(SkillSpecializationOptions),
+        skill_specialization: DB.Optional({
+          type: DB.GenIncludeIdentifier(VariantOptionAction, [
+            DB.IncludeIdentifier(SkillSpecializationOptions),
           ]),
         }),
-        languages_scripts: Optional({
-          type: GenIncludeIdentifier(VariantOptionAction, [
-            IncludeIdentifier(LanguagesScriptsOptions),
+        languages_scripts: DB.Optional({
+          type: DB.GenIncludeIdentifier(VariantOptionAction, [
+            DB.IncludeIdentifier(LanguagesScriptsOptions),
           ]),
         }),
-        combat_techniques: Optional({
-          type: GenIncludeIdentifier(VariantOptionAction, [
-            IncludeIdentifier(CombatTechniquesOptions),
+        combat_techniques: DB.Optional({
+          type: DB.GenIncludeIdentifier(VariantOptionAction, [
+            DB.IncludeIdentifier(CombatTechniquesOptions),
           ]),
         }),
-        cantrips: Optional({
-          type: GenIncludeIdentifier(VariantOptionAction, [IncludeIdentifier(CantripsOptions)]),
-        }),
-        curses: Optional({
-          type: GenIncludeIdentifier(VariantOptionAction, [IncludeIdentifier(CursesOptions)]),
-        }),
-        terrain_knowledge: Optional({
-          type: GenIncludeIdentifier(VariantOptionAction, [
-            IncludeIdentifier(TerrainKnowledgeOptions),
+        cantrips: DB.Optional({
+          type: DB.GenIncludeIdentifier(VariantOptionAction, [
+            DB.IncludeIdentifier(CantripsOptions),
           ]),
         }),
-        skills: Optional({
-          type: GenIncludeIdentifier(VariantOptionAction, [IncludeIdentifier(SkillsOptions)]),
+        curses: DB.Optional({
+          type: DB.GenIncludeIdentifier(VariantOptionAction, [DB.IncludeIdentifier(CursesOptions)]),
         }),
-        liturgies: Optional({
-          type: GenIncludeIdentifier(VariantOptionAction, [IncludeIdentifier(LiturgiesOptions)]),
+        terrain_knowledge: DB.Optional({
+          type: DB.GenIncludeIdentifier(VariantOptionAction, [
+            DB.IncludeIdentifier(TerrainKnowledgeOptions),
+          ]),
+        }),
+        skills: DB.Optional({
+          type: DB.GenIncludeIdentifier(VariantOptionAction, [DB.IncludeIdentifier(SkillsOptions)]),
+        }),
+        liturgies: DB.Optional({
+          type: DB.GenIncludeIdentifier(VariantOptionAction, [
+            DB.IncludeIdentifier(LiturgiesOptions),
+          ]),
         }),
       },
       { minProperties: 1 },
     ),
 })
 
-const VariantOptionAction = GenEnum(import.meta.url, {
+const VariantOptionAction = DB.GenEnum(import.meta.url, {
   name: "VariantOptionAction",
-  parameters: [Param("T")],
+  parameters: [DB.Param("T")],
   values: T => ({
-    Remove: EnumCase({ type: null }),
-    Override: EnumCase({ type: TypeArgument(T) }),
+    Remove: DB.EnumCase({ type: null }),
+    Override: DB.EnumCase({ type: DB.TypeArgument(T) }),
   }),
 })
 
-const SkillSpecializationOptions = Enum(import.meta.url, {
+const SkillSpecializationOptions = DB.Enum(import.meta.url, {
   name: "SkillSpecializationOptions",
   comment: `Select an application from a skill or from one of a list of skills where you get a skill specialization for. You can also specify a skill group from which you can choose a skill.`,
   values: () => ({
-    Specific: EnumCase({ type: IncludeIdentifier(SpecificSkillSpecializationOptions) }),
-    Group: EnumCase({ type: SkillGroupIdentifier() }),
+    Specific: DB.EnumCase({ type: DB.IncludeIdentifier(SpecificSkillSpecializationOptions) }),
+    Group: DB.EnumCase({ type: SkillGroupIdentifier() }),
   }),
 })
 
-const SpecificSkillSpecializationOptions = TypeAlias(import.meta.url, {
+const SpecificSkillSpecializationOptions = DB.TypeAlias(import.meta.url, {
   name: "SpecificSkillSpecializationOptions",
   comment: `Select an application from a skill or from one of a list of skills where you get a skill specialization for.`,
   type: () =>
-    ObjectType({
-      options: Required({
+    DB.Object({
+      options: DB.Required({
         comment: `Possible skill(s) to get a skill specialization for.`,
-        type: Array(SkillIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(SkillIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
 
-const LanguagesScriptsOptions = TypeAlias(import.meta.url, {
+const LanguagesScriptsOptions = DB.TypeAlias(import.meta.url, {
   name: "LanguagesScriptsOptions",
   comment: `Buy languages and scripts for a specific amount of AP.`,
   type: () =>
-    ObjectType({
-      ap_value: Required({
+    DB.Object({
+      ap_value: DB.Required({
         comment: "The AP value you can buy languages and scripts for.",
-        type: Integer({ minimum: 2 }),
+        type: DB.Integer({ minimum: 2 }),
       }),
     }),
 })
 
-const CombatTechniquesOptions = TypeAlias(import.meta.url, {
+const CombatTechniquesOptions = DB.TypeAlias(import.meta.url, {
   name: "CombatTechniquesOptions",
   comment: `Select one or more combat techniques you get a CtR bonus for.`,
   type: () =>
-    ObjectType({
-      fixed: Required({
+    DB.Object({
+      fixed: DB.Required({
         comment: `Specify the number of combat techniques that can be selected so that they get increased to a specific CtR. There can be multiple selections with different CtRs.`,
-        type: Array(IncludeIdentifier(RatingForCombatTechniquesNumber), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(RatingForCombatTechniquesNumber), { minItems: 1 }),
       }),
-      rest_rating_modifier: Optional({
+      rest_rating_modifier: DB.Optional({
         comment: `Define if after the fixed selections the remaining unselected combat techniques will receive a certain rating bonus as well.`,
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      options: Required({
+      options: DB.Required({
         comment: "The list of combat techniques to choose from.",
-        type: Array(IncludeIdentifier(CombatTechniqueIdentifier), { minItems: 2 }),
+        type: DB.Array(DB.IncludeIdentifier(CombatTechniqueIdentifier), { minItems: 2 }),
       }),
     }),
 })
 
-const RatingForCombatTechniquesNumber = TypeAlias(import.meta.url, {
+const RatingForCombatTechniquesNumber = DB.TypeAlias(import.meta.url, {
   name: "RatingForCombatTechniquesNumber",
   type: () =>
-    ObjectType({
-      number: Required({
+    DB.Object({
+      number: DB.Required({
         comment: "The number of selectable combat techniques.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      rating_modifier: Required({
+      rating_modifier: DB.Required({
         comment: `The rating bonus provided for the selected combat technique(s).
 
 **Note:** This is a rating *bonus*, so it will be *added* to the default value of 6.`,
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const CantripsOptions = TypeAlias(import.meta.url, {
+const CantripsOptions = DB.TypeAlias(import.meta.url, {
   name: "CantripsOptions",
   comment: `Select one or more cantrips you receive.`,
   type: () =>
-    ObjectType({
-      number: Required({
+    DB.Object({
+      number: DB.Required({
         comment: "The number of selectable cantrips.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      options: Required({
+      options: DB.Required({
         comment: "The list of cantrips to choose from.",
-        type: Array(CantripIdentifier(), { minItems: 2 }),
+        type: DB.Array(CantripIdentifier(), { minItems: 2 }),
       }),
     }),
 })
 
-const CursesOptions = TypeAlias(import.meta.url, {
+const CursesOptions = DB.TypeAlias(import.meta.url, {
   name: "CursesOptions",
   comment: `Buy curses for a specific amount of AP.`,
   type: () =>
-    ObjectType({
-      ap_value: Required({
+    DB.Object({
+      ap_value: DB.Required({
         comment: "The AP value you can buy curses for.",
-        type: Integer({ minimum: 2 }),
+        type: DB.Integer({ minimum: 2 }),
       }),
     }),
 })
 
-const TerrainKnowledgeOptions = TypeAlias(import.meta.url, {
+const TerrainKnowledgeOptions = DB.TypeAlias(import.meta.url, {
   name: "TerrainKnowledgeOptions",
   comment: `Select one of a list of possible terrain knowledges`,
   type: () =>
-    ObjectType({
-      options: Required({
+    DB.Object({
+      options: DB.Required({
         comment: "The list of possible terrain knowledges.",
-        type: Array(GeneralSelectOptionIdentifier(), { minItems: 2 }),
+        type: DB.Array(GeneralSelectOptionIdentifier(), { minItems: 2 }),
       }),
     }),
 })
 
-const SkillsOptions = TypeAlias(import.meta.url, {
+const SkillsOptions = DB.TypeAlias(import.meta.url, {
   name: "SkillsOptions",
   comment: `Buy skills for a specific amount of AP.`,
   type: () =>
-    ObjectType({
-      group: Optional({
+    DB.Object({
+      group: DB.Optional({
         comment: "If specified, you may only choose from skills of the specified group.",
         type: SkillGroupIdentifier(),
       }),
-      ap_value: Required({
+      ap_value: DB.Required({
         comment: "The AP value you can buy skills for.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const LiturgiesOptions = TypeAlias(import.meta.url, {
+const LiturgiesOptions = DB.TypeAlias(import.meta.url, {
   name: "LiturgiesOptions",
   comment: `Buy liturgical chants and ceremonies for a specific amount of AP.`,
   type: () =>
-    ObjectType({
-      ap_value: Required({
+    DB.Object({
+      ap_value: DB.Required({
         comment: "The AP value you can buy liturgical chants and ceremonies for.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const ProfessionName = TypeAlias(import.meta.url, {
+const ProfessionName = DB.TypeAlias(import.meta.url, {
   name: "ProfessionName",
   comment:
     "The name of the profession that may have sex-specific names. Useful if the term in generell is different (i.e. actor/actress) or if the language uses gendered nouns. The default name is also used in case neither the male nor female name strictly applies.",
   type: () =>
-    ObjectType({
-      default: Required({
+    DB.Object({
+      default: DB.Required({
         comment:
           "The name from the source publication. This is also used if a character has no specified gender or is neither male nor female.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
-      male: Optional({
+      male: DB.Optional({
         comment: "The male name, if different from the default name.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
-      female: Optional({
+      female: DB.Optional({
         comment: "The female name, if different from the default name.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
     }),
 })

@@ -1,4 +1,4 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { input, levels, maximum, name, name_in_library, rules } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { combat_techniques, penalty, usage_type } from "../_ActivatableCombat.js"
@@ -9,12 +9,12 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const AdvancedCombatSpecialAbility = Entity(import.meta.url, {
+export const AdvancedCombatSpecialAbility = DB.Entity(import.meta.url, {
   name: "AdvancedCombatSpecialAbility",
   namePlural: "AdvancedCombatSpecialAbilities",
   comment: "Combat Special Abilities that are being unlocked by Combat Style Special Abilities.",
   type: () =>
-    Object({
+    DB.Object({
       levels,
       usage_type,
       select_options,
@@ -23,24 +23,24 @@ export const AdvancedCombatSpecialAbility = Entity(import.meta.url, {
       skill_uses,
       maximum,
       penalty,
-      prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(GeneralPrerequisites),
       }),
       combat_techniques,
       ap_value,
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "AdvancedCombatSpecialAbility",
-        Object({
+        DB.Object({
           name,
           name_in_library,
           input,
           rules,
           ap_value_append,
           ap_value: ap_value_l10n,
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

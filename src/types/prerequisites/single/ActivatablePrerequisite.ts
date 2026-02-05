@@ -1,44 +1,35 @@
-import {
-  Array,
-  Boolean,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { ActivatableIdentifier, RequirableSelectOptionIdentifier } from "../../_IdentifierGroup.js"
 import { Preconditions } from "../ConditionalPrerequisites.js"
 import { DisplayOption } from "../DisplayOption.js"
 
-export const ActivatablePrerequisite = TypeAlias(import.meta.url, {
+export const ActivatablePrerequisite = DB.TypeAlias(import.meta.url, {
   name: "ActivatablePrerequisite",
   comment: "Requires a specific advantage, disadvantage or special ability.",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The activatable entry’s identifier.",
-        type: IncludeIdentifier(ActivatableIdentifier),
+        type: DB.IncludeIdentifier(ActivatableIdentifier),
       }),
-      active: Required({
+      active: DB.Required({
         comment: "If the required entry should be required to be active or inactive.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      level: Optional({
+      level: DB.Optional({
         comment: "The required minimum level of the entry.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      options: Optional({
+      options: DB.Optional({
         comment:
           "Required select options. Order is important. Typically, you only need the first array index, though.",
-        type: Array(IncludeIdentifier(RequirableSelectOptionIdentifier), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(RequirableSelectOptionIdentifier), { minItems: 1 }),
       }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
+      display_option: DB.Optional({
+        type: DB.IncludeIdentifier(DisplayOption),
       }),
-      when: Optional({
-        type: IncludeIdentifier(Preconditions),
+      when: DB.Optional({
+        type: DB.IncludeIdentifier(Preconditions),
       }),
     }),
 })

@@ -1,101 +1,93 @@
-import {
-  Array,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { AspectIdentifier, PropertyIdentifier, SkillIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
-export const RatedMinimumNumberPrerequisite = TypeAlias(import.meta.url, {
+export const RatedMinimumNumberPrerequisite = DB.TypeAlias(import.meta.url, {
   name: "RatedMinimumNumberPrerequisite",
   type: () =>
-    Object({
-      number: Required({
+    DB.Object({
+      number: DB.Required({
         comment:
           "The minimum number of skills that need to be on the defined minimum skill rating.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      value: Required({
+      value: DB.Required({
         comment: "The minimum skill rating the defined minimum number of skills need to be on.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      targets: Required({
+      targets: DB.Required({
         comment: "The targets that contribute to satisfying the prerequisite.",
-        type: IncludeIdentifier(RatedMinimumNumberPrerequisiteTarget),
+        type: DB.IncludeIdentifier(RatedMinimumNumberPrerequisiteTarget),
       }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
+      display_option: DB.Optional({
+        type: DB.IncludeIdentifier(DisplayOption),
       }),
     }),
 })
 
-const RatedMinimumNumberPrerequisiteTarget = Enum(import.meta.url, {
+const RatedMinimumNumberPrerequisiteTarget = DB.Enum(import.meta.url, {
   name: "RatedMinimumNumberPrerequisiteTarget",
   values: () => ({
-    Skills: EnumCase({ type: IncludeIdentifier(RatedMinimumNumberPrerequisiteSkillsTarget) }),
-    CombatTechniques: EnumCase({
-      type: IncludeIdentifier(RatedMinimumNumberPrerequisiteCombatTechniquesTarget),
+    Skills: DB.EnumCase({ type: DB.IncludeIdentifier(RatedMinimumNumberPrerequisiteSkillsTarget) }),
+    CombatTechniques: DB.EnumCase({
+      type: DB.IncludeIdentifier(RatedMinimumNumberPrerequisiteCombatTechniquesTarget),
     }),
-    Spellworks: EnumCase({
-      type: IncludeIdentifier(RatedMinimumNumberPrerequisiteSpellworksTarget),
+    Spellworks: DB.EnumCase({
+      type: DB.IncludeIdentifier(RatedMinimumNumberPrerequisiteSpellworksTarget),
     }),
-    Liturgies: EnumCase({ type: IncludeIdentifier(RatedMinimumNumberPrerequisiteLiturgiesTarget) }),
+    Liturgies: DB.EnumCase({
+      type: DB.IncludeIdentifier(RatedMinimumNumberPrerequisiteLiturgiesTarget),
+    }),
   }),
 })
 
-export const RatedMinimumNumberPrerequisiteSkillsTarget = TypeAlias(import.meta.url, {
+export const RatedMinimumNumberPrerequisiteSkillsTarget = DB.TypeAlias(import.meta.url, {
   name: "RatedMinimumNumberPrerequisiteSkillsTarget",
   type: () =>
-    Object({
-      targets: Required({
+    DB.Object({
+      targets: DB.Required({
         comment: "The skills that are taken into account for satisfying the prerequisite.",
-        type: Array(SkillIdentifier(), { minItems: 2, uniqueItems: true }),
+        type: DB.Array(SkillIdentifier(), { minItems: 2, uniqueItems: true }),
       }),
     }),
 })
 
-export const RatedMinimumNumberPrerequisiteCombatTechniquesTarget = TypeAlias(import.meta.url, {
+export const RatedMinimumNumberPrerequisiteCombatTechniquesTarget = DB.TypeAlias(import.meta.url, {
   name: "RatedMinimumNumberPrerequisiteCombatTechniquesTarget",
   type: () =>
-    Object({
-      group: Required({
+    DB.Object({
+      group: DB.Required({
         comment: "The skills that are taken into account for satisfying the prerequisite.",
-        type: IncludeIdentifier(RatedMinimumNumberPrerequisiteCombatTechniquesTargetGroup),
+        type: DB.IncludeIdentifier(RatedMinimumNumberPrerequisiteCombatTechniquesTargetGroup),
       }),
     }),
 })
 
-const RatedMinimumNumberPrerequisiteCombatTechniquesTargetGroup = Enum(import.meta.url, {
+const RatedMinimumNumberPrerequisiteCombatTechniquesTargetGroup = DB.Enum(import.meta.url, {
   name: "RatedMinimumNumberPrerequisiteCombatTechniquesTargetGroup",
   values: () => ({
-    All: EnumCase({ type: null }),
-    Close: EnumCase({ type: null }),
-    Ranged: EnumCase({ type: null }),
+    All: DB.EnumCase({ type: null }),
+    Close: DB.EnumCase({ type: null }),
+    Ranged: DB.EnumCase({ type: null }),
   }),
 })
 
-export const RatedMinimumNumberPrerequisiteSpellworksTarget = TypeAlias(import.meta.url, {
+export const RatedMinimumNumberPrerequisiteSpellworksTarget = DB.TypeAlias(import.meta.url, {
   name: "RatedMinimumNumberPrerequisiteSpellworksTarget",
   type: () =>
-    Object({
-      property: Required({
+    DB.Object({
+      property: DB.Required({
         comment: "The skills that are taken into account for satisfying the prerequisite.",
         type: PropertyIdentifier(),
       }),
     }),
 })
 
-export const RatedMinimumNumberPrerequisiteLiturgiesTarget = TypeAlias(import.meta.url, {
+export const RatedMinimumNumberPrerequisiteLiturgiesTarget = DB.TypeAlias(import.meta.url, {
   name: "RatedMinimumNumberPrerequisiteLiturgiesTarget",
   type: () =>
-    Object({
-      aspect: Required({
+    DB.Object({
+      aspect: DB.Required({
         comment: "The skills that are taken into account for satisfying the prerequisite.",
         type: AspectIdentifier(),
       }),

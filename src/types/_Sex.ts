@@ -1,9 +1,9 @@
-import { Enum, EnumCase } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 
-export const BinarySex = Enum(import.meta.url, {
+export const BinarySex = DB.Enum(import.meta.url, {
   name: "BinarySex",
   values: () => ({
-    Male: EnumCase({ type: null }),
-    Female: EnumCase({ type: null }),
+    Male: DB.EnumCase({ type: null }),
+    Female: DB.EnumCase({ type: null }),
   }),
 })

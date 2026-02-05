@@ -2,79 +2,69 @@
  * @title Enhancements
  */
 
-import {
-  ChildEntities,
-  Entity,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { SkillWithEnhancementsIdentifier } from "./_IdentifierGroup.js"
 import { EnhancementPrerequisites } from "./_Prerequisite.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
-export const Enhancements = TypeAlias(import.meta.url, {
+export const Enhancements = DB.TypeAlias(import.meta.url, {
   name: "Enhancements",
   comment: "A list of enhancements.",
-  type: () => ChildEntities(Enhancement),
+  type: () => DB.ChildEntities(Enhancement),
 })
 
-export const Enhancement = Entity(import.meta.url, {
+export const Enhancement = DB.Entity(import.meta.url, {
   name: "Enhancement",
   namePlural: "Enhancements",
   type: () =>
-    Object({
-      parent: Required({
+    DB.Object({
+      parent: DB.Required({
         comment: "The spellwork or liturgy this enhancement belongs to",
-        type: IncludeIdentifier(SkillWithEnhancementsIdentifier),
+        type: DB.IncludeIdentifier(SkillWithEnhancementsIdentifier),
       }),
-      skill_rating: Required({
+      skill_rating: DB.Required({
         comment: "The skill rating required to learn this enhancement.",
-        type: Integer({
+        type: DB.Integer({
           minimum: 8,
           maximum: 16,
           multipleOf: 2,
         }),
       }),
-      adventure_points_modifier: Required({
+      adventure_points_modifier: DB.Required({
         comment:
           "The value to multiply with the numeric representation of the associated skill's improvement cost to form the final AP cost of this enhancement.",
-        type: Integer({
+        type: DB.Integer({
           minimum: 1,
         }),
       }),
-      prerequisites: Optional({
-        type: IncludeIdentifier(EnhancementPrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(EnhancementPrerequisites),
       }),
-      src: Optional({
+      src: DB.Optional({
         comment: "Only defined if different than the associated skill.",
-        type: IncludeIdentifier(PublicationRefs),
+        type: DB.IncludeIdentifier(PublicationRefs),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Enhancement",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The name of the enhancement.",
-            type: String({
+            type: DB.String({
               minLength: 1,
             }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment: "The effect description.",
-            type: String({
+            type: DB.String({
               minLength: 1,
               isMarkdown: true,
             }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

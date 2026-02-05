@@ -1,31 +1,31 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import { CombatUse, Cost, DefaultItemTranslations, RestrictedTo, StructurePoints } from "./_Item.js"
 import { checkWeaponCombatTechniqueIntegrity } from "./_Weapon.js"
 
-export const EquipmentOfBlessedOnes = Entity(import.meta.url, {
+export const EquipmentOfBlessedOnes = DB.Entity(import.meta.url, {
   name: "EquipmentOfBlessedOnes",
   namePlural: "EquipmentOfBlessedOnes",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
-      structure_points: Required({
+      structure_points: DB.Required({
         comment:
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
-        type: IncludeIdentifier(StructurePoints),
+        type: DB.IncludeIdentifier(StructurePoints),
       }),
-      restrictedTo: Optional({
+      restrictedTo: DB.Optional({
         comment:
           "Define if during character creation this item can only be bought by a specific subset of characters.",
-        type: IncludeIdentifier(RestrictedTo),
+        type: DB.IncludeIdentifier(RestrictedTo),
       }),
-      combat_use: Optional({
+      combat_use: DB.Optional({
         comment:
           "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
-        type: IncludeIdentifier(CombatUse),
+        type: DB.IncludeIdentifier(CombatUse),
       }),
       src,
       translations: DefaultItemTranslations("EquipmentOfBlessedOnes"),

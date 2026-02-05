@@ -1,12 +1,4 @@
-import {
-  Entity,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { levels, maximum, name, name_in_library } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { explicit_select_options, select_options } from "../_ActivatableSelectOptions.js"
@@ -15,42 +7,42 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const ProtectiveWardingCircleSpecialAbility = Entity(import.meta.url, {
+export const ProtectiveWardingCircleSpecialAbility = DB.Entity(import.meta.url, {
   name: "ProtectiveWardingCircleSpecialAbility",
   namePlural: "ProtectiveWardingCircleSpecialAbilities",
   type: () =>
-    Object({
+    DB.Object({
       levels,
       select_options,
       explicit_select_options,
       maximum,
-      prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(GeneralPrerequisites),
       }),
-      cost: Required({
+      cost: DB.Required({
         comment: "The cost in AE.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
       ap_value,
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "ProtectiveWardingCircleSpecialAbility",
-        Object({
+        DB.Object({
           name,
           name_in_library,
-          protective_circle: Required({
+          protective_circle: DB.Required({
             comment: "The rules for the protective circle variant.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          warding_circle: Optional({
+          warding_circle: DB.Optional({
             comment: "The rules for the warding circle variant.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
           ap_value_append,
           ap_value: ap_value_l10n,
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

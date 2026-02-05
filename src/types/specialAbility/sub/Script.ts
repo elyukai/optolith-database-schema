@@ -1,13 +1,4 @@
-import {
-  Array,
-  Entity,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { LanguageIdentifier } from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"
@@ -15,42 +6,42 @@ import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { AssociatedContinent } from "./_LanguageScript.js"
 
-export const Script = Entity(import.meta.url, {
+export const Script = DB.Entity(import.meta.url, {
   name: "Script",
   namePlural: "Scripts",
   type: () =>
-    Object({
-      ap_value: Optional({
+    DB.Object({
+      ap_value: DB.Optional({
         comment: "The script’s adventure point value",
-        type: Integer({ minimum: 2, multipleOf: 2 }),
+        type: DB.Integer({ minimum: 2, multipleOf: 2 }),
       }),
-      associated_languages: Required({
+      associated_languages: DB.Required({
         comment: "A list of languages that use this script.",
-        type: Array(LanguageIdentifier()),
+        type: DB.Array(LanguageIdentifier()),
       }),
-      continent: Required({
+      continent: DB.Required({
         comment: "The continents this language is present on.",
-        type: Array(IncludeIdentifier(AssociatedContinent), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(AssociatedContinent), { minItems: 1 }),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Script",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The script’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          alternative_names: Optional({
+          alternative_names: DB.Optional({
             comment: "A list of alternative names.",
-            type: Array(IncludeIdentifier(AlternativeName), { minItems: 1 }),
+            type: DB.Array(DB.IncludeIdentifier(AlternativeName), { minItems: 1 }),
           }),
-          alphabet: Optional({
+          alphabet: DB.Optional({
             comment: "The description of the alphabet.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

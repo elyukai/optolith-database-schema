@@ -1,17 +1,17 @@
-import { Boolean, Object, Required, TypeAlias } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { ContinentIdentifier } from "../../_Identifier.js"
 
-export const AssociatedContinent = TypeAlias(import.meta.url, {
+export const AssociatedContinent = DB.TypeAlias(import.meta.url, {
   name: "AssociatedContinent",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The continent’s identifier.",
         type: ContinentIdentifier(),
       }),
-      is_extinct: Required({
+      is_extinct: DB.Required({
         comment: "Is the language considered virtually extinct in this continent?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
     }),
 })

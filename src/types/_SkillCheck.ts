@@ -1,26 +1,26 @@
-import { Array, Enum, EnumCase, TypeAlias } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { AttributeIdentifier } from "./_Identifier.js"
 
-export const SkillCheck = TypeAlias(import.meta.url, {
+export const SkillCheck = DB.TypeAlias(import.meta.url, {
   name: "SkillCheck",
   comment: "The attributes’ identifiers of the skill check.",
   type: () =>
-    Array(AttributeIdentifier(), {
+    DB.Array(AttributeIdentifier(), {
       minItems: 3,
       maxItems: 3,
     }),
 })
 
-export const SkillCheckPenalty = Enum(import.meta.url, {
+export const SkillCheckPenalty = DB.Enum(import.meta.url, {
   name: "SkillCheckPenalty",
   comment: "A specific value that represents a penalty for the associated skill check.",
   values: () => ({
-    Spirit: EnumCase({ type: null }),
-    HalfOfSpirit: EnumCase({ type: null }),
-    Toughness: EnumCase({ type: null }),
-    HigherOfSpiritAndToughness: EnumCase({ type: null }),
-    SummoningDifficulty: EnumCase({ type: null }),
-    CreationDifficulty: EnumCase({ type: null }),
-    Object: EnumCase({ type: null }),
+    Spirit: DB.EnumCase({ type: null }),
+    HalfOfSpirit: DB.EnumCase({ type: null }),
+    Toughness: DB.EnumCase({ type: null }),
+    HigherOfSpiritAndToughness: DB.EnumCase({ type: null }),
+    SummoningDifficulty: DB.EnumCase({ type: null }),
+    CreationDifficulty: DB.EnumCase({ type: null }),
+    Object: DB.EnumCase({ type: null }),
   }),
 })

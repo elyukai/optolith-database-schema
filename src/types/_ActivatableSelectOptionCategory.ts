@@ -1,21 +1,4 @@
-import {
-  Array,
-  Boolean,
-  Enum,
-  EnumCase,
-  GenEnum,
-  GenIncludeIdentifier,
-  GenTypeAlias,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Param,
-  Required,
-  String,
-  TypeAlias,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import {
   CeremonyIdentifier,
@@ -35,527 +18,551 @@ import {
   SkillishIdentifier,
 } from "./_IdentifierGroup.js"
 
-export const SelectOptionCategory = Enum(import.meta.url, {
+export const SelectOptionCategory = DB.Enum(import.meta.url, {
   name: "SelectOptionCategory",
   values: () => ({
-    Blessings: EnumCase({ type: null }),
-    Cantrips: EnumCase({ type: null }),
-    TradeSecrets: EnumCase({ type: null }),
-    Scripts: EnumCase({ type: null }),
-    AnimalShapes: EnumCase({ type: null }),
-    ArcaneBardTraditions: EnumCase({ type: null }),
-    ArcaneDancerTraditions: EnumCase({ type: null }),
-    SexPractices: EnumCase({ type: null }),
-    Races: EnumCase({ type: null }),
-    Cultures: EnumCase({ type: null }),
-    RacesAndCultures: EnumCase({ type: null }),
-    HomunculusTypes: EnumCase({ type: null }),
-    BlessedTraditions: EnumCase({ type: IncludeIdentifier(BlessedTraditionsSelectOptionCategory) }),
-    Elements: EnumCase({ type: IncludeIdentifier(ElementsSelectOptionCategory) }),
-    Properties: EnumCase({ type: IncludeIdentifier(PropertiesSelectOptionCategory) }),
-    Aspects: EnumCase({ type: IncludeIdentifier(AspectSelectOptionCategory) }),
-    Diseases: EnumCase({ type: IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
-    Poisons: EnumCase({ type: IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
-    Languages: EnumCase({ type: IncludeIdentifier(LanguagesSelectOptionCategory) }),
-    Skills: EnumCase({ type: IncludeIdentifier(SkillsSelectOptionCategory) }),
-    CombatTechniques: EnumCase({ type: IncludeIdentifier(CombatTechniquesSelectOptionCategory) }),
-    TargetCategories: EnumCase({ type: IncludeIdentifier(TargetCategoriesSelectOptionCategory) }),
+    Blessings: DB.EnumCase({ type: null }),
+    Cantrips: DB.EnumCase({ type: null }),
+    TradeSecrets: DB.EnumCase({ type: null }),
+    Scripts: DB.EnumCase({ type: null }),
+    AnimalShapes: DB.EnumCase({ type: null }),
+    ArcaneBardTraditions: DB.EnumCase({ type: null }),
+    ArcaneDancerTraditions: DB.EnumCase({ type: null }),
+    SexPractices: DB.EnumCase({ type: null }),
+    Races: DB.EnumCase({ type: null }),
+    Cultures: DB.EnumCase({ type: null }),
+    RacesAndCultures: DB.EnumCase({ type: null }),
+    HomunculusTypes: DB.EnumCase({ type: null }),
+    BlessedTraditions: DB.EnumCase({
+      type: DB.IncludeIdentifier(BlessedTraditionsSelectOptionCategory),
+    }),
+    Elements: DB.EnumCase({ type: DB.IncludeIdentifier(ElementsSelectOptionCategory) }),
+    Properties: DB.EnumCase({ type: DB.IncludeIdentifier(PropertiesSelectOptionCategory) }),
+    Aspects: DB.EnumCase({ type: DB.IncludeIdentifier(AspectSelectOptionCategory) }),
+    Diseases: DB.EnumCase({ type: DB.IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
+    Poisons: DB.EnumCase({ type: DB.IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
+    Languages: DB.EnumCase({ type: DB.IncludeIdentifier(LanguagesSelectOptionCategory) }),
+    Skills: DB.EnumCase({ type: DB.IncludeIdentifier(SkillsSelectOptionCategory) }),
+    CombatTechniques: DB.EnumCase({
+      type: DB.IncludeIdentifier(CombatTechniquesSelectOptionCategory),
+    }),
+    TargetCategories: DB.EnumCase({
+      type: DB.IncludeIdentifier(TargetCategoriesSelectOptionCategory),
+    }),
   }),
 })
 
-export const TradeSecretSelectOptionCategory = Enum(import.meta.url, {
+export const TradeSecretSelectOptionCategory = DB.Enum(import.meta.url, {
   name: "TradeSecretSelectOptionCategory",
   values: () => ({
-    Blessings: EnumCase({ type: null }),
-    Cantrips: EnumCase({ type: null }),
-    Scripts: EnumCase({ type: null }),
-    AnimalShapes: EnumCase({ type: null }),
-    ArcaneBardTraditions: EnumCase({ type: null }),
-    ArcaneDancerTraditions: EnumCase({ type: null }),
-    SexPractices: EnumCase({ type: null }),
-    Races: EnumCase({ type: null }),
-    Cultures: EnumCase({ type: null }),
-    RacesAndCultures: EnumCase({ type: null }),
-    HomunculusTypes: EnumCase({ type: null }),
-    BlessedTraditions: EnumCase({ type: IncludeIdentifier(BlessedTraditionsSelectOptionCategory) }),
-    Elements: EnumCase({ type: IncludeIdentifier(ElementsSelectOptionCategory) }),
-    Properties: EnumCase({ type: IncludeIdentifier(PropertiesSelectOptionCategory) }),
-    Aspects: EnumCase({ type: IncludeIdentifier(AspectSelectOptionCategory) }),
-    Diseases: EnumCase({ type: IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
-    Poisons: EnumCase({ type: IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
-    Languages: EnumCase({ type: IncludeIdentifier(LanguagesSelectOptionCategory) }),
-    Skills: EnumCase({ type: IncludeIdentifier(SkillsSelectOptionCategory) }),
-    CombatTechniques: EnumCase({ type: IncludeIdentifier(CombatTechniquesSelectOptionCategory) }),
-    TargetCategories: EnumCase({ type: IncludeIdentifier(TargetCategoriesSelectOptionCategory) }),
+    Blessings: DB.EnumCase({ type: null }),
+    Cantrips: DB.EnumCase({ type: null }),
+    Scripts: DB.EnumCase({ type: null }),
+    AnimalShapes: DB.EnumCase({ type: null }),
+    ArcaneBardTraditions: DB.EnumCase({ type: null }),
+    ArcaneDancerTraditions: DB.EnumCase({ type: null }),
+    SexPractices: DB.EnumCase({ type: null }),
+    Races: DB.EnumCase({ type: null }),
+    Cultures: DB.EnumCase({ type: null }),
+    RacesAndCultures: DB.EnumCase({ type: null }),
+    HomunculusTypes: DB.EnumCase({ type: null }),
+    BlessedTraditions: DB.EnumCase({
+      type: DB.IncludeIdentifier(BlessedTraditionsSelectOptionCategory),
+    }),
+    Elements: DB.EnumCase({ type: DB.IncludeIdentifier(ElementsSelectOptionCategory) }),
+    Properties: DB.EnumCase({ type: DB.IncludeIdentifier(PropertiesSelectOptionCategory) }),
+    Aspects: DB.EnumCase({ type: DB.IncludeIdentifier(AspectSelectOptionCategory) }),
+    Diseases: DB.EnumCase({ type: DB.IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
+    Poisons: DB.EnumCase({ type: DB.IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
+    Languages: DB.EnumCase({ type: DB.IncludeIdentifier(LanguagesSelectOptionCategory) }),
+    Skills: DB.EnumCase({ type: DB.IncludeIdentifier(SkillsSelectOptionCategory) }),
+    CombatTechniques: DB.EnumCase({
+      type: DB.IncludeIdentifier(CombatTechniquesSelectOptionCategory),
+    }),
+    TargetCategories: DB.EnumCase({
+      type: DB.IncludeIdentifier(TargetCategoriesSelectOptionCategory),
+    }),
   }),
 })
 
-const BlessedTraditionsSelectOptionCategory = TypeAlias(import.meta.url, {
+const BlessedTraditionsSelectOptionCategory = DB.TypeAlias(import.meta.url, {
   name: "BlessedTraditionsSelectOptionCategory",
   type: () =>
-    Object({
-      require_principles: Optional({
+    DB.Object({
+      require_principles: DB.Optional({
         comment:
           "Should the principles (code) of the tradition be required to select the respective tradition?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
     }),
 })
 
-const ElementsSelectOptionCategory = TypeAlias(import.meta.url, {
+const ElementsSelectOptionCategory = DB.TypeAlias(import.meta.url, {
   name: "ElementsSelectOptionCategory",
   type: () =>
-    Object({
-      specific: Optional({
+    DB.Object({
+      specific: DB.Optional({
         comment: "Only include entries with the listed identifiers.",
-        type: Array(ElementIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(ElementIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
 
-const PropertiesSelectOptionCategory = TypeAlias(import.meta.url, {
+const PropertiesSelectOptionCategory = DB.TypeAlias(import.meta.url, {
   name: "PropertiesSelectOptionCategory",
   type: () =>
-    Object({
-      require_knowledge: Optional({
+    DB.Object({
+      require_knowledge: DB.Optional({
         comment: "Does each property require its corresponding property knowledge?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      require_minimum_spellworks_on: Optional({
+      require_minimum_spellworks_on: DB.Optional({
         comment:
           "Require a minimum number of spellworks of the respective property to be on a minimum skill rating.",
-        type: IncludeIdentifier(RequiredMinimumSkillsToBeOnSkillRating),
+        type: DB.IncludeIdentifier(RequiredMinimumSkillsToBeOnSkillRating),
       }),
     }),
 })
 
-const AspectSelectOptionCategory = TypeAlias(import.meta.url, {
+const AspectSelectOptionCategory = DB.TypeAlias(import.meta.url, {
   name: "AspectSelectOptionCategory",
   type: () =>
-    Object({
-      require_knowledge: Optional({
+    DB.Object({
+      require_knowledge: DB.Optional({
         comment: "Does each aspect require its corresponding aspect knowledge?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      use_master_of_suffix_as_name: Optional({
+      use_master_of_suffix_as_name: DB.Optional({
         comment:
           "The generated name should be the *Master of (Aspect)* suffix for this aspect instead of the aspect's name. If an aspect does not provide a suffix (such as the General aspect), it is automatically excluded from the list.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      require_minimum_liturgies_on: Optional({
+      require_minimum_liturgies_on: DB.Optional({
         comment:
           "Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating.",
-        type: IncludeIdentifier(RequiredMinimumSkillsToBeOnSkillRating),
+        type: DB.IncludeIdentifier(RequiredMinimumSkillsToBeOnSkillRating),
       }),
     }),
 })
 
-const RequiredMinimumSkillsToBeOnSkillRating = TypeAlias(import.meta.url, {
+const RequiredMinimumSkillsToBeOnSkillRating = DB.TypeAlias(import.meta.url, {
   name: "RequiredMinimumSkillsToBeOnSkillRating",
   comment:
     "Require a minimum number of spellworks/liturgies of the respective property/aspect to be on a minimum skill rating.",
   type: () =>
-    Object({
-      number: Required({
+    DB.Object({
+      number: DB.Required({
         comment:
           "The minimum number of liturgies that need to be on the defined minimum skill rating.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      rating: Required({
+      rating: DB.Required({
         comment: "The minimum skill rating the defined minimum number of liturgies need to be on.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const DiseasesPoisonsSelectOptionCategory = TypeAlias(import.meta.url, {
+const DiseasesPoisonsSelectOptionCategory = DB.TypeAlias(import.meta.url, {
   name: "DiseasesPoisonsSelectOptionCategory",
   type: () =>
-    Object({
-      use_half_level_as_ap_value: Optional({
+    DB.Object({
+      use_half_level_as_ap_value: DB.Optional({
         comment: "Only convert half the disease/poison level into the AP value.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
     }),
 })
 
-const LanguagesSelectOptionCategory = TypeAlias(import.meta.url, {
+const LanguagesSelectOptionCategory = DB.TypeAlias(import.meta.url, {
   name: "LanguagesSelectOptionCategory",
   type: () =>
-    Object({
-      prerequisites: Optional({
+    DB.Object({
+      prerequisites: DB.Optional({
         comment: "Generate prerequisites for each entry of the category.",
-        type: Array(IncludeIdentifier(LanguagesSelectOptionCategoryPrerequisite), { minItems: 1 }),
-      }),
-    }),
-})
-
-const LanguagesSelectOptionCategoryPrerequisite = Enum(import.meta.url, {
-  name: "LanguagesSelectOptionCategoryPrerequisite",
-  values: () => ({
-    SelectOption: EnumCase({ type: IncludeIdentifier(OptionPrerequisite) }),
-  }),
-})
-
-const SkillsSelectOptionCategory = TypeAlias(import.meta.url, {
-  name: "SkillsSelectOptionCategory",
-  type: () =>
-    Object({
-      categories: Required({
-        comment: "A list of skill categories.",
-        type: Array(IncludeIdentifier(SkillsSelectOptionCategoryCategory), { minItems: 1 }),
-      }),
-      ap_value: Optional({
-        comment: "Generate AP values for each entry.",
-        type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [
-          IncludeIdentifier(SkillishIdentifier),
-        ]),
-      }),
-    }),
-})
-
-const SkillsSelectOptionCategoryCategory = Enum(import.meta.url, {
-  name: "SkillsSelectOptionCategoryCategory",
-  values: () => ({
-    Skills: EnumCase({ type: IncludeIdentifier(SkillSelectOptionCategoryCategory) }),
-    Spells: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [SpellIdentifier()]),
-    }),
-    Rituals: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [RitualIdentifier()]),
-    }),
-    LiturgicalChants: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
-        LiturgicalChantIdentifier(),
-      ]),
-    }),
-    Ceremonies: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [CeremonyIdentifier()]),
-    }),
-  }),
-})
-
-const SkillSelectOptionCategoryCategory = TypeAlias(import.meta.url, {
-  name: "SkillSelectOptionCategoryCategory",
-  type: () =>
-    Object({
-      groups: Optional({
-        comment: "Only include entries of the specified groups.",
-        type: Array(SkillGroupIdentifier(), { minItems: 1 }),
-      }),
-      specific: Optional({
-        comment: "Only include or exclude specific skills.",
-        type: GenIncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategory, [
-          SkillIdentifier(),
-        ]),
-      }),
-      skill_applications: Optional({
-        comment:
-          "Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.",
-        type: Array(IncludeIdentifier(SkillApplicationOrUse), { minItems: 1 }),
-      }),
-      skill_uses: Optional({
-        comment:
-          "Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.",
-        type: Array(IncludeIdentifier(SkillApplicationOrUse), { minItems: 1 }),
-      }),
-      prerequisites: Optional({
-        comment: "Generate prerequisites for each entry of the category.",
-        type: Array(IncludeIdentifier(SkillSelectOptionCategoryPrerequisite), { minItems: 1 }),
-      }),
-      ap_value: Optional({
-        comment: "Generate AP values for each entry.",
-        type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [SkillIdentifier()]),
-      }),
-    }),
-})
-
-const CombatTechniquesSelectOptionCategory = TypeAlias(import.meta.url, {
-  name: "CombatTechniquesSelectOptionCategory",
-  type: () =>
-    Object({
-      categories: Required({
-        comment: "A list of combat technique categories.",
-        type: Array(IncludeIdentifier(CombatTechniquesSelectOptionCategoryCategory), {
+        type: DB.Array(DB.IncludeIdentifier(LanguagesSelectOptionCategoryPrerequisite), {
           minItems: 1,
         }),
       }),
-      bindingCost: Optional({
-        comment:
-          "Generate binding cost values for each entry.\n\n*Note: This only works if the entry it is defined on supports binding costs, i.e. is a tradition artifact enchantment.*",
-        type: GenIncludeIdentifier(SelectOptionsBindingCostValue, [
-          IncludeIdentifier(CombatTechniqueIdentifier),
-        ]),
+    }),
+})
+
+const LanguagesSelectOptionCategoryPrerequisite = DB.Enum(import.meta.url, {
+  name: "LanguagesSelectOptionCategoryPrerequisite",
+  values: () => ({
+    SelectOption: DB.EnumCase({ type: DB.IncludeIdentifier(OptionPrerequisite) }),
+  }),
+})
+
+const SkillsSelectOptionCategory = DB.TypeAlias(import.meta.url, {
+  name: "SkillsSelectOptionCategory",
+  type: () =>
+    DB.Object({
+      categories: DB.Required({
+        comment: "A list of skill categories.",
+        type: DB.Array(DB.IncludeIdentifier(SkillsSelectOptionCategoryCategory), { minItems: 1 }),
       }),
-      ap_value: Optional({
+      ap_value: DB.Optional({
         comment: "Generate AP values for each entry.",
-        type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [
-          IncludeIdentifier(CombatTechniqueIdentifier),
+        type: DB.GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [
+          DB.IncludeIdentifier(SkillishIdentifier),
         ]),
       }),
     }),
 })
 
-const CombatTechniquesSelectOptionCategoryCategory = Enum(import.meta.url, {
+const SkillsSelectOptionCategoryCategory = DB.Enum(import.meta.url, {
+  name: "SkillsSelectOptionCategoryCategory",
+  values: () => ({
+    Skills: DB.EnumCase({ type: DB.IncludeIdentifier(SkillSelectOptionCategoryCategory) }),
+    Spells: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [SpellIdentifier()]),
+    }),
+    Rituals: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
+        RitualIdentifier(),
+      ]),
+    }),
+    LiturgicalChants: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
+        LiturgicalChantIdentifier(),
+      ]),
+    }),
+    Ceremonies: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
+        CeremonyIdentifier(),
+      ]),
+    }),
+  }),
+})
+
+const SkillSelectOptionCategoryCategory = DB.TypeAlias(import.meta.url, {
+  name: "SkillSelectOptionCategoryCategory",
+  type: () =>
+    DB.Object({
+      groups: DB.Optional({
+        comment: "Only include entries of the specified groups.",
+        type: DB.Array(SkillGroupIdentifier(), { minItems: 1 }),
+      }),
+      specific: DB.Optional({
+        comment: "Only include or exclude specific skills.",
+        type: DB.GenIncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategory, [
+          SkillIdentifier(),
+        ]),
+      }),
+      skill_applications: DB.Optional({
+        comment:
+          "Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.",
+        type: DB.Array(DB.IncludeIdentifier(SkillApplicationOrUse), { minItems: 1 }),
+      }),
+      skill_uses: DB.Optional({
+        comment:
+          "Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.",
+        type: DB.Array(DB.IncludeIdentifier(SkillApplicationOrUse), { minItems: 1 }),
+      }),
+      prerequisites: DB.Optional({
+        comment: "Generate prerequisites for each entry of the category.",
+        type: DB.Array(DB.IncludeIdentifier(SkillSelectOptionCategoryPrerequisite), {
+          minItems: 1,
+        }),
+      }),
+      ap_value: DB.Optional({
+        comment: "Generate AP values for each entry.",
+        type: DB.GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [SkillIdentifier()]),
+      }),
+    }),
+})
+
+const CombatTechniquesSelectOptionCategory = DB.TypeAlias(import.meta.url, {
+  name: "CombatTechniquesSelectOptionCategory",
+  type: () =>
+    DB.Object({
+      categories: DB.Required({
+        comment: "A list of combat technique categories.",
+        type: DB.Array(DB.IncludeIdentifier(CombatTechniquesSelectOptionCategoryCategory), {
+          minItems: 1,
+        }),
+      }),
+      bindingCost: DB.Optional({
+        comment:
+          "Generate binding cost values for each entry.\n\n*Note: This only works if the entry it is defined on supports binding costs, i.e. is a tradition artifact enchantment.*",
+        type: DB.GenIncludeIdentifier(SelectOptionsBindingCostValue, [
+          DB.IncludeIdentifier(CombatTechniqueIdentifier),
+        ]),
+      }),
+      ap_value: DB.Optional({
+        comment: "Generate AP values for each entry.",
+        type: DB.GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [
+          DB.IncludeIdentifier(CombatTechniqueIdentifier),
+        ]),
+      }),
+    }),
+})
+
+const CombatTechniquesSelectOptionCategoryCategory = DB.Enum(import.meta.url, {
   name: "CombatTechniquesSelectOptionCategoryCategory",
   values: () => ({
-    CloseCombatTechniques: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
+    CloseCombatTechniques: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
         CloseCombatTechniqueIdentifier(),
       ]),
     }),
-    RangedCombatTechniques: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
+    RangedCombatTechniques: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
         RangedCombatTechniqueIdentifier(),
       ]),
     }),
   }),
 })
 
-const SkillApplicationOrUse = TypeAlias(import.meta.url, {
+const SkillApplicationOrUse = DB.TypeAlias(import.meta.url, {
   name: "SkillApplicationOrUse",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The application’s or use’s identifier. An entry-unique, increasing integer.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "SkillApplicationOrUse",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment:
               "The name of the application or use if different from the activatable entry’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
     }),
 })
 
-const GenericSkillsSelectOptionCategoryCategory = GenTypeAlias(import.meta.url, {
+const GenericSkillsSelectOptionCategoryCategory = DB.GenTypeAlias(import.meta.url, {
   name: "GenericSkillsSelectOptionCategoryCategory",
-  parameters: [Param("Ref")],
+  parameters: [DB.Param("Ref")],
   type: Ref =>
-    Object({
-      specific: Optional({
+    DB.Object({
+      specific: DB.Optional({
         comment: "Only include (`Intersection`) or exclude (`Difference`) specific entries.",
-        type: GenIncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategory, [
-          TypeArgument(Ref),
+        type: DB.GenIncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategory, [
+          DB.TypeArgument(Ref),
         ]),
       }),
-      prerequisites: Optional({
+      prerequisites: DB.Optional({
         comment: "Generate prerequisites for each entry of the category.",
-        type: Array(IncludeIdentifier(SkillSelectOptionCategoryPrerequisite), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(SkillSelectOptionCategoryPrerequisite), {
+          minItems: 1,
+        }),
       }),
     }),
 })
 
-const SpecificFromSkillSelectOptionCategoryCategory = GenTypeAlias(import.meta.url, {
+const SpecificFromSkillSelectOptionCategoryCategory = DB.GenTypeAlias(import.meta.url, {
   name: "SpecificFromSkillSelectOptionCategoryCategory",
-  parameters: [Param("Ref")],
+  parameters: [DB.Param("Ref")],
   type: Ref =>
-    Object({
-      operation: Required({
-        type: IncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategoryOperation),
+    DB.Object({
+      operation: DB.Required({
+        type: DB.IncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategoryOperation),
       }),
-      list: Required({
+      list: DB.Required({
         comment: "The list of specific entries.",
-        type: Array(TypeArgument(Ref), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(DB.TypeArgument(Ref), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
 
-const SpecificFromSkillSelectOptionCategoryCategoryOperation = Enum(import.meta.url, {
+const SpecificFromSkillSelectOptionCategoryCategoryOperation = DB.Enum(import.meta.url, {
   name: "SpecificFromSkillSelectOptionCategoryCategoryOperation",
   comment: "Only include (`Intersection`) or exclude (`Difference`) specific entries.",
   values: () => ({
-    Intersection: EnumCase({ type: null }),
-    Difference: EnumCase({ type: null }),
+    Intersection: DB.EnumCase({ type: null }),
+    Difference: DB.EnumCase({ type: null }),
   }),
 })
 
-const SkillSelectOptionCategoryPrerequisite = Enum(import.meta.url, {
+const SkillSelectOptionCategoryPrerequisite = DB.Enum(import.meta.url, {
   name: "SkillSelectOptionCategoryPrerequisite",
   values: () => ({
-    Self: EnumCase({ type: IncludeIdentifier(SelfPrerequisite) }),
-    SelectOption: EnumCase({ type: IncludeIdentifier(OptionPrerequisite) }),
+    Self: DB.EnumCase({ type: DB.IncludeIdentifier(SelfPrerequisite) }),
+    SelectOption: DB.EnumCase({ type: DB.IncludeIdentifier(OptionPrerequisite) }),
   }),
 })
 
-const SelfPrerequisite = TypeAlias(import.meta.url, {
+const SelfPrerequisite = DB.TypeAlias(import.meta.url, {
   name: "SelfPrerequisite",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The entry requires itself on a certain Skill Rating.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const OptionPrerequisite = TypeAlias(import.meta.url, {
+const OptionPrerequisite = DB.TypeAlias(import.meta.url, {
   name: "OptionPrerequisite",
   comment: "The entry requires or prohibits itself as a select option of another entry.",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The target entry's identifier.",
-        type: IncludeIdentifier(ActivatableIdentifier),
+        type: DB.IncludeIdentifier(ActivatableIdentifier),
       }),
-      active: Required({
+      active: DB.Required({
         comment: "Is the select option required (`true`) or prohibited (`false`)?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      level: Optional({
+      level: DB.Optional({
         comment: "The required level, if any.",
-        type: Integer({ minimum: 2 }),
+        type: DB.Integer({ minimum: 2 }),
       }),
     }),
 })
 
-const SelectOptionsAdventurePointsValue = GenEnum(import.meta.url, {
+const SelectOptionsAdventurePointsValue = DB.GenEnum(import.meta.url, {
   name: "SelectOptionsAdventurePointsValue",
   comment: "Generate AP values for each entry.",
-  parameters: [Param("Identifier")],
+  parameters: [DB.Param("Identifier")],
   values: Identifier => ({
-    DerivedFromImprovementCost: EnumCase({
-      type: IncludeIdentifier(SelectOptionsDeriveAdventurePointsValueFromImprovementCost),
+    DerivedFromImprovementCost: DB.EnumCase({
+      type: DB.IncludeIdentifier(SelectOptionsDeriveAdventurePointsValueFromImprovementCost),
     }),
-    Fixed: EnumCase({
-      type: GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValue, [
-        TypeArgument(Identifier),
+    Fixed: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValue, [
+        DB.TypeArgument(Identifier),
       ]),
     }),
   }),
 })
 
-const SelectOptionsDeriveAdventurePointsValueFromImprovementCost = TypeAlias(import.meta.url, {
+const SelectOptionsDeriveAdventurePointsValueFromImprovementCost = DB.TypeAlias(import.meta.url, {
   name: "SelectOptionsDeriveAdventurePointsValueFromImprovementCost",
   comment:
     "Derive the cost from the improvement cost of each entry. The AP value is calculated by multiplying the improvement cost with `multiplier` and then adding `offset`.",
   type: () =>
-    Object({
-      multiplier: Optional({
+    DB.Object({
+      multiplier: DB.Optional({
         comment:
           "This number is multiplied with the improvement cost of the entry (A = 1 to D = 4).",
-        type: Integer({ minimum: 2 }),
+        type: DB.Integer({ minimum: 2 }),
       }),
-      offset: Optional({
+      offset: DB.Optional({
         comment: "This number is added to the multiplied improvement cost of the entry.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const SelectOptionsFixedAdventurePointsValue = GenTypeAlias(import.meta.url, {
+const SelectOptionsFixedAdventurePointsValue = DB.GenTypeAlias(import.meta.url, {
   name: "SelectOptionsFixedAdventurePointsValue",
-  parameters: [Param("Identifier")],
+  parameters: [DB.Param("Identifier")],
   type: Identifier =>
-    Object({
-      map: Required({
+    DB.Object({
+      map: DB.Required({
         comment: "A mapping of skill identifiers to their specific AP values.",
-        type: Array(
-          GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValueMapping, [
-            TypeArgument(Identifier),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValueMapping, [
+            DB.TypeArgument(Identifier),
           ]),
         ),
       }),
-      default: Required({
+      default: DB.Required({
         comment:
           "The default value of an entry. Used as a fallback if no value is found in `list`.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const SelectOptionsFixedAdventurePointsValueMapping = GenTypeAlias(import.meta.url, {
+const SelectOptionsFixedAdventurePointsValueMapping = DB.GenTypeAlias(import.meta.url, {
   name: "SelectOptionsFixedAdventurePointsValueMapping",
-  parameters: [Param("Identifier")],
+  parameters: [DB.Param("Identifier")],
   type: Identifier =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The entry’s identifier.",
-        type: TypeArgument(Identifier),
+        type: DB.TypeArgument(Identifier),
       }),
-      ap_value: Required({
+      ap_value: DB.Required({
         comment: "The AP value for the specified entry.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const SelectOptionsBindingCostValue = GenEnum(import.meta.url, {
+const SelectOptionsBindingCostValue = DB.GenEnum(import.meta.url, {
   name: "SelectOptionsBindingCostValue",
   comment: "Generate binding cost for each entry.",
-  parameters: [Param("Identifier")],
+  parameters: [DB.Param("Identifier")],
   values: Identifier => ({
-    Fixed: EnumCase({
-      type: GenIncludeIdentifier(SelectOptionsFixedBindingCostValue, [TypeArgument(Identifier)]),
+    Fixed: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(SelectOptionsFixedBindingCostValue, [
+        DB.TypeArgument(Identifier),
+      ]),
     }),
   }),
 })
 
-const SelectOptionsFixedBindingCostValue = GenTypeAlias(import.meta.url, {
+const SelectOptionsFixedBindingCostValue = DB.GenTypeAlias(import.meta.url, {
   name: "SelectOptionsFixedBindingCostValue",
-  parameters: [Param("Identifier")],
+  parameters: [DB.Param("Identifier")],
   type: Identifier =>
-    Object({
-      map: Required({
+    DB.Object({
+      map: DB.Required({
         comment: "A mapping of skill identifiers to their specific binding cost values.",
-        type: Array(
-          GenIncludeIdentifier(SelectOptionsFixedBindingCostValueMapping, [
-            TypeArgument(Identifier),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(SelectOptionsFixedBindingCostValueMapping, [
+            DB.TypeArgument(Identifier),
           ]),
         ),
       }),
-      default: Required({
+      default: DB.Required({
         comment:
           "The default value of an entry. Used as a fallback if no value is found in `list`.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const SelectOptionsFixedBindingCostValueMapping = GenTypeAlias(import.meta.url, {
+const SelectOptionsFixedBindingCostValueMapping = DB.GenTypeAlias(import.meta.url, {
   name: "SelectOptionsFixedBindingCostValueMapping",
-  parameters: [Param("Identifier")],
+  parameters: [DB.Param("Identifier")],
   type: Identifier =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The entry’s identifier.",
-        type: TypeArgument(Identifier),
+        type: DB.TypeArgument(Identifier),
       }),
-      bindingCost: Required({
+      bindingCost: DB.Required({
         comment: "The binding cost for the specified entry.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const TargetCategoriesSelectOptionCategory = TypeAlias(import.meta.url, {
+const TargetCategoriesSelectOptionCategory = DB.TypeAlias(import.meta.url, {
   name: "TargetCategoriesSelectOptionCategory",
   type: () =>
-    Object({
-      list: Required({
+    DB.Object({
+      list: DB.Required({
         comment: "A list of target categories.",
-        type: Array(IncludeIdentifier(SpecificTargetCategory), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(SpecificTargetCategory), { minItems: 1 }),
       }),
     }),
 })
 
-const SpecificTargetCategory = TypeAlias(import.meta.url, {
+const SpecificTargetCategory = DB.TypeAlias(import.meta.url, {
   name: "SpecificTargetCategory",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The target category’s identifier.",
         type: TargetCategoryIdentifier(),
       }),
-      volume: Optional({
+      volume: DB.Optional({
         comment: "The volume for this specific selection.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
     }),
 })

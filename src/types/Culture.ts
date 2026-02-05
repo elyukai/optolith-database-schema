@@ -1,21 +1,4 @@
-import {
-  Array,
-  Boolean,
-  Entity,
-  Enum,
-  EnumCase,
-  GenIncludeIdentifier,
-  GenTypeAlias,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Param,
-  Required,
-  String,
-  TypeAlias,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import {
   AdvantageIdentifier,
@@ -35,108 +18,108 @@ import { MundaneProfessionGroup } from "./Profession.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Culture = Entity(import.meta.url, {
+export const Culture = DB.Entity(import.meta.url, {
   name: "Culture",
   namePlural: "Cultures",
   type: () =>
-    Object({
-      language: Required({
+    DB.Object({
+      language: DB.Required({
         comment: "A list of native languages (usually it is only one).",
-        type: Array(LanguageIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(LanguageIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
-      script: Optional({
+      script: DB.Optional({
         comment:
           "A list of native scripts (usually it is only one). If the culture does not use any script, leave this array empty.",
-        type: Array(ScriptIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(ScriptIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
-      area_knowledge: Required({
+      area_knowledge: DB.Required({
         comment: "If the area knowledge has a fixed value or can be adjusted.",
-        type: IncludeIdentifier(AreaKnowledge),
+        type: DB.IncludeIdentifier(AreaKnowledge),
       }),
-      social_status: Required({
+      social_status: DB.Required({
         comment: "A list of possible social status in the respective culture.",
-        type: Array(SocialStatusIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(SocialStatusIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
-      common_professions: Required({
+      common_professions: DB.Required({
         comment:
           "A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).",
-        type: IncludeIdentifier(CommonProfessions),
+        type: DB.IncludeIdentifier(CommonProfessions),
       }),
-      common_advantages: Optional({
+      common_advantages: DB.Optional({
         comment: "A list of common advantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      common_disadvantages: Optional({
+      common_disadvantages: DB.Optional({
         comment: "A list of common disadvantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      uncommon_advantages: Optional({
+      uncommon_advantages: DB.Optional({
         comment: "A list of uncommon advantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      uncommon_disadvantages: Optional({
+      uncommon_disadvantages: DB.Optional({
         comment: "A list of uncommon disadvantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
+        type: DB.Array(
+          DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 },
         ),
       }),
-      common_skills: Required({
+      common_skills: DB.Required({
         comment: "A list of common skills.",
-        type: Array(IncludeIdentifier(CommonnessRatedSkill), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(CommonnessRatedSkill), { minItems: 1 }),
       }),
-      uncommon_skills: Optional({
+      uncommon_skills: DB.Optional({
         comment: "A list of uncommon skills.",
-        type: Array(IncludeIdentifier(CommonnessRatedSkill), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(CommonnessRatedSkill), { minItems: 1 }),
       }),
-      cultural_package: Required({
+      cultural_package: DB.Required({
         comment: "The skill points you get for buying the culture package.",
-        type: Array(IncludeIdentifier(CulturalPackageItem), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(CulturalPackageItem), { minItems: 1 }),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Culture",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The race’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          area_knowledge: Required({
+          area_knowledge: DB.Required({
             comment: "The description of the area knowledge.",
-            type: IncludeIdentifier(AreaKnowledgeTranslation),
+            type: DB.IncludeIdentifier(AreaKnowledgeTranslation),
           }),
-          common_advantages: Optional({
+          common_advantages: DB.Optional({
             comment: "The respective common advantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          common_disadvantages: Optional({
+          common_disadvantages: DB.Optional({
             comment: "The respective common disadvantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          uncommon_advantages: Optional({
+          uncommon_advantages: DB.Optional({
             comment: "The respective uncommon advantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          uncommon_disadvantages: Optional({
+          uncommon_disadvantages: DB.Optional({
             comment: "The respective uncommon disadvantages text from the source book.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          common_names: Required({
+          common_names: DB.Required({
             comment: "Structured description of common names.",
-            type: IncludeIdentifier(CommonNames),
+            type: DB.IncludeIdentifier(CommonNames),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -150,192 +133,192 @@ export const Culture = Entity(import.meta.url, {
   ],
 })
 
-const AreaKnowledge = TypeAlias(import.meta.url, {
+const AreaKnowledge = DB.TypeAlias(import.meta.url, {
   name: "AreaKnowledge",
   comment: "If the area knowledge has a fixed value or can be adjusted.",
   type: () =>
-    Object({
-      is_fixed: Required({
+    DB.Object({
+      is_fixed: DB.Required({
         comment: "`true` if the area knowledge has a fixed value, `false` if it can be adjusted.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
     }),
 })
 
-const CommonnessWeight = Enum(import.meta.url, {
+const CommonnessWeight = DB.Enum(import.meta.url, {
   name: "CommonnessWeight",
   comment:
     "The “weight” difference compared to other professions or profession variants. Some professions or profession variants are simply more common (`Mostly`), but sometimes only specific elements are used (`Only`).",
   values: () => ({
-    Mostly: EnumCase({ type: null }),
-    Only: EnumCase({ type: null }),
+    Mostly: DB.EnumCase({ type: null }),
+    Only: DB.EnumCase({ type: null }),
   }),
 })
 
-const Weighted = GenTypeAlias(import.meta.url, {
+const Weighted = DB.GenTypeAlias(import.meta.url, {
   name: "Weighted",
   comment:
     "Some professions or profession variants are more common than others. There may be cultures where some professions or profession variants are not represented at all.",
-  parameters: [Param("ProfessionOrVariant")],
+  parameters: [DB.Param("ProfessionOrVariant")],
   type: ProfessionOrVariant =>
-    Object({
-      elements: Required({
+    DB.Object({
+      elements: DB.Required({
         comment: "The list of more common professions or profession variants.",
-        type: Array(TypeArgument(ProfessionOrVariant), { minItems: 1 }),
+        type: DB.Array(DB.TypeArgument(ProfessionOrVariant), { minItems: 1 }),
       }),
-      weight: Required({
+      weight: DB.Required({
         comment: "The list of more common professions or profession variants.",
-        type: IncludeIdentifier(CommonnessWeight),
+        type: DB.IncludeIdentifier(CommonnessWeight),
       }),
     }),
 })
 
-const CommonProfessionConstraintsOperation = Enum(import.meta.url, {
+const CommonProfessionConstraintsOperation = DB.Enum(import.meta.url, {
   name: "CommonProfessionConstraintsOperation",
   comment:
     "This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints or only the professions are kept that are different from the constraints.",
   values: () => ({
-    Intersection: EnumCase({ type: null }),
-    Difference: EnumCase({ type: null }),
+    Intersection: DB.EnumCase({ type: null }),
+    Difference: DB.EnumCase({ type: null }),
   }),
 })
 
-const CommonProfessionConstraints = GenTypeAlias(import.meta.url, {
+const CommonProfessionConstraints = DB.GenTypeAlias(import.meta.url, {
   name: "CommonProfessionConstraints",
   comment:
     "A list of professions. The filter specifies how the list is applied to all mundane professions.",
-  parameters: [Param("Constraint")],
+  parameters: [DB.Param("Constraint")],
   type: Constraint =>
-    Object({
-      constraints: Required({
+    DB.Object({
+      constraints: DB.Required({
         comment: "The list of constraints.",
-        type: Array(TypeArgument(Constraint), { minItems: 1 }),
+        type: DB.Array(DB.TypeArgument(Constraint), { minItems: 1 }),
       }),
-      operation: Required({
+      operation: DB.Required({
         comment:
           "This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints or only the professions are kept that are different from the constraints.",
-        type: IncludeIdentifier(CommonProfessionConstraintsOperation),
+        type: DB.IncludeIdentifier(CommonProfessionConstraintsOperation),
       }),
     }),
 })
 
-const Rarity = Enum(import.meta.url, {
+const Rarity = DB.Enum(import.meta.url, {
   name: "Rarity",
   comment: "Some professions may be found in a culture, but are not that common.",
   values: () => ({
-    Rare: EnumCase({ type: null }),
-    VeryRare: EnumCase({ type: null }),
+    Rare: DB.EnumCase({ type: null }),
+    VeryRare: DB.EnumCase({ type: null }),
   }),
 })
 
-const ProfessionConstraint = TypeAlias(import.meta.url, {
+const ProfessionConstraint = DB.TypeAlias(import.meta.url, {
   name: "ProfessionConstraint",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The profession’s identifier.",
         type: ProfessionIdentifier(),
       }),
-      weighted_variants: Optional({
+      weighted_variants: DB.Optional({
         comment:
           "Some profession variants are more common than others. There may be cultures where some variants are not represented at all.",
-        type: GenIncludeIdentifier(Weighted, [ProfessionVariantIdentifier()]),
+        type: DB.GenIncludeIdentifier(Weighted, [ProfessionVariantIdentifier()]),
       }),
-      rarity: Optional({
+      rarity: DB.Optional({
         comment: "Some professions may be found in a culture, but are not that common.",
-        type: IncludeIdentifier(Rarity),
+        type: DB.IncludeIdentifier(Rarity),
       }),
     }),
 })
 
-const MagicalTraditionConstraint = TypeAlias(import.meta.url, {
+const MagicalTraditionConstraint = DB.TypeAlias(import.meta.url, {
   name: "MagicalTraditionConstraint",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The magical tradition’s identifier.",
         type: MagicalTraditionIdentifier(),
       }),
-      weighted_professions: Optional({
+      weighted_professions: DB.Optional({
         comment:
           "Some professions are more common than others. There may be cultures where some professions are not represented at all.",
-        type: GenIncludeIdentifier(Weighted, [ProfessionIdentifier()]),
+        type: DB.GenIncludeIdentifier(Weighted, [ProfessionIdentifier()]),
       }),
-      rarity: Optional({
+      rarity: DB.Optional({
         comment: "Some traditions may be found in a culture, but are not that common.",
-        type: IncludeIdentifier(Rarity),
+        type: DB.IncludeIdentifier(Rarity),
       }),
     }),
 })
 
-const BlessedTraditionConstraint = TypeAlias(import.meta.url, {
+const BlessedTraditionConstraint = DB.TypeAlias(import.meta.url, {
   name: "BlessedTraditionConstraint",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The blessed tradition’s identifier.",
         type: BlessedTraditionIdentifier(),
       }),
-      weighted_professions: Optional({
+      weighted_professions: DB.Optional({
         comment:
           "Some professions are more common than others. There may be cultures where some professions are not represented at all.",
-        type: GenIncludeIdentifier(Weighted, [ProfessionIdentifier()]),
+        type: DB.GenIncludeIdentifier(Weighted, [ProfessionIdentifier()]),
       }),
-      rarity: Optional({
+      rarity: DB.Optional({
         comment: "Some traditions may be found in a culture, but are not that common.",
-        type: IncludeIdentifier(Rarity),
+        type: DB.IncludeIdentifier(Rarity),
       }),
     }),
 })
 
-const MundaneCommonProfessionConstraint = Enum(import.meta.url, {
+const MundaneCommonProfessionConstraint = DB.Enum(import.meta.url, {
   name: "MundaneCommonProfessionConstraint",
   values: () => ({
-    Profession: EnumCase({ type: IncludeIdentifier(ProfessionConstraint) }),
-    ProfessionSubgroup: EnumCase({ type: IncludeIdentifier(MundaneProfessionGroup) }),
+    Profession: DB.EnumCase({ type: DB.IncludeIdentifier(ProfessionConstraint) }),
+    ProfessionSubgroup: DB.EnumCase({ type: DB.IncludeIdentifier(MundaneProfessionGroup) }),
   }),
 })
 
-const MagicCommonProfessionConstraint = Enum(import.meta.url, {
+const MagicCommonProfessionConstraint = DB.Enum(import.meta.url, {
   name: "MagicCommonProfessionConstraint",
   values: () => ({
-    Tradition: EnumCase({ type: IncludeIdentifier(MagicalTraditionConstraint) }),
-    MagicDilettante: EnumCase({ type: null }),
-    Profession: EnumCase({ type: IncludeIdentifier(ProfessionConstraint) }),
+    Tradition: DB.EnumCase({ type: DB.IncludeIdentifier(MagicalTraditionConstraint) }),
+    MagicDilettante: DB.EnumCase({ type: null }),
+    Profession: DB.EnumCase({ type: DB.IncludeIdentifier(ProfessionConstraint) }),
   }),
 })
 
-const BlessedCommonProfessionConstraint = Enum(import.meta.url, {
+const BlessedCommonProfessionConstraint = DB.Enum(import.meta.url, {
   name: "BlessedCommonProfessionConstraint",
   values: () => ({
-    Tradition: EnumCase({ type: IncludeIdentifier(BlessedTraditionConstraint) }),
+    Tradition: DB.EnumCase({ type: DB.IncludeIdentifier(BlessedTraditionConstraint) }),
   }),
 })
 
-const PlainCommonProfessions = TypeAlias(import.meta.url, {
+const PlainCommonProfessions = DB.TypeAlias(import.meta.url, {
   name: "PlainCommonProfessions",
-  type: () => GenIncludeIdentifier(CommonProfessionConstraints, [ProfessionIdentifier()]),
+  type: () => DB.GenIncludeIdentifier(CommonProfessionConstraints, [ProfessionIdentifier()]),
 })
 
-const GroupedCommonProfessions = TypeAlias(import.meta.url, {
+const GroupedCommonProfessions = DB.TypeAlias(import.meta.url, {
   name: "GroupedCommonProfessions",
   comment: "Lists of professions by group.",
   type: () =>
-    Object(
+    DB.Object(
       {
-        mundane: Optional({
-          type: GenIncludeIdentifier(CommonProfessionConstraints, [
-            IncludeIdentifier(MundaneCommonProfessionConstraint),
+        mundane: DB.Optional({
+          type: DB.GenIncludeIdentifier(CommonProfessionConstraints, [
+            DB.IncludeIdentifier(MundaneCommonProfessionConstraint),
           ]),
         }),
-        magic: Optional({
-          type: GenIncludeIdentifier(CommonProfessionConstraints, [
-            IncludeIdentifier(MagicCommonProfessionConstraint),
+        magic: DB.Optional({
+          type: DB.GenIncludeIdentifier(CommonProfessionConstraints, [
+            DB.IncludeIdentifier(MagicCommonProfessionConstraint),
           ]),
         }),
-        blessed: Optional({
-          type: GenIncludeIdentifier(CommonProfessionConstraints, [
-            IncludeIdentifier(BlessedCommonProfessionConstraint),
+        blessed: DB.Optional({
+          type: DB.GenIncludeIdentifier(CommonProfessionConstraints, [
+            DB.IncludeIdentifier(BlessedCommonProfessionConstraint),
           ]),
         }),
       },
@@ -343,126 +326,126 @@ const GroupedCommonProfessions = TypeAlias(import.meta.url, {
     ),
 })
 
-const CommonProfessions = Enum(import.meta.url, {
+const CommonProfessions = DB.Enum(import.meta.url, {
   name: "CommonProfessions",
   comment:
     "A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).",
   values: () => ({
-    Plain: EnumCase({ type: IncludeIdentifier(PlainCommonProfessions) }),
-    Grouped: EnumCase({ type: IncludeIdentifier(GroupedCommonProfessions) }),
+    Plain: DB.EnumCase({ type: DB.IncludeIdentifier(PlainCommonProfessions) }),
+    Grouped: DB.EnumCase({ type: DB.IncludeIdentifier(GroupedCommonProfessions) }),
   }),
 })
 
-const CommonnessRatedSkill = TypeAlias(import.meta.url, {
+const CommonnessRatedSkill = DB.TypeAlias(import.meta.url, {
   name: "CommonnessRatedSkill",
   type: () => SkillIdentifier(),
 })
 
-const CulturalPackageItem = TypeAlias(import.meta.url, {
+const CulturalPackageItem = DB.TypeAlias(import.meta.url, {
   name: "CulturalPackageItem",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The skill’s identifier.",
         type: SkillIdentifier(),
       }),
-      points: Required({
+      points: DB.Required({
         comment:
           "The skill points for the respective skill you get for buying the cultural package.",
-        type: Integer({ minimum: 1, maximum: 2 }),
+        type: DB.Integer({ minimum: 1, maximum: 2 }),
       }),
     }),
 })
 
-const AreaKnowledgeTranslation = TypeAlias(import.meta.url, {
+const AreaKnowledgeTranslation = DB.TypeAlias(import.meta.url, {
   name: "AreaKnowledgeTranslation",
   comment: "Description and examples of the area knowledge.",
   type: () =>
-    Object({
-      description: Required({
+    DB.Object({
+      description: DB.Required({
         comment: "The full description without examples in parenthesis.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
-      abbreviated: Required({
+      abbreviated: DB.Required({
         comment:
           "A shorter version of the description, used in input fields and other UI elements where the space might be to small to use the full description.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
-      examples: Optional({
+      examples: DB.Optional({
         comment: "Examples of areas, if applicable.",
-        type: Array(IncludeIdentifier(AreaKnowledgeExample), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(AreaKnowledgeExample), { minItems: 1 }),
       }),
     }),
 })
 
-const AreaKnowledgeExample = TypeAlias(import.meta.url, {
+const AreaKnowledgeExample = DB.TypeAlias(import.meta.url, {
   name: "AreaKnowledgeExample",
   type: () =>
-    Object({
-      area: Required({
-        type: String({ minLength: 1 }),
+    DB.Object({
+      area: DB.Required({
+        type: DB.String({ minLength: 1 }),
       }),
     }),
 })
 
-const CommonNames = TypeAlias(import.meta.url, {
+const CommonNames = DB.TypeAlias(import.meta.url, {
   name: "CommonNames",
   comment: "Structured description of common names.",
   type: () =>
-    Object(
+    DB.Object(
       {
-        first_name_groups: Optional({
+        first_name_groups: DB.Optional({
           comment:
             "First names can be gender-neutral, but they can also be for a specific binary sex. They are sorted into groups.",
-          type: Array(IncludeIdentifier(CommonNameGroup), { minItems: 1 }),
+          type: DB.Array(DB.IncludeIdentifier(CommonNameGroup), { minItems: 1 }),
         }),
-        last_name_groups: Optional({
+        last_name_groups: DB.Optional({
           comment:
             "Last names can be gender-neutral, like family names, but they can also be for a specific binary sex. They are sorted into groups.",
-          type: Array(IncludeIdentifier(CommonNameGroup), { minItems: 1 }),
+          type: DB.Array(DB.IncludeIdentifier(CommonNameGroup), { minItems: 1 }),
         }),
-        naming_rules: Optional({
+        naming_rules: DB.Optional({
           comment: "Special naming rules.",
-          type: String({ minLength: 1 }),
+          type: DB.String({ minLength: 1 }),
         }),
       },
       { minProperties: 1 },
     ),
 })
 
-const CommonNameGroup = TypeAlias(import.meta.url, {
+const CommonNameGroup = DB.TypeAlias(import.meta.url, {
   name: "CommonNameGroup",
   type: () =>
-    Object(
+    DB.Object(
       {
-        label: Required({
+        label: DB.Required({
           comment: "The group label.",
-          type: String({ minLength: 1 }),
+          type: DB.String({ minLength: 1 }),
         }),
-        sex: Optional({
+        sex: DB.Optional({
           comment: "The binary sex if the group is only for a certain binary sex.",
-          type: IncludeIdentifier(BinarySex),
+          type: DB.IncludeIdentifier(BinarySex),
         }),
-        names: Required({
+        names: DB.Required({
           comment: "The names from the group.",
-          type: Array(IncludeIdentifier(CommonName), { minItems: 1 }),
+          type: DB.Array(DB.IncludeIdentifier(CommonName), { minItems: 1 }),
         }),
       },
       { minProperties: 1 },
     ),
 })
 
-const CommonName = TypeAlias(import.meta.url, {
+const CommonName = DB.TypeAlias(import.meta.url, {
   name: "CommonName",
   type: () =>
-    Object(
+    DB.Object(
       {
-        name: Required({
-          type: String({ minLength: 1 }),
+        name: DB.Required({
+          type: DB.String({ minLength: 1 }),
         }),
-        note: Optional({
+        note: DB.Optional({
           comment: "Additional information about the name, appended in parenthesis.",
-          type: String({ minLength: 1 }),
+          type: DB.String({ minLength: 1 }),
         }),
       },
       { minProperties: 1 },

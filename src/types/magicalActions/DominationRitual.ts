@@ -1,15 +1,4 @@
-import {
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration, DurationUnit } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
@@ -20,51 +9,51 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const DominationRitual = Entity(import.meta.url, {
+export const DominationRitual = DB.Entity(import.meta.url, {
   name: "DominationRitual",
   namePlural: "DominationRituals",
   type: () =>
-    Object({
-      check: Required({
+    DB.Object({
+      check: DB.Required({
         comment: "Lists the linked three attributes used to make a skill check.",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
-      check_penalty: Optional({
+      check_penalty: DB.Optional({
         comment: "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-        type: IncludeIdentifier(SkillCheckPenalty),
+        type: DB.IncludeIdentifier(SkillCheckPenalty),
       }),
-      parameters: Required({
+      parameters: DB.Required({
         comment: "Measurable parameters of a domination ritual.",
-        type: IncludeIdentifier(DominationRitualPerformanceParameters),
+        type: DB.IncludeIdentifier(DominationRitualPerformanceParameters),
       }),
-      property: Required({
+      property: DB.Required({
         comment: "The associated property.",
         type: PropertyIdentifier(),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "DominationRitual",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The domination ritual’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment:
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
+            type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          duration: Optional({
+          duration: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -78,92 +67,92 @@ export const DominationRitual = Entity(import.meta.url, {
   ],
 })
 
-const DominationRitualPerformanceParameters = TypeAlias(import.meta.url, {
+const DominationRitualPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "DominationRitualPerformanceParameters",
   comment: "Measurable parameters of a domination ritual.",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The AE cost.",
-        type: IncludeIdentifier(DominationRitualCost),
+        type: DB.IncludeIdentifier(DominationRitualCost),
       }),
-      duration: Required({
+      duration: DB.Required({
         comment: "The duration.",
-        type: IncludeIdentifier(DominationRitualDuration),
+        type: DB.IncludeIdentifier(DominationRitualDuration),
       }),
     }),
 })
 
-const DominationRitualCost = TypeAlias(import.meta.url, {
+const DominationRitualCost = DB.TypeAlias(import.meta.url, {
   name: "DominationRitualCost",
   type: () =>
-    Object({
-      initial_modification_level: Required({
+    DB.Object({
+      initial_modification_level: DB.Required({
         comment: "The initial skill modification identifier/level.",
         type: SkillModificationLevelIdentifier(),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "DominationRitualCost",
-        Object({
-          additional: Required({
+        DB.Object({
+          additional: DB.Required({
             comment: "AE cost in addition to the normal AE cost.",
-            type: IncludeIdentifier(ResponsiveText),
+            type: DB.IncludeIdentifier(ResponsiveText),
           }),
         }),
       ),
     }),
 })
 
-const DominationRitualDuration = Enum(import.meta.url, {
+const DominationRitualDuration = DB.Enum(import.meta.url, {
   name: "DominationRitualDuration",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedDominationRitualDuration) }),
-    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteDominationRitualDuration) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedDominationRitualDuration) }),
+    CheckResultBased: DB.EnumCase({ type: DB.IncludeIdentifier(CheckResultBasedDuration) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteDominationRitualDuration) }),
   }),
 })
 
-const FixedDominationRitualDuration = TypeAlias(import.meta.url, {
+const FixedDominationRitualDuration = DB.TypeAlias(import.meta.url, {
   name: "FixedDominationRitualDuration",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The (unitless) duration.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      unit: Required({
+      unit: DB.Required({
         comment: "The duration unit.",
-        type: IncludeIdentifier(DurationUnit),
+        type: DB.IncludeIdentifier(DurationUnit),
       }),
     }),
 })
 
-const IndefiniteDominationRitualDuration = TypeAlias(import.meta.url, {
+const IndefiniteDominationRitualDuration = DB.TypeAlias(import.meta.url, {
   name: "IndefiniteDominationRitualDuration",
   type: () =>
-    Object({
-      maximum: Optional({
+    DB.Object({
+      maximum: DB.Optional({
         comment: "Specified if the duration has a maximum time span.",
-        type: IncludeIdentifier(MaximumIndefiniteDominationRitualDuration),
+        type: DB.IncludeIdentifier(MaximumIndefiniteDominationRitualDuration),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "IndefiniteDominationRitualDuration",
-        Object({
-          description: Required({
+        DB.Object({
+          description: DB.Required({
             comment: "A description of the duration.",
-            type: IncludeIdentifier(ResponsiveText),
+            type: DB.IncludeIdentifier(ResponsiveText),
           }),
         }),
       ),
     }),
 })
 
-const MaximumIndefiniteDominationRitualDuration = Enum(import.meta.url, {
+const MaximumIndefiniteDominationRitualDuration = DB.Enum(import.meta.url, {
   name: "MaximumIndefiniteDominationRitualDuration",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedDominationRitualDuration) }),
-    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedDominationRitualDuration) }),
+    CheckResultBased: DB.EnumCase({ type: DB.IncludeIdentifier(CheckResultBasedDuration) }),
   }),
 })

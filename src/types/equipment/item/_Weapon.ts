@@ -1,13 +1,4 @@
-import {
-  Array,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  ObjectType,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import type { GetDisplayNameAndId, GetInstanceById } from "tsondb/schema/gen"
 import type {
   GenMeleeWeapon,
@@ -16,35 +7,35 @@ import type {
 } from "../../../../gen/types.js"
 import { AttributeIdentifier } from "../../_Identifier.js"
 
-export const PrimaryAttributeDamageThreshold = Enum(import.meta.url, {
+export const PrimaryAttributeDamageThreshold = DB.Enum(import.meta.url, {
   name: "PrimaryAttributeDamageThreshold",
   comment:
     "The primary attribute damage and threshold value. You can either use an integer, an object or a pair. Use an integer if you just have to define a single threshold value for the default primary attribute of the combat technique. Use an object if you need to define the value only or if you need to define the value as well as a single different primary attribute than which the combat technique uses. Use the pair if you need to set the primary attributes to AGI and STR (the combat technique has AGI but this item has AGI/STR) and/or if you need to set different thresholds for AGI and STR (e.g. AGI 14/STR 15). If the same values are in the pair, they will be merged (AGI 14/STR 14 will be AGI/STR 14).",
   values: () => ({
-    Default: EnumCase({ type: IncludeIdentifier(DefaultPrimaryAttributeDamageThreshold) }),
-    List: EnumCase({ type: IncludeIdentifier(PrimaryAttributeDamageThresholdList) }),
+    Default: DB.EnumCase({ type: DB.IncludeIdentifier(DefaultPrimaryAttributeDamageThreshold) }),
+    List: DB.EnumCase({ type: DB.IncludeIdentifier(PrimaryAttributeDamageThresholdList) }),
   }),
 })
 
-const DefaultPrimaryAttributeDamageThreshold = TypeAlias(import.meta.url, {
+const DefaultPrimaryAttributeDamageThreshold = DB.TypeAlias(import.meta.url, {
   name: "DefaultPrimaryAttributeDamageThreshold",
   type: () =>
-    ObjectType({
-      threshold: Required({
+    DB.Object({
+      threshold: DB.Required({
         comment:
           "The attribute value representing the damage threshold for the primary attribute of the item's combat technique.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const PrimaryAttributeDamageThresholdList = TypeAlias(import.meta.url, {
+const PrimaryAttributeDamageThresholdList = DB.TypeAlias(import.meta.url, {
   name: "PrimaryAttributeDamageThresholdList",
   type: () =>
-    ObjectType({
-      list: Required({
+    DB.Object({
+      list: DB.Required({
         comment: "A list of primary attributes with their associated threshold.",
-        type: Array(IncludeIdentifier(SinglePrimaryAttributeDamageThreshold), {
+        type: DB.Array(DB.IncludeIdentifier(SinglePrimaryAttributeDamageThreshold), {
           minItems: 1,
           uniqueItems: true,
         }),
@@ -52,25 +43,25 @@ const PrimaryAttributeDamageThresholdList = TypeAlias(import.meta.url, {
     }),
 })
 
-const SinglePrimaryAttributeDamageThreshold = TypeAlias(import.meta.url, {
+const SinglePrimaryAttributeDamageThreshold = DB.TypeAlias(import.meta.url, {
   name: "SinglePrimaryAttributeDamageThreshold",
   type: () =>
-    ObjectType({
-      attribute: Required({
+    DB.Object({
+      attribute: DB.Required({
         comment: "The primary attribute.",
         type: AttributeIdentifier(),
       }),
-      threshold: Required({
+      threshold: DB.Required({
         comment: "The attribute value representing the damage threshold.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-export const Length = TypeAlias(import.meta.url, {
+export const Length = DB.TypeAlias(import.meta.url, {
   name: "Length",
   comment: "The length of the weapon in cm/halffingers.",
-  type: () => Integer({ minimum: 1 }),
+  type: () => DB.Integer({ minimum: 1 }),
 })
 
 export const checkWeaponCombatTechniqueIntegrity = (

@@ -1,23 +1,23 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { cause, DiseaseTranslation, level, resistance } from "./_DiseasePoison.js"
 import { RecipeTradeSecret } from "./equipment/item/_Herbary.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Disease = Entity(import.meta.url, {
+export const Disease = DB.Entity(import.meta.url, {
   name: "Disease",
   namePlural: "Diseases",
   type: () =>
-    Object({
+    DB.Object({
       level,
       resistance,
       cause,
-      trade_secret: Optional({
+      trade_secret: DB.Optional({
         comment: "AP value and prerequisites of the disease’s trade secret.",
-        type: IncludeIdentifier(RecipeTradeSecret),
+        type: DB.IncludeIdentifier(RecipeTradeSecret),
       }),
       src,
-      translations: NestedTranslationMap(Required, "Disease", DiseaseTranslation),
+      translations: NestedTranslationMap(DB.Required, "Disease", DiseaseTranslation),
     }),
   instanceDisplayName: {},
   uniqueConstraints: [

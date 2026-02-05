@@ -1,45 +1,35 @@
-import {
-  Array,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Service = Entity(import.meta.url, {
+export const Service = DB.Entity(import.meta.url, {
   name: "Service",
   namePlural: "Services",
   type: () =>
-    Object({
-      availability: Required({
+    DB.Object({
+      availability: DB.Required({
         comment: "Defines for which creature type(s) the service is available.",
-        type: Array(IncludeIdentifier(ServiceAvailability), {
+        type: DB.Array(DB.IncludeIdentifier(ServiceAvailability), {
           minItems: 1,
           uniqueItems: true,
         }),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Service",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The service’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          description: Required({
+          description: DB.Required({
             comment: "The service’s description.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -53,10 +43,10 @@ export const Service = Entity(import.meta.url, {
   ],
 })
 
-const ServiceAvailability = Enum(import.meta.url, {
+const ServiceAvailability = DB.Enum(import.meta.url, {
   name: "ServiceAvailability",
   values: () => ({
-    SummonedCreatures: EnumCase({ type: null }),
-    Monstrosities: EnumCase({ type: null }),
+    SummonedCreatures: DB.EnumCase({ type: null }),
+    Monstrosities: DB.EnumCase({ type: null }),
   }),
 })

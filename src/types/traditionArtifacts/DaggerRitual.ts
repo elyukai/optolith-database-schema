@@ -1,14 +1,4 @@
-import {
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { effect, levels, maximum, name, name_in_library } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import {
@@ -26,29 +16,29 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const DaggerRitual = Entity(import.meta.url, {
+export const DaggerRitual = DB.Entity(import.meta.url, {
   name: "DaggerRitual",
   namePlural: "DaggerRituals",
   type: () =>
-    Object({
+    DB.Object({
       levels,
       select_options,
       explicit_select_options,
       maximum,
-      prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(GeneralPrerequisites),
       }),
       volume,
-      cost: Optional({
-        type: IncludeIdentifier(DaggerRitualCost),
+      cost: DB.Optional({
+        type: DB.IncludeIdentifier(DaggerRitualCost),
       }),
       property: property(),
       ap_value,
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "DaggerRitual",
-        Object({
+        DB.Object({
           name,
           name_in_library,
           effect,
@@ -57,8 +47,8 @@ export const DaggerRitual = Entity(import.meta.url, {
           volume: volume_l10n,
           ap_value_append,
           ap_value: ap_value_l10n,
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -73,41 +63,41 @@ export const DaggerRitual = Entity(import.meta.url, {
   ],
 })
 
-const DaggerRitualCost = Enum(import.meta.url, {
+const DaggerRitualCost = DB.Enum(import.meta.url, {
   name: "DaggerRitualCost",
   values: () => ({
-    ArcaneEnergyCost: EnumCase({ type: IncludeIdentifier(DaggerRitualArcaneEnergyCost) }),
-    BindingCost: EnumCase({ type: IncludeIdentifier(BindingCost) }),
+    ArcaneEnergyCost: DB.EnumCase({ type: DB.IncludeIdentifier(DaggerRitualArcaneEnergyCost) }),
+    BindingCost: DB.EnumCase({ type: DB.IncludeIdentifier(BindingCost) }),
   }),
 })
 
-const DaggerRitualArcaneEnergyCost = TypeAlias(import.meta.url, {
+const DaggerRitualArcaneEnergyCost = DB.TypeAlias(import.meta.url, {
   name: "DaggerRitualArcaneEnergyCost",
   type: () =>
-    Object({
-      ae_cost: Required({
-        type: IncludeIdentifier(ArcaneEnergyCost),
+    DB.Object({
+      ae_cost: DB.Required({
+        type: DB.IncludeIdentifier(ArcaneEnergyCost),
       }),
-      lp_cost: Optional({
-        type: IncludeIdentifier(LifePointsCost),
+      lp_cost: DB.Optional({
+        type: DB.IncludeIdentifier(LifePointsCost),
       }),
     }),
 })
 
-export const LifePointsCost = Enum(import.meta.url, {
+export const LifePointsCost = DB.Enum(import.meta.url, {
   name: "LifePointsCost",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedLifePointsCost) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedLifePointsCost) }),
   }),
 })
 
-const FixedLifePointsCost = TypeAlias(import.meta.url, {
+const FixedLifePointsCost = DB.TypeAlias(import.meta.url, {
   name: "FixedLifePointsCost",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The LP cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })

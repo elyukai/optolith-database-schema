@@ -1,23 +1,23 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, DefaultItemTranslations, Weight } from "./_Item.js"
 
-export const Vehicle = Entity(import.meta.url, {
+export const Vehicle = DB.Entity(import.meta.url, {
   name: "Vehicle",
   namePlural: "Vehicles",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
-      weight: Optional({
+      weight: DB.Optional({
         comment: "The weight in kg.",
-        type: IncludeIdentifier(Weight),
+        type: DB.IncludeIdentifier(Weight),
       }),
-      complexity: Optional({
+      complexity: DB.Optional({
         comment: "The complexity of crafting the item.",
-        type: IncludeIdentifier(Complexity),
+        type: DB.IncludeIdentifier(Complexity),
       }),
       src,
       translations: DefaultItemTranslations("Vehicle"),

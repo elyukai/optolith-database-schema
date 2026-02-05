@@ -1,11 +1,11 @@
-import { Enum, EnumCase } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 
-export const ImprovementCost = Enum(import.meta.url, {
+export const ImprovementCost = DB.Enum(import.meta.url, {
   name: "ImprovementCost",
   values: () => ({
-    A: EnumCase({ type: null }),
-    B: EnumCase({ type: null }),
-    C: EnumCase({ type: null }),
-    D: EnumCase({ type: null }),
+    A: DB.EnumCase({ type: null }),
+    B: DB.EnumCase({ type: null }),
+    C: DB.EnumCase({ type: null }),
+    D: DB.EnumCase({ type: null }),
   }),
 })

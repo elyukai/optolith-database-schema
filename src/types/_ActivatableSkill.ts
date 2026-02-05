@@ -2,114 +2,105 @@
  * @title Activatable Skill
  */
 
-import {
-  Enum,
-  EnumCase,
-  GenIncludeIdentifier,
-  GenTypeAlias,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Param,
-  Required,
-  String,
-  TypeAlias,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { FastCastingTime, SlowCastingTime } from "./_ActivatableSkillCastingTime.js"
 import { OneTimeCost, SustainedCost } from "./_ActivatableSkillCost.js"
 import { DurationForOneTime, DurationForSustained } from "./_ActivatableSkillDuration.js"
 import { Range } from "./_ActivatableSkillRange.js"
 
-export const OneTimePerformanceParameters = GenTypeAlias(import.meta.url, {
+export const OneTimePerformanceParameters = DB.GenTypeAlias(import.meta.url, {
   name: "OneTimePerformanceParameters",
-  parameters: [Param("CastingTime")],
+  parameters: [DB.Param("CastingTime")],
   type: CastingTime =>
-    Object({
-      casting_time: Required({
-        type: TypeArgument(CastingTime),
+    DB.Object({
+      casting_time: DB.Required({
+        type: DB.TypeArgument(CastingTime),
       }),
-      cost: Required({
-        type: IncludeIdentifier(OneTimeCost),
+      cost: DB.Required({
+        type: DB.IncludeIdentifier(OneTimeCost),
       }),
-      range: Required({
-        type: IncludeIdentifier(Range),
+      range: DB.Required({
+        type: DB.IncludeIdentifier(Range),
       }),
-      duration: Required({
-        type: IncludeIdentifier(DurationForOneTime),
+      duration: DB.Required({
+        type: DB.IncludeIdentifier(DurationForOneTime),
       }),
     }),
 })
 
-const SustainedPerformanceParameters = GenTypeAlias(import.meta.url, {
+const SustainedPerformanceParameters = DB.GenTypeAlias(import.meta.url, {
   name: "SustainedPerformanceParameters",
-  parameters: [Param("CastingTime")],
+  parameters: [DB.Param("CastingTime")],
   type: CastingTime =>
-    Object({
-      casting_time: Required({
-        type: TypeArgument(CastingTime),
+    DB.Object({
+      casting_time: DB.Required({
+        type: DB.TypeArgument(CastingTime),
       }),
-      cost: Required({
-        type: IncludeIdentifier(SustainedCost),
+      cost: DB.Required({
+        type: DB.IncludeIdentifier(SustainedCost),
       }),
-      range: Required({
-        type: IncludeIdentifier(Range),
+      range: DB.Required({
+        type: DB.IncludeIdentifier(Range),
       }),
-      duration: Optional({
-        type: IncludeIdentifier(DurationForSustained),
+      duration: DB.Optional({
+        type: DB.IncludeIdentifier(DurationForSustained),
       }),
     }),
 })
 
-export const FastPerformanceParameters = Enum(import.meta.url, {
+export const FastPerformanceParameters = DB.Enum(import.meta.url, {
   name: "FastPerformanceParameters",
   values: () => ({
-    OneTime: EnumCase({ type: IncludeIdentifier(FastOneTimePerformanceParameters) }),
-    Sustained: EnumCase({ type: IncludeIdentifier(FastSustainedPerformanceParameters) }),
+    OneTime: DB.EnumCase({ type: DB.IncludeIdentifier(FastOneTimePerformanceParameters) }),
+    Sustained: DB.EnumCase({ type: DB.IncludeIdentifier(FastSustainedPerformanceParameters) }),
   }),
 })
 
-const FastOneTimePerformanceParameters = TypeAlias(import.meta.url, {
+const FastOneTimePerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "FastOneTimePerformanceParameters",
   type: () =>
-    GenIncludeIdentifier(OneTimePerformanceParameters, [IncludeIdentifier(FastCastingTime)]),
+    DB.GenIncludeIdentifier(OneTimePerformanceParameters, [DB.IncludeIdentifier(FastCastingTime)]),
 })
 
-const FastSustainedPerformanceParameters = TypeAlias(import.meta.url, {
+const FastSustainedPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "FastSustainedPerformanceParameters",
   type: () =>
-    GenIncludeIdentifier(SustainedPerformanceParameters, [IncludeIdentifier(FastCastingTime)]),
+    DB.GenIncludeIdentifier(SustainedPerformanceParameters, [
+      DB.IncludeIdentifier(FastCastingTime),
+    ]),
 })
 
-export const SlowPerformanceParameters = Enum(import.meta.url, {
+export const SlowPerformanceParameters = DB.Enum(import.meta.url, {
   name: "SlowPerformanceParameters",
   values: () => ({
-    OneTime: EnumCase({ type: IncludeIdentifier(SlowOneTimePerformanceParameters) }),
-    Sustained: EnumCase({ type: IncludeIdentifier(SlowSustainedPerformanceParameters) }),
+    OneTime: DB.EnumCase({ type: DB.IncludeIdentifier(SlowOneTimePerformanceParameters) }),
+    Sustained: DB.EnumCase({ type: DB.IncludeIdentifier(SlowSustainedPerformanceParameters) }),
   }),
 })
 
-const SlowOneTimePerformanceParameters = TypeAlias(import.meta.url, {
+const SlowOneTimePerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "SlowOneTimePerformanceParameters",
   type: () =>
-    GenIncludeIdentifier(OneTimePerformanceParameters, [IncludeIdentifier(SlowCastingTime)]),
+    DB.GenIncludeIdentifier(OneTimePerformanceParameters, [DB.IncludeIdentifier(SlowCastingTime)]),
 })
 
-const SlowSustainedPerformanceParameters = TypeAlias(import.meta.url, {
+const SlowSustainedPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "SlowSustainedPerformanceParameters",
   type: () =>
-    GenIncludeIdentifier(SustainedPerformanceParameters, [IncludeIdentifier(SlowCastingTime)]),
+    DB.GenIncludeIdentifier(SustainedPerformanceParameters, [
+      DB.IncludeIdentifier(SlowCastingTime),
+    ]),
 })
 
-export const OldParameter = TypeAlias(import.meta.url, {
+export const OldParameter = DB.TypeAlias(import.meta.url, {
   name: "OldParameter",
   type: () =>
-    Object({
-      full: Required({
-        type: String(),
+    DB.Object({
+      full: DB.Required({
+        type: DB.String(),
       }),
-      abbr: Required({
-        type: String(),
+      abbr: DB.Required({
+        type: DB.String(),
       }),
     }),
 })

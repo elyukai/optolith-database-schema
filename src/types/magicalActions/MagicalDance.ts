@@ -1,16 +1,4 @@
-import {
-  Array,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedModifier } from "../_ActivatableSkillCheckResultBased.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
@@ -23,58 +11,61 @@ import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 import { MusicDuration, MusicTraditionReference } from "./_MusicTradition.js"
 
-export const MagicalDance = Entity(import.meta.url, {
+export const MagicalDance = DB.Entity(import.meta.url, {
   name: "MagicalDance",
   namePlural: "MagicalDances",
   type: () =>
-    Object({
-      check: Required({
+    DB.Object({
+      check: DB.Required({
         comment: "Lists the linked three attributes used to make a skill check.",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
-      parameters: Required({
+      parameters: DB.Required({
         comment: "Measurable parameters of a magical dance.",
-        type: IncludeIdentifier(MagicalDancePerformanceParameters),
+        type: DB.IncludeIdentifier(MagicalDancePerformanceParameters),
       }),
-      property: Required({
+      property: DB.Required({
         comment: "The associated property.",
         type: PropertyIdentifier(),
       }),
-      music_tradition: Required({
+      music_tradition: DB.Required({
         comment:
           "The music tradition(s) the magical dance is available for. This also defines the different names in each music tradition.",
-        type: Array(IncludeIdentifier(MusicTraditionReference(ArcaneDancerTraditionIdentifier())), {
-          minItems: 1,
-        }),
+        type: DB.Array(
+          DB.IncludeIdentifier(MusicTraditionReference(ArcaneDancerTraditionIdentifier())),
+          {
+            minItems: 1,
+          },
+        ),
       }),
-      improvement_cost: Required({
+      improvement_cost: DB.Required({
         comment: "States which column is used to improve the skill.",
-        type: IncludeIdentifier(ImprovementCost),
+        type: DB.IncludeIdentifier(ImprovementCost),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "MagicalDance",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The magical dance’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment:
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
+            type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
-          duration: Optional({
+          duration: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -88,47 +79,47 @@ export const MagicalDance = Entity(import.meta.url, {
   ],
 })
 
-const MagicalDancePerformanceParameters = TypeAlias(import.meta.url, {
+const MagicalDancePerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "MagicalDancePerformanceParameters",
   comment: "Measurable parameters of a magical dance.",
   type: () =>
-    Object({
-      duration: Required({
+    DB.Object({
+      duration: DB.Required({
         comment: "The duration.",
-        type: IncludeIdentifier(MusicDuration),
+        type: DB.IncludeIdentifier(MusicDuration),
       }),
-      cost: Required({
+      cost: DB.Required({
         comment: "The AE cost.",
-        type: IncludeIdentifier(MagicalDanceCost),
+        type: DB.IncludeIdentifier(MagicalDanceCost),
       }),
     }),
 })
 
-const MagicalDanceCost = Enum(import.meta.url, {
+const MagicalDanceCost = DB.Enum(import.meta.url, {
   name: "MagicalDanceCost",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedMagicalDanceCost) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteMagicalDanceCost) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedMagicalDanceCost) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteMagicalDanceCost) }),
   }),
 })
 
-const FixedMagicalDanceCost = TypeAlias(import.meta.url, {
+const FixedMagicalDanceCost = DB.TypeAlias(import.meta.url, {
   name: "FixedMagicalDanceCost",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The (temporary) AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "FixedMagicalDanceCost",
-        Object(
+        DB.Object(
           {
-            per: Optional({
+            per: DB.Optional({
               comment:
                 "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
-              type: IncludeIdentifier(ResponsiveTextOptional),
+              type: DB.IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
           { minProperties: 1 },
@@ -137,22 +128,22 @@ const FixedMagicalDanceCost = TypeAlias(import.meta.url, {
     }),
 })
 
-const IndefiniteMagicalDanceCost = TypeAlias(import.meta.url, {
+const IndefiniteMagicalDanceCost = DB.TypeAlias(import.meta.url, {
   name: "IndefiniteMagicalDanceCost",
   type: () =>
-    Object({
-      maximum: Optional({
+    DB.Object({
+      maximum: DB.Optional({
         comment:
           "Specified if the indefinite description's result value is to be modified by a certain number.",
-        type: IncludeIdentifier(CheckResultBasedModifier),
+        type: DB.IncludeIdentifier(CheckResultBasedModifier),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "IndefiniteMagicalDanceCost",
-        Object({
-          description: Required({
+        DB.Object({
+          description: DB.Required({
             comment: "A description of where the cost come from.",
-            type: IncludeIdentifier(ResponsiveText),
+            type: DB.IncludeIdentifier(ResponsiveText),
           }),
         }),
       ),

@@ -1,55 +1,46 @@
-import {
-  Boolean,
-  Entity,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { SubjectIdentifier } from "../_Identifier.js"
 import { RulePrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const FocusRule = Entity(import.meta.url, {
+export const FocusRule = DB.Entity(import.meta.url, {
   name: "FocusRule",
   namePlural: "FocusRules",
   type: () =>
-    Object({
-      subject: Optional({
+    DB.Object({
+      subject: DB.Optional({
         comment: "The associated subject.",
         type: SubjectIdentifier(),
       }),
-      level: Required({
+      level: DB.Required({
         comment: "The focus rule’s level.",
-        type: Integer({ minimum: 1, maximum: 4 }),
+        type: DB.Integer({ minimum: 1, maximum: 4 }),
       }),
-      isMissingImplementation: Required({
+      isMissingImplementation: DB.Required({
         comment:
           "Has the focus rule not been implemented in Optolith yet? This is also true if the focus rule does not (currently) apply to any Optolith feature.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      prerequisites: Optional({
-        type: IncludeIdentifier(RulePrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(RulePrerequisites),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "FocusRule",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The focus rule’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          description: Required({
+          description: DB.Required({
             comment: "The description of the focus rule.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

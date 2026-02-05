@@ -1,7 +1,7 @@
-import { Entity } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { ArcaneTraditionType } from "./_ArcaneTradition.js"
 
-export const ArcaneDancerTradition = Entity(import.meta.url, {
+export const ArcaneDancerTradition = DB.Entity(import.meta.url, {
   name: "ArcaneDancerTradition",
   namePlural: "ArcaneDancerTraditions",
   type: ArcaneTraditionType("ArcaneDancerTraditionTranslation"),

@@ -2,22 +2,7 @@
  * @title Prerequisites
  */
 
-import {
-  Array,
-  EnumCase,
-  GenEnum,
-  GenIncludeIdentifier,
-  GenTypeAlias,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Param,
-  Required,
-  String,
-  TypeAlias,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { DisplayOption } from "./prerequisites/DisplayOption.js"
 import {
@@ -39,189 +24,208 @@ import {
   TribePrerequisiteGroup,
 } from "./prerequisites/PrerequisiteGroups.js"
 
-const PrerequisiteGroup = GenTypeAlias(import.meta.url, {
+const PrerequisiteGroup = DB.GenTypeAlias(import.meta.url, {
   name: "PrerequisiteGroup",
   comment:
     "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
-  parameters: [Param("T")],
+  parameters: [DB.Param("T")],
   type: T =>
-    Object({
-      list: Required({
-        type: Array(TypeArgument(T), { minItems: 2 }),
+    DB.Object({
+      list: DB.Required({
+        type: DB.Array(DB.TypeArgument(T), { minItems: 2 }),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "PrerequisiteGroup",
-        Object({
-          text: Required({
-            type: String({ minLength: 1 }),
+        DB.Object({
+          text: DB.Required({
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
     }),
 })
 
-const PrerequisitesDisjunction = GenTypeAlias(import.meta.url, {
+const PrerequisitesDisjunction = DB.GenTypeAlias(import.meta.url, {
   name: "PrerequisitesDisjunction",
-  parameters: [Param("T")],
+  parameters: [DB.Param("T")],
   type: T =>
-    Object({
-      list: Required({
-        type: Array(TypeArgument(T), { minItems: 2 }),
+    DB.Object({
+      list: DB.Required({
+        type: DB.Array(DB.TypeArgument(T), { minItems: 2 }),
       }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
+      display_option: DB.Optional({
+        type: DB.IncludeIdentifier(DisplayOption),
       }),
     }),
 })
 
-const PrerequisitesElement = GenEnum(import.meta.url, {
+const PrerequisitesElement = DB.GenEnum(import.meta.url, {
   name: "PrerequisitesElement",
-  parameters: [Param("T")],
+  parameters: [DB.Param("T")],
   values: T => ({
-    Single: EnumCase({ type: TypeArgument(T) }),
-    Disjunction: EnumCase({
-      type: GenIncludeIdentifier(PrerequisitesDisjunction, [TypeArgument(T)]),
+    Single: DB.EnumCase({ type: DB.TypeArgument(T) }),
+    Disjunction: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(PrerequisitesDisjunction, [DB.TypeArgument(T)]),
     }),
-    Group: EnumCase({
-      type: GenIncludeIdentifier(PrerequisiteGroup, [TypeArgument(T)]),
+    Group: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(PrerequisiteGroup, [DB.TypeArgument(T)]),
     }),
   }),
 })
 
-const PlainPrerequisites = GenTypeAlias(import.meta.url, {
+const PlainPrerequisites = DB.GenTypeAlias(import.meta.url, {
   name: "PlainPrerequisites",
-  parameters: [Param("T")],
-  type: T => Array(GenIncludeIdentifier(PrerequisitesElement, [TypeArgument(T)]), { minItems: 1 }),
+  parameters: [DB.Param("T")],
+  type: T =>
+    DB.Array(DB.GenIncludeIdentifier(PrerequisitesElement, [DB.TypeArgument(T)]), { minItems: 1 }),
 })
 
-const PrerequisiteForLevel = GenTypeAlias(import.meta.url, {
+const PrerequisiteForLevel = DB.GenTypeAlias(import.meta.url, {
   name: "PrerequisiteForLevel",
-  parameters: [Param("T")],
+  parameters: [DB.Param("T")],
   type: T =>
-    Object({
-      level: Required({
+    DB.Object({
+      level: DB.Required({
         comment: "The level to which the prerequisite applies.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      prerequisite: Required({
+      prerequisite: DB.Required({
         comment: "The prerequisite.",
-        type: GenIncludeIdentifier(PrerequisitesElement, [TypeArgument(T)]),
+        type: DB.GenIncludeIdentifier(PrerequisitesElement, [DB.TypeArgument(T)]),
       }),
     }),
 })
 
-const PrerequisitesForLevels = GenTypeAlias(import.meta.url, {
+const PrerequisitesForLevels = DB.GenTypeAlias(import.meta.url, {
   name: "PrerequisitesForLevels",
-  parameters: [Param("T")],
+  parameters: [DB.Param("T")],
   type: T =>
-    Array(GenIncludeIdentifier(PrerequisiteForLevel, [TypeArgument(T)]), {
+    DB.Array(DB.GenIncludeIdentifier(PrerequisiteForLevel, [DB.TypeArgument(T)]), {
       minItems: 1,
     }),
 })
 
-export const RulePrerequisites = TypeAlias(import.meta.url, {
+export const RulePrerequisites = DB.TypeAlias(import.meta.url, {
   name: "RulePrerequisites",
-  type: () => GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(RulePrerequisiteGroup)]),
+  type: () =>
+    DB.GenIncludeIdentifier(PlainPrerequisites, [DB.IncludeIdentifier(RulePrerequisiteGroup)]),
 })
 
-export const DerivedCharacteristicPrerequisites = TypeAlias(import.meta.url, {
+export const DerivedCharacteristicPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "DerivedCharacteristicPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [
-      IncludeIdentifier(DerivedCharacteristicPrerequisiteGroup),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [
+      DB.IncludeIdentifier(DerivedCharacteristicPrerequisiteGroup),
     ]),
 })
 
-export const PublicationPrerequisites = TypeAlias(import.meta.url, {
+export const PublicationPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "PublicationPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(PublicationPrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [
+      DB.IncludeIdentifier(PublicationPrerequisiteGroup),
+    ]),
 })
 
-export const PlainGeneralPrerequisites = TypeAlias(import.meta.url, {
+export const PlainGeneralPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "PlainGeneralPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(GeneralPrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [DB.IncludeIdentifier(GeneralPrerequisiteGroup)]),
 })
 
-export const GeneralPrerequisites = TypeAlias(import.meta.url, {
+export const GeneralPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "GeneralPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PrerequisitesForLevels, [IncludeIdentifier(GeneralPrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PrerequisitesForLevels, [
+      DB.IncludeIdentifier(GeneralPrerequisiteGroup),
+    ]),
 })
 
-export const ProfessionPrerequisites = TypeAlias(import.meta.url, {
+export const ProfessionPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "ProfessionPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(ProfessionPrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [
+      DB.IncludeIdentifier(ProfessionPrerequisiteGroup),
+    ]),
 })
 
-export const AdvantageDisadvantagePrerequisites = TypeAlias(import.meta.url, {
+export const AdvantageDisadvantagePrerequisites = DB.TypeAlias(import.meta.url, {
   name: "AdvantageDisadvantagePrerequisites",
   type: () =>
-    GenIncludeIdentifier(PrerequisitesForLevels, [
-      IncludeIdentifier(AdvantageDisadvantagePrerequisiteGroup),
+    DB.GenIncludeIdentifier(PrerequisitesForLevels, [
+      DB.IncludeIdentifier(AdvantageDisadvantagePrerequisiteGroup),
     ]),
 })
 
-export const ArcaneTraditionPrerequisites = TypeAlias(import.meta.url, {
+export const ArcaneTraditionPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "ArcaneTraditionPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(ArcaneTraditionPrerequisiteGroup)]),
-})
-
-export const PersonalityTraitPrerequisites = TypeAlias(import.meta.url, {
-  name: "PersonalityTraitPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [
-      IncludeIdentifier(PersonalityTraitPrerequisiteGroup),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [
+      DB.IncludeIdentifier(ArcaneTraditionPrerequisiteGroup),
     ]),
 })
 
-export const SpellworkPrerequisites = TypeAlias(import.meta.url, {
+export const PersonalityTraitPrerequisites = DB.TypeAlias(import.meta.url, {
+  name: "PersonalityTraitPrerequisites",
+  type: () =>
+    DB.GenIncludeIdentifier(PlainPrerequisites, [
+      DB.IncludeIdentifier(PersonalityTraitPrerequisiteGroup),
+    ]),
+})
+
+export const SpellworkPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "SpellworkPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(SpellworkPrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [DB.IncludeIdentifier(SpellworkPrerequisiteGroup)]),
 })
 
-export const LiturgyPrerequisites = TypeAlias(import.meta.url, {
+export const LiturgyPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "LiturgyPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(LiturgyPrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [DB.IncludeIdentifier(LiturgyPrerequisiteGroup)]),
 })
 
-export const InfluencePrerequisites = TypeAlias(import.meta.url, {
+export const InfluencePrerequisites = DB.TypeAlias(import.meta.url, {
   name: "InfluencePrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(InfluencePrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [DB.IncludeIdentifier(InfluencePrerequisiteGroup)]),
 })
 
-export const LanguagePrerequisites = TypeAlias(import.meta.url, {
+export const LanguagePrerequisites = DB.TypeAlias(import.meta.url, {
   name: "LanguagePrerequisites",
   type: () =>
-    GenIncludeIdentifier(PrerequisitesForLevels, [IncludeIdentifier(LanguagePrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PrerequisitesForLevels, [
+      DB.IncludeIdentifier(LanguagePrerequisiteGroup),
+    ]),
 })
 
-export const AnimistPowerPrerequisites = TypeAlias(import.meta.url, {
+export const AnimistPowerPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "AnimistPowerPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(AnimistPowerPrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [
+      DB.IncludeIdentifier(AnimistPowerPrerequisiteGroup),
+    ]),
 })
 
-export const TribePrerequisites = TypeAlias(import.meta.url, {
+export const TribePrerequisites = DB.TypeAlias(import.meta.url, {
   name: "TribePrerequisites",
-  type: () => GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(TribePrerequisiteGroup)]),
+  type: () =>
+    DB.GenIncludeIdentifier(PlainPrerequisites, [DB.IncludeIdentifier(TribePrerequisiteGroup)]),
 })
 
-export const GeodeRitualPrerequisites = TypeAlias(import.meta.url, {
+export const GeodeRitualPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "GeodeRitualPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(GeodeRitualPrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [
+      DB.IncludeIdentifier(GeodeRitualPrerequisiteGroup),
+    ]),
 })
 
-export const EnhancementPrerequisites = TypeAlias(import.meta.url, {
+export const EnhancementPrerequisites = DB.TypeAlias(import.meta.url, {
   name: "EnhancementPrerequisites",
   type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(EnhancementPrerequisiteGroup)]),
+    DB.GenIncludeIdentifier(PlainPrerequisites, [
+      DB.IncludeIdentifier(EnhancementPrerequisiteGroup),
+    ]),
 })

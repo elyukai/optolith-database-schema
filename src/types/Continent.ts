@@ -1,20 +1,20 @@
-import { Entity, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 
-export const Continent = Entity(import.meta.url, {
+export const Continent = DB.Entity(import.meta.url, {
   name: "Continent",
   namePlural: "Continents",
   comment:
     "Continents are mostly referenced to in languages and scripts that occur on a specific continent.",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Continent",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The continent name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

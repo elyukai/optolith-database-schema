@@ -1,42 +1,30 @@
-import {
-  Boolean,
-  Entity,
-  type MemberDecl,
-  NestedEntityMap,
-  Object,
-  type ObjectType,
-  Optional,
-  Required,
-  String,
-  TranslationObject,
-  type Type,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 
-export const Locale = Entity(import.meta.url, {
+export const Locale = DB.Entity(import.meta.url, {
   name: "Locale",
   namePlural: "Locales",
   comment:
     "A supported locale. The locale is used to identify the language and region of the content.",
   type: () =>
-    Object({
-      name: Required({
+    DB.Object({
+      name: DB.Required({
         comment: "Name of the language in its language.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
-      region: Required({
+      region: DB.Required({
         comment: "Region in which the language is spoken in its language.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
-      is_missing_implementation: Required({
+      is_missing_implementation: DB.Required({
         comment:
           "The language is not (fully) implemented and thus needs to be excluded from stable releases.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      translations: Optional({
+      translations: DB.Optional({
         // TODO: Make Required again once translations are added for all locales
         comment: "The translations strings for the locale.",
         // prettier-ignore
-        type: TranslationObject({
+        type: DB.TranslationObject({
           // Menu
           "About {$app}": null,
           "Preferences …": null,
@@ -1158,7 +1146,7 @@ export const Locale = Entity(import.meta.url, {
           "inlinewiki.spellenhancements": null,
           /**
            * - `0`: Enhancement name
-           * - `1`: Required Skill Rating
+           * - `1`: DB.Required Skill Rating
            * - `2`: AP value
            * - `3`: Description
            */
@@ -1198,7 +1186,7 @@ export const Locale = Entity(import.meta.url, {
           "inlinewiki.liturgicalchantenhancements": null,
           /**
            * - `0`: Enhancement name
-           * - `1`: Required Skill Rating
+           * - `1`: DB.Required Skill Rating
            * - `2`: AP value
            * - `3`: Description
            */
@@ -1372,20 +1360,20 @@ export const Locale = Entity(import.meta.url, {
 
 export const NestedTranslationMap = <
   Name extends string,
-  T extends Record<string, MemberDecl>,
+  T extends Record<string, DB.MemberDecl>,
   R extends boolean,
 >(
-  MemberDeclCreator: <T extends Type>(options: {
+  MemberDeclCreator: <T extends DB.Type>(options: {
     comment?: string
     isDeprecated?: boolean
     type: T
-  }) => MemberDecl<T, R>,
+  }) => DB.MemberDecl<T, R>,
   entityName: Name,
-  type: ObjectType<T>,
+  type: DB.Object<T>,
 ) =>
   MemberDeclCreator({
     comment: "All translations for the entry, identified by IETF language tag (BCP47).",
-    type: NestedEntityMap({
+    type: DB.NestedEntityMap({
       name: `${entityName}Translation`,
       namePlural: `${entityName}Translations`,
       secondaryEntity: Locale,
@@ -1397,7 +1385,7 @@ export const NestedTranslationMap = <
 //  * Any type that can be converted to a string via a `toString` method.
 //  */
 // interface Stringable {
-//   toString(): string
+//   toDB.String(): string
 // }
 
 // type Whitespace = " " | "\n" | "\t" | "\r"

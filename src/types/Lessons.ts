@@ -1,17 +1,4 @@
-import {
-  Array,
-  ChildEntities,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import {
   CurriculumIdentifier,
@@ -25,22 +12,22 @@ import { CombatTechniqueIdentifier, SpellworkIdentifier } from "./_IdentifierGro
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Guideline = Entity(import.meta.url, {
+export const Guideline = DB.Entity(import.meta.url, {
   name: "Guideline",
   namePlural: "Guidelines",
   type: () =>
-    Object({
-      spellwork_changes_allowed: Required({
+    DB.Object({
+      spellwork_changes_allowed: DB.Required({
         comment: "Maximum number of spells that can be exchanged.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Guideline",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The guideline’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
@@ -54,40 +41,40 @@ export const Guideline = Entity(import.meta.url, {
   ],
 })
 
-export const Curriculum = Entity(import.meta.url, {
+export const Curriculum = DB.Entity(import.meta.url, {
   name: "Curriculum",
   namePlural: "Curricula",
   comment:
     "This is a curriculum of a specified or other institutions such as private teachers, containing the guideline, elective and restricted spellworks as well as the lesson packages of that academy. It is used with the focus rule *Lessons*.",
   type: () =>
-    Object({
-      guideline: Required({
+    DB.Object({
+      guideline: DB.Required({
         comment: "The institution’s guideline.",
         type: GuidelineIdentifier(),
       }),
-      elective_spellworks: Optional({
+      elective_spellworks: DB.Optional({
         comment: "The institution’s elective spellworks package.",
-        type: IncludeIdentifier(ElectiveSpellworks),
+        type: DB.IncludeIdentifier(ElectiveSpellworks),
       }),
-      restricted_spellworks: Optional({
+      restricted_spellworks: DB.Optional({
         comment: "The institution’s restricted spellworks package.",
-        type: IncludeIdentifier(RestrictedSpellworks),
+        type: DB.IncludeIdentifier(RestrictedSpellworks),
       }),
-      lesson_packages: Required({
+      lesson_packages: DB.Required({
         comment: "A list of available lesson packages.",
-        type: ChildEntities(LessonPackage),
+        type: DB.ChildEntities(LessonPackage),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Curriculum",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The institution’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -101,116 +88,123 @@ export const Curriculum = Entity(import.meta.url, {
   ],
 })
 
-const ElectiveSpellworks = Enum(import.meta.url, {
+const ElectiveSpellworks = DB.Enum(import.meta.url, {
   name: "ElectiveSpellworks",
   comment: "The institution’s elective spellworks package.",
   values: () => ({
-    DefinedByGameMaster: EnumCase({ type: null }),
-    Specific: EnumCase({ type: IncludeIdentifier(SpecificElectiveSpellworks) }),
+    DefinedByGameMaster: DB.EnumCase({ type: null }),
+    Specific: DB.EnumCase({ type: DB.IncludeIdentifier(SpecificElectiveSpellworks) }),
   }),
 })
 
-const SpecificElectiveSpellworks = TypeAlias(import.meta.url, {
+const SpecificElectiveSpellworks = DB.TypeAlias(import.meta.url, {
   name: "SpecificElectiveSpellworks",
   type: () =>
-    Object({
-      list: Required({
-        type: Array(IncludeIdentifier(ElectiveSpellwork), { minItems: 1, uniqueItems: true }),
+    DB.Object({
+      list: DB.Required({
+        type: DB.Array(DB.IncludeIdentifier(ElectiveSpellwork), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
 
-const ElectiveSpellwork = TypeAlias(import.meta.url, {
+const ElectiveSpellwork = DB.TypeAlias(import.meta.url, {
   name: "ElectiveSpellwork",
   type: () =>
-    Object({
-      id: Required({
-        type: IncludeIdentifier(SpellworkIdentifier),
+    DB.Object({
+      id: DB.Required({
+        type: DB.IncludeIdentifier(SpellworkIdentifier),
       }),
-      restriction: Optional({
+      restriction: DB.Optional({
         comment:
           "The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.",
-        type: IncludeIdentifier(ElectiveSpellworkRestriction),
+        type: DB.IncludeIdentifier(ElectiveSpellworkRestriction),
       }),
     }),
 })
 
-const ElectiveSpellworkRestriction = Enum(import.meta.url, {
+const ElectiveSpellworkRestriction = DB.Enum(import.meta.url, {
   name: "ElectiveSpellworkRestriction",
   comment:
     "The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.",
   values: () => ({
-    Element: EnumCase({ type: ElementIdentifier() }),
+    Element: DB.EnumCase({ type: ElementIdentifier() }),
   }),
 })
 
-const RestrictedSpellworks = TypeAlias(import.meta.url, {
+const RestrictedSpellworks = DB.TypeAlias(import.meta.url, {
   name: "RestrictedSpellworks",
   comment: "The institution’s restricted spellworks package.",
-  type: () => Array(IncludeIdentifier(RestrictedSpellwork), { minItems: 1, uniqueItems: true }),
+  type: () =>
+    DB.Array(DB.IncludeIdentifier(RestrictedSpellwork), { minItems: 1, uniqueItems: true }),
 })
 
-const RestrictedSpellwork = Enum(import.meta.url, {
+const RestrictedSpellwork = DB.Enum(import.meta.url, {
   name: "RestrictedSpellwork",
   values: () => ({
-    Property: EnumCase({ type: IncludeIdentifier(RestrictedProperty) }),
-    Spellwork: EnumCase({ type: IncludeIdentifier(SpellworkIdentifier) }),
-    DemonSummoning: EnumCase({ type: null }),
-    Borbaradian: EnumCase({ type: null }),
-    DamageIntelligent: EnumCase({ type: null }),
+    Property: DB.EnumCase({ type: DB.IncludeIdentifier(RestrictedProperty) }),
+    Spellwork: DB.EnumCase({ type: DB.IncludeIdentifier(SpellworkIdentifier) }),
+    DemonSummoning: DB.EnumCase({ type: null }),
+    Borbaradian: DB.EnumCase({ type: null }),
+    DamageIntelligent: DB.EnumCase({ type: null }),
   }),
 })
 
-const RestrictedProperty = TypeAlias(import.meta.url, {
+const RestrictedProperty = DB.TypeAlias(import.meta.url, {
   name: "RestrictedProperty",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The identifier of the property that spellworks are disallowed from.",
         type: PropertyIdentifier(),
       }),
-      exclude: Optional({
+      exclude: DB.Optional({
         comment: "Exclude specific spellworks from the restriction.",
-        type: Array(IncludeIdentifier(SpellworkIdentifier), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(DB.IncludeIdentifier(SpellworkIdentifier), {
+          minItems: 1,
+          uniqueItems: true,
+        }),
       }),
-      maximum: Optional({
+      maximum: DB.Optional({
         comment:
           "Spellworks from this property up to a certain number are allowed. Spellworks excluded from this restriction definition using `exclude` do not contribute to the maximum.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-export const LessonPackage = Entity(import.meta.url, {
+export const LessonPackage = DB.Entity(import.meta.url, {
   name: "LessonPackage",
   namePlural: "LessonPackages",
   type: () =>
-    Object(
+    DB.Object(
       {
-        curriculum: Required({
+        curriculum: DB.Required({
           comment: "The associated curriculum.",
           type: CurriculumIdentifier(),
         }),
-        spellwork_changes: Optional({
+        spellwork_changes: DB.Optional({
           comment:
             "The spell values difference of the lesson package. This field reflects the changes (difference) to the field of the same name in the profession package. If a spell gets to SR 0 because of this, it will be removed completely.",
-          type: Array(IncludeIdentifier(SpellworkChange), { minItems: 1, uniqueItems: true }),
+          type: DB.Array(DB.IncludeIdentifier(SpellworkChange), { minItems: 1, uniqueItems: true }),
         }),
-        skills: Optional({
-          type: Array(IncludeIdentifier(AbilityAdjustment), { minItems: 1, uniqueItems: true }),
+        skills: DB.Optional({
+          type: DB.Array(DB.IncludeIdentifier(AbilityAdjustment), {
+            minItems: 1,
+            uniqueItems: true,
+          }),
         }),
         translations: NestedTranslationMap(
-          Required,
+          DB.Required,
           "LessonPackage",
-          Object({
-            name: Required({
+          DB.Object({
+            name: DB.Required({
               comment: "The lesson package’s name.",
-              type: String({ minLength: 1 }),
+              type: DB.String({ minLength: 1 }),
             }),
-            spellwork_changes: Optional({
+            spellwork_changes: DB.Optional({
               comment:
                 "The spell values difference of the lesson package. Use this field to specify a text that is displayed instead of the generated `spellwork_changes` list. The field is displayed even if no list is present.",
-              type: String({ minLength: 1 }),
+              type: DB.String({ minLength: 1 }),
             }),
           }),
         ),
@@ -221,70 +215,70 @@ export const LessonPackage = Entity(import.meta.url, {
   instanceDisplayName: {},
 })
 
-const SpellworkChange = TypeAlias(import.meta.url, {
+const SpellworkChange = DB.TypeAlias(import.meta.url, {
   name: "SpellworkChange",
   type: () =>
-    Object({
-      base: Required({
-        type: IncludeIdentifier(SpellworkAdjustment),
+    DB.Object({
+      base: DB.Required({
+        type: DB.IncludeIdentifier(SpellworkAdjustment),
       }),
-      replacement: Required({
-        type: IncludeIdentifier(SpellworkAdjustment),
+      replacement: DB.Required({
+        type: DB.IncludeIdentifier(SpellworkAdjustment),
       }),
     }),
 })
 
-const AbilityAdjustment = Enum(import.meta.url, {
+const AbilityAdjustment = DB.Enum(import.meta.url, {
   name: "AbilityAdjustment",
   values: () => ({
-    CombatTechnique: EnumCase({ type: IncludeIdentifier(CombatTechniqueAdjustment) }),
-    Skill: EnumCase({ type: IncludeIdentifier(SkillAdjustment) }),
-    Spellwork: EnumCase({ type: IncludeIdentifier(SpellworkAdjustment) }),
+    CombatTechnique: DB.EnumCase({ type: DB.IncludeIdentifier(CombatTechniqueAdjustment) }),
+    Skill: DB.EnumCase({ type: DB.IncludeIdentifier(SkillAdjustment) }),
+    Spellwork: DB.EnumCase({ type: DB.IncludeIdentifier(SpellworkAdjustment) }),
   }),
 })
 
-const CombatTechniqueAdjustment = TypeAlias(import.meta.url, {
+const CombatTechniqueAdjustment = DB.TypeAlias(import.meta.url, {
   name: "CombatTechniqueAdjustment",
   type: () =>
-    Object({
-      id: Required({
-        type: IncludeIdentifier(CombatTechniqueIdentifier),
+    DB.Object({
+      id: DB.Required({
+        type: DB.IncludeIdentifier(CombatTechniqueIdentifier),
       }),
-      points: Required({
+      points: DB.Required({
         comment:
           "The combat technique points that will be added to the current combat technique rating.",
-        type: Integer({ minimum: -6, maximum: 6 }),
+        type: DB.Integer({ minimum: -6, maximum: 6 }),
       }),
     }),
 })
 
-const SkillAdjustment = TypeAlias(import.meta.url, {
+const SkillAdjustment = DB.TypeAlias(import.meta.url, {
   name: "SkillAdjustment",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         type: SkillIdentifier(),
       }),
-      points: Required({
+      points: DB.Required({
         comment: "The skill points that will be added to the current skill rating.",
-        type: Integer({ minimum: -8, maximum: 8 }),
+        type: DB.Integer({ minimum: -8, maximum: 8 }),
       }),
     }),
 })
 
-const SpellworkAdjustment = TypeAlias(import.meta.url, {
+const SpellworkAdjustment = DB.TypeAlias(import.meta.url, {
   name: "SpellworkAdjustment",
   type: () =>
-    Object({
-      id: Required({
-        type: IncludeIdentifier(SpellworkIdentifier),
+    DB.Object({
+      id: DB.Required({
+        type: DB.IncludeIdentifier(SpellworkIdentifier),
       }),
-      points: Required({
+      points: DB.Required({
         comment:
           "The skill points that will be added to the current skill rating. If a spell gets to a skill rating of 0 because of this, it will be removed completely.",
-        type: Integer({ minimum: -10, maximum: 10 }),
+        type: DB.Integer({ minimum: -10, maximum: 10 }),
       }),
-      tradition: Optional({
+      tradition: DB.Optional({
         comment:
           "The target tradition. If the target spell is not from the Guild Mage tradition, specify the tradition identifier here.",
         type: MagicalTraditionIdentifier(),

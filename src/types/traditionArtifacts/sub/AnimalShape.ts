@@ -1,27 +1,27 @@
-import { Entity, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { AnimalShapePathIdentifier, AnimalShapeSizeIdentifier } from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"
 
-export const AnimalShape = Entity(import.meta.url, {
+export const AnimalShape = DB.Entity(import.meta.url, {
   name: "AnimalShape",
   namePlural: "AnimalShapes",
   type: () =>
-    Object({
-      path: Required({
+    DB.Object({
+      path: DB.Required({
         comment: "The animal shape’s path.",
         type: AnimalShapePathIdentifier(),
       }),
-      size: Required({
+      size: DB.Required({
         comment: "The animal shape’s size.",
         type: AnimalShapeSizeIdentifier(),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "AnimalShape",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The animal shape’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

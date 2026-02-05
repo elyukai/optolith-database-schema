@@ -1,20 +1,20 @@
-import { Enum, EnumCase, IncludeIdentifier, Object, Required, TypeAlias } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 
-export const SexualCharacteristicPrerequisite = TypeAlias(import.meta.url, {
+export const SexualCharacteristicPrerequisite = DB.TypeAlias(import.meta.url, {
   name: "SexualCharacteristicPrerequisite",
   comment: "Requires a specific sexual characteristic.",
   type: () =>
-    Object({
-      id: Required({
-        type: IncludeIdentifier(SexualCharacteristic),
+    DB.Object({
+      id: DB.Required({
+        type: DB.IncludeIdentifier(SexualCharacteristic),
       }),
     }),
 })
 
-const SexualCharacteristic = Enum(import.meta.url, {
+const SexualCharacteristic = DB.Enum(import.meta.url, {
   name: "SexualCharacteristic",
   values: () => ({
-    Penis: EnumCase({ type: null }),
-    Vagina: EnumCase({ type: null }),
+    Penis: DB.EnumCase({ type: null }),
+    Vagina: DB.EnumCase({ type: null }),
   }),
 })

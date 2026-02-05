@@ -1,50 +1,42 @@
-import {
-  Boolean,
-  Entity,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { RulePrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const OptionalRule = Entity(import.meta.url, {
+export const OptionalRule = DB.Entity(import.meta.url, {
   name: "OptionalRule",
   namePlural: "OptionalRules",
   type: () =>
-    Object({
-      isMissingImplementation: Required({
+    DB.Object({
+      isMissingImplementation: DB.Required({
         comment:
           "Has the optional rule not been implemented in Optolith yet? This is also true if the optional rule does not (currently) apply to any Optolith feature.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      prerequisites: Optional({
-        type: IncludeIdentifier(RulePrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(RulePrerequisites),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "OptionalRule",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The optional rule’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          description: Required({
+          description: DB.Required({
             comment: "The description of the optional rule, as stated in the optional rule box.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          additionalRules: Optional({
+          additionalRules: DB.Optional({
             comment:
               "Sometimes, an optional rule does not only contain all the rules belonging to it in its rule box, but also in the main text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

@@ -1,4 +1,4 @@
-import { Boolean, Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { input, levels, maximum, name, name_in_library, range_l10n, rules } from "./_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "./_ActivatableAdventurePointsValue.js"
 import { automatic_entries } from "./_ActivatableAutomatic.js"
@@ -9,11 +9,11 @@ import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Advantage = Entity(import.meta.url, {
+export const Advantage = DB.Entity(import.meta.url, {
   name: "Advantage",
   namePlural: "Advantages",
   type: () =>
-    Object({
+    DB.Object({
       levels,
       select_options,
       explicit_select_options,
@@ -21,24 +21,24 @@ export const Advantage = Entity(import.meta.url, {
       skill_uses,
       maximum,
       automatic_entries,
-      prerequisites: Optional({
-        type: IncludeIdentifier(AdvantageDisadvantagePrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(AdvantageDisadvantagePrerequisites),
       }),
       ap_value,
-      has_maximum_spent_influence: Required({
+      has_maximum_spent_influence: DB.Required({
         comment: "Does this advantage count towards the maximum of AP to be spent on advantages?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      is_exclusive_to_arcane_spellworks: Required({
+      is_exclusive_to_arcane_spellworks: DB.Required({
         comment:
           "Does this advantage exclusively applies to arcane spellworks and not to magical actions and magical applications?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Advantage",
-        Object({
+        DB.Object({
           name,
           name_in_library,
           input,
@@ -46,8 +46,8 @@ export const Advantage = Entity(import.meta.url, {
           range: range_l10n,
           ap_value_append,
           ap_value: ap_value_l10n,
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

@@ -1,13 +1,4 @@
-import {
-  Entity,
-  GenIncludeIdentifier,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { OldParameter, OneTimePerformanceParameters } from "../_ActivatableSkill.js"
 import { CastingTime, SlowSkillNonModifiableCastingTime } from "../_ActivatableSkillCastingTime.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
@@ -19,71 +10,71 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const ZibiljaRitual = Entity(import.meta.url, {
+export const ZibiljaRitual = DB.Entity(import.meta.url, {
   name: "ZibiljaRitual",
   namePlural: "ZibiljaRituals",
   type: () =>
-    Object({
-      check: Required({
+    DB.Object({
+      check: DB.Required({
         comment: "Lists the linked three attributes used to make a skill check.",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
-      check_penalty: Optional({
+      check_penalty: DB.Optional({
         comment: "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-        type: IncludeIdentifier(SkillCheckPenalty),
+        type: DB.IncludeIdentifier(SkillCheckPenalty),
       }),
-      parameters: Required({
+      parameters: DB.Required({
         comment: "Measurable parameters of a zibilja ritual.",
-        type: IncludeIdentifier(ZibiljaRitualPerformanceParameters),
+        type: DB.IncludeIdentifier(ZibiljaRitualPerformanceParameters),
       }),
-      target: Required({
+      target: DB.Required({
         comment: "The target category – the kind of creature or object – the skill affects.",
-        type: IncludeIdentifier(AffectedTargetCategories),
+        type: DB.IncludeIdentifier(AffectedTargetCategories),
       }),
-      property: Required({
+      property: DB.Required({
         comment: "The associated property.",
         type: PropertyIdentifier(),
       }),
-      improvement_cost: Required({
+      improvement_cost: DB.Required({
         comment: "States which column is used to improve the skill.",
-        type: IncludeIdentifier(ImprovementCost),
+        type: DB.IncludeIdentifier(ImprovementCost),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "ZibiljaRitual",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The zibilja ritual’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment:
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
+            type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
-          casting_time: Optional({
+          casting_time: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          range: Optional({
+          range: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          duration: Optional({
+          duration: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          target: Optional({
+          target: DB.Optional({
             isDeprecated: true,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -97,10 +88,12 @@ export const ZibiljaRitual = Entity(import.meta.url, {
   ],
 })
 
-const ZibiljaRitualPerformanceParameters = TypeAlias(import.meta.url, {
+const ZibiljaRitualPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "ZibiljaRitualPerformanceParameters",
   type: () =>
-    GenIncludeIdentifier(OneTimePerformanceParameters, [
-      GenIncludeIdentifier(CastingTime, [IncludeIdentifier(SlowSkillNonModifiableCastingTime)]),
+    DB.GenIncludeIdentifier(OneTimePerformanceParameters, [
+      DB.GenIncludeIdentifier(CastingTime, [
+        DB.IncludeIdentifier(SlowSkillNonModifiableCastingTime),
+      ]),
     ]),
 })

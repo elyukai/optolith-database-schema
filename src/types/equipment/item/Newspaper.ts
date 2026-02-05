@@ -1,33 +1,33 @@
-import { Array, Entity, IncludeIdentifier, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../../Locale.js"
 import { src } from "../../source/_PublicationRef.js"
 import { Cost } from "./_Item.js"
 
-export const Newspaper = Entity(import.meta.url, {
+export const Newspaper = DB.Entity(import.meta.url, {
   name: "Newspaper",
   namePlural: "Newspapers",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Newspaper",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The newspaper’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          topics: Required({
+          topics: DB.Required({
             comment: "The topics covered by the newspaper.",
-            type: Array(String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
+            type: DB.Array(DB.String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
           }),
-          placeOfPublication: Required({
+          placeOfPublication: DB.Required({
             comment: "The place the newspaper is published.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

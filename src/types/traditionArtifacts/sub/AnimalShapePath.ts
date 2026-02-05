@@ -1,18 +1,18 @@
-import { Entity, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../../Locale.js"
 
-export const AnimalShapePath = Entity(import.meta.url, {
+export const AnimalShapePath = DB.Entity(import.meta.url, {
   name: "AnimalShapePath",
   namePlural: "AnimalShapePaths",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "AnimalShapePath",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The animal shape path’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

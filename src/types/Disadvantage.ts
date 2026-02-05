@@ -1,12 +1,4 @@
-import {
-  Boolean,
-  Entity,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { input, levels, maximum, name, name_in_library, rules } from "./_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "./_ActivatableAdventurePointsValue.js"
 import { explicit_select_options, select_options } from "./_ActivatableSelectOptions.js"
@@ -16,47 +8,47 @@ import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Disadvantage = Entity(import.meta.url, {
+export const Disadvantage = DB.Entity(import.meta.url, {
   name: "Disadvantage",
   namePlural: "Disadvantages",
   type: () =>
-    Object({
+    DB.Object({
       levels,
       select_options,
       explicit_select_options,
       skill_applications,
       skill_uses,
       maximum,
-      prerequisites: Optional({
-        type: IncludeIdentifier(AdvantageDisadvantagePrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(AdvantageDisadvantagePrerequisites),
       }),
       ap_value,
-      has_maximum_spent_influence: Required({
+      has_maximum_spent_influence: DB.Required({
         comment: "Does this advantage count towards the maximum of AP to be spent on advantages?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      is_exclusive_to_arcane_spellworks: Required({
+      is_exclusive_to_arcane_spellworks: DB.Required({
         comment:
           "Does this advantage exclusively applies to arcane spellworks and not to magical actions and magical applications?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Disadvantage",
-        Object({
+        DB.Object({
           name,
           name_in_library,
           input,
           rules,
-          range: Optional({
+          range: DB.Optional({
             comment: "The range.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
           ap_value_append,
           ap_value: ap_value_l10n,
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

@@ -1,17 +1,4 @@
-import {
-  Array,
-  Boolean,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { CastingTimeDuringLovemaking } from "./_ActivatableSkillCastingTime.js"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
 import { FixedRange } from "./_ActivatableSkillRange.js"
@@ -26,55 +13,55 @@ import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Cantrip = Entity(import.meta.url, {
+export const Cantrip = DB.Entity(import.meta.url, {
   name: "Cantrip",
   namePlural: "Cantrips",
   type: () =>
-    Object({
-      parameters: Required({
+    DB.Object({
+      parameters: DB.Required({
         comment: "Measurable parameters of a cantrip.",
-        type: IncludeIdentifier(CantripPerformanceParameters),
+        type: DB.IncludeIdentifier(CantripPerformanceParameters),
       }),
-      target: Required({
+      target: DB.Required({
         comment: "The target category – the kind of creature or object – the skill affects.",
-        type: IncludeIdentifier(AffectedTargetCategories),
+        type: DB.IncludeIdentifier(AffectedTargetCategories),
       }),
-      property: Required({
+      property: DB.Required({
         comment: "The associated property.",
         type: PropertyIdentifier(),
       }),
-      note: Optional({
+      note: DB.Optional({
         comment:
           "A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.",
-        type: IncludeIdentifier(CantripNote),
+        type: DB.IncludeIdentifier(CantripNote),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Cantrip",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The cantrip’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment: "The effect description.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          range: Required({
+          range: DB.Required({
             isDeprecated: true,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          duration: Required({
+          duration: DB.Required({
             isDeprecated: true,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          target: Required({
+          target: DB.Required({
             isDeprecated: true,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -88,126 +75,126 @@ export const Cantrip = Entity(import.meta.url, {
   ],
 })
 
-const CantripNote = Enum(import.meta.url, {
+const CantripNote = DB.Enum(import.meta.url, {
   name: "CantripNote",
   comment:
     "A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.",
   values: () => ({
-    Exclusive: EnumCase({ type: IncludeIdentifier(ExclusiveCantripNote) }),
-    Common: EnumCase({ type: IncludeIdentifier(CommonCantripNotes) }),
+    Exclusive: DB.EnumCase({ type: DB.IncludeIdentifier(ExclusiveCantripNote) }),
+    Common: DB.EnumCase({ type: DB.IncludeIdentifier(CommonCantripNotes) }),
   }),
 })
 
-const ExclusiveCantripNote = TypeAlias(import.meta.url, {
+const ExclusiveCantripNote = DB.TypeAlias(import.meta.url, {
   name: "ExclusiveCantripNote",
   type: () =>
-    Object({
-      traditions: Required({
+    DB.Object({
+      traditions: DB.Required({
         comment: "The traditions the cantrip is exclusively available to.",
-        type: Array(MagicalTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(MagicalTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
 
-const CommonCantripNotes = TypeAlias(import.meta.url, {
+const CommonCantripNotes = DB.TypeAlias(import.meta.url, {
   name: "CommonCantripNotes",
   type: () =>
-    Object({
-      list: Required({
+    DB.Object({
+      list: DB.Required({
         comment: "The academies and traditions the cantrip is commonly teached in.",
-        type: Array(IncludeIdentifier(CommonCantripNote), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(DB.IncludeIdentifier(CommonCantripNote), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
 
-const CommonCantripNote = Enum(import.meta.url, {
+const CommonCantripNote = DB.Enum(import.meta.url, {
   name: "CommonCantripNote",
   values: () => ({
-    Academy: EnumCase({ type: CurriculumIdentifier() }),
-    Tradition: EnumCase({ type: IncludeIdentifier(CommonCantripTraditionNote) }),
+    Academy: DB.EnumCase({ type: CurriculumIdentifier() }),
+    Tradition: DB.EnumCase({ type: DB.IncludeIdentifier(CommonCantripTraditionNote) }),
   }),
 })
 
-const CommonCantripTraditionNote = TypeAlias(import.meta.url, {
+const CommonCantripTraditionNote = DB.TypeAlias(import.meta.url, {
   name: "CommonCantripTraditionNote",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The magical tradition’s identifier.",
         type: MagicalTraditionIdentifier(),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "CommonCantripTraditionNote",
-        Object({
-          note: Required({
+        DB.Object({
+          note: DB.Required({
             comment: "A note, appended to the generated string in parenthesis.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
     }),
 })
 
-const CantripPerformanceParameters = TypeAlias(import.meta.url, {
+const CantripPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "CantripPerformanceParameters",
   comment: "Measurable parameters of a cantrip.",
   type: () =>
-    Object({
-      range: Required({ type: IncludeIdentifier(CantripRange) }),
-      duration: Required({ type: IncludeIdentifier(CantripDuration) }),
+    DB.Object({
+      range: DB.Required({ type: DB.IncludeIdentifier(CantripRange) }),
+      duration: DB.Required({ type: DB.IncludeIdentifier(CantripDuration) }),
     }),
 })
 
-const CantripRange = Enum(import.meta.url, {
+const CantripRange = DB.Enum(import.meta.url, {
   name: "CantripRange",
   values: () => ({
-    Self: EnumCase({ type: null }),
-    Touch: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedRange) }),
+    Self: DB.EnumCase({ type: null }),
+    Touch: DB.EnumCase({ type: null }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedRange) }),
   }),
 })
 
-const CantripDuration = Enum(import.meta.url, {
+const CantripDuration = DB.Enum(import.meta.url, {
   name: "CantripDuration",
   values: () => ({
-    Immediate: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedCantripDuration) }),
-    DuringLovemaking: EnumCase({ type: IncludeIdentifier(CastingTimeDuringLovemaking) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteCantripDuration) }),
+    Immediate: DB.EnumCase({ type: null }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedCantripDuration) }),
+    DuringLovemaking: DB.EnumCase({ type: DB.IncludeIdentifier(CastingTimeDuringLovemaking) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteCantripDuration) }),
   }),
 })
 
-const FixedCantripDuration = TypeAlias(import.meta.url, {
+const FixedCantripDuration = DB.TypeAlias(import.meta.url, {
   name: "FixedCantripDuration",
   type: () =>
-    Object({
-      is_maximum: Optional({
+    DB.Object({
+      is_maximum: DB.Optional({
         comment: "If the duration is the maximum duration, so it may end earlier.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      value: Required({
+      value: DB.Required({
         comment: "The (unitless) duration.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      unit: Required({
+      unit: DB.Required({
         comment: "The duration unit.",
-        type: IncludeIdentifier(DurationUnit),
+        type: DB.IncludeIdentifier(DurationUnit),
       }),
     }),
 })
 
-const IndefiniteCantripDuration = TypeAlias(import.meta.url, {
+const IndefiniteCantripDuration = DB.TypeAlias(import.meta.url, {
   name: "IndefiniteCantripDuration",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "IndefiniteCantripDuration",
-        Object({
-          description: Required({
+        DB.Object({
+          description: DB.Required({
             comment: "A description of the duration.",
-            type: IncludeIdentifier(ResponsiveText),
+            type: DB.IncludeIdentifier(ResponsiveText),
           }),
         }),
       ),

@@ -1,16 +1,4 @@
-import {
-  Array,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { name_in_library } from "../_Activatable.js"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration, DurationUnitValue } from "../_ActivatableSkillDuration.js"
@@ -24,71 +12,71 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs, src } from "../source/_PublicationRef.js"
 
-export const AnimistPower = Entity(import.meta.url, {
+export const AnimistPower = DB.Entity(import.meta.url, {
   name: "AnimistPower",
   namePlural: "AnimistPowers",
   type: () =>
-    Object({
-      check: Required({
+    DB.Object({
+      check: DB.Required({
         comment: "Lists the linked three attributes used to make a skill check.",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
-      parameters: Required({
+      parameters: DB.Required({
         comment: "Measurable parameters of an animist power.",
-        type: IncludeIdentifier(AnimistPowerPerformanceParameters),
+        type: DB.IncludeIdentifier(AnimistPowerPerformanceParameters),
       }),
-      property: Required({
+      property: DB.Required({
         comment: "The associated property.",
         type: PropertyIdentifier(),
       }),
-      tribe_tradition: Required({
+      tribe_tradition: DB.Required({
         comment: `The tribe traditions the animist power is available to. It may be available to all or only specific tribes.
 
 If no tribe tradition is given, the animist power is generally available to all tribe traditions.`,
-        type: Array(TribeIdentifier(), { uniqueItems: true }),
+        type: DB.Array(TribeIdentifier(), { uniqueItems: true }),
       }),
-      improvement_cost: Required({
+      improvement_cost: DB.Required({
         comment: "States which column is used to improve the skill.",
-        type: IncludeIdentifier(AnimistPowerImprovementCost),
+        type: DB.IncludeIdentifier(AnimistPowerImprovementCost),
       }),
-      prerequisites: Optional({
+      prerequisites: DB.Optional({
         comment: "The prerequisites for the animist power.",
-        type: IncludeIdentifier(AnimistPowerPrerequisites),
+        type: DB.IncludeIdentifier(AnimistPowerPrerequisites),
       }),
-      levels: Optional({
+      levels: DB.Optional({
         comment:
           "The animist power can have multiple levels. Each level is skilled separately. A previous level must be on at least 10 so that the next higher level can be activated and skilled. A higher level cannot be skilled higher than a lower level. Each level also adds an effect text to the text of the first level.",
-        type: Array(IncludeIdentifier(AnimistPowerLevel), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(AnimistPowerLevel), { minItems: 1 }),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "AnimistPower",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The animist power’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
           name_in_library,
-          effect: Required({
+          effect: DB.Required({
             comment:
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
+            type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          duration: Optional({
+          duration: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          prerequisites: Optional({
+          prerequisites: DB.Optional({
             isDeprecated: true,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -102,133 +90,135 @@ If no tribe tradition is given, the animist power is generally available to all 
   ],
 })
 
-const AnimistPowerLevel = TypeAlias(import.meta.url, {
+const AnimistPowerLevel = DB.TypeAlias(import.meta.url, {
   name: "AnimistPowerLevel",
   type: () =>
-    Object({
-      level: Required({
+    DB.Object({
+      level: DB.Required({
         comment: "The level number.",
-        type: Integer({ minimum: 2 }),
+        type: DB.Integer({ minimum: 2 }),
       }),
-      src: Optional({
+      src: DB.Optional({
         comment: "The source references, if different than the references for level 1.",
-        type: IncludeIdentifier(PublicationRefs),
+        type: DB.IncludeIdentifier(PublicationRefs),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "AnimistPowerLevel",
-        Object({
-          effect: Required({
+        DB.Object({
+          effect: DB.Required({
             comment: "An additional effect description for this level.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
         }),
       ),
     }),
 })
 
-const AnimistPowerPerformanceParameters = Enum(import.meta.url, {
+const AnimistPowerPerformanceParameters = DB.Enum(import.meta.url, {
   name: "AnimistPowerPerformanceParameters",
   comment: "Measurable parameters of an animist power.",
   values: () => ({
-    OneTime: EnumCase({ type: IncludeIdentifier(OneTimeAnimistPowerPerformanceParameters) }),
-    Sustained: EnumCase({ type: IncludeIdentifier(SustainedAnimistPowerPerformanceParameters) }),
+    OneTime: DB.EnumCase({ type: DB.IncludeIdentifier(OneTimeAnimistPowerPerformanceParameters) }),
+    Sustained: DB.EnumCase({
+      type: DB.IncludeIdentifier(SustainedAnimistPowerPerformanceParameters),
+    }),
   }),
 })
 
-const OneTimeAnimistPowerPerformanceParameters = TypeAlias(import.meta.url, {
+const OneTimeAnimistPowerPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "OneTimeAnimistPowerPerformanceParameters",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment:
           "The AE cost value, either a flat value or defined dynamically by the primary patron.",
-        type: IncludeIdentifier(OneTimeAnimistPowerCost),
+        type: DB.IncludeIdentifier(OneTimeAnimistPowerCost),
       }),
-      duration: Required({
+      duration: DB.Required({
         comment: "The duration.",
-        type: IncludeIdentifier(OneTimeAnimistPowerDuration),
+        type: DB.IncludeIdentifier(OneTimeAnimistPowerDuration),
       }),
     }),
 })
 
-const OneTimeAnimistPowerCost = Enum(import.meta.url, {
+const OneTimeAnimistPowerCost = DB.Enum(import.meta.url, {
   name: "OneTimeAnimistPowerCost",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedAnimistPowerCost) }),
-    ByPrimaryPatron: EnumCase({ type: IncludeIdentifier(AnimistPowerCostByPrimaryPatron) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedAnimistPowerCost) }),
+    ByPrimaryPatron: DB.EnumCase({ type: DB.IncludeIdentifier(AnimistPowerCostByPrimaryPatron) }),
   }),
 })
 
-const FixedAnimistPowerCost = TypeAlias(import.meta.url, {
+const FixedAnimistPowerCost = DB.TypeAlias(import.meta.url, {
   name: "FixedAnimistPowerCost",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The (temporary) AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      interval: Optional({
+      interval: DB.Optional({
         comment: "If defined, half of the AE cost `value` has to be paid each interval.",
-        type: IncludeIdentifier(DurationUnitValue),
+        type: DB.IncludeIdentifier(DurationUnitValue),
       }),
     }),
 })
 
-const AnimistPowerCostByPrimaryPatron = TypeAlias(import.meta.url, {
+const AnimistPowerCostByPrimaryPatron = DB.TypeAlias(import.meta.url, {
   name: "AnimistPowerCostByPrimaryPatron",
   type: () =>
-    Object({
-      interval: Optional({
+    DB.Object({
+      interval: DB.Optional({
         comment: "If defined, half of the AE cost `value` has to be paid each interval.",
-        type: IncludeIdentifier(DurationUnitValue),
+        type: DB.IncludeIdentifier(DurationUnitValue),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "AnimistPowerCostByPrimaryPatron",
-        Object({
-          note: Required({
+        DB.Object({
+          note: DB.Required({
             comment: "A note, appended to the generated string in parenthesis.",
-            type: IncludeIdentifier(ResponsiveTextOptional),
+            type: DB.IncludeIdentifier(ResponsiveTextOptional),
           }),
         }),
       ),
     }),
 })
 
-const OneTimeAnimistPowerDuration = Enum(import.meta.url, {
+const OneTimeAnimistPowerDuration = DB.Enum(import.meta.url, {
   name: "OneTimeAnimistPowerDuration",
   values: () => ({
-    Immediate: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: IncludeIdentifier(DurationUnitValue) }),
-    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+    Immediate: DB.EnumCase({ type: null }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(DurationUnitValue) }),
+    CheckResultBased: DB.EnumCase({ type: DB.IncludeIdentifier(CheckResultBasedDuration) }),
   }),
 })
 
-const SustainedAnimistPowerPerformanceParameters = TypeAlias(import.meta.url, {
+const SustainedAnimistPowerPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "SustainedAnimistPowerPerformanceParameters",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment:
           "The AE cost value, either a flat value or defined dynamically by the primary patron.",
-        type: IncludeIdentifier(SustainedAnimistPowerCost),
+        type: DB.IncludeIdentifier(SustainedAnimistPowerCost),
       }),
     }),
 })
 
-const SustainedAnimistPowerCost = Enum(import.meta.url, {
+const SustainedAnimistPowerCost = DB.Enum(import.meta.url, {
   name: "SustainedAnimistPowerCost",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedAnimistPowerCost) }),
-    ByPrimaryPatron: EnumCase({ type: IncludeIdentifier(AnimistPowerCostByPrimaryPatron) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedAnimistPowerCost) }),
+    ByPrimaryPatron: DB.EnumCase({ type: DB.IncludeIdentifier(AnimistPowerCostByPrimaryPatron) }),
   }),
 })
 
-const AnimistPowerImprovementCost = Enum(import.meta.url, {
+const AnimistPowerImprovementCost = DB.Enum(import.meta.url, {
   name: "AnimistPowerImprovementCost",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(ImprovementCost) }),
-    ByPrimaryPatron: EnumCase({ type: null }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(ImprovementCost) }),
+    ByPrimaryPatron: DB.EnumCase({ type: null }),
   }),
 })

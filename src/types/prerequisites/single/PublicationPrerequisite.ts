@@ -1,17 +1,17 @@
-import { IncludeIdentifier, Object, Optional, Required, TypeAlias } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { PublicationIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
-export const PublicationPrerequisite = TypeAlias(import.meta.url, {
+export const PublicationPrerequisite = DB.TypeAlias(import.meta.url, {
   name: "PublicationPrerequisite",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The publication’s identifier.",
         type: PublicationIdentifier(),
       }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
+      display_option: DB.Optional({
+        type: DB.IncludeIdentifier(DisplayOption),
       }),
     }),
 })

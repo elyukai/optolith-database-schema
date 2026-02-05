@@ -2,119 +2,104 @@
  * Auxiliary types for ranged weapons.
  */
 
-import {
-  Array,
-  Boolean,
-  Enum,
-  EnumCase,
-  GenIncludeIdentifier,
-  GenTypeAlias,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Param,
-  Required,
-  TypeAlias,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { Dice } from "../../_Dice.js"
 import { AmmunitionIdentifier } from "../../_Identifier.js"
 import { Length } from "./_Weapon.js"
 
-const RangedDamage = Enum(import.meta.url, {
+const RangedDamage = DB.Enum(import.meta.url, {
   name: "RangedDamage",
   comment:
     "The damage of a ranged weapon. It consists of a random part using dice and an optional flat part ny default. Some ranged weapons may work different so that damage is either not applicable at all or it is outlined as *Special* and further defined in a description.",
   values: () => ({
-    Default: EnumCase({ type: IncludeIdentifier(DefaultRangedDamage) }),
-    NotApplicable: EnumCase({ type: null }),
-    Special: EnumCase({ type: null }),
+    Default: DB.EnumCase({ type: DB.IncludeIdentifier(DefaultRangedDamage) }),
+    NotApplicable: DB.EnumCase({ type: null }),
+    Special: DB.EnumCase({ type: null }),
   }),
 })
 
-const DefaultRangedDamage = TypeAlias(import.meta.url, {
+const DefaultRangedDamage = DB.TypeAlias(import.meta.url, {
   name: "DefaultRangedDamage",
   comment: "The damage of a weapon consists of a random part using dice and an optional flat part.",
   type: () =>
-    Object({
-      dice: Required({
+    DB.Object({
+      dice: DB.Required({
         comment: "How many dice of which type are rolled to get the damage.",
-        type: IncludeIdentifier(Dice),
+        type: DB.IncludeIdentifier(Dice),
       }),
-      flat: Optional({
+      flat: DB.Optional({
         comment: "Flat damage, if any. It gets added to the result of the dice rolls.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-export const RangedWeapon = TypeAlias(import.meta.url, {
+export const RangedWeapon = DB.TypeAlias(import.meta.url, {
   name: "RangedWeapon",
-  type: () => GenIncludeIdentifier(GenRangedWeapon, [IncludeIdentifier(RangedDamage)]),
+  type: () => DB.GenIncludeIdentifier(GenRangedWeapon, [DB.IncludeIdentifier(RangedDamage)]),
 })
 
-export const GenRangedWeapon = GenTypeAlias(import.meta.url, {
+export const GenRangedWeapon = DB.GenTypeAlias(import.meta.url, {
   name: "GenRangedWeapon",
-  parameters: [Param("Damage")],
+  parameters: [DB.Param("Damage")],
   type: Damage =>
-    Object({
-      damage: Required({
+    DB.Object({
+      damage: DB.Required({
         comment: "The damage of a weapon can consist of random dice rolls and flat damage.",
-        type: TypeArgument(Damage),
+        type: DB.TypeArgument(Damage),
       }),
-      reload_time: Required({
+      reload_time: DB.Required({
         comment: "One or multiple reload times.",
-        type: Array(IncludeIdentifier(ReloadTime), {
+        type: DB.Array(DB.IncludeIdentifier(ReloadTime), {
           minItems: 1,
           uniqueItems: true,
         }),
       }),
-      range: Required({
+      range: DB.Required({
         comment: "The range brackets for the weapon: close, medium, far. Distances in m.",
-        type: IncludeIdentifier(RangeBrackets),
+        type: DB.IncludeIdentifier(RangeBrackets),
       }),
-      ammunition: Optional({
+      ammunition: DB.Optional({
         comment: "The needed ammunition.",
         type: AmmunitionIdentifier(),
       }),
-      length: Optional({
+      length: DB.Optional({
         comment: "The length of the weapon in cm/halffingers.",
-        type: IncludeIdentifier(Length),
+        type: DB.IncludeIdentifier(Length),
       }),
-      is_improvised_weapon: Required({
+      is_improvised_weapon: DB.Required({
         comment: "Is the weapon an improvised weapon?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
     }),
 })
 
-const RangeBrackets = TypeAlias(import.meta.url, {
+const RangeBrackets = DB.TypeAlias(import.meta.url, {
   name: "RangeBrackets",
   type: () =>
-    Object({
-      close: Required({
+    DB.Object({
+      close: DB.Required({
         comment: "The close range bracket for the weapon. Distance in m.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      medium: Required({
+      medium: DB.Required({
         comment: "The medium range bracket for the weapon. Distance in m.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      far: Required({
+      far: DB.Required({
         comment: "The far range bracket for the weapon. Distance in m.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
     }),
 })
 
-const ReloadTime = TypeAlias(import.meta.url, {
+const ReloadTime = DB.TypeAlias(import.meta.url, {
   name: "ReloadTime",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "A reload time value in actions.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })

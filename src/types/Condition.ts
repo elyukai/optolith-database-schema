@@ -1,43 +1,35 @@
-import {
-  Array,
-  Entity,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Condition = Entity(import.meta.url, {
+export const Condition = DB.Entity(import.meta.url, {
   name: "Condition",
   namePlural: "Conditions",
   type: () =>
-    Object({
+    DB.Object({
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Condition",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The condition’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          rules: Optional({
+          rules: DB.Optional({
             comment: "Additional rules for the condition, if applicable.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          effects: Required({
+          effects: DB.Required({
             comment: "The effects for level 1 to 4.",
-            type: Array(String({ minLength: 1, isMarkdown: true }), {
+            type: DB.Array(DB.String({ minLength: 1, isMarkdown: true }), {
               minItems: 4,
               maxItems: 4,
             }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

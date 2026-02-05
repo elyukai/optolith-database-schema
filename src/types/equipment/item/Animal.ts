@@ -1,15 +1,15 @@
-import { Entity, IncludeIdentifier, Object, Required } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import { Cost, DefaultItemTranslations } from "./_Item.js"
 
-export const Animal = Entity(import.meta.url, {
+export const Animal = DB.Entity(import.meta.url, {
   name: "Animal",
   namePlural: "Animals",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
       src,
       translations: DefaultItemTranslations("Animal"),

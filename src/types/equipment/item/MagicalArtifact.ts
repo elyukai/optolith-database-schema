@@ -1,72 +1,72 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { CombatUse, Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
 import { checkWeaponCombatTechniqueIntegrity } from "./_Weapon.js"
 
-export const MagicalArtifact = Entity(import.meta.url, {
+export const MagicalArtifact = DB.Entity(import.meta.url, {
   name: "MagicalArtifact",
   namePlural: "MagicalArtifacts",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
-      weight: Optional({
+      weight: DB.Optional({
         comment: "The weight in kg.",
-        type: IncludeIdentifier(Weight),
+        type: DB.IncludeIdentifier(Weight),
       }),
-      complexity: Optional({
+      complexity: DB.Optional({
         comment: "The complexity of crafting the item.",
-        type: IncludeIdentifier(Complexity),
+        type: DB.IncludeIdentifier(Complexity),
       }),
-      structure_points: Optional({
+      structure_points: DB.Optional({
         comment:
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
-        type: IncludeIdentifier(StructurePoints),
+        type: DB.IncludeIdentifier(StructurePoints),
       }),
-      combat_use: Optional({
+      combat_use: DB.Optional({
         comment:
           "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
-        type: IncludeIdentifier(CombatUse),
+        type: DB.IncludeIdentifier(CombatUse),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         `MagicalArtifact`,
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The item’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          secondary_name: Optional({
+          secondary_name: DB.Optional({
             comment: "An auxiliary name or label of the item, if available.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          description: Optional({
+          description: DB.Optional({
             comment: "Description text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          note: Optional({
+          note: DB.Optional({
             comment: "A note.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          rules: Optional({
+          rules: DB.Optional({
             comment: "Rules text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          effect: Optional({
+          effect: DB.Optional({
             comment: "Effect text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             comment: "Cost text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

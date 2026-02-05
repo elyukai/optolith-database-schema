@@ -1,96 +1,83 @@
-import {
-  Array,
-  Boolean,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { ArmorIdentifier, ArmorTypeIdentifier } from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { ComplexComplexity, Cost, RestrictedTo, Weight } from "./_Item.js"
 
-export const Armor = Entity(import.meta.url, {
+export const Armor = DB.Entity(import.meta.url, {
   name: "Armor",
   namePlural: "Armor",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
-      weight: Required({
+      weight: DB.Required({
         comment: "The weight in kg.",
-        type: IncludeIdentifier(Weight),
+        type: DB.IncludeIdentifier(Weight),
       }),
-      complexity: Optional({
+      complexity: DB.Optional({
         comment: "The complexity of crafting the item.",
-        type: IncludeIdentifier(ArmorComplexity),
+        type: DB.IncludeIdentifier(ArmorComplexity),
       }),
-      protection: Required({
+      protection: DB.Required({
         comment: "The PRO value.",
-        type: IncludeIdentifier(Protection),
+        type: DB.IncludeIdentifier(Protection),
       }),
-      encumbrance: Required({
+      encumbrance: DB.Required({
         comment: "The ENC value.",
-        type: IncludeIdentifier(Encumbrance),
+        type: DB.IncludeIdentifier(Encumbrance),
       }),
-      has_additional_penalties: Required({
+      has_additional_penalties: DB.Required({
         comment: "Does the armor have additional penalties (MOV -1, INI -1)?",
-        type: IncludeIdentifier(HasAdditionalPenalties),
+        type: DB.IncludeIdentifier(HasAdditionalPenalties),
       }),
-      armor_type: Required({
+      armor_type: DB.Required({
         comment: "The armor type..",
         type: ArmorTypeIdentifier(),
       }),
-      hit_zone: Optional({
+      hit_zone: DB.Optional({
         comment: "Specify if armor is only available for a specific hit zone.",
-        type: IncludeIdentifier(HitZone),
+        type: DB.IncludeIdentifier(HitZone),
       }),
-      restrictedTo: Optional({
+      restrictedTo: DB.Optional({
         comment:
           "Define if during character creation this weapon can only be bought by a specific subset of characters.",
-        type: IncludeIdentifier(RestrictedTo),
+        type: DB.IncludeIdentifier(RestrictedTo),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Armor",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The item’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          secondary_name: Optional({
+          secondary_name: DB.Optional({
             comment: "An auxiliary name or label of the item, if available.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          note: Optional({
+          note: DB.Optional({
             comment: "Note text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          rules: Optional({
+          rules: DB.Optional({
             comment: "Special rules text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          advantage: Optional({
+          advantage: DB.Optional({
             comment: "The armor advantage text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          disadvantage: Optional({
+          disadvantage: DB.Optional({
             comment: "The armor disadvantage text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -104,47 +91,47 @@ export const Armor = Entity(import.meta.url, {
   ],
 })
 
-export const SecondaryArmor = TypeAlias(import.meta.url, {
+export const SecondaryArmor = DB.TypeAlias(import.meta.url, {
   name: "SecondaryArmor",
   type: () =>
-    Object({
-      protection: Required({
+    DB.Object({
+      protection: DB.Required({
         comment: "The PRO value.",
-        type: IncludeIdentifier(Protection),
+        type: DB.IncludeIdentifier(Protection),
       }),
-      encumbrance: Required({
+      encumbrance: DB.Required({
         comment: "The ENC value.",
-        type: IncludeIdentifier(Encumbrance),
+        type: DB.IncludeIdentifier(Encumbrance),
       }),
-      has_additional_penalties: Required({
+      has_additional_penalties: DB.Required({
         comment: "Does the armor have additional penalties (MOV -1, INI -1)?",
-        type: IncludeIdentifier(HasAdditionalPenalties),
+        type: DB.IncludeIdentifier(HasAdditionalPenalties),
       }),
-      armor_type: Required({
+      armor_type: DB.Required({
         comment: "The armor type..",
         type: ArmorTypeIdentifier(),
       }),
-      hit_zone: Optional({
+      hit_zone: DB.Optional({
         comment: "Specify if armor is only available for a specific hit zone.",
-        type: IncludeIdentifier(HitZone),
+        type: DB.IncludeIdentifier(HitZone),
       }),
-      restrictedTo: Optional({
+      restrictedTo: DB.Optional({
         comment:
           "Define if during character creation this armor can only be bought by a specific subset of characters.",
-        type: IncludeIdentifier(RestrictedTo),
+        type: DB.IncludeIdentifier(RestrictedTo),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "SecondaryArmor",
-        Object(
+        DB.Object(
           {
-            advantage: Optional({
+            advantage: DB.Optional({
               comment: "The armor advantage text.",
-              type: String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, isMarkdown: true }),
             }),
-            disadvantage: Optional({
+            disadvantage: DB.Optional({
               comment: "The armor disadvantage text.",
-              type: String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, isMarkdown: true }),
             }),
           },
           { minProperties: 1 },
@@ -153,70 +140,70 @@ export const SecondaryArmor = TypeAlias(import.meta.url, {
     }),
 })
 
-const ArmorComplexity = Enum(import.meta.url, {
+const ArmorComplexity = DB.Enum(import.meta.url, {
   name: "ArmorComplexity",
   comment: "The complexity of crafting the armor.",
   values: () => ({
-    Primitive: EnumCase({ type: null }),
-    Simple: EnumCase({ type: null }),
-    Complex: EnumCase({ type: IncludeIdentifier(ComplexComplexity) }),
-    Various: EnumCase({ type: null }),
+    Primitive: DB.EnumCase({ type: null }),
+    Simple: DB.EnumCase({ type: null }),
+    Complex: DB.EnumCase({ type: DB.IncludeIdentifier(ComplexComplexity) }),
+    Various: DB.EnumCase({ type: null }),
   }),
 })
 
-export const Protection = TypeAlias(import.meta.url, {
+export const Protection = DB.TypeAlias(import.meta.url, {
   name: "Protection",
   comment: "The PRO value.",
-  type: () => Integer({ minimum: 0 }),
+  type: () => DB.Integer({ minimum: 0 }),
 })
 
-export const Encumbrance = TypeAlias(import.meta.url, {
+export const Encumbrance = DB.TypeAlias(import.meta.url, {
   name: "Encumbrance",
   comment: "The ENC value.",
-  type: () => Integer({ minimum: 0 }),
+  type: () => DB.Integer({ minimum: 0 }),
 })
 
-export const HasAdditionalPenalties = TypeAlias(import.meta.url, {
+export const HasAdditionalPenalties = DB.TypeAlias(import.meta.url, {
   name: "HasAdditionalPenalties",
   comment: "Does the armor have additional penalties (MOV -1, INI -1)?",
-  type: () => Boolean(),
+  type: () => DB.Boolean(),
 })
 
-const HitZone = Enum(import.meta.url, {
+const HitZone = DB.Enum(import.meta.url, {
   name: "HitZone",
   comment: "Specify if armor is only available for a specific hit zone.",
   values: () => ({
-    Head: EnumCase({ type: IncludeIdentifier(HeadHitZone) }),
-    Torso: EnumCase({ type: null }),
-    Arms: EnumCase({ type: null }),
-    Legs: EnumCase({ type: null }),
+    Head: DB.EnumCase({ type: DB.IncludeIdentifier(HeadHitZone) }),
+    Torso: DB.EnumCase({ type: null }),
+    Arms: DB.EnumCase({ type: null }),
+    Legs: DB.EnumCase({ type: null }),
   }),
 })
 
-const HeadHitZone = TypeAlias(import.meta.url, {
+const HeadHitZone = DB.TypeAlias(import.meta.url, {
   name: "HeadHitZone",
   type: () =>
-    Object({
-      combination_possibilities: Optional({
+    DB.Object({
+      combination_possibilities: DB.Optional({
         comment:
           "In some cases, multiple armors for the same hit zone can be combined. They're listed at the item that can be combined with others.",
-        type: IncludeIdentifier(HeadHitZoneCombinationPossibilities),
+        type: DB.IncludeIdentifier(HeadHitZoneCombinationPossibilities),
       }),
     }),
 })
 
-const HeadHitZoneCombinationPossibilities = TypeAlias(import.meta.url, {
+const HeadHitZoneCombinationPossibilities = DB.TypeAlias(import.meta.url, {
   name: "HeadHitZoneCombinationPossibilities",
   type: () =>
-    Object({
-      armors: Required({
+    DB.Object({
+      armors: DB.Required({
         comment: "A list of armors that can be combined with this armor.",
-        type: Array(ArmorIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(ArmorIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
-      protection: Optional({
+      protection: DB.Optional({
         comment:
           "The PRO value that is added to the PRO value of the other armor instead of adding the normale PRO value.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
     }),
 })

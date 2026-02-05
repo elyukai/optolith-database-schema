@@ -1,91 +1,81 @@
-import {
-  Boolean,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { CheckResultBasedModifier, CheckResultValue } from "./_ActivatableSkillCheckResultBased.js"
 import { ResponsiveText, ResponsiveTextReplace } from "./_ResponsiveText.js"
 import { NestedTranslationMap } from "./Locale.js"
 
-export const DurationForOneTime = Enum(import.meta.url, {
+export const DurationForOneTime = DB.Enum(import.meta.url, {
   name: "DurationForOneTime",
   values: () => ({
-    Immediate: EnumCase({ type: IncludeIdentifier(Immediate) }),
-    Permanent: EnumCase({ type: IncludeIdentifier(PermanentDuration) }),
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedDuration) }),
-    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteDuration) }),
+    Immediate: DB.EnumCase({ type: DB.IncludeIdentifier(Immediate) }),
+    Permanent: DB.EnumCase({ type: DB.IncludeIdentifier(PermanentDuration) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedDuration) }),
+    CheckResultBased: DB.EnumCase({ type: DB.IncludeIdentifier(CheckResultBasedDuration) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteDuration) }),
   }),
 })
 
-const Immediate = TypeAlias(import.meta.url, {
+const Immediate = DB.TypeAlias(import.meta.url, {
   name: "Immediate",
   type: () =>
-    Object({
-      maximum: Optional({
+    DB.Object({
+      maximum: DB.Optional({
         comment: "Specified if the duration has a maximum time span.",
-        type: IncludeIdentifier(DurationUnitValue),
+        type: DB.IncludeIdentifier(DurationUnitValue),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "Immediate",
-        Object({
-          replacement: Optional({
+        DB.Object({
+          replacement: DB.Optional({
             comment: "A replacement string.",
-            type: IncludeIdentifier(ResponsiveTextReplace),
+            type: DB.IncludeIdentifier(ResponsiveTextReplace),
           }),
         }),
       ),
     }),
 })
 
-const PermanentDuration = TypeAlias(import.meta.url, {
+const PermanentDuration = DB.TypeAlias(import.meta.url, {
   name: "PermanentDuration",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "PermanentDuration",
-        Object({
-          replacement: Optional({
+        DB.Object({
+          replacement: DB.Optional({
             comment: "A replacement string.",
-            type: IncludeIdentifier(ResponsiveTextReplace),
+            type: DB.IncludeIdentifier(ResponsiveTextReplace),
           }),
         }),
       ),
     }),
 })
 
-export const FixedDuration = TypeAlias(import.meta.url, {
+export const FixedDuration = DB.TypeAlias(import.meta.url, {
   name: "FixedDuration",
   type: () =>
-    Object({
-      is_maximum: Optional({
+    DB.Object({
+      is_maximum: DB.Optional({
         comment: "If the duration is the maximum duration, so it may end earlier.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      value: Required({
+      value: DB.Required({
         comment: "The (unitless) duration.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      unit: Required({
+      unit: DB.Required({
         comment: "The duration unit.",
-        type: IncludeIdentifier(DurationUnit),
+        type: DB.IncludeIdentifier(DurationUnit),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "FixedDuration",
-        Object(
+        DB.Object(
           {
-            replacement: Optional({
+            replacement: DB.Optional({
               comment: "A replacement string.",
-              type: IncludeIdentifier(ResponsiveTextReplace),
+              type: DB.IncludeIdentifier(ResponsiveTextReplace),
             }),
           },
           { minProperties: 1 },
@@ -94,94 +84,94 @@ export const FixedDuration = TypeAlias(import.meta.url, {
     }),
 })
 
-export const CheckResultBasedDuration = TypeAlias(import.meta.url, {
+export const CheckResultBasedDuration = DB.TypeAlias(import.meta.url, {
   name: "CheckResultBasedDuration",
   type: () =>
-    Object({
-      is_maximum: Optional({
+    DB.Object({
+      is_maximum: DB.Optional({
         comment: "If the duration is the maximum duration, so it may end earlier.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      base: Required({
+      base: DB.Required({
         comment: "The base value that is derived from the check result.",
-        type: IncludeIdentifier(CheckResultValue),
+        type: DB.IncludeIdentifier(CheckResultValue),
       }),
-      modifier: Optional({
+      modifier: DB.Optional({
         comment: "If defined, it modifies the base value.",
-        type: IncludeIdentifier(CheckResultBasedModifier),
+        type: DB.IncludeIdentifier(CheckResultBasedModifier),
       }),
-      unit: Required({
+      unit: DB.Required({
         comment: "The duration unit.",
-        type: IncludeIdentifier(DurationUnit),
+        type: DB.IncludeIdentifier(DurationUnit),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "CheckResultBasedDuration",
-        Object({
-          replacement: Optional({
+        DB.Object({
+          replacement: DB.Optional({
             comment: "A replacement string.",
-            type: IncludeIdentifier(ResponsiveTextReplace),
+            type: DB.IncludeIdentifier(ResponsiveTextReplace),
           }),
         }),
       ),
     }),
 })
 
-export const IndefiniteDuration = TypeAlias(import.meta.url, {
+export const IndefiniteDuration = DB.TypeAlias(import.meta.url, {
   name: "IndefiniteDuration",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "IndefiniteDuration",
-        Object({
-          description: Required({
+        DB.Object({
+          description: DB.Required({
             comment: "A description of the duration.",
-            type: IncludeIdentifier(ResponsiveText),
+            type: DB.IncludeIdentifier(ResponsiveText),
           }),
         }),
       ),
     }),
 })
 
-export const DurationForSustained = TypeAlias(import.meta.url, {
+export const DurationForSustained = DB.TypeAlias(import.meta.url, {
   name: "DurationForSustained",
   type: () =>
-    Object({
-      maximum: Required({
+    DB.Object({
+      maximum: DB.Required({
         comment: "The sustained skill can be active a maximum amount of time.",
-        type: IncludeIdentifier(DurationUnitValue),
+        type: DB.IncludeIdentifier(DurationUnitValue),
       }),
     }),
 })
 
-export const DurationUnit = Enum(import.meta.url, {
+export const DurationUnit = DB.Enum(import.meta.url, {
   name: "DurationUnit",
   values: () => ({
-    Seconds: EnumCase({ type: null }),
-    Minutes: EnumCase({ type: null }),
-    Hours: EnumCase({ type: null }),
-    Days: EnumCase({ type: null }),
-    Weeks: EnumCase({ type: null }),
-    Months: EnumCase({ type: null }),
-    Years: EnumCase({ type: null }),
-    Centuries: EnumCase({ type: null }),
-    Actions: EnumCase({ type: null }),
-    CombatRounds: EnumCase({ type: null }),
+    Seconds: DB.EnumCase({ type: null }),
+    Minutes: DB.EnumCase({ type: null }),
+    Hours: DB.EnumCase({ type: null }),
+    Days: DB.EnumCase({ type: null }),
+    Weeks: DB.EnumCase({ type: null }),
+    Months: DB.EnumCase({ type: null }),
+    Years: DB.EnumCase({ type: null }),
+    Centuries: DB.EnumCase({ type: null }),
+    Actions: DB.EnumCase({ type: null }),
+    CombatRounds: DB.EnumCase({ type: null }),
   }),
 })
 
-export const DurationUnitValue = TypeAlias(import.meta.url, {
+export const DurationUnitValue = DB.TypeAlias(import.meta.url, {
   name: "DurationUnitValue",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The (unitless) duration value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      unit: Required({
+      unit: DB.Required({
         comment: "The unit of the `value`.",
-        type: IncludeIdentifier(DurationUnit),
+        type: DB.IncludeIdentifier(DurationUnit),
       }),
     }),
 })

@@ -1,37 +1,37 @@
-import { Entity, Object, Optional, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const SexPractice = Entity(import.meta.url, {
+export const SexPractice = DB.Entity(import.meta.url, {
   name: "SexPractice",
   namePlural: "SexPractices",
   type: () =>
-    Object({
+    DB.Object({
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "SexPractice",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The sex practice’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          rules: Required({
+          rules: DB.Required({
             comment: "The rules of the sex practice.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          duration: Required({
+          duration: DB.Required({
             comment: "How long a round of this sex practice takes.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          prerequisites: Optional({
+          prerequisites: DB.Optional({
             comment:
               "Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          failed: Required({
+          failed: DB.Required({
             comment: "Effects of a failed *Seduction* check.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

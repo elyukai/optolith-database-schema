@@ -1,31 +1,31 @@
-import { Entity, IncludeIdentifier, Integer, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { SkillCheck } from "./_SkillCheck.js"
 import { NestedTranslationMap } from "./Locale.js"
 
-export const SkillGroup = Entity(import.meta.url, {
+export const SkillGroup = DB.Entity(import.meta.url, {
   name: "SkillGroup",
   namePlural: "SkillGroups",
   type: () =>
-    Object({
-      position: Required({
+    DB.Object({
+      position: DB.Required({
         comment: "The position of the skill group in lists. This has to be a unique value.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      check: Required({
+      check: DB.Required({
         comment: "The skill group’s skill check attributes",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "SkillGroup",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The skill group’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          longName: Required({
+          longName: DB.Required({
             comment: "The skill group’s long name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

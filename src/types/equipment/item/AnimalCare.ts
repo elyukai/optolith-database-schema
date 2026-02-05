@@ -1,23 +1,15 @@
-import {
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Object,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import { Cost, DefaultItemTranslations, FixedCost, Weight } from "./_Item.js"
 
-export const AnimalCare = Entity(import.meta.url, {
+export const AnimalCare = DB.Entity(import.meta.url, {
   name: "AnimalCare",
   namePlural: "AnimalCare",
   type: () =>
-    Object({
-      type: Required({
+    DB.Object({
+      type: DB.Required({
         comment: "Values depending on whether the animal care is feed.",
-        type: IncludeIdentifier(AnimalCareType),
+        type: DB.IncludeIdentifier(AnimalCareType),
       }),
       src,
       translations: DefaultItemTranslations("AnimalCare"),
@@ -31,44 +23,44 @@ export const AnimalCare = Entity(import.meta.url, {
   ],
 })
 
-const AnimalCareType = Enum(import.meta.url, {
+const AnimalCareType = DB.Enum(import.meta.url, {
   name: "AnimalCareType",
   comment: "Values depending on whether the animal care is feed.",
   values: () => ({
-    General: EnumCase({ type: IncludeIdentifier(GeneralAnimalCare) }),
-    Feed: EnumCase({ type: IncludeIdentifier(AnimalFeed) }),
+    General: DB.EnumCase({ type: DB.IncludeIdentifier(GeneralAnimalCare) }),
+    Feed: DB.EnumCase({ type: DB.IncludeIdentifier(AnimalFeed) }),
   }),
 })
 
-const GeneralAnimalCare = TypeAlias(import.meta.url, {
+const GeneralAnimalCare = DB.TypeAlias(import.meta.url, {
   name: "GeneralAnimalCare",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
-      weight: Required({
+      weight: DB.Required({
         comment: "The weight in kg.",
-        type: IncludeIdentifier(Weight),
+        type: DB.IncludeIdentifier(Weight),
       }),
     }),
 })
 
-const AnimalFeed = TypeAlias(import.meta.url, {
+const AnimalFeed = DB.TypeAlias(import.meta.url, {
   name: "AnimalFeed",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(AnimalFeedCost),
+        type: DB.IncludeIdentifier(AnimalFeedCost),
       }),
     }),
 })
 
-const AnimalFeedCost = Enum(import.meta.url, {
+const AnimalFeedCost = DB.Enum(import.meta.url, {
   name: "AnimalFeedCost",
   values: () => ({
-    PerWeek: EnumCase({ type: IncludeIdentifier(FixedCost) }),
+    PerWeek: DB.EnumCase({ type: DB.IncludeIdentifier(FixedCost) }),
   }),
 })

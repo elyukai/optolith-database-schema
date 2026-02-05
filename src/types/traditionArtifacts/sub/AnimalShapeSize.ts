@@ -1,26 +1,26 @@
-import { Entity, Integer, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../../Locale.js"
 
-export const AnimalShapeSize = Entity(import.meta.url, {
+export const AnimalShapeSize = DB.Entity(import.meta.url, {
   name: "AnimalShapeSize",
   namePlural: "AnimalShapeSizes",
   type: () =>
-    Object({
-      volume: Required({
+    DB.Object({
+      volume: DB.Required({
         comment: "The animal shape size’s volume points",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      ap_value: Required({
+      ap_value: DB.Required({
         comment: "The animal shape size’s adventure point value",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "AnimalShapeSize",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The animal shape size’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

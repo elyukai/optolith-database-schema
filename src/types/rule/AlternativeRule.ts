@@ -1,47 +1,38 @@
-import {
-  Array,
-  Boolean,
-  Entity,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { PlayerTypeIdentifier } from "../_Identifier.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const AlternativeRule = Entity(import.meta.url, {
+export const AlternativeRule = DB.Entity(import.meta.url, {
   name: "AlternativeRule",
   namePlural: "AlternativeRules",
   type: () =>
-    Object({
-      playerTypes: Required({
+    DB.Object({
+      playerTypes: DB.Required({
         comment: "The player types this alternative rule is suitable for.",
-        type: Array(PlayerTypeIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(PlayerTypeIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
-      isMissingImplementation: Required({
+      isMissingImplementation: DB.Required({
         comment:
           "Has the alternative rule not been implemented in Optolith yet? This is also true if the alternative rule does not (currently) apply to any Optolith feature.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "AlternativeRule",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The alternative rule’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          description: Required({
+          description: DB.Required({
             comment: "The description of the alternative rule.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

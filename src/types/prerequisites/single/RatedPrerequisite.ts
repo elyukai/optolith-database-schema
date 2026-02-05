@@ -1,28 +1,21 @@
-import {
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { RatedIdentifier } from "../../_IdentifierGroup.js"
 import { DisplayOption } from "../DisplayOption.js"
 
-export const RatedPrerequisite = TypeAlias(import.meta.url, {
+export const RatedPrerequisite = DB.TypeAlias(import.meta.url, {
   name: "RatedPrerequisite",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The rated entry’s identifier.",
-        type: IncludeIdentifier(RatedIdentifier),
+        type: DB.IncludeIdentifier(RatedIdentifier),
       }),
-      value: Required({
+      value: DB.Required({
         comment: "The required minimum value.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
+      display_option: DB.Optional({
+        type: DB.IncludeIdentifier(DisplayOption),
       }),
     }),
 })

@@ -1,14 +1,4 @@
-import {
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { effect, name, name_in_library } from "../_Activatable.js"
 import { ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { propertyOptional } from "../_ActivatableNonMundane.js"
@@ -18,35 +8,35 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const MagicalSign = Entity(import.meta.url, {
+export const MagicalSign = DB.Entity(import.meta.url, {
   name: "MagicalSign",
   namePlural: "MagicalSigns",
   type: () =>
-    Object({
-      prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
+    DB.Object({
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(GeneralPrerequisites),
       }),
-      cost: Optional({
+      cost: DB.Optional({
         comment: "The cost in AE.",
-        type: IncludeIdentifier(MagicalSignCost),
+        type: DB.IncludeIdentifier(MagicalSignCost),
       }),
       property: propertyOptional(),
-      ap_value: Required({
+      ap_value: DB.Required({
         comment: "The adventure points value.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "MagicalSign",
-        Object({
+        DB.Object({
           name,
           name_in_library,
           effect,
           ap_value_append,
           ap_value: ap_value_l10n,
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -61,25 +51,25 @@ export const MagicalSign = Entity(import.meta.url, {
   ],
 })
 
-const MagicalSignCost = Enum(import.meta.url, {
+const MagicalSignCost = DB.Enum(import.meta.url, {
   name: "MagicalSignCost",
   values: () => ({
-    Constant: EnumCase({ type: IncludeIdentifier(ConstantMagicalSignCost) }),
-    Map: EnumCase({ type: IncludeIdentifier(OneTimeCostMap) }),
+    Constant: DB.EnumCase({ type: DB.IncludeIdentifier(ConstantMagicalSignCost) }),
+    Map: DB.EnumCase({ type: DB.IncludeIdentifier(OneTimeCostMap) }),
   }),
 })
 
-const ConstantMagicalSignCost = TypeAlias(import.meta.url, {
+const ConstantMagicalSignCost = DB.TypeAlias(import.meta.url, {
   name: "ConstantMagicalSignCost",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      permanent_value: Optional({
+      permanent_value: DB.Optional({
         comment: "The part of the cost value that has to be spent permanently.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })

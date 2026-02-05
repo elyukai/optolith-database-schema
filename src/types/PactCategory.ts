@@ -1,41 +1,33 @@
-import {
-  ChildEntities,
-  Entity,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { PactCategoryIdentifier } from "./_Identifier.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const PactCategory = Entity(import.meta.url, {
+export const PactCategory = DB.Entity(import.meta.url, {
   name: "PactCategory",
   namePlural: "PactCategories",
   type: () =>
-    Object({
-      types: Required({
+    DB.Object({
+      types: DB.Required({
         comment: "Types of creatures in this category.",
-        type: ChildEntities(PactType),
+        type: DB.ChildEntities(PactType),
       }),
-      domains: Required({
+      domains: DB.Required({
         comment: "Domains in this category.",
-        type: ChildEntities(PactDomain),
+        type: DB.ChildEntities(PactDomain),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "PactCategory",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The pact category’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -49,22 +41,22 @@ export const PactCategory = Entity(import.meta.url, {
   ],
 })
 
-export const PactType = Entity(import.meta.url, {
+export const PactType = DB.Entity(import.meta.url, {
   name: "PactType",
   namePlural: "PactTypes",
   type: () =>
-    Object({
-      parent: Required({
+    DB.Object({
+      parent: DB.Required({
         comment: "The pact category this type belongs to.",
         type: PactCategoryIdentifier(),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "PactType",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The type’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
@@ -93,22 +85,22 @@ export const PactType = Entity(import.meta.url, {
   ],
 })
 
-export const PactDomain = Entity(import.meta.url, {
+export const PactDomain = DB.Entity(import.meta.url, {
   name: "PactDomain",
   namePlural: "PactDomains",
   type: () =>
-    Object({
-      parent: Required({
+    DB.Object({
+      parent: DB.Required({
         comment: "The pact category this domain belongs to.",
         type: PactCategoryIdentifier(),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "PactDomain",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The domain’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

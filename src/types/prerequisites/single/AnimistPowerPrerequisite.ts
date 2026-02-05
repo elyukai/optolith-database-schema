@@ -1,33 +1,26 @@
-import {
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { AnimistPowerIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
-export const AnimistPowerPrerequisite = TypeAlias(import.meta.url, {
+export const AnimistPowerPrerequisite = DB.TypeAlias(import.meta.url, {
   name: "AnimistPowerPrerequisite",
   comment: "Requires a specific animist power to be on a minimum value.",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The animist power’s identifier.",
         type: AnimistPowerIdentifier(),
       }),
-      level: Optional({
+      level: DB.Optional({
         comment: "The level to which the minimum value applies.",
-        type: Integer({ minimum: 2 }),
+        type: DB.Integer({ minimum: 2 }),
       }),
-      value: Required({
+      value: DB.Required({
         comment: "The required minimum value.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
+      display_option: DB.Optional({
+        type: DB.IncludeIdentifier(DisplayOption),
       }),
     }),
 })

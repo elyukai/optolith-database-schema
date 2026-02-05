@@ -1,15 +1,4 @@
-import {
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { IndefiniteOneTimeCost } from "../_ActivatableSkillCost.js"
 import { CheckResultBasedDuration, DurationUnitValue } from "../_ActivatableSkillDuration.js"
@@ -21,51 +10,51 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const Curse = Entity(import.meta.url, {
+export const Curse = DB.Entity(import.meta.url, {
   name: "Curse",
   namePlural: "Curses",
   type: () =>
-    Object({
-      check: Required({
+    DB.Object({
+      check: DB.Required({
         comment: "Lists the linked three attributes used to make a skill check.",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
-      check_penalty: Optional({
+      check_penalty: DB.Optional({
         comment: "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-        type: IncludeIdentifier(SkillCheckPenalty),
+        type: DB.IncludeIdentifier(SkillCheckPenalty),
       }),
-      parameters: Required({
+      parameters: DB.Required({
         comment: "Measurable parameters of a curse.",
-        type: IncludeIdentifier(CursePerformanceParameters),
+        type: DB.IncludeIdentifier(CursePerformanceParameters),
       }),
-      property: Required({
+      property: DB.Required({
         comment: "The associated property.",
         type: PropertyIdentifier(),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Curse",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The curse’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment:
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
+            type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          duration: Optional({
+          duration: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -79,51 +68,51 @@ export const Curse = Entity(import.meta.url, {
   ],
 })
 
-const CursePerformanceParameters = TypeAlias(import.meta.url, {
+const CursePerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "CursePerformanceParameters",
   comment: "Measurable parameters of a curse.",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The AE cost.",
-        type: IncludeIdentifier(CurseCost),
+        type: DB.IncludeIdentifier(CurseCost),
       }),
-      duration: Required({
+      duration: DB.Required({
         comment: "The duration.",
-        type: IncludeIdentifier(CurseDuration),
+        type: DB.IncludeIdentifier(CurseDuration),
       }),
     }),
 })
 
-const CurseCost = Enum(import.meta.url, {
+const CurseCost = DB.Enum(import.meta.url, {
   name: "CurseCost",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedCurseCost) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteOneTimeCost) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedCurseCost) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteOneTimeCost) }),
   }),
 })
 
-const FixedCurseCost = TypeAlias(import.meta.url, {
+const FixedCurseCost = DB.TypeAlias(import.meta.url, {
   name: "FixedCurseCost",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The (temporary) AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "FixedCurseCost",
-        Object(
+        DB.Object(
           {
-            per: Optional({
+            per: DB.Optional({
               comment:
                 "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
-              type: IncludeIdentifier(ResponsiveText),
+              type: DB.IncludeIdentifier(ResponsiveText),
             }),
-            note: Optional({
+            note: DB.Optional({
               comment: "A note, appended to the generated string in parenthesis.",
-              type: IncludeIdentifier(ResponsiveTextOptional),
+              type: DB.IncludeIdentifier(ResponsiveTextOptional),
             }),
           },
           { minProperties: 1 },
@@ -132,41 +121,41 @@ const FixedCurseCost = TypeAlias(import.meta.url, {
     }),
 })
 
-const CurseDuration = Enum(import.meta.url, {
+const CurseDuration = DB.Enum(import.meta.url, {
   name: "CurseDuration",
   values: () => ({
-    Immediate: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: IncludeIdentifier(DurationUnitValue) }),
-    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteCurseDuration) }),
+    Immediate: DB.EnumCase({ type: null }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(DurationUnitValue) }),
+    CheckResultBased: DB.EnumCase({ type: DB.IncludeIdentifier(CheckResultBasedDuration) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteCurseDuration) }),
   }),
 })
 
-const IndefiniteCurseDuration = TypeAlias(import.meta.url, {
+const IndefiniteCurseDuration = DB.TypeAlias(import.meta.url, {
   name: "IndefiniteCurseDuration",
   type: () =>
-    Object({
-      maximum: Optional({
+    DB.Object({
+      maximum: DB.Optional({
         comment: "Specified if the duration has a maximum time span.",
-        type: IncludeIdentifier(MaximumIndefiniteCurseDuration),
+        type: DB.IncludeIdentifier(MaximumIndefiniteCurseDuration),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "IndefiniteCurseDuration",
-        Object({
-          description: Required({
+        DB.Object({
+          description: DB.Required({
             comment: "A description of the duration.",
-            type: IncludeIdentifier(ResponsiveText),
+            type: DB.IncludeIdentifier(ResponsiveText),
           }),
         }),
       ),
     }),
 })
 
-const MaximumIndefiniteCurseDuration = Enum(import.meta.url, {
+const MaximumIndefiniteCurseDuration = DB.Enum(import.meta.url, {
   name: "MaximumIndefiniteCurseDuration",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(DurationUnitValue) }),
-    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(DurationUnitValue) }),
+    CheckResultBased: DB.EnumCase({ type: DB.IncludeIdentifier(CheckResultBasedDuration) }),
   }),
 })

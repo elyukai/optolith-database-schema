@@ -1,14 +1,4 @@
-import {
-  Array,
-  EnumCase,
-  GenEnum,
-  GenIncludeIdentifier,
-  Param,
-  TypeArgument,
-  type Enum,
-  type IncludeIdentifier,
-  type TypeParameter,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 
 type BinaryMathOperationName =
   | "Addition"
@@ -18,52 +8,52 @@ type BinaryMathOperationName =
   | "Exponentiation"
 
 type BinaryMathOperation = {
-  [K in BinaryMathOperationName]: EnumCase<
-    Array<IncludeIdentifier<[Value: TypeParameter], MathOperation>>
+  [K in BinaryMathOperationName]: DB.EnumCase<
+    DB.Array<DB.IncludeIdentifier<[Value: DB.TypeParameter], MathOperation>>
   >
 }
 
-export type MathOperation = Enum<
+export type MathOperation = DB.Enum<
   "MathOperation",
   {
-    Value: EnumCase<TypeArgument>
+    Value: DB.EnumCase<DB.TypeArgument>
   } & BinaryMathOperation,
-  [Value: TypeParameter<"Value">]
+  [Value: DB.TypeParameter<"Value">]
 >
 
-export const MathOperation: MathOperation = GenEnum(import.meta.url, {
+export const MathOperation: MathOperation = DB.GenEnum(import.meta.url, {
   name: "MathOperation",
-  parameters: [Param("Value")],
+  parameters: [DB.Param("Value")],
   values: Value => {
-    const binaryOperationType = Array(
-      GenIncludeIdentifier<MathOperation, [Value: TypeParameter]>(MathOperation, [
-        TypeArgument(Value),
+    const binaryOperationType = DB.Array(
+      DB.GenIncludeIdentifier<MathOperation, [Value: DB.TypeParameter]>(MathOperation, [
+        DB.TypeArgument(Value),
       ]),
       { minItems: 2, maxItems: 2 },
     )
 
     return {
-      Value: EnumCase({
+      Value: DB.EnumCase({
         comment: "A direct value.",
-        type: TypeArgument(Value),
+        type: DB.TypeArgument(Value),
       }),
-      Addition: EnumCase({
+      Addition: DB.EnumCase({
         comment: "Adds two values.",
         type: binaryOperationType,
       }),
-      Subtraction: EnumCase({
+      Subtraction: DB.EnumCase({
         comment: "Subtracts the right value from the left value.",
         type: binaryOperationType,
       }),
-      Multiplication: EnumCase({
+      Multiplication: DB.EnumCase({
         comment: "Multiplies two values.",
         type: binaryOperationType,
       }),
-      Division: EnumCase({
+      Division: DB.EnumCase({
         comment: "Divides the left value by the right value.",
         type: binaryOperationType,
       }),
-      Exponentiation: EnumCase({
+      Exponentiation: DB.EnumCase({
         comment: "Raises the left value to the power of the right value.",
         type: binaryOperationType,
       }),

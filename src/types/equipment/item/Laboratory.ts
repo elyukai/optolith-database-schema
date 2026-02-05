@@ -1,27 +1,27 @@
-import { Entity, IncludeIdentifier, Integer, Object, Optional, Required } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, DefaultItemTranslations, Weight } from "./_Item.js"
 
-export const Laboratory = Entity(import.meta.url, {
+export const Laboratory = DB.Entity(import.meta.url, {
   name: "Laboratory",
   namePlural: "Laboratories",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
-      weight: Required({
+      weight: DB.Required({
         comment: "The weight in kg.",
-        type: IncludeIdentifier(Weight),
+        type: DB.IncludeIdentifier(Weight),
       }),
-      complexity: Optional({
+      complexity: DB.Optional({
         comment: "The complexity of crafting the item.",
-        type: IncludeIdentifier(Complexity),
+        type: DB.IncludeIdentifier(Complexity),
       }),
-      level: Required({
+      level: DB.Required({
         comment: "The level of the laboratory.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       src,
       translations: DefaultItemTranslations("Laboratory"),

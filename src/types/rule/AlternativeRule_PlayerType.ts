@@ -1,19 +1,19 @@
-import { Entity, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../Locale.js"
 
-export const PlayerType = Entity(import.meta.url, {
+export const PlayerType = DB.Entity(import.meta.url, {
   name: "PlayerType",
   namePlural: "PlayerTypes",
   comment: "Player types describe different playing styles, expectations and wishes of players.",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "PlayerType",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The player type.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

@@ -1,14 +1,4 @@
-import {
-  Entity,
-  Enum,
-  EnumCase,
-  Float,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import {
   CombatUse,
@@ -20,37 +10,37 @@ import {
 } from "./_Item.js"
 import { checkWeaponCombatTechniqueIntegrity } from "./_Weapon.js"
 
-export const IlluminationLightSource = Entity(import.meta.url, {
+export const IlluminationLightSource = DB.Entity(import.meta.url, {
   name: "IlluminationLightSource",
   namePlural: "IlluminationLightSources",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
-      weight: Required({
+      weight: DB.Required({
         comment: "The weight in kg.",
-        type: IncludeIdentifier(Weight),
+        type: DB.IncludeIdentifier(Weight),
       }),
-      complexity: Optional({
+      complexity: DB.Optional({
         comment: "The complexity of crafting the item.",
-        type: IncludeIdentifier(Complexity),
+        type: DB.IncludeIdentifier(Complexity),
       }),
-      structure_points: Required({
+      structure_points: DB.Required({
         comment:
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
-        type: IncludeIdentifier(StructurePoints),
+        type: DB.IncludeIdentifier(StructurePoints),
       }),
-      burning_time: Required({
+      burning_time: DB.Required({
         comment:
           "The burning time is the time how long the light source can be lit. After that time you have to use a new light source.",
-        type: IncludeIdentifier(BurningTime),
+        type: DB.IncludeIdentifier(BurningTime),
       }),
-      combat_use: Optional({
+      combat_use: DB.Optional({
         comment:
           "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
-        type: IncludeIdentifier(CombatUse),
+        type: DB.IncludeIdentifier(CombatUse),
       }),
       src,
       translations: DefaultItemTranslations("IlluminationLightSource"),
@@ -77,32 +67,32 @@ export const IlluminationLightSource = Entity(import.meta.url, {
   },
 })
 
-const BurningTime = Enum(import.meta.url, {
+const BurningTime = DB.Enum(import.meta.url, {
   name: "BurningTime",
   values: () => ({
-    Unlimited: EnumCase({ type: null }),
-    Limited: EnumCase({ type: IncludeIdentifier(LimitedBurningTime) }),
+    Unlimited: DB.EnumCase({ type: null }),
+    Limited: DB.EnumCase({ type: DB.IncludeIdentifier(LimitedBurningTime) }),
   }),
 })
 
-const LimitedBurningTime = TypeAlias(import.meta.url, {
+const LimitedBurningTime = DB.TypeAlias(import.meta.url, {
   name: "LimitedBurningTime",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The (unitless) time value.",
-        type: Float({ minimum: { value: 0, isExclusive: true } }),
+        type: DB.Float({ minimum: { value: 0, isExclusive: true } }),
       }),
-      unit: Required({
+      unit: DB.Required({
         comment: "The time unit.",
-        type: IncludeIdentifier(LimitedBurningTimeUnit),
+        type: DB.IncludeIdentifier(LimitedBurningTimeUnit),
       }),
     }),
 })
 
-const LimitedBurningTimeUnit = Enum(import.meta.url, {
+const LimitedBurningTimeUnit = DB.Enum(import.meta.url, {
   name: "LimitedBurningTimeUnit",
   values: () => ({
-    Hours: EnumCase({ type: null }),
+    Hours: DB.EnumCase({ type: null }),
   }),
 })

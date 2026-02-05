@@ -1,36 +1,26 @@
-import {
-  Array,
-  Entity,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { EquipmentIdentifier } from "../_IdentifierGroup.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const EquipmentPackage = Entity(import.meta.url, {
+export const EquipmentPackage = DB.Entity(import.meta.url, {
   name: "EquipmentPackage",
   namePlural: "EquipmentPackages",
   type: () =>
-    Object({
-      items: Optional({
+    DB.Object({
+      items: DB.Optional({
         comment:
           "All items in the package. You have to provide the item (template) identifier and you can optionally provide the number of how often an item is included in the package.",
-        type: Array(IncludeIdentifier(EquipmentPackageItem), { minItems: 2 }),
+        type: DB.Array(DB.IncludeIdentifier(EquipmentPackageItem), { minItems: 2 }),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "EquipmentPackage",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The equipment package’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),
@@ -44,17 +34,17 @@ export const EquipmentPackage = Entity(import.meta.url, {
   ],
 })
 
-const EquipmentPackageItem = TypeAlias(import.meta.url, {
+const EquipmentPackageItem = DB.TypeAlias(import.meta.url, {
   name: "EquipmentPackageItem",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment: "The item’s identifier.",
-        type: IncludeIdentifier(EquipmentIdentifier),
+        type: DB.IncludeIdentifier(EquipmentIdentifier),
       }),
-      number: Optional({
+      number: DB.Optional({
         comment: "The number of how often the item is included in the package.",
-        type: Integer({ minimum: 2 }),
+        type: DB.Integer({ minimum: 2 }),
       }),
     }),
 })

@@ -1,4 +1,4 @@
-import { Enum, EnumCase, IncludeIdentifier } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { ActivatablePrerequisite } from "./single/ActivatablePrerequisite.js"
 import { AncestorBloodPrerequisite } from "./single/AncestorBloodPrerequisite.js"
 import { AnimistPowerPrerequisite } from "./single/AnimistPowerPrerequisite.js"
@@ -24,174 +24,182 @@ import {
   MagicalTraditionPrerequisite,
 } from "./single/TraditionPrerequisite.js"
 
-export const RulePrerequisiteGroup = Enum(import.meta.url, {
+export const RulePrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "RulePrerequisiteGroup",
   values: () => ({
-    Rule: EnumCase({ type: IncludeIdentifier(RulePrerequisite) }),
+    Rule: DB.EnumCase({ type: DB.IncludeIdentifier(RulePrerequisite) }),
   }),
 })
 
-export const DerivedCharacteristicPrerequisiteGroup = Enum(import.meta.url, {
+export const DerivedCharacteristicPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "DerivedCharacteristicPrerequisiteGroup",
   values: () => ({
-    Rule: EnumCase({ type: IncludeIdentifier(RulePrerequisite) }),
+    Rule: DB.EnumCase({ type: DB.IncludeIdentifier(RulePrerequisite) }),
   }),
 })
 
-export const PublicationPrerequisiteGroup = Enum(import.meta.url, {
+export const PublicationPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "PublicationPrerequisiteGroup",
   values: () => ({
-    Publication: EnumCase({ type: IncludeIdentifier(PublicationPrerequisite) }),
+    Publication: DB.EnumCase({ type: DB.IncludeIdentifier(PublicationPrerequisite) }),
   }),
 })
 
-export const GeneralPrerequisiteGroup = Enum(import.meta.url, {
+export const GeneralPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "GeneralPrerequisiteGroup",
   values: () => ({
-    Sex: EnumCase({ type: IncludeIdentifier(SexPrerequisite) }),
-    Race: EnumCase({ type: IncludeIdentifier(RacePrerequisite) }),
-    Culture: EnumCase({ type: IncludeIdentifier(CulturePrerequisite) }),
-    Pact: EnumCase({ type: IncludeIdentifier(PactPrerequisite) }),
-    SocialStatus: EnumCase({ type: IncludeIdentifier(SocialStatusPrerequisite) }),
-    State: EnumCase({ type: IncludeIdentifier(StatePrerequisite) }),
-    Rule: EnumCase({ type: IncludeIdentifier(RulePrerequisite) }),
-    PrimaryAttribute: EnumCase({ type: IncludeIdentifier(PrimaryAttributePrerequisite) }),
-    Activatable: EnumCase({ type: IncludeIdentifier(ActivatablePrerequisite) }),
-    BlessedTradition: EnumCase({ type: IncludeIdentifier(BlessedTraditionPrerequisite) }),
-    MagicalTradition: EnumCase({ type: IncludeIdentifier(MagicalTraditionPrerequisite) }),
-    Rated: EnumCase({ type: IncludeIdentifier(RatedPrerequisite) }),
-    RatedMinimumNumber: EnumCase({ type: IncludeIdentifier(RatedMinimumNumberPrerequisite) }),
-    RatedSum: EnumCase({ type: IncludeIdentifier(RatedSumPrerequisite) }),
-    Enhancement: EnumCase({ type: IncludeIdentifier(EnhancementPrerequisite) }),
-    Text: EnumCase({ type: IncludeIdentifier(TextPrerequisite) }),
-    SexualCharacteristic: EnumCase({ type: IncludeIdentifier(SexualCharacteristicPrerequisite) }),
+    Sex: DB.EnumCase({ type: DB.IncludeIdentifier(SexPrerequisite) }),
+    Race: DB.EnumCase({ type: DB.IncludeIdentifier(RacePrerequisite) }),
+    Culture: DB.EnumCase({ type: DB.IncludeIdentifier(CulturePrerequisite) }),
+    Pact: DB.EnumCase({ type: DB.IncludeIdentifier(PactPrerequisite) }),
+    SocialStatus: DB.EnumCase({ type: DB.IncludeIdentifier(SocialStatusPrerequisite) }),
+    State: DB.EnumCase({ type: DB.IncludeIdentifier(StatePrerequisite) }),
+    Rule: DB.EnumCase({ type: DB.IncludeIdentifier(RulePrerequisite) }),
+    PrimaryAttribute: DB.EnumCase({ type: DB.IncludeIdentifier(PrimaryAttributePrerequisite) }),
+    Activatable: DB.EnumCase({ type: DB.IncludeIdentifier(ActivatablePrerequisite) }),
+    BlessedTradition: DB.EnumCase({ type: DB.IncludeIdentifier(BlessedTraditionPrerequisite) }),
+    MagicalTradition: DB.EnumCase({ type: DB.IncludeIdentifier(MagicalTraditionPrerequisite) }),
+    Rated: DB.EnumCase({ type: DB.IncludeIdentifier(RatedPrerequisite) }),
+    RatedMinimumNumber: DB.EnumCase({ type: DB.IncludeIdentifier(RatedMinimumNumberPrerequisite) }),
+    RatedSum: DB.EnumCase({ type: DB.IncludeIdentifier(RatedSumPrerequisite) }),
+    Enhancement: DB.EnumCase({ type: DB.IncludeIdentifier(EnhancementPrerequisite) }),
+    Text: DB.EnumCase({ type: DB.IncludeIdentifier(TextPrerequisite) }),
+    SexualCharacteristic: DB.EnumCase({
+      type: DB.IncludeIdentifier(SexualCharacteristicPrerequisite),
+    }),
   }),
 })
 
-export const ProfessionPrerequisiteGroup = Enum(import.meta.url, {
+export const ProfessionPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "ProfessionPrerequisiteGroup",
   values: () => ({
-    Sex: EnumCase({ type: IncludeIdentifier(SexPrerequisite) }),
-    Race: EnumCase({ type: IncludeIdentifier(RacePrerequisite) }),
-    Culture: EnumCase({ type: IncludeIdentifier(CulturePrerequisite) }),
-    Activatable: EnumCase({ type: IncludeIdentifier(ActivatablePrerequisite) }),
-    Rated: EnumCase({ type: IncludeIdentifier(RatedPrerequisite) }),
+    Sex: DB.EnumCase({ type: DB.IncludeIdentifier(SexPrerequisite) }),
+    Race: DB.EnumCase({ type: DB.IncludeIdentifier(RacePrerequisite) }),
+    Culture: DB.EnumCase({ type: DB.IncludeIdentifier(CulturePrerequisite) }),
+    Activatable: DB.EnumCase({ type: DB.IncludeIdentifier(ActivatablePrerequisite) }),
+    Rated: DB.EnumCase({ type: DB.IncludeIdentifier(RatedPrerequisite) }),
   }),
 })
 
-export const AdvantageDisadvantagePrerequisiteGroup = Enum(import.meta.url, {
+export const AdvantageDisadvantagePrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "AdvantageDisadvantagePrerequisiteGroup",
   values: () => {
     return {
-      CommonSuggestedByRCP: EnumCase({ type: null }),
-      Sex: EnumCase({ type: IncludeIdentifier(SexPrerequisite) }),
-      Race: EnumCase({ type: IncludeIdentifier(RacePrerequisite) }),
-      Culture: EnumCase({ type: IncludeIdentifier(CulturePrerequisite) }),
-      Pact: EnumCase({ type: IncludeIdentifier(PactPrerequisite) }),
-      SocialStatus: EnumCase({ type: IncludeIdentifier(SocialStatusPrerequisite) }),
-      State: EnumCase({ type: IncludeIdentifier(StatePrerequisite) }),
-      Rule: EnumCase({ type: IncludeIdentifier(RulePrerequisite) }),
-      PrimaryAttribute: EnumCase({ type: IncludeIdentifier(PrimaryAttributePrerequisite) }),
-      Activatable: EnumCase({ type: IncludeIdentifier(ActivatablePrerequisite) }),
-      BlessedTradition: EnumCase({ type: IncludeIdentifier(BlessedTraditionPrerequisite) }),
-      MagicalTradition: EnumCase({ type: IncludeIdentifier(MagicalTraditionPrerequisite) }),
-      Rated: EnumCase({ type: IncludeIdentifier(RatedPrerequisite) }),
-      RatedMinimumNumber: EnumCase({ type: IncludeIdentifier(RatedMinimumNumberPrerequisite) }),
-      RatedSum: EnumCase({ type: IncludeIdentifier(RatedSumPrerequisite) }),
-      Enhancement: EnumCase({ type: IncludeIdentifier(EnhancementPrerequisite) }),
-      Text: EnumCase({ type: IncludeIdentifier(TextPrerequisite) }),
-      NoOtherAncestorBloodAdvantage: EnumCase({
+      CommonSuggestedByRCP: DB.EnumCase({ type: null }),
+      Sex: DB.EnumCase({ type: DB.IncludeIdentifier(SexPrerequisite) }),
+      Race: DB.EnumCase({ type: DB.IncludeIdentifier(RacePrerequisite) }),
+      Culture: DB.EnumCase({ type: DB.IncludeIdentifier(CulturePrerequisite) }),
+      Pact: DB.EnumCase({ type: DB.IncludeIdentifier(PactPrerequisite) }),
+      SocialStatus: DB.EnumCase({ type: DB.IncludeIdentifier(SocialStatusPrerequisite) }),
+      State: DB.EnumCase({ type: DB.IncludeIdentifier(StatePrerequisite) }),
+      Rule: DB.EnumCase({ type: DB.IncludeIdentifier(RulePrerequisite) }),
+      PrimaryAttribute: DB.EnumCase({ type: DB.IncludeIdentifier(PrimaryAttributePrerequisite) }),
+      Activatable: DB.EnumCase({ type: DB.IncludeIdentifier(ActivatablePrerequisite) }),
+      BlessedTradition: DB.EnumCase({ type: DB.IncludeIdentifier(BlessedTraditionPrerequisite) }),
+      MagicalTradition: DB.EnumCase({ type: DB.IncludeIdentifier(MagicalTraditionPrerequisite) }),
+      Rated: DB.EnumCase({ type: DB.IncludeIdentifier(RatedPrerequisite) }),
+      RatedMinimumNumber: DB.EnumCase({
+        type: DB.IncludeIdentifier(RatedMinimumNumberPrerequisite),
+      }),
+      RatedSum: DB.EnumCase({ type: DB.IncludeIdentifier(RatedSumPrerequisite) }),
+      Enhancement: DB.EnumCase({ type: DB.IncludeIdentifier(EnhancementPrerequisite) }),
+      Text: DB.EnumCase({ type: DB.IncludeIdentifier(TextPrerequisite) }),
+      NoOtherAncestorBloodAdvantage: DB.EnumCase({
         type: AncestorBloodPrerequisite,
       }),
-      SexualCharacteristic: EnumCase({ type: IncludeIdentifier(SexualCharacteristicPrerequisite) }),
+      SexualCharacteristic: DB.EnumCase({
+        type: DB.IncludeIdentifier(SexualCharacteristicPrerequisite),
+      }),
     }
   },
 })
 
-export const ArcaneTraditionPrerequisiteGroup = Enum(import.meta.url, {
+export const ArcaneTraditionPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "ArcaneTraditionPrerequisiteGroup",
   values: () => ({
-    Sex: EnumCase({ type: IncludeIdentifier(SexPrerequisite) }),
-    Culture: EnumCase({ type: IncludeIdentifier(CulturePrerequisite) }),
+    Sex: DB.EnumCase({ type: DB.IncludeIdentifier(SexPrerequisite) }),
+    Culture: DB.EnumCase({ type: DB.IncludeIdentifier(CulturePrerequisite) }),
   }),
 })
 
-export const PersonalityTraitPrerequisiteGroup = Enum(import.meta.url, {
+export const PersonalityTraitPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "PersonalityTraitPrerequisiteGroup",
   values: () => ({
-    Race: EnumCase({ type: IncludeIdentifier(RacePrerequisite) }),
-    Culture: EnumCase({ type: IncludeIdentifier(CulturePrerequisite) }),
-    PersonalityTrait: EnumCase({ type: IncludeIdentifier(PersonalityTraitPrerequisite) }),
-    Text: EnumCase({ type: IncludeIdentifier(TextPrerequisite) }),
+    Race: DB.EnumCase({ type: DB.IncludeIdentifier(RacePrerequisite) }),
+    Culture: DB.EnumCase({ type: DB.IncludeIdentifier(CulturePrerequisite) }),
+    PersonalityTrait: DB.EnumCase({ type: DB.IncludeIdentifier(PersonalityTraitPrerequisite) }),
+    Text: DB.EnumCase({ type: DB.IncludeIdentifier(TextPrerequisite) }),
   }),
 })
 
-export const SpellworkPrerequisiteGroup = Enum(import.meta.url, {
+export const SpellworkPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "SpellworkPrerequisiteGroup",
   values: () => ({
-    Rule: EnumCase({ type: IncludeIdentifier(RulePrerequisite) }),
-    Rated: EnumCase({ type: IncludeIdentifier(RatedPrerequisite) }),
+    Rule: DB.EnumCase({ type: DB.IncludeIdentifier(RulePrerequisite) }),
+    Rated: DB.EnumCase({ type: DB.IncludeIdentifier(RatedPrerequisite) }),
   }),
 })
 
-export const LiturgyPrerequisiteGroup = Enum(import.meta.url, {
+export const LiturgyPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "LiturgyPrerequisiteGroup",
   values: () => ({
-    Rule: EnumCase({ type: IncludeIdentifier(RulePrerequisite) }),
+    Rule: DB.EnumCase({ type: DB.IncludeIdentifier(RulePrerequisite) }),
   }),
 })
 
-export const InfluencePrerequisiteGroup = Enum(import.meta.url, {
+export const InfluencePrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "InfluencePrerequisiteGroup",
   values: () => ({
-    Influence: EnumCase({ type: IncludeIdentifier(InfluencePrerequisite) }),
-    Text: EnumCase({ type: IncludeIdentifier(TextPrerequisite) }),
+    Influence: DB.EnumCase({ type: DB.IncludeIdentifier(InfluencePrerequisite) }),
+    Text: DB.EnumCase({ type: DB.IncludeIdentifier(TextPrerequisite) }),
   }),
 })
 
-export const LanguagePrerequisiteGroup = Enum(import.meta.url, {
+export const LanguagePrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "LanguagePrerequisiteGroup",
   values: () => ({
-    Race: EnumCase({ type: IncludeIdentifier(RacePrerequisite) }),
-    Activatable: EnumCase({ type: IncludeIdentifier(ActivatablePrerequisite) }),
-    Text: EnumCase({ type: IncludeIdentifier(TextPrerequisite) }),
+    Race: DB.EnumCase({ type: DB.IncludeIdentifier(RacePrerequisite) }),
+    Activatable: DB.EnumCase({ type: DB.IncludeIdentifier(ActivatablePrerequisite) }),
+    Text: DB.EnumCase({ type: DB.IncludeIdentifier(TextPrerequisite) }),
   }),
 })
 
-export const AnimistPowerPrerequisiteGroup = Enum(import.meta.url, {
+export const AnimistPowerPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "AnimistPowerPrerequisiteGroup",
   values: () => ({
-    AnimistPower: EnumCase({ type: IncludeIdentifier(AnimistPowerPrerequisite) }),
+    AnimistPower: DB.EnumCase({ type: DB.IncludeIdentifier(AnimistPowerPrerequisite) }),
   }),
 })
 
-export const TribePrerequisiteGroup = Enum(import.meta.url, {
+export const TribePrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "TribePrerequisiteGroup",
   values: () => ({
-    Race: EnumCase({ type: IncludeIdentifier(RacePrerequisite) }),
-    Culture: EnumCase({ type: IncludeIdentifier(CulturePrerequisite) }),
+    Race: DB.EnumCase({ type: DB.IncludeIdentifier(RacePrerequisite) }),
+    Culture: DB.EnumCase({ type: DB.IncludeIdentifier(CulturePrerequisite) }),
   }),
 })
 
-export const GeodeRitualPrerequisiteGroup = Enum(import.meta.url, {
+export const GeodeRitualPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "GeodeRitualPrerequisiteGroup",
   values: () => ({
-    Influence: EnumCase({ type: IncludeIdentifier(InfluencePrerequisite) }),
+    Influence: DB.EnumCase({ type: DB.IncludeIdentifier(InfluencePrerequisite) }),
   }),
 })
 
-export const EnhancementPrerequisiteGroup = Enum(import.meta.url, {
+export const EnhancementPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "EnhancementPrerequisiteGroup",
   values: () => ({
-    Enhancement: EnumCase({ type: IncludeIdentifier(EnhancementPrerequisite) }),
-    Rated: EnumCase({ type: IncludeIdentifier(RatedPrerequisite) }),
+    Enhancement: DB.EnumCase({ type: DB.IncludeIdentifier(EnhancementPrerequisite) }),
+    Rated: DB.EnumCase({ type: DB.IncludeIdentifier(RatedPrerequisite) }),
   }),
 })
 
-export const PreconditionGroup = Enum(import.meta.url, {
+export const PreconditionGroup = DB.Enum(import.meta.url, {
   name: "PreconditionGroup",
   values: () => ({
-    Publication: EnumCase({ type: IncludeIdentifier(PublicationPrerequisite) }),
-    SexualCharacteristic: EnumCase({ type: IncludeIdentifier(SexualCharacteristicPrerequisite) }),
+    Publication: DB.EnumCase({ type: DB.IncludeIdentifier(PublicationPrerequisite) }),
+    SexualCharacteristic: DB.EnumCase({
+      type: DB.IncludeIdentifier(SexualCharacteristicPrerequisite),
+    }),
   }),
 })

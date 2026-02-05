@@ -2,124 +2,110 @@
  * Auxiliary types for melee weapons.
  */
 
-import {
-  Boolean,
-  Enum,
-  EnumCase,
-  GenIncludeIdentifier,
-  GenTypeAlias,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Param,
-  Required,
-  TypeAlias,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { Dice } from "../../_Dice.js"
 import { ReachIdentifier } from "../../_Identifier.js"
 import { Length, PrimaryAttributeDamageThreshold } from "./_Weapon.js"
 
-export const AttackModifier = TypeAlias(import.meta.url, {
+export const AttackModifier = DB.TypeAlias(import.meta.url, {
   name: "AttackModifier",
   comment: "The AT modifier.",
-  type: () => Integer(),
+  type: () => DB.Integer(),
 })
 
-export const ParryModifier = TypeAlias(import.meta.url, {
+export const ParryModifier = DB.TypeAlias(import.meta.url, {
   name: "ParryModifier",
   comment: "The PA modifier.",
-  type: () => Integer(),
+  type: () => DB.Integer(),
 })
 
-const MeleeDamage = TypeAlias(import.meta.url, {
+const MeleeDamage = DB.TypeAlias(import.meta.url, {
   name: "MeleeDamage",
   comment: "The damage of a weapon consists of a random part using dice and an optional flat part.",
   type: () =>
-    Object({
-      dice: Required({
+    DB.Object({
+      dice: DB.Required({
         comment: "How many dice of which type are rolled to get the damage.",
-        type: IncludeIdentifier(Dice),
+        type: DB.IncludeIdentifier(Dice),
       }),
-      flat: Optional({
+      flat: DB.Optional({
         comment: "Flat damage, if any. It gets added to the result of the dice rolls.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const ShieldSize = Enum(import.meta.url, {
+const ShieldSize = DB.Enum(import.meta.url, {
   name: "ShieldSize",
   comment: "The shield size and potential size-depending values.",
   values: () => ({
-    Small: EnumCase({ type: null }),
-    Medium: EnumCase({ type: null }),
-    Large: EnumCase({ type: IncludeIdentifier(LargeShieldSize) }),
+    Small: DB.EnumCase({ type: null }),
+    Medium: DB.EnumCase({ type: null }),
+    Large: DB.EnumCase({ type: DB.IncludeIdentifier(LargeShieldSize) }),
   }),
 })
 
-const LargeShieldSize = TypeAlias(import.meta.url, {
+const LargeShieldSize = DB.TypeAlias(import.meta.url, {
   name: "LargeShieldSize",
   comment: "The damage of a weapon consists of a random part using dice and an optional flat part.",
   type: () =>
-    Object({
-      attack_penalty: Optional({
+    DB.Object({
+      attack_penalty: DB.Optional({
         comment: "The attack penalty from the shield, if any.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-export const MeleeWeapon = TypeAlias(import.meta.url, {
+export const MeleeWeapon = DB.TypeAlias(import.meta.url, {
   name: "MeleeWeapon",
-  type: () => GenIncludeIdentifier(GenMeleeWeapon, [IncludeIdentifier(MeleeDamage)]),
+  type: () => DB.GenIncludeIdentifier(GenMeleeWeapon, [DB.IncludeIdentifier(MeleeDamage)]),
 })
 
-export const GenMeleeWeapon = GenTypeAlias(import.meta.url, {
+export const GenMeleeWeapon = DB.GenTypeAlias(import.meta.url, {
   name: "GenMeleeWeapon",
-  parameters: [Param("Damage")],
+  parameters: [DB.Param("Damage")],
   type: Damage =>
-    Object({
-      damage: Required({
+    DB.Object({
+      damage: DB.Required({
         comment: "The damage of a weapon can consist of random dice rolls and flat damage.",
-        type: TypeArgument(Damage),
+        type: DB.TypeArgument(Damage),
       }),
-      damage_threshold: Optional({
+      damage_threshold: DB.Optional({
         comment: "The primary attribute damage and threshold value.",
-        type: IncludeIdentifier(PrimaryAttributeDamageThreshold),
+        type: DB.IncludeIdentifier(PrimaryAttributeDamageThreshold),
       }),
-      attackModifier: Optional({
+      attackModifier: DB.Optional({
         comment: "The AT modifier.",
-        type: IncludeIdentifier(AttackModifier),
+        type: DB.IncludeIdentifier(AttackModifier),
       }),
-      parryModifier: Optional({
+      parryModifier: DB.Optional({
         comment: "The PA modifier.",
-        type: IncludeIdentifier(ParryModifier),
+        type: DB.IncludeIdentifier(ParryModifier),
       }),
-      reach: Optional({
+      reach: DB.Optional({
         comment: "The reach of the weapon.",
         type: ReachIdentifier(),
       }),
-      length: Optional({
+      length: DB.Optional({
         comment: "The length of the weapon in cm/halffingers.",
-        type: IncludeIdentifier(Length),
+        type: DB.IncludeIdentifier(Length),
       }),
-      size: Optional({
+      size: DB.Optional({
         comment: "The shield size and potential size-depending values.",
-        type: IncludeIdentifier(ShieldSize),
+        type: DB.IncludeIdentifier(ShieldSize),
       }),
-      is_parrying_weapon: Required({
+      is_parrying_weapon: DB.Required({
         comment: "Is the weapon a parrying weapon?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      is_two_handed_weapon: Required({
+      is_two_handed_weapon: DB.Required({
         comment: "Is the weapon a two-handed weapon?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      is_improvised_weapon: Required({
+      is_improvised_weapon: DB.Required({
         comment: "Is the weapon an improvised weapon?",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
     }),
 })

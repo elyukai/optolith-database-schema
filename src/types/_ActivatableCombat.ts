@@ -1,20 +1,4 @@
-import {
-  Array,
-  Boolean,
-  Enum,
-  EnumCase,
-  GenIncludeIdentifier,
-  GenTypeAlias,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Param,
-  Required,
-  String,
-  TypeAlias,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import {
   CloseCombatTechniqueIdentifier,
   RaceIdentifier,
@@ -26,426 +10,432 @@ import {
   CombatTechniqueIdentifier,
 } from "./_IdentifierGroup.js"
 
-const CombatSpecialAbilityUsageType = Enum(import.meta.url, {
+const CombatSpecialAbilityUsageType = DB.Enum(import.meta.url, {
   name: "CombatSpecialAbilityUsageType",
   comment: "The definition of how the combat special ability can be used in combat.",
   values: () => ({
-    Passive: EnumCase({ type: null }),
-    BasicManeuver: EnumCase({ type: null }),
-    SpecialManeuver: EnumCase({ type: null }),
+    Passive: DB.EnumCase({ type: null }),
+    BasicManeuver: DB.EnumCase({ type: null }),
+    SpecialManeuver: DB.EnumCase({ type: null }),
   }),
 })
 
-export const usage_type = Required({
+export const usage_type = DB.Required({
   comment: "The definition of how the combat special ability can be used in combat.",
-  type: IncludeIdentifier(CombatSpecialAbilityUsageType),
+  type: DB.IncludeIdentifier(CombatSpecialAbilityUsageType),
 })
 
-const CombatSpecialAbilityType = Enum(import.meta.url, {
+const CombatSpecialAbilityType = DB.Enum(import.meta.url, {
   name: "CombatSpecialAbilityType",
   comment:
     "The definition of if the combat special ability can be used when armed or when unarmed.",
   values: () => ({
-    Armed: EnumCase({ type: null }),
-    Unarmed: EnumCase({ type: null }),
+    Armed: DB.EnumCase({ type: null }),
+    Unarmed: DB.EnumCase({ type: null }),
   }),
 })
 
-export const type = Required({
+export const type = DB.Required({
   comment:
     "The definition of if the combat special ability can be used when armed or when unarmed.",
-  type: IncludeIdentifier(CombatSpecialAbilityType),
+  type: DB.IncludeIdentifier(CombatSpecialAbilityType),
 })
 
-const Penalty = Enum(import.meta.url, {
+const Penalty = DB.Enum(import.meta.url, {
   name: "Penalty",
   comment: "The penalty the special ability gives when used.",
   values: () => ({
-    Single: EnumCase({ type: IncludeIdentifier(SinglePenalty) }),
-    ByHandedness: EnumCase({ type: IncludeIdentifier(PenaltyByHandedness) }),
-    ByActivation: EnumCase({ type: IncludeIdentifier(PenaltyByActivation) }),
-    Selection: EnumCase({ type: IncludeIdentifier(PenaltySelection) }),
-    ByLevel: EnumCase({ type: IncludeIdentifier(PenaltyByLevel) }),
-    ByAttack: EnumCase({ type: IncludeIdentifier(PenaltyByAttack) }),
-    DependsOnHitZone: EnumCase({ type: null }),
+    Single: DB.EnumCase({ type: DB.IncludeIdentifier(SinglePenalty) }),
+    ByHandedness: DB.EnumCase({ type: DB.IncludeIdentifier(PenaltyByHandedness) }),
+    ByActivation: DB.EnumCase({ type: DB.IncludeIdentifier(PenaltyByActivation) }),
+    Selection: DB.EnumCase({ type: DB.IncludeIdentifier(PenaltySelection) }),
+    ByLevel: DB.EnumCase({ type: DB.IncludeIdentifier(PenaltyByLevel) }),
+    ByAttack: DB.EnumCase({ type: DB.IncludeIdentifier(PenaltyByAttack) }),
+    DependsOnHitZone: DB.EnumCase({ type: null }),
   }),
 })
 
-export const penalty = Optional({
+export const penalty = DB.Optional({
   comment: "The penalty the special ability gives when used.",
-  type: IncludeIdentifier(Penalty),
+  type: DB.IncludeIdentifier(Penalty),
 })
 
-export const penalty_l10n = Optional({
+export const penalty_l10n = DB.Optional({
   comment: "The penalty the special ability gives when used.",
   isDeprecated: true,
-  type: String({ minLength: 1 }),
+  type: DB.String({ minLength: 1 }),
 })
 
-const SinglePenalty = TypeAlias(import.meta.url, {
+const SinglePenalty = DB.TypeAlias(import.meta.url, {
   name: "SinglePenalty",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The penalty value.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      applies_to_parry: Optional({
+      applies_to_parry: DB.Optional({
         comment: "Set to `true` if the penalty applies to the parry instead of the attack.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
     }),
 })
 
-const PenaltyByHandedness = TypeAlias(import.meta.url, {
+const PenaltyByHandedness = DB.TypeAlias(import.meta.url, {
   name: "PenaltyByHandedness",
   type: () =>
-    Object({
-      one_handed: Required({
+    DB.Object({
+      one_handed: DB.Required({
         comment: "The penalty value for one-handed weapons.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      two_handed: Required({
+      two_handed: DB.Required({
         comment: "The penalty value for two-handed weapons.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      applies_to_parry: Optional({
+      applies_to_parry: DB.Optional({
         comment: "Set to `true` if the penalty applies to the parry instead of the attack.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
     }),
 })
 
-const PenaltyByActivation = TypeAlias(import.meta.url, {
+const PenaltyByActivation = DB.TypeAlias(import.meta.url, {
   name: "PenaltyByActivation",
   type: () =>
-    Object({
-      active: Required({
+    DB.Object({
+      active: DB.Required({
         comment: "The penalty value if the entry has been bought by the character.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      inactive: Required({
+      inactive: DB.Required({
         comment: "The penalty value if the entry has not been bought by the character.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      applies_to_parry: Optional({
+      applies_to_parry: DB.Optional({
         comment: "Set to `true` if the penalty applies to the parry instead of the attack.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
     }),
 })
 
-const PenaltySelection = TypeAlias(import.meta.url, {
+const PenaltySelection = DB.TypeAlias(import.meta.url, {
   name: "PenaltySelection",
   type: () =>
-    Object({
-      options: Required({
-        type: IncludeIdentifier(PenaltySelectionOptions),
+    DB.Object({
+      options: DB.Required({
+        type: DB.IncludeIdentifier(PenaltySelectionOptions),
       }),
     }),
 })
 
-const PenaltySelectionOptions = Enum(import.meta.url, {
+const PenaltySelectionOptions = DB.Enum(import.meta.url, {
   name: "PenaltySelectionOptions",
   values: () => ({
-    Specific: EnumCase({ type: IncludeIdentifier(SpecificPenaltySelectionOptions) }),
-    Range: EnumCase({ type: IncludeIdentifier(PenaltySelectionOptionsRange) }),
+    Specific: DB.EnumCase({ type: DB.IncludeIdentifier(SpecificPenaltySelectionOptions) }),
+    Range: DB.EnumCase({ type: DB.IncludeIdentifier(PenaltySelectionOptionsRange) }),
   }),
 })
 
-const SpecificPenaltySelectionOptions = TypeAlias(import.meta.url, {
+const SpecificPenaltySelectionOptions = DB.TypeAlias(import.meta.url, {
   name: "SpecificPenaltySelectionOptions",
   type: () =>
-    Object({
-      list: Required({
+    DB.Object({
+      list: DB.Required({
         comment: "The list of specific penalty options.",
-        type: Array(IncludeIdentifier(SpecificPenaltySelectionOption), { minItems: 2 }),
+        type: DB.Array(DB.IncludeIdentifier(SpecificPenaltySelectionOption), { minItems: 2 }),
       }),
     }),
 })
 
-const SpecificPenaltySelectionOption = TypeAlias(import.meta.url, {
+const SpecificPenaltySelectionOption = DB.TypeAlias(import.meta.url, {
   name: "SpecificPenaltySelectionOption",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The penalty value.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const PenaltySelectionOptionsRange = TypeAlias(import.meta.url, {
+const PenaltySelectionOptionsRange = DB.TypeAlias(import.meta.url, {
   name: "PenaltySelectionOptionsRange",
   type: () =>
-    Object({
-      minimum: Required({
+    DB.Object({
+      minimum: DB.Required({
         comment: "The minimum penalty value.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      maximum: Required({
+      maximum: DB.Required({
         comment: "The maximum penalty value.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const PenaltyByLevel = TypeAlias(import.meta.url, {
+const PenaltyByLevel = DB.TypeAlias(import.meta.url, {
   name: "PenaltyByLevel",
   type: () =>
-    Object({
-      levels: Required({
+    DB.Object({
+      levels: DB.Required({
         comment:
           "A continuous range of penalties for each level. The first element is the penalty for the first level, the second element is the penalty for the second level, and so on.",
-        type: Array(IncludeIdentifier(PenaltyByLevelLevel), { minItems: 2 }),
+        type: DB.Array(DB.IncludeIdentifier(PenaltyByLevelLevel), { minItems: 2 }),
       }),
-      external: Optional({
+      external: DB.Optional({
         comment:
           "The combat-related special ability of which the level defines the penalty instead.",
-        type: IncludeIdentifier(PenaltyByExternalLevel),
+        type: DB.IncludeIdentifier(PenaltyByExternalLevel),
       }),
     }),
 })
 
-const PenaltyByLevelLevel = TypeAlias(import.meta.url, {
+const PenaltyByLevelLevel = DB.TypeAlias(import.meta.url, {
   name: "PenaltyByLevelLevel",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The penalty value for this level.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const PenaltyByExternalLevel = TypeAlias(import.meta.url, {
+const PenaltyByExternalLevel = DB.TypeAlias(import.meta.url, {
   name: "PenaltyByExternalLevel",
   comment: "The combat-related special ability of which the level defines the penalty instead.",
   type: () =>
-    Object({
-      id: Required({
+    DB.Object({
+      id: DB.Required({
         comment:
           "The identifier of the combat-related special ability of which the level defines the penalty instead.",
-        type: IncludeIdentifier(CombatRelatedSpecialAbilityIdentifier),
+        type: DB.IncludeIdentifier(CombatRelatedSpecialAbilityIdentifier),
       }),
     }),
 })
 
-const PenaltyByAttack = TypeAlias(import.meta.url, {
+const PenaltyByAttack = DB.TypeAlias(import.meta.url, {
   name: "PenaltyByAttack",
   type: () =>
-    Object({
-      list: Required({
+    DB.Object({
+      list: DB.Required({
         comment:
           "A list of penalties for subsequent attacks. The first element is the penalty for the first attack, the second element is the penalty for the second attack, and so on. The order of the first element may be changed using `initial_order`, so that e.g. if set to `2`, the first element is the penalty for the second attack, the second element is the penalty for the third attack, and so on.",
-        type: Array(IncludeIdentifier(PenaltyByAttackOrderItem), { minItems: 1 }),
+        type: DB.Array(DB.IncludeIdentifier(PenaltyByAttackOrderItem), { minItems: 1 }),
       }),
-      initial_order: Optional({
+      initial_order: DB.Optional({
         comment: "The order of the first element in the `list` of penalties.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      attack_replacement: Optional({
+      attack_replacement: DB.Optional({
         comment:
           "Set if a predefined different word should be used instead of the word `attack` for display purposes.",
-        type: IncludeIdentifier(PenaltyByAttackReplacement),
+        type: DB.IncludeIdentifier(PenaltyByAttackReplacement),
       }),
     }),
 })
 
-const PenaltyByAttackOrderItem = TypeAlias(import.meta.url, {
+const PenaltyByAttackOrderItem = DB.TypeAlias(import.meta.url, {
   name: "PenaltyByAttackOrderItem",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The penalty value for this order.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
     }),
 })
 
-const PenaltyByAttackReplacement = Enum(import.meta.url, {
+const PenaltyByAttackReplacement = DB.Enum(import.meta.url, {
   name: "PenaltyByAttackReplacement",
   comment:
     "Set if a predefined different word should be used instead of the word `attack` for display purposes.",
   values: () => ({
-    Throw: EnumCase({ type: null }),
+    Throw: DB.EnumCase({ type: null }),
   }),
 })
 
-const ApplicableCombatTechniques = Enum(import.meta.url, {
+const ApplicableCombatTechniques = DB.Enum(import.meta.url, {
   name: "ApplicableCombatTechniques",
   values: () => ({
-    None: EnumCase({ type: null }),
-    DependingOnCombatStyle: EnumCase({ type: null }),
-    All: EnumCase({ type: IncludeIdentifier(AllApplicableCombatTechniques) }),
-    AllClose: EnumCase({ type: IncludeIdentifier(AllApplicableCloseCombatTechniques) }),
-    AllRanged: EnumCase({ type: IncludeIdentifier(AllApplicableRangedCombatTechniques) }),
-    Specific: EnumCase({ type: IncludeIdentifier(SpecificApplicableCombatTechniques) }),
+    None: DB.EnumCase({ type: null }),
+    DependingOnCombatStyle: DB.EnumCase({ type: null }),
+    All: DB.EnumCase({ type: DB.IncludeIdentifier(AllApplicableCombatTechniques) }),
+    AllClose: DB.EnumCase({ type: DB.IncludeIdentifier(AllApplicableCloseCombatTechniques) }),
+    AllRanged: DB.EnumCase({ type: DB.IncludeIdentifier(AllApplicableRangedCombatTechniques) }),
+    Specific: DB.EnumCase({ type: DB.IncludeIdentifier(SpecificApplicableCombatTechniques) }),
   }),
 })
 
-export const combat_techniques = Required({
+export const combat_techniques = DB.Required({
   comment: "The combat techniques the special ability is applicable to.",
-  type: IncludeIdentifier(ApplicableCombatTechniques),
+  type: DB.IncludeIdentifier(ApplicableCombatTechniques),
 })
 
-const AllApplicableCombatTechniques = TypeAlias(import.meta.url, {
+const AllApplicableCombatTechniques = DB.TypeAlias(import.meta.url, {
   name: "AllApplicableCombatTechniques",
   type: () =>
-    Object({
-      restrictions: Optional({
-        type: Array(IncludeIdentifier(ApplicableAllCombatTechniquesRestriction), { minItems: 1 }),
+    DB.Object({
+      restrictions: DB.Optional({
+        type: DB.Array(DB.IncludeIdentifier(ApplicableAllCombatTechniquesRestriction), {
+          minItems: 1,
+        }),
       }),
     }),
 })
 
-const AllApplicableCloseCombatTechniques = TypeAlias(import.meta.url, {
+const AllApplicableCloseCombatTechniques = DB.TypeAlias(import.meta.url, {
   name: "AllApplicableCloseCombatTechniques",
   type: () =>
-    Object({
-      restrictions: Optional({
-        type: Array(IncludeIdentifier(ApplicableCloseCombatTechniquesRestriction), { minItems: 1 }),
+    DB.Object({
+      restrictions: DB.Optional({
+        type: DB.Array(DB.IncludeIdentifier(ApplicableCloseCombatTechniquesRestriction), {
+          minItems: 1,
+        }),
       }),
     }),
 })
 
-const AllApplicableRangedCombatTechniques = TypeAlias(import.meta.url, {
+const AllApplicableRangedCombatTechniques = DB.TypeAlias(import.meta.url, {
   name: "AllApplicableRangedCombatTechniques",
   type: () =>
-    Object({
-      restrictions: Optional({
-        type: Array(IncludeIdentifier(ApplicableRangedCombatTechniquesRestriction), {
+    DB.Object({
+      restrictions: DB.Optional({
+        type: DB.Array(DB.IncludeIdentifier(ApplicableRangedCombatTechniquesRestriction), {
           minItems: 1,
         }),
       }),
     }),
 })
 
-const SpecificApplicableCombatTechniques = TypeAlias(import.meta.url, {
+const SpecificApplicableCombatTechniques = DB.TypeAlias(import.meta.url, {
   name: "SpecificApplicableCombatTechniques",
   type: () =>
-    Object({
-      list: Required({
-        type: Array(IncludeIdentifier(SpecificApplicableCombatTechnique), { minItems: 1 }),
+    DB.Object({
+      list: DB.Required({
+        type: DB.Array(DB.IncludeIdentifier(SpecificApplicableCombatTechnique), { minItems: 1 }),
       }),
     }),
 })
 
-const SpecificApplicableCombatTechnique = TypeAlias(import.meta.url, {
+const SpecificApplicableCombatTechnique = DB.TypeAlias(import.meta.url, {
   name: "SpecificApplicableCombatTechnique",
   type: () =>
-    Object({
-      id: Required({
-        type: IncludeIdentifier(CombatTechniqueIdentifier),
+    DB.Object({
+      id: DB.Required({
+        type: DB.IncludeIdentifier(CombatTechniqueIdentifier),
       }),
-      restrictions: Optional({
-        type: Array(IncludeIdentifier(ApplicableSpecificCombatTechniquesRestriction), {
+      restrictions: DB.Optional({
+        type: DB.Array(DB.IncludeIdentifier(ApplicableSpecificCombatTechniquesRestriction), {
           minItems: 1,
         }),
       }),
     }),
 })
 
-const ApplicableAllCombatTechniquesRestriction = Enum(import.meta.url, {
+const ApplicableAllCombatTechniquesRestriction = DB.Enum(import.meta.url, {
   name: "ApplicableAllCombatTechniquesRestriction",
   values: () => ({
-    Improvised: EnumCase({ type: null }),
-    PointedBlade: EnumCase({ type: null }),
-    Mount: EnumCase({ type: null }),
-    Race: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
-    ExcludeCombatTechniques: EnumCase({
-      type: GenIncludeIdentifier(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction, [
-        IncludeIdentifier(CombatTechniqueIdentifier),
+    Improvised: DB.EnumCase({ type: null }),
+    PointedBlade: DB.EnumCase({ type: null }),
+    Mount: DB.EnumCase({ type: null }),
+    Race: DB.EnumCase({ type: DB.IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
+    ExcludeCombatTechniques: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction, [
+        DB.IncludeIdentifier(CombatTechniqueIdentifier),
       ]),
     }),
   }),
 })
 
-const ApplicableCloseCombatTechniquesRestriction = Enum(import.meta.url, {
+const ApplicableCloseCombatTechniquesRestriction = DB.Enum(import.meta.url, {
   name: "ApplicableCloseCombatTechniquesRestriction",
   values: () => ({
-    Improvised: EnumCase({ type: null }),
-    PointedBlade: EnumCase({ type: null }),
-    Mount: EnumCase({ type: null }),
-    HasParry: EnumCase({ type: null }),
-    OneHanded: EnumCase({ type: null }),
-    TwoHanded: EnumCase({ type: null }),
-    ParryingWeapon: EnumCase({ type: null }),
-    Race: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
-    ExcludeCombatTechniques: EnumCase({
-      type: GenIncludeIdentifier(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction, [
+    Improvised: DB.EnumCase({ type: null }),
+    PointedBlade: DB.EnumCase({ type: null }),
+    Mount: DB.EnumCase({ type: null }),
+    HasParry: DB.EnumCase({ type: null }),
+    OneHanded: DB.EnumCase({ type: null }),
+    TwoHanded: DB.EnumCase({ type: null }),
+    ParryingWeapon: DB.EnumCase({ type: null }),
+    Race: DB.EnumCase({ type: DB.IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
+    ExcludeCombatTechniques: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction, [
         CloseCombatTechniqueIdentifier(),
       ]),
     }),
   }),
 })
 
-const ApplicableRangedCombatTechniquesRestriction = Enum(import.meta.url, {
+const ApplicableRangedCombatTechniquesRestriction = DB.Enum(import.meta.url, {
   name: "ApplicableRangedCombatTechniquesRestriction",
   values: () => ({
-    Improvised: EnumCase({ type: null }),
-    PointedBlade: EnumCase({ type: null }),
-    Mount: EnumCase({ type: null }),
-    Race: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
-    ExcludeCombatTechniques: EnumCase({
-      type: GenIncludeIdentifier(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction, [
+    Improvised: DB.EnumCase({ type: null }),
+    PointedBlade: DB.EnumCase({ type: null }),
+    Mount: DB.EnumCase({ type: null }),
+    Race: DB.EnumCase({ type: DB.IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
+    ExcludeCombatTechniques: DB.EnumCase({
+      type: DB.GenIncludeIdentifier(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction, [
         RangedCombatTechniqueIdentifier(),
       ]),
     }),
   }),
 })
 
-const ApplicableSpecificCombatTechniquesRestriction = Enum(import.meta.url, {
+const ApplicableSpecificCombatTechniquesRestriction = DB.Enum(import.meta.url, {
   name: "ApplicableSpecificCombatTechniquesRestriction",
   values: () => ({
-    Improvised: EnumCase({ type: null }),
-    PointedBlade: EnumCase({ type: null }),
-    Mount: EnumCase({ type: null }),
-    Race: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
-    Level: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesLevelRestriction) }),
-    Weapons: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesWeaponRestriction) }),
-    OneBluntSide: EnumCase({ type: null }),
+    Improvised: DB.EnumCase({ type: null }),
+    PointedBlade: DB.EnumCase({ type: null }),
+    Mount: DB.EnumCase({ type: null }),
+    Race: DB.EnumCase({ type: DB.IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
+    Level: DB.EnumCase({ type: DB.IncludeIdentifier(ApplicableCombatTechniquesLevelRestriction) }),
+    Weapons: DB.EnumCase({
+      type: DB.IncludeIdentifier(ApplicableCombatTechniquesWeaponRestriction),
+    }),
+    OneBluntSide: DB.EnumCase({ type: null }),
   }),
 })
 
-const ApplicableCombatTechniquesNegativeCombatTechniquesRestriction = GenTypeAlias(
+const ApplicableCombatTechniquesNegativeCombatTechniquesRestriction = DB.GenTypeAlias(
   import.meta.url,
   {
     name: "ApplicableCombatTechniquesNegativeCombatTechniquesRestriction",
-    parameters: [Param("Ref")],
+    parameters: [DB.Param("Ref")],
     type: Ref =>
-      Object({
-        list: Required({
+      DB.Object({
+        list: DB.Required({
           comment: "The combat techniques this combat special ability is **not** applicable to.",
-          type: Array(TypeArgument(Ref), { minItems: 1 }),
+          type: DB.Array(DB.TypeArgument(Ref), { minItems: 1 }),
         }),
       }),
   },
 )
 
-const ApplicableCombatTechniquesRaceRestriction = TypeAlias(import.meta.url, {
+const ApplicableCombatTechniquesRaceRestriction = DB.TypeAlias(import.meta.url, {
   name: "ApplicableCombatTechniquesRaceRestriction",
   type: () => RaceIdentifier(),
 })
 
-const ApplicableCombatTechniquesLevelRestriction = TypeAlias(import.meta.url, {
+const ApplicableCombatTechniquesLevelRestriction = DB.TypeAlias(import.meta.url, {
   name: "ApplicableCombatTechniquesLevelRestriction",
   type: () =>
-    Object({
-      level: Required({
+    DB.Object({
+      level: DB.Required({
         comment: "The combat special ability is only applicable on a certain level.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const ApplicableCombatTechniquesWeaponRestriction = TypeAlias(import.meta.url, {
+const ApplicableCombatTechniquesWeaponRestriction = DB.TypeAlias(import.meta.url, {
   name: "ApplicableCombatTechniquesWeaponRestriction",
   type: () =>
-    Object({
-      list: Required({
+    DB.Object({
+      list: DB.Required({
         comment: "The specific weapons this combat special ability is only applicable to.",
-        type: Array(WeaponIdentifier(), { minItems: 1 }),
+        type: DB.Array(WeaponIdentifier(), { minItems: 1 }),
       }),
     }),
 })

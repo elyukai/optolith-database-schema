@@ -1,47 +1,47 @@
-import { Entity, Integer, Object, Required, String } from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 
-export const ExperienceLevel = Entity(import.meta.url, {
+export const ExperienceLevel = DB.Entity(import.meta.url, {
   name: "ExperienceLevel",
   namePlural: "ExperienceLevels",
   comment: "Adventure Points and maximum values at hero creation.",
   type: () =>
-    Object({
-      adventure_points: Required({
+    DB.Object({
+      adventure_points: DB.Required({
         comment: "The AP value you get.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      max_attribute_value: Required({
+      max_attribute_value: DB.Required({
         comment: "The highest possible attribute value.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      max_skill_rating: Required({
+      max_skill_rating: DB.Required({
         comment: "The highest possible skill rating.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      max_combat_technique_rating: Required({
+      max_combat_technique_rating: DB.Required({
         comment: "The highest possible combat technique rating.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      max_attribute_total: Required({
+      max_attribute_total: DB.Required({
         comment: "The limit for the sum of all attribute values.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      max_number_of_spells_liturgical_chants: Required({
+      max_number_of_spells_liturgical_chants: DB.Required({
         comment: "The maximum of spells/chants you can activate.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      max_number_of_unfamiliar_spells: Required({
+      max_number_of_unfamiliar_spells: DB.Required({
         comment: "The maximum of spells of an unfamiliar tradition you can activate.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "ExperienceLevel",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The experience level’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
         }),
       ),

@@ -1,38 +1,28 @@
-import {
-  Entity,
-  GenIncludeIdentifier,
-  GenTypeAlias,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Param,
-  Required,
-  TypeArgument,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, DefaultItemTranslations, StructurePoints, Weight } from "./_Item.js"
 
-export const Jewelry = Entity(import.meta.url, {
+export const Jewelry = DB.Entity(import.meta.url, {
   name: "Jewelry",
   namePlural: "Jewelries",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: GenIncludeIdentifier(JewelryMaterialDifference, [IncludeIdentifier(Cost)]),
+        type: DB.GenIncludeIdentifier(JewelryMaterialDifference, [DB.IncludeIdentifier(Cost)]),
       }),
-      weight: Required({
+      weight: DB.Required({
         comment: "The weight in kg.",
-        type: GenIncludeIdentifier(JewelryMaterialDifference, [IncludeIdentifier(Weight)]),
+        type: DB.GenIncludeIdentifier(JewelryMaterialDifference, [DB.IncludeIdentifier(Weight)]),
       }),
-      complexity: Optional({
+      complexity: DB.Optional({
         comment: "The complexity of crafting the item.",
-        type: IncludeIdentifier(Complexity),
+        type: DB.IncludeIdentifier(Complexity),
       }),
-      structure_points: Required({
+      structure_points: DB.Required({
         comment:
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
-        type: IncludeIdentifier(StructurePoints),
+        type: DB.IncludeIdentifier(StructurePoints),
       }),
       src,
       translations: DefaultItemTranslations("Jewelry"),
@@ -46,14 +36,14 @@ export const Jewelry = Entity(import.meta.url, {
   ],
 })
 
-const JewelryMaterialDifference = GenTypeAlias(import.meta.url, {
+const JewelryMaterialDifference = DB.GenTypeAlias(import.meta.url, {
   name: "JewelryMaterialDifference",
   comment: "Jewelry can have different values for a property based on the material.",
-  parameters: [Param("T")],
+  parameters: [DB.Param("T")],
   type: T =>
-    Object({
-      bronze: Required({ type: TypeArgument(T) }),
-      silver: Required({ type: TypeArgument(T) }),
-      gold: Required({ type: TypeArgument(T) }),
+    DB.Object({
+      bronze: DB.Required({ type: DB.TypeArgument(T) }),
+      silver: DB.Required({ type: DB.TypeArgument(T) }),
+      gold: DB.Required({ type: DB.TypeArgument(T) }),
     }),
 })

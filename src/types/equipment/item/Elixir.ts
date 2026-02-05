@@ -1,84 +1,78 @@
-import {
-  Array,
-  Entity,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../../Locale.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { EffectType, LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
 
-export const Elixir = Entity(import.meta.url, {
+export const Elixir = DB.Entity(import.meta.url, {
   name: "Elixir",
   namePlural: "Elixirs",
   type: () =>
-    Object({
-      effect_types: Optional({
+    DB.Object({
+      effect_types: DB.Optional({
         comment: "Effect type(s) of an alchemical poison.",
-        type: Array(IncludeIdentifier(EffectType), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(DB.IncludeIdentifier(EffectType), { minItems: 1, uniqueItems: true }),
       }),
-      value: Optional({
+      value: DB.Optional({
         comment: "The raw (ingredients) value per level, in silverthalers.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      cost_per_ingredient_level: Required({
+      cost_per_ingredient_level: DB.Required({
         comment: "The cost per ingredient level in silverthalers.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      laboratory: Required({
+      laboratory: DB.Required({
         comment: "The laboratory level needed to brew the elixir.",
-        type: IncludeIdentifier(LaboratoryLevel),
+        type: DB.IncludeIdentifier(LaboratoryLevel),
       }),
-      brewing_difficulty: Required({
+      brewing_difficulty: DB.Required({
         comment: "The brewing difficulty, which represents the challenge of creating an elixir.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      trade_secret: Required({
+      trade_secret: DB.Required({
         comment: "AP value and prerequisites of the elixir recipe’s trade secret.",
-        type: IncludeIdentifier(RecipeTradeSecret),
+        type: DB.IncludeIdentifier(RecipeTradeSecret),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "ElixirTranslation",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The item’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          description: Optional({
+          description: DB.Optional({
             comment: "The recipe’s description.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          special: Optional({
+          special: DB.Optional({
             comment: "The recipe’s description.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          alternative_names: Optional({
+          alternative_names: DB.Optional({
             comment: "A list of alternative names.",
-            type: Array(IncludeIdentifier(AlternativeName), { minItems: 1 }),
+            type: DB.Array(DB.IncludeIdentifier(AlternativeName), { minItems: 1 }),
           }),
-          typical_ingredients: Required({
+          typical_ingredients: DB.Required({
             comment: "A list of typical ingredients.",
-            type: Array(String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
+            type: DB.Array(DB.String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
           }),
-          brewing_process_prerequisites: Optional({
+          brewing_process_prerequisites: DB.Optional({
             comment: "Prerequsites for the brewing process, if any.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          quality_levels: Required({
+          quality_levels: DB.Required({
             comment:
               "The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.",
-            type: Array(String({ minLength: 1, isMarkdown: true }), { minItems: 6, maxItems: 6 }),
+            type: DB.Array(DB.String({ minLength: 1, isMarkdown: true }), {
+              minItems: 6,
+              maxItems: 6,
+            }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),

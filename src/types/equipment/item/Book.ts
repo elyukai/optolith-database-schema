@@ -1,78 +1,67 @@
-import {
-  Array,
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { SkillIdentifier } from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
 
-export const Book = Entity(import.meta.url, {
+export const Book = DB.Entity(import.meta.url, {
   name: "Book",
   namePlural: "Books",
   type: () =>
-    Object({
-      types: Required({
+    DB.Object({
+      types: DB.Required({
         comment: "The type of book.",
-        type: Array(IncludeIdentifier(BookType), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(DB.IncludeIdentifier(BookType), { minItems: 1, uniqueItems: true }),
       }),
-      cost: Required({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(BookCost),
+        type: DB.IncludeIdentifier(BookCost),
       }),
-      weight: Optional({
+      weight: DB.Optional({
         comment: "The weight in kg.",
-        type: IncludeIdentifier(Weight),
+        type: DB.IncludeIdentifier(Weight),
       }),
-      complexity: Optional({
+      complexity: DB.Optional({
         comment: "The complexity of crafting the item.",
-        type: IncludeIdentifier(Complexity),
+        type: DB.IncludeIdentifier(Complexity),
       }),
-      structure_points: Optional({
+      structure_points: DB.Optional({
         comment:
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
-        type: IncludeIdentifier(StructurePoints),
+        type: DB.IncludeIdentifier(StructurePoints),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Book",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The item’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          secondary_name: Optional({
+          secondary_name: DB.Optional({
             comment: "An auxiliary name or label of the item, if available.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          language: Required({
+          language: DB.Required({
             comment: "The language the book is written in.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          script: Required({
+          script: DB.Required({
             comment: "The script that was used for the book.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          note: Optional({
+          note: DB.Optional({
             comment: "Note text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          rules: Optional({
+          rules: DB.Optional({
             comment: "Special rules text.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -86,54 +75,54 @@ export const Book = Entity(import.meta.url, {
   ],
 })
 
-const BookType = Enum(import.meta.url, {
+const BookType = DB.Enum(import.meta.url, {
   name: "BookType",
   comment: "The type of book.",
   values: () => ({
-    Mundane: EnumCase({
+    Mundane: DB.EnumCase({
       comment: "A mundane book without special rules.",
-      type: IncludeIdentifier(MundaneBookType),
+      type: DB.IncludeIdentifier(MundaneBookType),
     }),
-    Magical: EnumCase({
+    Magical: DB.EnumCase({
       comment: "A magical book.",
       type: null,
     }),
-    Religious: EnumCase({
+    Religious: DB.EnumCase({
       comment: "A religious book.",
       type: null,
     }),
   }),
 })
 
-const MundaneBookType = Enum(import.meta.url, {
+const MundaneBookType = DB.Enum(import.meta.url, {
   name: "MundaneBookType",
   comment: "The type of mundane book, i.e. the type of writing it contains.",
   values: () => ({
-    RomanceNovel: EnumCase({
+    RomanceNovel: DB.EnumCase({
       comment: "A romance novel.",
       type: null,
     }),
-    Poetry: EnumCase({
+    Poetry: DB.EnumCase({
       comment: "A piece of poetry.",
       type: null,
     }),
-    PoliticalPamphlet: EnumCase({
+    PoliticalPamphlet: DB.EnumCase({
       comment: "A political pamphlet.",
       type: null,
     }),
-    CrimeStory: EnumCase({
+    CrimeStory: DB.EnumCase({
       comment: "A crime story.",
       type: null,
     }),
-    FairyTale: EnumCase({
+    FairyTale: DB.EnumCase({
       comment: "A fairy tale.",
       type: null,
     }),
-    Novel: EnumCase({
+    Novel: DB.EnumCase({
       comment: "A novel.",
       type: null,
     }),
-    ProfessionalPublication: EnumCase({
+    ProfessionalPublication: DB.EnumCase({
       comment:
         "A professional publication about a specific topic, represented by a (knowledge) skill.",
       type: SkillIdentifier(),
@@ -141,54 +130,54 @@ const MundaneBookType = Enum(import.meta.url, {
   }),
 })
 
-const BookCost = Enum(import.meta.url, {
+const BookCost = DB.Enum(import.meta.url, {
   name: "BookCost",
   comment:
     "The cost of the book, which may be a single value or multiple values that are defined by specific editions or other defining factors of the book.",
   values: () => ({
-    Single: EnumCase({
+    Single: DB.EnumCase({
       comment: "The book only has a single cost description.",
-      type: IncludeIdentifier(BookCostVariant),
+      type: DB.IncludeIdentifier(BookCostVariant),
     }),
-    Multiple: EnumCase({
+    Multiple: DB.EnumCase({
       comment: "The book’s cost varies by edition or other factors.",
-      type: Array(IncludeIdentifier(BookCostVariant), { minItems: 2 }),
+      type: DB.Array(DB.IncludeIdentifier(BookCostVariant), { minItems: 2 }),
     }),
   }),
 })
 
-const BookCostVariant = Enum(import.meta.url, {
+const BookCostVariant = DB.Enum(import.meta.url, {
   name: "BookCostVariant",
   comment: "A variant for the book’s cost.",
   values: () => ({
-    Definite: EnumCase({
+    Definite: DB.EnumCase({
       comment: "A definite cost value.",
-      type: IncludeIdentifier(DefiniteBookCostVariant),
+      type: DB.IncludeIdentifier(DefiniteBookCostVariant),
     }),
-    Indefinite: EnumCase({
+    Indefinite: DB.EnumCase({
       comment: "An indefinite cost value.",
-      type: IncludeIdentifier(IndefiniteBookCostVariant),
+      type: DB.IncludeIdentifier(IndefiniteBookCostVariant),
     }),
   }),
 })
 
-const DefiniteBookCostVariant = TypeAlias(import.meta.url, {
+const DefiniteBookCostVariant = DB.TypeAlias(import.meta.url, {
   name: "DefiniteBookCostVariant",
   comment: "A definite cost value for the book, such as a specific cost or cost range.",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: DB.IncludeIdentifier(Cost),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "DefiniteBookCostVariant",
-        Object(
+        DB.Object(
           {
-            label: Optional({
+            label: DB.Optional({
               comment: "The label for the cost variant, e.g. “Original script”.",
-              type: String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, isMarkdown: true }),
             }),
           },
           { minProperties: 1 },
@@ -197,23 +186,23 @@ const DefiniteBookCostVariant = TypeAlias(import.meta.url, {
     }),
 })
 
-const IndefiniteBookCostVariant = TypeAlias(import.meta.url, {
+const IndefiniteBookCostVariant = DB.TypeAlias(import.meta.url, {
   name: "IndefiniteBookCostVariant",
   comment:
     "An indefinite cost value for the book, which means it is impossible to narrow the range of the cost value by any numbers.",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "IndefiniteBookCostVariant",
-        Object({
-          label: Optional({
+        DB.Object({
+          label: DB.Optional({
             comment: "The label for the cost variant, e.g. “Original script”.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          description: Required({
+          description: DB.Required({
             comment: "The description of the cost variant, e.g. “less”.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
         }),
       ),

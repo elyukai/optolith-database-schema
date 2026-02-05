@@ -1,18 +1,4 @@
-import {
-  Array,
-  Entity,
-  Enum,
-  EnumCase,
-  GenIncludeIdentifier,
-  IncludeIdentifier,
-  Integer,
-  NestedEntityMap,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { Dice } from "./_Dice.js"
 import { BlessedTraditionIdentifier } from "./_Identifier.js"
 import { MathOperation } from "./_MathExpression.js"
@@ -24,44 +10,44 @@ import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
 
-export const Talisman = Entity(import.meta.url, {
+export const Talisman = DB.Entity(import.meta.url, {
   name: "Talisman",
   namePlural: "Talismans",
   type: () =>
-    Object({
-      tradition: Required({
+    DB.Object({
+      tradition: DB.Required({
         comment: "The tradition(s) the talisman belongs to.",
-        type: Array(BlessedTraditionIdentifier(), { minItems: 1 }),
+        type: DB.Array(BlessedTraditionIdentifier(), { minItems: 1 }),
       }),
-      type: Optional({
+      type: DB.Optional({
         comment: "The talisman type, if any.",
-        type: IncludeIdentifier(TalismanType),
+        type: DB.IncludeIdentifier(TalismanType),
       }),
-      ap_value: Optional({
+      ap_value: DB.Optional({
         comment: "The AP value for the required trade secret, if possible.",
-        type: Integer({ minimum: 5, multipleOf: 5 }),
+        type: DB.Integer({ minimum: 5, multipleOf: 5 }),
       }),
-      combatUse: Optional({
-        type: Object(
+      combatUse: DB.Optional({
+        type: DB.Object(
           {
-            melee_uses: Optional({
+            melee_uses: DB.Optional({
               comment:
                 "A list of stat blocks for each close combat technique this talisman can be used with.",
-              type: NestedEntityMap({
+              type: DB.NestedEntityMap({
                 name: "MeleeTalismanUse",
                 namePlural: "MeleeTalismanUses",
                 secondaryEntity: CloseCombatTechnique,
-                type: IncludeIdentifier(TalismanMeleeWeapon),
+                type: DB.IncludeIdentifier(TalismanMeleeWeapon),
               }),
             }),
-            ranged_uses: Optional({
+            ranged_uses: DB.Optional({
               comment:
                 "A list of stat blocks for each ranged combat technique this talisman can be used with.",
-              type: NestedEntityMap({
+              type: DB.NestedEntityMap({
                 name: "RangedTalismanUse",
                 namePlural: "RangedTalismanUses",
                 secondaryEntity: RangedCombatTechnique,
-                type: IncludeIdentifier(TalismanRangedWeapon),
+                type: DB.IncludeIdentifier(TalismanRangedWeapon),
               }),
             }),
           },
@@ -70,23 +56,23 @@ export const Talisman = Entity(import.meta.url, {
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Talisman",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The talisman’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment: "The effect description.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          activation: Optional({
+          activation: DB.Optional({
             comment: "The activation parameters.",
-            type: IncludeIdentifier(TalismanActivationTranslation),
+            type: DB.IncludeIdentifier(TalismanActivationTranslation),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -111,52 +97,52 @@ export const Talisman = Entity(import.meta.url, {
       : [],
 })
 
-const TalismanMeleeWeapon = TypeAlias(import.meta.url, {
+const TalismanMeleeWeapon = DB.TypeAlias(import.meta.url, {
   name: "TalismanMeleeWeapon",
-  type: () => GenIncludeIdentifier(GenMeleeWeapon, [IncludeIdentifier(TalismanDamage)]),
+  type: () => DB.GenIncludeIdentifier(GenMeleeWeapon, [DB.IncludeIdentifier(TalismanDamage)]),
 })
 
-const TalismanRangedWeapon = TypeAlias(import.meta.url, {
+const TalismanRangedWeapon = DB.TypeAlias(import.meta.url, {
   name: "TalismanRangedWeapon",
-  type: () => GenIncludeIdentifier(GenRangedWeapon, [IncludeIdentifier(TalismanDamage)]),
+  type: () => DB.GenIncludeIdentifier(GenRangedWeapon, [DB.IncludeIdentifier(TalismanDamage)]),
 })
 
-const TalismanDamage = TypeAlias(import.meta.url, {
+const TalismanDamage = DB.TypeAlias(import.meta.url, {
   name: "TalismanDamage",
-  type: () => GenIncludeIdentifier(MathOperation, [IncludeIdentifier(TalismanDamageOption)]),
+  type: () => DB.GenIncludeIdentifier(MathOperation, [DB.IncludeIdentifier(TalismanDamageOption)]),
 })
 
-const TalismanDamageOption = Enum(import.meta.url, {
+const TalismanDamageOption = DB.Enum(import.meta.url, {
   name: "TalismanDamageOption",
   values: () => ({
-    Random: EnumCase({ type: IncludeIdentifier(Dice) }),
-    Constant: EnumCase({ type: null }),
-    QualityLevels: EnumCase({ type: null }),
+    Random: DB.EnumCase({ type: DB.IncludeIdentifier(Dice) }),
+    Constant: DB.EnumCase({ type: null }),
+    QualityLevels: DB.EnumCase({ type: null }),
   }),
 })
 
-const TalismanType = Enum(import.meta.url, {
+const TalismanType = DB.Enum(import.meta.url, {
   name: "TalismanType",
   values: () => ({
-    MainTalisman: EnumCase({ type: null }),
-    Talisman: EnumCase({ type: null }),
-    MinorTalisman: EnumCase({ type: null }),
-    Regalia: EnumCase({ type: null }),
-    PowerfulTalisman: EnumCase({ type: null }),
+    MainTalisman: DB.EnumCase({ type: null }),
+    Talisman: DB.EnumCase({ type: null }),
+    MinorTalisman: DB.EnumCase({ type: null }),
+    Regalia: DB.EnumCase({ type: null }),
+    PowerfulTalisman: DB.EnumCase({ type: null }),
   }),
 })
 
-const TalismanActivationTranslation = TypeAlias(import.meta.url, {
+const TalismanActivationTranslation = DB.TypeAlias(import.meta.url, {
   name: "TalismanActivationTranslation",
   type: () =>
-    Object({
-      cost: Required({
+    DB.Object({
+      cost: DB.Required({
         comment: "The KP cost.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      duration: Required({
+      duration: DB.Required({
         comment: "The duration.",
-        type: String({ minLength: 1 }),
+        type: DB.String({ minLength: 1 }),
       }),
     }),
 })

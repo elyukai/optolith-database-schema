@@ -1,15 +1,4 @@
-import {
-  Boolean,
-  ChildEntities,
-  Entity,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { SelectOptionCategory } from "./_ActivatableSelectOptionCategory.js"
 import { NewSkillApplication, SkillUse } from "./_ActivatableSkillApplicationsAndUses.js"
@@ -18,87 +7,87 @@ import { GeneralPrerequisites } from "./_Prerequisite.js"
 import { Errata } from "./source/_Erratum.js"
 import { optionalSrc } from "./source/_PublicationRef.js"
 
-const SelectOptions = TypeAlias(import.meta.url, {
+const SelectOptions = DB.TypeAlias(import.meta.url, {
   name: "SelectOptions",
   comment: `Definitions for possible options for the activatable entry. They can either be derived from entry categories or be defined explicitly. Both can happen as well, but if there is an explicitly defined select option and a derived select option has the same identifier (which may only happen if skill or combat technique identifiers are used for explicit select options), the explicit definition overwrites the derived option.
 
 Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
   type: () =>
-    Object(
+    DB.Object(
       {
-        derived: Optional({
+        derived: DB.Optional({
           comment: `An entry category with optional further configuration. All available entries from the specified categories will be included as separate select options. You can also specify a set of groups that should only be included. Groups not mentioned will be excluded then.`,
-          type: IncludeIdentifier(SelectOptionCategory),
+          type: DB.IncludeIdentifier(SelectOptionCategory),
         }),
       },
       { minProperties: 1 },
     ),
 })
 
-export const select_options = Optional({
+export const select_options = DB.Optional({
   comment: `Definitions for possible options for the activatable entry, derived from entry categories.
 
 Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
-  type: IncludeIdentifier(SelectOptions),
+  type: DB.IncludeIdentifier(SelectOptions),
 })
 
-export const GeneralSelectOption = Entity(import.meta.url, {
+export const GeneralSelectOption = DB.Entity(import.meta.url, {
   name: "GeneralSelectOption",
   namePlural: "GeneralSelectOptions",
   type: () =>
-    Object({
-      parent: Required({
+    DB.Object({
+      parent: DB.Required({
         comment: "The entry that contains select option.",
-        type: IncludeIdentifier(SelectOptionParentIdentifier),
+        type: DB.IncludeIdentifier(SelectOptionParentIdentifier),
       }),
-      profession_only: Optional({
+      profession_only: DB.Optional({
         comment:
           "Sometimes, professions use specific text selections that are not contained in described lists. This ensures you can use them for professions only. They are not going to be displayed as options to the user.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      skill_applications: Required({
+      skill_applications: DB.Required({
         comment:
           "Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
-        type: ChildEntities(NewSkillApplication),
+        type: DB.ChildEntities(NewSkillApplication),
       }),
-      skill_uses: Required({
+      skill_uses: DB.Required({
         comment:
           "Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
-        type: ChildEntities(SkillUse),
+        type: DB.ChildEntities(SkillUse),
       }),
-      prerequisites: Optional({
+      prerequisites: DB.Optional({
         comment: "Prerequisites for the select option.",
-        type: IncludeIdentifier(GeneralPrerequisites),
+        type: DB.IncludeIdentifier(GeneralPrerequisites),
       }),
-      binding_cost: Optional({
+      binding_cost: DB.Optional({
         comment:
           "Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      ap_value: Optional({
+      ap_value: DB.Optional({
         comment: "Specific AP cost for the select option.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
       src: optionalSrc,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "GeneralSelectOption",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The name of the select option.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          name_in_profession: Optional({
+          name_in_profession: DB.Optional({
             comment: "The name of the select option when displayed in a generated profession text.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          description: Optional({
+          description: DB.Optional({
             comment:
               "The description of the select option. Useful for Bad Habits, Trade Secrets and other entries where a description is available.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -129,11 +118,11 @@ export const GeneralSelectOption = Entity(import.meta.url, {
   ],
 })
 
-export const explicit_select_options = Required({
+export const explicit_select_options = DB.Required({
   comment: `Explicit definitions for possible options for the activatable entry.
 
 Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
-  type: ChildEntities(GeneralSelectOption),
+  type: DB.ChildEntities(GeneralSelectOption),
 })
 
 // "Options": {

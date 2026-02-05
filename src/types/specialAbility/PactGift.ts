@@ -1,14 +1,4 @@
-import {
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { effect, levels, maximum, name, name_in_library } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { automatic_entries } from "../_ActivatableAutomatic.js"
@@ -18,36 +8,36 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const PactGift = Entity(import.meta.url, {
+export const PactGift = DB.Entity(import.meta.url, {
   name: "PactGift",
   namePlural: "PactGifts",
   type: () =>
-    Object({
+    DB.Object({
       levels,
       select_options,
       explicit_select_options,
       maximum,
-      permanent_demonic_consumption: Optional({
+      permanent_demonic_consumption: DB.Optional({
         comment: "This pact gift gives permanent levels of the condition *Demonic Consumption*.",
-        type: IncludeIdentifier(PactGiftPermanentDemonicConsumption),
+        type: DB.IncludeIdentifier(PactGiftPermanentDemonicConsumption),
       }),
       automatic_entries,
-      prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
+      prerequisites: DB.Optional({
+        type: DB.IncludeIdentifier(GeneralPrerequisites),
       }),
       ap_value,
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "PactGift",
-        Object({
+        DB.Object({
           name,
           name_in_library,
           effect,
           ap_value_append,
           ap_value: ap_value_l10n,
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -62,33 +52,35 @@ export const PactGift = Entity(import.meta.url, {
   ],
 })
 
-const PactGiftPermanentDemonicConsumption = Enum(import.meta.url, {
+const PactGiftPermanentDemonicConsumption = DB.Enum(import.meta.url, {
   name: "PactGiftPermanentDemonicConsumption",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedPactGiftPermanentDemonicConsumption) }),
-    PerLevel: EnumCase({ type: IncludeIdentifier(PactGiftPermanentDemonicConsumptionPerLevel) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedPactGiftPermanentDemonicConsumption) }),
+    PerLevel: DB.EnumCase({
+      type: DB.IncludeIdentifier(PactGiftPermanentDemonicConsumptionPerLevel),
+    }),
   }),
 })
 
-const FixedPactGiftPermanentDemonicConsumption = TypeAlias(import.meta.url, {
+const FixedPactGiftPermanentDemonicConsumption = DB.TypeAlias(import.meta.url, {
   name: "FixedPactGiftPermanentDemonicConsumption",
   type: () =>
-    Object({
-      levels: Required({
+    DB.Object({
+      levels: DB.Required({
         comment: "The levels of *Demonic Consumption* the pact gift causes.",
-        type: Integer({ minimum: 1, maximum: 4 }),
+        type: DB.Integer({ minimum: 1, maximum: 4 }),
       }),
     }),
 })
 
-const PactGiftPermanentDemonicConsumptionPerLevel = TypeAlias(import.meta.url, {
+const PactGiftPermanentDemonicConsumptionPerLevel = DB.TypeAlias(import.meta.url, {
   name: "PactGiftPermanentDemonicConsumptionPerLevel",
   type: () =>
-    Object({
-      levels: Required({
+    DB.Object({
+      levels: DB.Required({
         comment:
           "The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift.",
-        type: Integer({ minimum: 1, maximum: 4 }),
+        type: DB.Integer({ minimum: 1, maximum: 4 }),
       }),
     }),
 })

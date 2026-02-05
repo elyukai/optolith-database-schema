@@ -1,20 +1,4 @@
-import {
-  Array,
-  Boolean,
-  BooleanType,
-  Entity,
-  Enum,
-  EnumCase,
-  Float,
-  GenIncludeIdentifier,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../../Locale.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { Dice } from "../../_Dice.js"
@@ -24,62 +8,67 @@ import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { EffectType, LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
 
-export const Poison = Entity(import.meta.url, {
+export const Poison = DB.Entity(import.meta.url, {
   name: "Poison",
   namePlural: "Poisons",
   type: () =>
-    Object({
-      application_type: Required({
+    DB.Object({
+      application_type: DB.Required({
         comment: "The poison’s application type(s).",
-        type: Array(IncludeIdentifier(PoisonApplicationType), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(DB.IncludeIdentifier(PoisonApplicationType), {
+          minItems: 1,
+          uniqueItems: true,
+        }),
       }),
-      source_type: Required({
+      source_type: DB.Required({
         comment: "The poison’s source type and dependent additional values.",
-        type: IncludeIdentifier(PoisonSourceType),
+        type: DB.IncludeIdentifier(PoisonSourceType),
       }),
-      resistance: Required({
+      resistance: DB.Required({
         comment: "Use Spirit or Toughness as a modifier for the poison.",
-        type: IncludeIdentifier(Resistance),
+        type: DB.IncludeIdentifier(Resistance),
       }),
-      start: Required({
+      start: DB.Required({
         comment: "When the poison takes effect.",
-        type: IncludeIdentifier(PoisonStart),
+        type: DB.IncludeIdentifier(PoisonStart),
       }),
-      duration: Required({
+      duration: DB.Required({
         comment: "The normal and degraded poison’s duration.",
-        type: GenIncludeIdentifier(Reduceable, [IncludeIdentifier(PoisonDuration)]),
+        type: DB.GenIncludeIdentifier(Reduceable, [DB.IncludeIdentifier(PoisonDuration)]),
       }),
-      value: Optional({
+      value: DB.Optional({
         comment: "The raw (ingredients) value per level, in silverthalers.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      cost: Required({
+      cost: DB.Required({
         comment: "Price for one dose, in silverthalers.",
-        type: IncludeIdentifier(PoisonCost),
+        type: DB.IncludeIdentifier(PoisonCost),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Poison",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The name of the poison.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          alternative_names: Optional({
+          alternative_names: DB.Optional({
             comment: "A list of alternative names.",
-            type: Array(IncludeIdentifier(AlternativeName), { minItems: 1 }),
+            type: DB.Array(DB.IncludeIdentifier(AlternativeName), { minItems: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment: "The normal and degraded poison’s effects.",
-            type: GenIncludeIdentifier(Reduceable, [String({ minLength: 1, isMarkdown: true })]),
+            type: DB.GenIncludeIdentifier(Reduceable, [
+              DB.String({ minLength: 1, isMarkdown: true }),
+            ]),
           }),
-          notes: Optional({
+          notes: DB.Optional({
             comment: "Notes on the poison’s special features.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -93,162 +82,162 @@ export const Poison = Entity(import.meta.url, {
   ],
 })
 
-const PoisonApplicationType = Enum(import.meta.url, {
+const PoisonApplicationType = DB.Enum(import.meta.url, {
   name: "PoisonApplicationType",
   values: () => ({
-    Weapon: EnumCase({ type: null }),
-    Ingestion: EnumCase({ type: null }),
-    Inhalation: EnumCase({ type: null }),
-    Contact: EnumCase({ type: null }),
+    Weapon: DB.EnumCase({ type: null }),
+    Ingestion: DB.EnumCase({ type: null }),
+    Inhalation: DB.EnumCase({ type: null }),
+    Contact: DB.EnumCase({ type: null }),
   }),
 })
 
-const PoisonStart = Enum(import.meta.url, {
+const PoisonStart = DB.Enum(import.meta.url, {
   name: "PoisonStart",
   values: () => ({
-    Immediate: EnumCase({ type: null }),
-    Constant: EnumCase({ type: IncludeIdentifier(ConstantPoisonTime) }),
-    DiceBased: EnumCase({ type: IncludeIdentifier(DiceBasedPoisonTime) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefinitePoisonTime) }),
+    Immediate: DB.EnumCase({ type: null }),
+    Constant: DB.EnumCase({ type: DB.IncludeIdentifier(ConstantPoisonTime) }),
+    DiceBased: DB.EnumCase({ type: DB.IncludeIdentifier(DiceBasedPoisonTime) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefinitePoisonTime) }),
   }),
 })
 
-const PoisonDuration = Enum(import.meta.url, {
+const PoisonDuration = DB.Enum(import.meta.url, {
   name: "PoisonDuration",
   values: () => ({
-    Instant: EnumCase({ type: null }),
-    Constant: EnumCase({ type: IncludeIdentifier(ConstantPoisonTime) }),
-    DiceBased: EnumCase({ type: IncludeIdentifier(DiceBasedPoisonTime) }),
-    ExpressionBased: EnumCase({ type: IncludeIdentifier(ExpressionBasedPoisonTime) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefinitePoisonTime) }),
+    Instant: DB.EnumCase({ type: null }),
+    Constant: DB.EnumCase({ type: DB.IncludeIdentifier(ConstantPoisonTime) }),
+    DiceBased: DB.EnumCase({ type: DB.IncludeIdentifier(DiceBasedPoisonTime) }),
+    ExpressionBased: DB.EnumCase({ type: DB.IncludeIdentifier(ExpressionBasedPoisonTime) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefinitePoisonTime) }),
   }),
 })
 
-const PoisonCost = Enum(import.meta.url, {
+const PoisonCost = DB.Enum(import.meta.url, {
   name: "PoisonCost",
   values: () => ({
-    CannotBeExtracted: EnumCase({ type: null }),
-    None: EnumCase({ type: IncludeIdentifier(NoPoisonCost) }),
-    Constant: EnumCase({ type: Float({ minimum: { value: 0, isExclusive: true } }) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefinitePoisonCost) }),
+    CannotBeExtracted: DB.EnumCase({ type: null }),
+    None: DB.EnumCase({ type: DB.IncludeIdentifier(NoPoisonCost) }),
+    Constant: DB.EnumCase({ type: DB.Float({ minimum: { value: 0, isExclusive: true } }) }),
+    Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefinitePoisonCost) }),
   }),
 })
 
-export const NoPoisonCost = TypeAlias(import.meta.url, {
+export const NoPoisonCost = DB.TypeAlias(import.meta.url, {
   name: "NoPoisonCost",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "NoPoisonCost",
-        Object({
-          description: Required({
+        DB.Object({
+          description: DB.Required({
             comment: "A description of the cost.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
         }),
       ),
     }),
 })
 
-export const IndefinitePoisonCost = TypeAlias(import.meta.url, {
+export const IndefinitePoisonCost = DB.TypeAlias(import.meta.url, {
   name: "IndefinitePoisonCost",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "IndefinitePoisonCost",
-        Object({
-          description: Required({
+        DB.Object({
+          description: DB.Required({
             comment: "A description of the cost.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
         }),
       ),
     }),
 })
 
-export const ConstantPoisonTime = TypeAlias(import.meta.url, {
+export const ConstantPoisonTime = DB.TypeAlias(import.meta.url, {
   name: "ConstantPoisonTime",
   type: () =>
-    Object({
-      value: Required({
-        type: Integer({ minimum: 1 }),
+    DB.Object({
+      value: DB.Required({
+        type: DB.Integer({ minimum: 1 }),
       }),
-      unit: Required({
-        type: IncludeIdentifier(PoisonTimeUnit),
+      unit: DB.Required({
+        type: DB.IncludeIdentifier(PoisonTimeUnit),
       }),
     }),
 })
 
-export const DiceBasedPoisonTime = TypeAlias(import.meta.url, {
+export const DiceBasedPoisonTime = DB.TypeAlias(import.meta.url, {
   name: "DiceBasedPoisonTime",
   type: () =>
-    Object({
-      dice: Required({
-        type: IncludeIdentifier(Dice),
+    DB.Object({
+      dice: DB.Required({
+        type: DB.IncludeIdentifier(Dice),
       }),
-      flat: Optional({
+      flat: DB.Optional({
         comment: "The value to add to the result of the dice roll(s).",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      unit: Required({
-        type: IncludeIdentifier(PoisonTimeUnit),
+      unit: DB.Required({
+        type: DB.IncludeIdentifier(PoisonTimeUnit),
       }),
     }),
 })
 
-export const ExpressionBasedPoisonTime = TypeAlias(import.meta.url, {
+export const ExpressionBasedPoisonTime = DB.TypeAlias(import.meta.url, {
   name: "ExpressionBasedPoisonTime",
   type: () =>
-    Object({
-      value: Required({
-        type: IncludeIdentifier(ExpressionBasedPoisonTimeValue),
+    DB.Object({
+      value: DB.Required({
+        type: DB.IncludeIdentifier(ExpressionBasedPoisonTimeValue),
       }),
-      unit: Required({
-        type: IncludeIdentifier(PoisonTimeUnit),
+      unit: DB.Required({
+        type: DB.IncludeIdentifier(PoisonTimeUnit),
       }),
     }),
 })
 
-export const ExpressionBasedPoisonTimeValue = TypeAlias(import.meta.url, {
+export const ExpressionBasedPoisonTimeValue = DB.TypeAlias(import.meta.url, {
   name: "ExpressionBasedPoisonTimeValue",
   type: () =>
-    GenIncludeIdentifier(MathOperation, [
-      IncludeIdentifier(ExpressionBasedPoisonTimeExpressionValue),
+    DB.GenIncludeIdentifier(MathOperation, [
+      DB.IncludeIdentifier(ExpressionBasedPoisonTimeExpressionValue),
     ]),
 })
 
-export const ExpressionBasedPoisonTimeExpressionValue = Enum(import.meta.url, {
+export const ExpressionBasedPoisonTimeExpressionValue = DB.Enum(import.meta.url, {
   name: "ExpressionBasedPoisonTimeExpressionValue",
   values: () => ({
-    Constant: EnumCase({ type: Integer({ minimum: 1 }) }),
-    Dice: EnumCase({ type: IncludeIdentifier(Dice) }),
+    Constant: DB.EnumCase({ type: DB.Integer({ minimum: 1 }) }),
+    Dice: DB.EnumCase({ type: DB.IncludeIdentifier(Dice) }),
   }),
 })
 
-const PoisonTimeUnit = Enum(import.meta.url, {
+const PoisonTimeUnit = DB.Enum(import.meta.url, {
   name: "PoisonTimeUnit",
   values: () => ({
-    CombatRounds: EnumCase({ type: null }),
-    Minutes: EnumCase({ type: null }),
-    Hours: EnumCase({ type: null }),
-    Days: EnumCase({ type: null }),
+    CombatRounds: DB.EnumCase({ type: null }),
+    Minutes: DB.EnumCase({ type: null }),
+    Hours: DB.EnumCase({ type: null }),
+    Days: DB.EnumCase({ type: null }),
   }),
 })
 
-export const IndefinitePoisonTime = TypeAlias(import.meta.url, {
+export const IndefinitePoisonTime = DB.TypeAlias(import.meta.url, {
   name: "IndefinitePoisonTime",
   type: () =>
-    Object({
+    DB.Object({
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "IndefinitePoisonTime",
-        Object(
+        DB.Object(
           {
-            description: Optional({
+            description: DB.Optional({
               comment: "A description of the duration.",
-              type: String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, isMarkdown: true }),
             }),
           },
           { minProperties: 1 },
@@ -257,62 +246,62 @@ export const IndefinitePoisonTime = TypeAlias(import.meta.url, {
     }),
 })
 
-const PoisonSourceType = Enum(import.meta.url, {
+const PoisonSourceType = DB.Enum(import.meta.url, {
   name: "PoisonSourceType",
   values: () => ({
-    AnimalVenom: EnumCase({ type: IncludeIdentifier(AnimalVenom) }),
-    AlchemicalPoison: EnumCase({ type: IncludeIdentifier(AlchemicalPoison) }),
-    MineralPoison: EnumCase({ type: IncludeIdentifier(MineralPoison) }),
-    PlantPoison: EnumCase({ type: IncludeIdentifier(PlantPoison) }),
-    DemonicPoison: EnumCase({ type: IncludeIdentifier(DemonicPoison) }),
+    AnimalVenom: DB.EnumCase({ type: DB.IncludeIdentifier(AnimalVenom) }),
+    AlchemicalPoison: DB.EnumCase({ type: DB.IncludeIdentifier(AlchemicalPoison) }),
+    MineralPoison: DB.EnumCase({ type: DB.IncludeIdentifier(MineralPoison) }),
+    PlantPoison: DB.EnumCase({ type: DB.IncludeIdentifier(PlantPoison) }),
+    DemonicPoison: DB.EnumCase({ type: DB.IncludeIdentifier(DemonicPoison) }),
   }),
 })
 
-export const AnimalVenom = TypeAlias(import.meta.url, {
+export const AnimalVenom = DB.TypeAlias(import.meta.url, {
   name: "AnimalVenom",
   type: () =>
-    Object({
-      level: Required({
+    DB.Object({
+      level: DB.Required({
         comment: "The poison’s level.",
-        type: IncludeIdentifier(AnimalVenomLevel),
+        type: DB.IncludeIdentifier(AnimalVenomLevel),
       }),
-      is_extractable: Required({
+      is_extractable: DB.Required({
         comment: "If `false`, the poison cannot be extracted.",
-        type: Boolean(),
+        type: DB.Boolean(),
       }),
-      trade_secret: Optional({
+      trade_secret: DB.Optional({
         comment: "AP value and prerequisites of the poison’s trade secret.",
-        type: IncludeIdentifier(RecipeTradeSecret),
+        type: DB.IncludeIdentifier(RecipeTradeSecret),
       }),
     }),
 })
 
-const AnimalVenomLevel = Enum(import.meta.url, {
+const AnimalVenomLevel = DB.Enum(import.meta.url, {
   name: "AnimalVenomLevel",
   values: () => ({
-    QualityLevel: EnumCase({ type: null }),
-    Constant: EnumCase({ type: Integer({ minimum: 1, maximum: 6 }) }),
-    BySubtype: EnumCase({ type: IncludeIdentifier(AnimalVenomLevelBySubType) }),
+    QualityLevel: DB.EnumCase({ type: null }),
+    Constant: DB.EnumCase({ type: DB.Integer({ minimum: 1, maximum: 6 }) }),
+    BySubtype: DB.EnumCase({ type: DB.IncludeIdentifier(AnimalVenomLevelBySubType) }),
   }),
 })
 
-const AnimalVenomLevelBySubType = TypeAlias(import.meta.url, {
+const AnimalVenomLevelBySubType = DB.TypeAlias(import.meta.url, {
   name: "AnimalVenomLevelBySubType",
   type: () =>
-    Array(
-      Object({
-        value: Required({
+    DB.Array(
+      DB.Object({
+        value: DB.Required({
           comment: "The poison’s level.",
-          type: Integer({ minimum: 1, maximum: 6 }),
+          type: DB.Integer({ minimum: 1, maximum: 6 }),
         }),
         translations: NestedTranslationMap(
-          Required,
+          DB.Required,
           "AnimalVenomLevelBySubType",
-          Object({
-            name: Required({
+          DB.Object({
+            name: DB.Required({
               comment:
                 "The subtype name. If there are multiple subtypes with the same level, specify them separately.",
-              type: String({ minLength: 1 }),
+              type: DB.String({ minLength: 1 }),
             }),
           }),
         ),
@@ -321,97 +310,97 @@ const AnimalVenomLevelBySubType = TypeAlias(import.meta.url, {
     ),
 })
 
-export const AlchemicalPoison = TypeAlias(import.meta.url, {
+export const AlchemicalPoison = DB.TypeAlias(import.meta.url, {
   name: "AlchemicalPoison",
   type: () =>
-    Object({
-      effect_types: Required({
+    DB.Object({
+      effect_types: DB.Required({
         comment: "Effect type(s) of an alchemical poison.",
-        type: Array(IncludeIdentifier(EffectType), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(DB.IncludeIdentifier(EffectType), { minItems: 1, uniqueItems: true }),
       }),
-      cost_per_ingredient_level: Required({
+      cost_per_ingredient_level: DB.Required({
         comment: "The cost per ingredient level in silverthalers.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
-      laboratory: Required({
+      laboratory: DB.Required({
         comment: "The laboratory level needed to brew the poison.",
-        type: IncludeIdentifier(LaboratoryLevel),
+        type: DB.IncludeIdentifier(LaboratoryLevel),
       }),
-      brewing_difficulty: Required({
+      brewing_difficulty: DB.Required({
         comment: "The brewing difficulty, which represents the challenge of creating a poison.",
-        type: Integer(),
+        type: DB.Integer(),
       }),
-      trade_secret: Required({
+      trade_secret: DB.Required({
         comment: "AP value and prerequisites of the poison recipe’s trade secret.",
-        type: IncludeIdentifier(RecipeTradeSecret),
+        type: DB.IncludeIdentifier(RecipeTradeSecret),
       }),
-      intoxicant: Optional({
+      intoxicant: DB.Optional({
         comment: "Additional information if the poison is an intoxicant.",
-        type: IncludeIdentifier(Intoxicant),
+        type: DB.IncludeIdentifier(Intoxicant),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "AlchemicalPoison",
-        Object({
-          typical_ingredients: Required({
+        DB.Object({
+          typical_ingredients: DB.Required({
             comment: "A list of typical ingredients.",
-            type: Array(String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
+            type: DB.Array(DB.String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
           }),
-          brewing_process_prerequisites: Optional({
+          brewing_process_prerequisites: DB.Optional({
             comment: "Prerequsites for the brewing process, if any.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
         }),
       ),
     }),
 })
 
-export const MineralPoison = TypeAlias(import.meta.url, {
+export const MineralPoison = DB.TypeAlias(import.meta.url, {
   name: "MineralPoison",
   type: () =>
-    Object({
-      level: Required({
+    DB.Object({
+      level: DB.Required({
         comment: "The poison’s level.",
-        type: Integer({ minimum: 1, maximum: 6 }),
+        type: DB.Integer({ minimum: 1, maximum: 6 }),
       }),
     }),
 })
 
-export const PlantPoison = TypeAlias(import.meta.url, {
+export const PlantPoison = DB.TypeAlias(import.meta.url, {
   name: "PlantPoison",
   type: () =>
-    Object({
-      effect_types: Required({
+    DB.Object({
+      effect_types: DB.Required({
         comment: "Effect type(s) of a plant poison.",
-        type: Array(IncludeIdentifier(EffectType), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(DB.IncludeIdentifier(EffectType), { minItems: 1, uniqueItems: true }),
       }),
-      level: Required({
+      level: DB.Required({
         comment: "The poison’s level.",
-        type: Integer({ minimum: 1, maximum: 6 }),
+        type: DB.Integer({ minimum: 1, maximum: 6 }),
       }),
-      intoxicant: Optional({
+      intoxicant: DB.Optional({
         comment: "Additional information if the poison is an intoxicant.",
-        type: IncludeIdentifier(Intoxicant),
+        type: DB.IncludeIdentifier(Intoxicant),
       }),
     }),
 })
 
-export const DemonicPoison = TypeAlias(import.meta.url, {
+export const DemonicPoison = DB.TypeAlias(import.meta.url, {
   name: "DemonicPoison",
   type: () =>
-    Object({
-      level: Required({
+    DB.Object({
+      level: DB.Required({
         comment: "The poison’s level.",
-        type: IncludeIdentifier(DemonicPoisonLevel),
+        type: DB.IncludeIdentifier(DemonicPoisonLevel),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "DemonicPoison",
-        Object(
+        DB.Object(
           {
-            note: Optional({
+            note: DB.Optional({
               comment: "A note, if any.",
-              type: String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, isMarkdown: true }),
             }),
           },
           { minProperties: 1 },
@@ -420,153 +409,153 @@ export const DemonicPoison = TypeAlias(import.meta.url, {
     }),
 })
 
-const DemonicPoisonLevel = Enum(import.meta.url, {
+const DemonicPoisonLevel = DB.Enum(import.meta.url, {
   name: "DemonicPoisonLevel",
   values: () => ({
-    QualityLevel: EnumCase({ type: IncludeIdentifier(QualityLevelDemonicPoisonLevel) }),
-    Constant: EnumCase({ type: IncludeIdentifier(ConstantDemonicPoisonLevel) }),
+    QualityLevel: DB.EnumCase({ type: DB.IncludeIdentifier(QualityLevelDemonicPoisonLevel) }),
+    Constant: DB.EnumCase({ type: DB.IncludeIdentifier(ConstantDemonicPoisonLevel) }),
   }),
 })
 
-export const QualityLevelDemonicPoisonLevel = TypeAlias(import.meta.url, {
+export const QualityLevelDemonicPoisonLevel = DB.TypeAlias(import.meta.url, {
   name: "QualityLevelDemonicPoisonLevel",
   type: () =>
-    Object({
-      source: Required({
-        type: IncludeIdentifier(QualityLevelDemonicPoisonLevelSource),
+    DB.Object({
+      source: DB.Required({
+        type: DB.IncludeIdentifier(QualityLevelDemonicPoisonLevelSource),
       }),
     }),
 })
 
-const QualityLevelDemonicPoisonLevelSource = Enum(import.meta.url, {
+const QualityLevelDemonicPoisonLevelSource = DB.Enum(import.meta.url, {
   name: "QualityLevelDemonicPoisonLevelSource",
   values: () => ({
-    Spellwork: EnumCase({ type: null }),
+    Spellwork: DB.EnumCase({ type: null }),
   }),
 })
 
-export const ConstantDemonicPoisonLevel = TypeAlias(import.meta.url, {
+export const ConstantDemonicPoisonLevel = DB.TypeAlias(import.meta.url, {
   name: "ConstantDemonicPoisonLevel",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The poison’s level.",
-        type: Integer({ minimum: 1, maximum: 6 }),
+        type: DB.Integer({ minimum: 1, maximum: 6 }),
       }),
     }),
 })
 
-export const Intoxicant = TypeAlias(import.meta.url, {
+export const Intoxicant = DB.TypeAlias(import.meta.url, {
   name: "Intoxicant",
   type: () =>
-    Object({
-      legality: Required({
+    DB.Object({
+      legality: DB.Required({
         comment:
           "Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.",
-        type: IncludeIdentifier(IntoxicantLegality),
+        type: DB.IncludeIdentifier(IntoxicantLegality),
       }),
-      addiction: Optional({
+      addiction: DB.Optional({
         comment:
           "The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
-        type: IncludeIdentifier(IntoxicantAddiction),
+        type: DB.IncludeIdentifier(IntoxicantAddiction),
       }),
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "Intoxicant",
-        Object({
-          ingestion: Required({
+        DB.Object({
+          ingestion: DB.Required({
             comment: "How to ingest the intoxicant.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          side_effect: Optional({
+          side_effect: DB.Optional({
             comment:
               "The intoxicants side effects that always happen, no matter whether the intoxicant has the default or the reduced effect.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          overdose: Optional({
+          overdose: DB.Optional({
             comment:
               "What happens if the intoxicant has been overdosed, that is, it has been ingested another time within the duration.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          special: Optional({
+          special: DB.Optional({
             comment: "Special information about the intoxicant.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
         }),
       ),
     }),
 })
 
-export const IntoxicantLegality = TypeAlias(import.meta.url, {
+export const IntoxicantLegality = DB.TypeAlias(import.meta.url, {
   name: "IntoxicantLegality",
   comment:
     "Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.",
   type: () =>
-    Object({
-      is_legal: Required({
-        type: BooleanType(),
+    DB.Object({
+      is_legal: DB.Required({
+        type: DB.Boolean(),
       }),
     }),
 })
 
-export const IntoxicantAddiction = TypeAlias(import.meta.url, {
+export const IntoxicantAddiction = DB.TypeAlias(import.meta.url, {
   name: "IntoxicantAddiction",
   comment:
     "The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
   type: () =>
-    Object({
-      chance: Optional({
+    DB.Object({
+      chance: DB.Optional({
         comment:
           "The chance of getting addicted after an ingestion in percent. Some intoxicants do not have a contant chance of addiction.",
-        type: Integer({ minimum: 0, maximum: 100, multipleOf: 5 }),
+        type: DB.Integer({ minimum: 0, maximum: 100, multipleOf: 5 }),
       }),
-      interval: Required({
+      interval: DB.Required({
         comment:
           "The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
-        type: IncludeIdentifier(IntoxicantAddictionInterval),
+        type: DB.IncludeIdentifier(IntoxicantAddictionInterval),
       }),
       translations: NestedTranslationMap(
-        Optional,
+        DB.Optional,
         "IntoxicantAddiction",
-        Object({
-          chance: Required({
+        DB.Object({
+          chance: DB.Required({
             comment:
               "The chance of getting addicted after an ingestion. Use if and only if the plain constant percent is not sufficient.",
-            type: String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
         }),
       ),
     }),
 })
 
-const IntoxicantAddictionInterval = Enum(import.meta.url, {
+const IntoxicantAddictionInterval = DB.Enum(import.meta.url, {
   name: "IntoxicantAddictionInterval",
   comment:
     "The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
   values: () => ({
-    Constant: EnumCase({ type: IncludeIdentifier(ConstantIntoxicantAddictionInterval) }),
-    DiceBased: EnumCase({ type: IncludeIdentifier(DiceBasedIntoxicantAddictionInterval) }),
+    Constant: DB.EnumCase({ type: DB.IncludeIdentifier(ConstantIntoxicantAddictionInterval) }),
+    DiceBased: DB.EnumCase({ type: DB.IncludeIdentifier(DiceBasedIntoxicantAddictionInterval) }),
   }),
 })
 
-export const ConstantIntoxicantAddictionInterval = TypeAlias(import.meta.url, {
+export const ConstantIntoxicantAddictionInterval = DB.TypeAlias(import.meta.url, {
   name: "ConstantIntoxicantAddictionInterval",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The interval value in days.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-export const DiceBasedIntoxicantAddictionInterval = TypeAlias(import.meta.url, {
+export const DiceBasedIntoxicantAddictionInterval = DB.TypeAlias(import.meta.url, {
   name: "DiceBasedIntoxicantAddictionInterval",
   type: () =>
-    Object({
-      dice: Required({
+    DB.Object({
+      dice: DB.Required({
         comment: "The dice that define the interval value in days.",
-        type: IncludeIdentifier(Dice),
+        type: DB.IncludeIdentifier(Dice),
       }),
     }),
 })

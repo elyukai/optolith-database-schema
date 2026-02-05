@@ -1,29 +1,21 @@
-import {
-  Array,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { SkillIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
-export const RatedSumPrerequisite = TypeAlias(import.meta.url, {
+export const RatedSumPrerequisite = DB.TypeAlias(import.meta.url, {
   name: "RatedSumPrerequisite",
   type: () =>
-    Object({
-      sum: Required({
+    DB.Object({
+      sum: DB.Required({
         comment: "The minimum required sum of the targets’ ratings.",
-        type: Integer({ minimum: 0 }),
+        type: DB.Integer({ minimum: 0 }),
       }),
-      targets: Required({
+      targets: DB.Required({
         comment: "The targets that are included in calculating the sum.",
-        type: Array(SkillIdentifier(), { minItems: 2 }),
+        type: DB.Array(SkillIdentifier(), { minItems: 2 }),
       }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
+      display_option: DB.Optional({
+        type: DB.IncludeIdentifier(DisplayOption),
       }),
     }),
 })

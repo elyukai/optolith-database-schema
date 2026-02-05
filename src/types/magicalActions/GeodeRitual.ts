@@ -1,15 +1,4 @@
-import {
-  Entity,
-  Enum,
-  EnumCase,
-  IncludeIdentifier,
-  Integer,
-  Object,
-  Optional,
-  Required,
-  String,
-  TypeAlias,
-} from "tsondb/schema/dsl"
+import * as DB from "tsondb/schema/dsl"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { SlowSkillNonModifiableCastingTime } from "../_ActivatableSkillCastingTime.js"
 import { OneTimeCostMap } from "../_ActivatableSkillCost.js"
@@ -23,67 +12,67 @@ import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
 import { src } from "../source/_PublicationRef.js"
 
-export const GeodeRitual = Entity(import.meta.url, {
+export const GeodeRitual = DB.Entity(import.meta.url, {
   name: "GeodeRitual",
   namePlural: "GeodeRituals",
   type: () =>
-    Object({
-      check: Required({
+    DB.Object({
+      check: DB.Required({
         comment: "Lists the linked three attributes used to make a skill check.",
-        type: IncludeIdentifier(SkillCheck),
+        type: DB.IncludeIdentifier(SkillCheck),
       }),
-      parameters: Required({
+      parameters: DB.Required({
         comment: "Measurable parameters of a geode ritual.",
-        type: IncludeIdentifier(GeodeRitualPerformanceParameters),
+        type: DB.IncludeIdentifier(GeodeRitualPerformanceParameters),
       }),
-      target: Required({
+      target: DB.Required({
         comment: "The target category – the kind of creature or object – the skill affects.",
-        type: IncludeIdentifier(AffectedTargetCategories),
+        type: DB.IncludeIdentifier(AffectedTargetCategories),
       }),
-      property: Required({
+      property: DB.Required({
         comment: "The associated property.",
         type: PropertyIdentifier(),
       }),
-      prerequisites: Optional({
+      prerequisites: DB.Optional({
         comment: "The prerequisites for the geode ritual.",
-        type: IncludeIdentifier(GeodeRitualPrerequisites),
+        type: DB.IncludeIdentifier(GeodeRitualPrerequisites),
       }),
       src,
       translations: NestedTranslationMap(
-        Required,
+        DB.Required,
         "GeodeRitual",
-        Object({
-          name: Required({
+        DB.Object({
+          name: DB.Required({
             comment: "The geode ritual’s name.",
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          effect: Required({
+          effect: DB.Required({
             comment:
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
+            type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
-          casting_time: Optional({
+          casting_time: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          cost: Optional({
+          cost: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          range: Optional({
+          range: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          duration: Optional({
+          duration: DB.Optional({
             isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
+            type: DB.IncludeIdentifier(OldParameter),
           }),
-          target: Optional({
+          target: DB.Optional({
             isDeprecated: true,
-            type: String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
-          errata: Optional({
-            type: IncludeIdentifier(Errata),
+          errata: DB.Optional({
+            type: DB.IncludeIdentifier(Errata),
           }),
         }),
       ),
@@ -97,73 +86,73 @@ export const GeodeRitual = Entity(import.meta.url, {
   ],
 })
 
-const GeodeRitualPerformanceParameters = TypeAlias(import.meta.url, {
+const GeodeRitualPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "GeodeRitualPerformanceParameters",
   comment: "Measurable parameters of a geode ritual.",
   type: () =>
-    Object({
-      casting_time: Required({
+    DB.Object({
+      casting_time: DB.Required({
         comment: "The casting time.",
-        type: IncludeIdentifier(SlowSkillNonModifiableCastingTime),
+        type: DB.IncludeIdentifier(SlowSkillNonModifiableCastingTime),
       }),
-      cost: Required({
+      cost: DB.Required({
         comment: "The AE cost.",
-        type: IncludeIdentifier(GeodeRitualCost),
+        type: DB.IncludeIdentifier(GeodeRitualCost),
       }),
-      range: Required({
+      range: DB.Required({
         comment: "The range.",
-        type: IncludeIdentifier(GeodeRitualRange),
+        type: DB.IncludeIdentifier(GeodeRitualRange),
       }),
-      duration: Required({
+      duration: DB.Required({
         comment: "The duration.",
-        type: IncludeIdentifier(GeodeRitualDuration),
+        type: DB.IncludeIdentifier(GeodeRitualDuration),
       }),
     }),
 })
 
-const GeodeRitualCost = Enum(import.meta.url, {
+const GeodeRitualCost = DB.Enum(import.meta.url, {
   name: "GeodeRitualCost",
   values: () => ({
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedGeodeRitualCost) }),
-    Map: EnumCase({ type: IncludeIdentifier(OneTimeCostMap) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedGeodeRitualCost) }),
+    Map: DB.EnumCase({ type: DB.IncludeIdentifier(OneTimeCostMap) }),
   }),
 })
 
-const FixedGeodeRitualCost = TypeAlias(import.meta.url, {
+const FixedGeodeRitualCost = DB.TypeAlias(import.meta.url, {
   name: "FixedGeodeRitualCost",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The AE cost value.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const GeodeRitualRange = Enum(import.meta.url, {
+const GeodeRitualRange = DB.Enum(import.meta.url, {
   name: "GeodeRitualRange",
   values: () => ({
-    Self: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: IncludeIdentifier(FixedGeodeRitualRange) }),
+    Self: DB.EnumCase({ type: null }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedGeodeRitualRange) }),
   }),
 })
 
-const FixedGeodeRitualRange = TypeAlias(import.meta.url, {
+const FixedGeodeRitualRange = DB.TypeAlias(import.meta.url, {
   name: "FixedGeodeRitualRange",
   type: () =>
-    Object({
-      value: Required({
+    DB.Object({
+      value: DB.Required({
         comment: "The range in steps/m.",
-        type: Integer({ minimum: 1 }),
+        type: DB.Integer({ minimum: 1 }),
       }),
     }),
 })
 
-const GeodeRitualDuration = Enum(import.meta.url, {
+const GeodeRitualDuration = DB.Enum(import.meta.url, {
   name: "GeodeRitualDuration",
   values: () => ({
-    Immediate: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: IncludeIdentifier(DurationUnitValue) }),
-    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+    Immediate: DB.EnumCase({ type: null }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(DurationUnitValue) }),
+    CheckResultBased: DB.EnumCase({ type: DB.IncludeIdentifier(CheckResultBasedDuration) }),
   }),
 })
