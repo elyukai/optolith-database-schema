@@ -71,6 +71,11 @@ const InitialOccurrence = DB.TypeAlias(import.meta.url, {
         comment: "The initial page references.",
         type: DB.Array(DB.IncludeIdentifier(PageRange), { minItems: 1 }),
       }),
+      isRemoved: DB.Optional({
+        comment:
+          "Whether the entry has been removed in this initial occurrence. This can be used if the entry has been removed by the release of this publication (that is, the first printing), which can be useful for books that introduce major revisions of rules into the game.",
+        type: DB.Boolean(),
+      }),
     }),
 })
 
@@ -113,8 +118,7 @@ const PrintingChanges = DB.Enum(import.meta.url, {
   comment:
     "A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.",
   values: () => ({
-    AddOrUpdate: DB.EnumCase({
-      displayName: "Add or Update",
+    Set: DB.EnumCase({
       comment:
         "The entry has been added, re-added or changed page(s) in this printing. The page references override any previously set ones in case an entry has been moved to a different page in a later printing.",
       type: DB.Array(DB.IncludeIdentifier(PageRange), { minItems: 1 }),
