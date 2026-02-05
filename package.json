@@ -40,13 +40,13 @@
   "author": "Lukas Obermann",
   "license": "MPL-2.0",
   "dependencies": {
-    "@elyukai/utils": "^0.1.6",
-    "tsondb": "^0.19.1",
+    "@elyukai/utils": "^0.2.0",
+    "tsondb": "^0.19.3",
     "yaml": "^2.8.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
-    "@types/node": "^25.2.0",
+    "@types/node": "^25.2.1",
     "commit-and-tag-version": "^12.6.1",
     "eslint": "^9.39.2",
     "globals": "^17.3.0",
