@@ -87,6 +87,7 @@ export const Race = DB.Entity(import.meta.url, {
               type: DB.IncludeIdentifier(Dice),
             }),
           }),
+          minProperties: 1,
         }),
       }),
       variants: DB.Required({

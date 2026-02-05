@@ -52,6 +52,7 @@ export const PublicationRef = DB.TypeAlias(import.meta.url, {
             },
             { minProperties: 1 },
           ),
+          minProperties: 1,
         }),
       }),
     }),

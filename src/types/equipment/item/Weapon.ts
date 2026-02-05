@@ -38,6 +38,7 @@ export const Weapon = DB.Entity(import.meta.url, {
           namePlural: "MeleeWeaponUses",
           secondaryEntity: CloseCombatTechnique,
           type: DB.IncludeIdentifier(MeleeWeapon),
+          minProperties: 1,
         }),
       }),
       ranged_uses: DB.Optional({
@@ -48,6 +49,7 @@ export const Weapon = DB.Entity(import.meta.url, {
           namePlural: "RangedWeaponUses",
           secondaryEntity: RangedCombatTechnique,
           type: DB.IncludeIdentifier(RangedWeapon),
+          minProperties: 1,
         }),
       }),
       restrictedTo: DB.Optional({
@@ -112,6 +114,7 @@ export const ImprovisedWeapon = DB.TypeAlias(import.meta.url, {
           namePlural: "ImprovisedMeleeWeaponUses",
           secondaryEntity: CloseCombatTechnique,
           type: DB.IncludeIdentifier(MeleeWeapon),
+          minProperties: 1,
         }),
       }),
       ranged_uses: DB.Optional({
@@ -122,6 +125,7 @@ export const ImprovisedWeapon = DB.TypeAlias(import.meta.url, {
           namePlural: "ImprovisedRangedWeaponUses",
           secondaryEntity: RangedCombatTechnique,
           type: DB.IncludeIdentifier(RangedWeapon),
+          minProperties: 1,
         }),
       }),
       restrictedTo: DB.Optional({

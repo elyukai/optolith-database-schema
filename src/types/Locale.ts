@@ -1378,6 +1378,7 @@ export const NestedTranslationMap = <
       namePlural: `${entityName}Translations`,
       secondaryEntity: Locale,
       type,
+      minProperties: 1,
     }),
   })
 

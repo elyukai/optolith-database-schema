@@ -38,6 +38,7 @@ export const Talisman = DB.Entity(import.meta.url, {
                 namePlural: "MeleeTalismanUses",
                 secondaryEntity: CloseCombatTechnique,
                 type: DB.IncludeIdentifier(TalismanMeleeWeapon),
+                minProperties: 1,
               }),
             }),
             ranged_uses: DB.Optional({
@@ -48,6 +49,7 @@ export const Talisman = DB.Entity(import.meta.url, {
                 namePlural: "RangedTalismanUses",
                 secondaryEntity: RangedCombatTechnique,
                 type: DB.IncludeIdentifier(TalismanRangedWeapon),
+                minProperties: 1,
               }),
             }),
           },
