@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.28.2](https://github.com/elyukai/optolith-database-schema/compare/v0.28.1...v0.28.2) (2026-02-05)
+
+
+### Features
+
+* add optional isRemoved flag to initial source refs ([ae034e1](https://github.com/elyukai/optolith-database-schema/commit/ae034e1bd6ed3da3940ba0b3af0a162d45141168))
+* nested entity maps should not be empty ([72a3384](https://github.com/elyukai/optolith-database-schema/commit/72a3384fdad7623bc211e23271dfb47b628e4d35))
+
 ## [0.28.1](https://github.com/elyukai/optolith-database-schema/compare/v0.28.0...v0.28.1) (2026-02-05)
 
 
