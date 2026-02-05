@@ -7,7 +7,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { DerivedCharacteristicPrerequisites } from "./_Prerequisite.js"
 import { src } from "./source/_PublicationRef.js"

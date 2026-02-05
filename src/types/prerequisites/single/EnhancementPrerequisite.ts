@@ -1,4 +1,4 @@
-import { Object, Required, TypeAlias } from "tsondb/schema/def"
+import { Object, Required, TypeAlias } from "tsondb/schema/dsl"
 import { EnhancementIdentifier } from "../../_Identifier.js"
 
 export const EnhancementPrerequisite = TypeAlias(import.meta.url, {

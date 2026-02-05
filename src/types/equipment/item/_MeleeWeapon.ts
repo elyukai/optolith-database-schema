@@ -16,7 +16,7 @@ import {
   Required,
   TypeAlias,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { Dice } from "../../_Dice.js"
 import { ReachIdentifier } from "../../_Identifier.js"
 import { Length, PrimaryAttributeDamageThreshold } from "./_Weapon.js"

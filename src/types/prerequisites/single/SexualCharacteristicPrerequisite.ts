@@ -1,4 +1,4 @@
-import { Enum, EnumCase, IncludeIdentifier, Object, Required, TypeAlias } from "tsondb/schema/def"
+import { Enum, EnumCase, IncludeIdentifier, Object, Required, TypeAlias } from "tsondb/schema/dsl"
 
 export const SexualCharacteristicPrerequisite = TypeAlias(import.meta.url, {
   name: "SexualCharacteristicPrerequisite",

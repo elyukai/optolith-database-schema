@@ -1,4 +1,4 @@
-import { Enum, EnumCase } from "tsondb/schema/def"
+import { Enum, EnumCase } from "tsondb/schema/dsl"
 
 export const ImprovementCost = Enum(import.meta.url, {
   name: "ImprovementCost",

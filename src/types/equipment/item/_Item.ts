@@ -12,7 +12,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import type { CombatUse as CombatUseType } from "../../../../gen/types.js"
 import {
   BlessedTraditionIdentifier,

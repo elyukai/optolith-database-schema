@@ -6,7 +6,7 @@ import {
   Required,
   String,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 
 export const CommonnessRatedAdvantageDisadvantage = GenTypeAlias(import.meta.url, {

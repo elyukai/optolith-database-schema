@@ -6,7 +6,7 @@ import {
   Object,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import { Cost, DefaultItemTranslations, FixedCost, Weight } from "./_Item.js"
 

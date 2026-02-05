@@ -7,9 +7,8 @@ import {
   ObjectType,
   Required,
   TypeAlias,
-  type GetDisplayNameAndId,
-  type GetInstanceById,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
+import type { GetDisplayNameAndId, GetInstanceById } from "tsondb/schema/gen"
 import type {
   GenMeleeWeapon,
   GenRangedWeapon,

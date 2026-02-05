@@ -7,7 +7,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { OldParameter, OneTimePerformanceParameters } from "../_ActivatableSkill.js"
 import { CastingTime, SlowSkillNonModifiableCastingTime } from "../_ActivatableSkillCastingTime.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"

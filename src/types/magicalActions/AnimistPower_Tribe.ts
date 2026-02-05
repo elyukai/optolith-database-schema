@@ -1,4 +1,4 @@
-import { Entity, IncludeIdentifier, Object, Required, String } from "tsondb/schema/def"
+import { Entity, IncludeIdentifier, Object, Required, String } from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../Locale.js"
 import { TribePrerequisites } from "../_Prerequisite.js"
 

@@ -1,4 +1,4 @@
-import { Array, Entity, IncludeIdentifier, Object, Required, String } from "tsondb/schema/def"
+import { Array, Entity, IncludeIdentifier, Object, Required, String } from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../../Locale.js"
 import { src } from "../../source/_PublicationRef.js"
 import { Cost } from "./_Item.js"

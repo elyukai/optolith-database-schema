@@ -1,4 +1,4 @@
-import { Array, Entity, IncludeIdentifier, Object, Required } from "tsondb/schema/def"
+import { Array, Entity, IncludeIdentifier, Object, Required } from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { cause, Cause, DiseaseTranslation, level, resistance } from "./_DiseasePoison.js"
 import { AnimalTypeIdentifier } from "./_Identifier.js"

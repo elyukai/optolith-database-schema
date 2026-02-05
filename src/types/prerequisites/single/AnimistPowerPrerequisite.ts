@@ -5,7 +5,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { AnimistPowerIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 

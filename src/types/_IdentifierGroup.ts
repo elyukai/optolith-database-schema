@@ -1,4 +1,4 @@
-import { Enum, EnumCase } from "tsondb/schema/def"
+import { Enum, EnumCase } from "tsondb/schema/dsl"
 import {
   AdvancedCombatSpecialAbilityIdentifier,
   AdvancedKarmaSpecialAbilityIdentifier,

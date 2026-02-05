@@ -11,7 +11,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { CoreRuleIdentifier } from "../_Identifier.js"
 import { CoreRuleDerivableContentIdentifier } from "../_IdentifierGroup.js"
 import { NestedTranslationMap } from "../Locale.js"

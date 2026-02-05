@@ -1,4 +1,4 @@
-import { Entity, Object, Required, String } from "tsondb/schema/def"
+import { Entity, Object, Required, String } from "tsondb/schema/dsl"
 import { AnimalShapePathIdentifier, AnimalShapeSizeIdentifier } from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"
 

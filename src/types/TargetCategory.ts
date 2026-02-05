@@ -1,4 +1,4 @@
-import { Entity, ObjectType, Optional, Required, String } from "tsondb/schema/def"
+import { Entity, ObjectType, Optional, Required, String } from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { TargetCategoryIdentifier } from "./_Identifier.js"
 

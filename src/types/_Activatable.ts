@@ -2,7 +2,7 @@
  * General type specifications used by multiple activatable entries.
  */
 
-import { Integer, Optional, Required, String } from "tsondb/schema/def"
+import { Integer, Optional, Required, String } from "tsondb/schema/dsl"
 
 export const name = Required({
   comment: "Name of the activatable entry.",

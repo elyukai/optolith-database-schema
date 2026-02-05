@@ -1,4 +1,4 @@
-import { Object, Optional, Required, String, TypeAlias } from "tsondb/schema/def"
+import { Object, Optional, Required, String, TypeAlias } from "tsondb/schema/dsl"
 
 export const SpecialRule = TypeAlias(import.meta.url, {
   name: "SpecialRule",

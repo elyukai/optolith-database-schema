@@ -1,4 +1,4 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
 import { BlessedTraditionIdentifier } from "../../_Identifier.js"
 import { src } from "../../source/_PublicationRef.js"
 import {

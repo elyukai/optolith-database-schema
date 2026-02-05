@@ -1,4 +1,4 @@
-import { Array, Enum, EnumCase, TypeAlias } from "tsondb/schema/def"
+import { Array, Enum, EnumCase, TypeAlias } from "tsondb/schema/dsl"
 import { AttributeIdentifier } from "./_Identifier.js"
 
 export const SkillCheck = TypeAlias(import.meta.url, {

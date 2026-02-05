@@ -7,7 +7,7 @@ import {
   Optional,
   Required,
   String,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { LanguageIdentifier } from "../../_Identifier.js"
 import { NestedTranslationMap } from "../../Locale.js"

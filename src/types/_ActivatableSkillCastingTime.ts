@@ -12,7 +12,7 @@ import {
   Required,
   TypeAlias,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { SlowSkillCastingTimeUnit } from "./SkillModificationLevel.js"
 import { SkillModificationLevelIdentifier } from "./_Identifier.js"
 

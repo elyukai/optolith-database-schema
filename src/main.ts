@@ -2,7 +2,7 @@ import { Schema } from "tsondb/schema"
 import type { ChildEntityMap, EntityMap, EnumMap, TypeAliasMap } from "../gen/types.js"
 import * as Types from "./types/index.js"
 
-declare module "tsondb/schema" {
+declare module "tsondb/schema/gen" {
   interface Register {
     entityMap: EntityMap
     childEntityMap: ChildEntityMap

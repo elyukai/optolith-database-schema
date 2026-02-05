@@ -1,4 +1,4 @@
-import { IncludeIdentifier, Object, Optional, Required, TypeAlias } from "tsondb/schema/def"
+import { IncludeIdentifier, Object, Optional, Required, TypeAlias } from "tsondb/schema/dsl"
 import { ExtensionRuleIdentifier } from "../../_IdentifierGroup.js"
 import { DisplayOption } from "../DisplayOption.js"
 

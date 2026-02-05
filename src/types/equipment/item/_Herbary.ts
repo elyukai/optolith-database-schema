@@ -11,7 +11,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { PlainGeneralPrerequisites } from "../../_Prerequisite.js"
 
 export const EffectType = Enum(import.meta.url, {

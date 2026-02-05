@@ -11,7 +11,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import {
   CurriculumIdentifier,

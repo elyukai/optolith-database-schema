@@ -12,7 +12,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { SkillWithEnhancementsIdentifier } from "./_IdentifierGroup.js"
 import { EnhancementPrerequisites } from "./_Prerequisite.js"
 import { NestedTranslationMap } from "./Locale.js"

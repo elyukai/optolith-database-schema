@@ -1,4 +1,4 @@
-import { IncludeIdentifier, Object, Required, String } from "tsondb/schema/def"
+import { IncludeIdentifier, Object, Required, String } from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { ArcaneTraditionPrerequisites } from "./_Prerequisite.js"
 

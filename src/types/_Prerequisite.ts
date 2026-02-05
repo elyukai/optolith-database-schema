@@ -17,7 +17,7 @@ import {
   String,
   TypeAlias,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { DisplayOption } from "./prerequisites/DisplayOption.js"
 import {

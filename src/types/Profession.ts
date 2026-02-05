@@ -16,7 +16,7 @@ import {
   String,
   TypeAlias,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import {
   AdvantageIdentifier,

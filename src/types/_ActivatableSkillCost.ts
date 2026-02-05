@@ -9,7 +9,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import { SkillModificationLevelIdentifier } from "./_Identifier.js"
 import { ResponsiveText, ResponsiveTextOptional, ResponsiveTextReplace } from "./_ResponsiveText.js"

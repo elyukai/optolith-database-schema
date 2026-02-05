@@ -12,7 +12,7 @@ import {
   Required,
   type Type,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { MagicalTraditionIdentifier, PatronIdentifier } from "./_Identifier.js"
 import { AdvancedSpecialAbilityRestrictedOptionIdentifier } from "./_IdentifierGroup.js"
 import { DisplayOption } from "./prerequisites/DisplayOption.js"

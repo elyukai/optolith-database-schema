@@ -7,7 +7,7 @@ import {
   Optional,
   Required,
   String,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { FastPerformanceParameters, OldParameter } from "./_ActivatableSkill.js"
 import { ActivatableSkillEffect } from "./_ActivatableSkillEffect.js"
 import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"

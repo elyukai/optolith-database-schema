@@ -1,4 +1,4 @@
-import { Object, Optional, Required, String, TypeAlias } from "tsondb/schema/def"
+import { Object, Optional, Required, String, TypeAlias } from "tsondb/schema/dsl"
 
 export const AlternativeName = TypeAlias(import.meta.url, {
   name: "AlternativeName",

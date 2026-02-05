@@ -17,7 +17,7 @@ import {
   Required,
   TypeAlias,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { Dice } from "../../_Dice.js"
 import { AmmunitionIdentifier } from "../../_Identifier.js"
 import { Length } from "./_Weapon.js"

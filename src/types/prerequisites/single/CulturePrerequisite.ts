@@ -1,4 +1,4 @@
-import { IncludeIdentifier, Object, Optional, Required, TypeAlias } from "tsondb/schema/def"
+import { IncludeIdentifier, Object, Optional, Required, TypeAlias } from "tsondb/schema/dsl"
 import { CultureIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 

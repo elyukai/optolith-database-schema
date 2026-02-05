@@ -10,7 +10,7 @@ import {
   String,
   TranslationObject,
   type Type,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 
 export const Locale = Entity(import.meta.url, {
   name: "Locale",

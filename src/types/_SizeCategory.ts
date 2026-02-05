@@ -6,7 +6,7 @@ import {
   Param,
   Required,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 
 export const SizeCategory = Enum(import.meta.url, {
   name: "SizeCategory",

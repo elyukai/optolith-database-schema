@@ -6,7 +6,7 @@ import {
   Optional,
   Required,
   String,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { RulePrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"

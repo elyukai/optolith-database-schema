@@ -8,7 +8,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { effect, name, name_in_library } from "../_Activatable.js"
 import { ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { propertyOptional } from "../_ActivatableNonMundane.js"

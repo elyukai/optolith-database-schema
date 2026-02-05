@@ -1,4 +1,4 @@
-import { Entity, Integer, Object, Required, String } from "tsondb/schema/def"
+import { Entity, Integer, Object, Required, String } from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 
 export const ExperienceLevel = Entity(import.meta.url, {

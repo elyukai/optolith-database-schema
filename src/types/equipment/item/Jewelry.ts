@@ -8,7 +8,7 @@ import {
   Param,
   Required,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, DefaultItemTranslations, StructurePoints, Weight } from "./_Item.js"
 

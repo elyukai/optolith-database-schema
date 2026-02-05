@@ -10,7 +10,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { ActivatableIdentifier } from "./_IdentifierGroup.js"
 import { MathOperation } from "./_MathExpression.js"
 import { BySizeCategory } from "./_SizeCategory.js"

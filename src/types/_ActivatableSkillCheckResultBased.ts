@@ -7,7 +7,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 
 export const CheckResultValue = Enum(import.meta.url, {
   name: "CheckResultValue",

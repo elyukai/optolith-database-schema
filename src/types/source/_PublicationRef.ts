@@ -13,7 +13,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { PublicationIdentifier } from "../_Identifier.js"
 import { Locale } from "../Locale.js"
 

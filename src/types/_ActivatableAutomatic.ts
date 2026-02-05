@@ -9,7 +9,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { ActivatableIdentifier } from "./_IdentifierGroup.js"
 
 const AutomaticEntry = TypeAlias(import.meta.url, {

@@ -12,7 +12,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { Dice } from "./_Dice.js"
 import { BlessedTraditionIdentifier } from "./_Identifier.js"
 import { MathOperation } from "./_MathExpression.js"

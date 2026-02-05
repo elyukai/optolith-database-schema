@@ -1,4 +1,4 @@
-import { Entity, IncludeIdentifier, Integer, Object, Required, String } from "tsondb/schema/def"
+import { Entity, IncludeIdentifier, Integer, Object, Required, String } from "tsondb/schema/dsl"
 import { SkillCheck } from "./_SkillCheck.js"
 import { NestedTranslationMap } from "./Locale.js"
 

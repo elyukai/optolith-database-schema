@@ -10,7 +10,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 
 export const Errata = TypeAlias(import.meta.url, {
   name: "Errata",

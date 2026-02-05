@@ -1,4 +1,4 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
 import { CombatUse, Cost, DefaultItemTranslations, RestrictedTo, StructurePoints } from "./_Item.js"
 import { checkWeaponCombatTechniqueIntegrity } from "./_Weapon.js"

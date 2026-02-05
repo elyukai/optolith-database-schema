@@ -7,7 +7,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { ActivatableIdentifier, RequirableSelectOptionIdentifier } from "../../_IdentifierGroup.js"
 import { Preconditions } from "../ConditionalPrerequisites.js"
 import { DisplayOption } from "../DisplayOption.js"

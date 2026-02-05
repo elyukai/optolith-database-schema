@@ -10,7 +10,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedModifier } from "../_ActivatableSkillCheckResultBased.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"

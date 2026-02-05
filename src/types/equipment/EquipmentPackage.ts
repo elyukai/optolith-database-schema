@@ -8,7 +8,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { EquipmentIdentifier } from "../_IdentifierGroup.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { src } from "../source/_PublicationRef.js"

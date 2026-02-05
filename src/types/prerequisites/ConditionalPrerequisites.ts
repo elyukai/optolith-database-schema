@@ -1,4 +1,4 @@
-import { Array, IncludeIdentifier, TypeAlias } from "tsondb/schema/def"
+import { Array, IncludeIdentifier, TypeAlias } from "tsondb/schema/dsl"
 import { PreconditionGroup } from "./PrerequisiteGroups.js"
 
 export const Preconditions = TypeAlias(import.meta.url, {

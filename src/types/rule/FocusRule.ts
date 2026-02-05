@@ -7,7 +7,7 @@ import {
   Optional,
   Required,
   String,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { SubjectIdentifier } from "../_Identifier.js"
 import { RulePrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"

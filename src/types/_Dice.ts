@@ -1,4 +1,4 @@
-import { IncludeIdentifier, Integer, Object, Required, TypeAlias } from "tsondb/schema/def"
+import { IncludeIdentifier, Integer, Object, Required, TypeAlias } from "tsondb/schema/dsl"
 
 export const Dice = TypeAlias(import.meta.url, {
   name: "Dice",

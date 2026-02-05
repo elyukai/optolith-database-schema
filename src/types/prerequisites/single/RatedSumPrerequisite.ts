@@ -6,7 +6,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { SkillIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 

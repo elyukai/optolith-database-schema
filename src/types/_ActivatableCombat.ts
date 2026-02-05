@@ -14,7 +14,7 @@ import {
   String,
   TypeAlias,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import {
   CloseCombatTechniqueIdentifier,
   RaceIdentifier,

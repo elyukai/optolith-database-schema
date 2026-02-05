@@ -8,7 +8,7 @@ import {
   type Enum,
   type IncludeIdentifier,
   type TypeParameter,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 
 type BinaryMathOperationName =
   | "Addition"

@@ -1,4 +1,4 @@
-import { Entity, Integer, Object, Optional, Required, String } from "tsondb/schema/def"
+import { Entity, Integer, Object, Optional, Required, String } from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../../../Locale.js"
 
 export const ArmorType = Entity(import.meta.url, {

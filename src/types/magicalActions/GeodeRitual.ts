@@ -9,7 +9,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { SlowSkillNonModifiableCastingTime } from "../_ActivatableSkillCastingTime.js"
 import { OneTimeCostMap } from "../_ActivatableSkillCost.js"

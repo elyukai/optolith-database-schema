@@ -7,7 +7,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { AspectIdentifier, BlessedTraditionIdentifier } from "./_Identifier.js"
 
 export const LiturgyTradition = Enum(import.meta.url, {

@@ -7,7 +7,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { DisplayOption } from "../DisplayOption.js"
 
 export const PrimaryAttributePrerequisite = TypeAlias(import.meta.url, {

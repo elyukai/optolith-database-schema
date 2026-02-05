@@ -1,4 +1,4 @@
-import { Enum, EnumCase, IncludeIdentifier, Object, Optional, TypeAlias } from "tsondb/schema/def"
+import { Enum, EnumCase, IncludeIdentifier, Object, Optional, TypeAlias } from "tsondb/schema/dsl"
 import { DisplayOption } from "../DisplayOption.js"
 
 export const BlessedTraditionPrerequisite = TypeAlias(import.meta.url, {

@@ -1,4 +1,4 @@
-import { Boolean, Object, Required, TypeAlias } from "tsondb/schema/def"
+import { Boolean, Object, Required, TypeAlias } from "tsondb/schema/dsl"
 import { ContinentIdentifier } from "../../_Identifier.js"
 
 export const AssociatedContinent = TypeAlias(import.meta.url, {

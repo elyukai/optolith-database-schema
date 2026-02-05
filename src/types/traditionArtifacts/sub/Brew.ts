@@ -1,4 +1,4 @@
-import { Entity, Object, Required, String } from "tsondb/schema/def"
+import { Entity, Object, Required, String } from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "../../Locale.js"
 
 export const Brew = Entity(import.meta.url, {

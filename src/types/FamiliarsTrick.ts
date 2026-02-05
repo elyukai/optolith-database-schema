@@ -10,7 +10,7 @@ import {
   Required,
   String,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { OldParameter } from "./_ActivatableSkill.js"
 import { IndefiniteOneTimeCost } from "./_ActivatableSkillCost.js"
 import {

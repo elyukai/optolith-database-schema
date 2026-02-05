@@ -8,7 +8,7 @@ import {
   Optional,
   Required,
   TypeAlias,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { CheckResultBasedModifier, CheckResultValue } from "./_ActivatableSkillCheckResultBased.js"
 import { ResponsiveText, ResponsiveTextReplace } from "./_ResponsiveText.js"
 import { NestedTranslationMap } from "./Locale.js"

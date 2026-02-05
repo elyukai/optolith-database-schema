@@ -6,7 +6,7 @@ import {
   Optional,
   Required,
   String,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { levels, maximum, name, name_in_library } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { explicit_select_options, select_options } from "../_ActivatableSelectOptions.js"

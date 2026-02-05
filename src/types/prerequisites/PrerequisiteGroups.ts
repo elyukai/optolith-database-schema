@@ -1,4 +1,4 @@
-import { Enum, EnumCase, IncludeIdentifier } from "tsondb/schema/def"
+import { Enum, EnumCase, IncludeIdentifier } from "tsondb/schema/dsl"
 import { ActivatablePrerequisite } from "./single/ActivatablePrerequisite.js"
 import { AncestorBloodPrerequisite } from "./single/AncestorBloodPrerequisite.js"
 import { AnimistPowerPrerequisite } from "./single/AnimistPowerPrerequisite.js"

@@ -1,4 +1,4 @@
-import { Entity, IncludeIdentifier, Object, Required } from "tsondb/schema/def"
+import { Entity, IncludeIdentifier, Object, Required } from "tsondb/schema/dsl"
 import { SocialStatusIdentifier } from "../../_Identifier.js"
 import { src } from "../../source/_PublicationRef.js"
 import { Cost } from "./_Item.js"

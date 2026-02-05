@@ -15,7 +15,7 @@ import {
   String,
   TypeAlias,
   TypeArgument,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { FastCastingTime, SlowCastingTime } from "./_ActivatableSkillCastingTime.js"
 import { OneTimeCost, SustainedCost } from "./_ActivatableSkillCost.js"
 import { DurationForOneTime, DurationForSustained } from "./_ActivatableSkillDuration.js"

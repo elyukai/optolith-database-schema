@@ -8,7 +8,7 @@ import {
   Optional,
   Required,
   String,
-} from "tsondb/schema/def"
+} from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { SkillIdentifier } from "./_Identifier.js"
 import { NewSkillApplicationOrUseParentIdentifier } from "./_IdentifierGroup.js"

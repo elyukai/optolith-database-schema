@@ -1,4 +1,4 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/dsl"
 import { input, levels, maximum, name, name_in_library, rules } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { combat_techniques, penalty, usage_type } from "../_ActivatableCombat.js"
