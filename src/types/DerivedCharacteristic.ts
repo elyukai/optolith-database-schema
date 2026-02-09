@@ -1,8 +1,10 @@
 import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
 import { AttributeIdentifier } from "./_Identifier.ts"
+import { ImprovementCost } from "./_ImprovementCost.ts"
 import { MathOperation } from "./_MathExpression.ts"
 import { DerivedCharacteristicPrerequisites } from "./_Prerequisite.js"
+import { DerivedCharacteristicModifierPrerequisiteGroup } from "./prerequisites/PrerequisiteGroups.ts"
 import { src } from "./source/_PublicationRef.js"
 
 export const DerivedCharacteristic = DB.Entity(import.meta.url, {
@@ -17,12 +19,7 @@ export const DerivedCharacteristic = DB.Entity(import.meta.url, {
       }),
       calculation: DB.Required({
         comment: "Instructions for calculating the derived characteristic’s value.",
-        type: DB.Object({
-          base: DB.Required({
-            comment: "The base value for the calculation.",
-            type: DB.IncludeIdentifier(BaseCalculation),
-          }),
-        }),
+        type: DB.IncludeIdentifier(DerivedCharacteristicCalculation),
       }),
       prerequisites: DB.Optional({
         type: DB.IncludeIdentifier(DerivedCharacteristicPrerequisites),
@@ -66,8 +63,34 @@ export const DerivedCharacteristic = DB.Entity(import.meta.url, {
   ],
 })
 
-const RaceBaseCalculationValue = DB.Enum(import.meta.url, {
-  name: "RaceBaseCalculationValue",
+const DerivedCharacteristicCalculation = DB.TypeAlias(import.meta.url, {
+  name: "DerivedCharacteristicCalculation",
+  type: () =>
+    DB.Object({
+      base: DB.Required({
+        comment: "The base value for the calculation.",
+        type: DB.IncludeIdentifier(DerivedCharacteristicBase),
+      }),
+      modifiers: DB.Optional({
+        comment:
+          "A list of modifiers that are applied to the base value. The modifiers are applied in the order they appear in the list.",
+        type: DB.Array(DB.IncludeIdentifier(DerivedCharacteristicModifier), { minItems: 1 }),
+      }),
+      purchasable: DB.Optional({
+        comment:
+          "If set, the derived characteristic can be improved by spending AP.\n\nIf the derived characteristic’s permanent losses can be bought back, points will not be able to be purchased unless all permanent losses have been bought back.",
+        type: DB.IncludeIdentifier(DerivedCharacteristicPurchase),
+      }),
+      permanentLoss: DB.Optional({
+        comment:
+          "If set, the derived characteristic can suffer permanent losses that reduce its maximum value. It may also be possible to buy back these permanent losses.",
+        type: DB.IncludeIdentifier(DerivedCharacteristicPermanentLoss),
+      }),
+    }),
+})
+
+const DerivedCharacteristicRaceBaseValue = DB.Enum(import.meta.url, {
+  name: "DerivedCharacteristicRaceBaseValue",
   values: () => ({
     LifePoints: DB.EnumCase({ type: null }),
     Spirit: DB.EnumCase({ type: null }),
@@ -76,21 +99,103 @@ const RaceBaseCalculationValue = DB.Enum(import.meta.url, {
   }),
 })
 
-const BaseCalculationValue = DB.Enum(import.meta.url, {
-  name: "BaseCalculationValue",
+const DerivedCharacteristicPrimaryAttributeValue = DB.Enum(import.meta.url, {
+  name: "DerivedCharacteristicPrimaryAttributeValue",
+  values: () => ({
+    Magical: DB.EnumCase({ type: null }),
+    Blessed: DB.EnumCase({ type: null }),
+  }),
+})
+
+const DerivedCharacteristicBaseValue = DB.Enum(import.meta.url, {
+  name: "DerivedCharacteristicBaseValue",
   values: () => ({
     Constant: DB.EnumCase({ type: DB.Integer() }),
     Attribute: DB.EnumCase({ type: AttributeIdentifier() }),
     RaceBaseValue: DB.EnumCase({
       displayName: "Base Value from Race",
-      type: DB.IncludeIdentifier(RaceBaseCalculationValue),
+      type: DB.IncludeIdentifier(DerivedCharacteristicRaceBaseValue),
+    }),
+    PrimaryAttribute: DB.EnumCase({
+      type: DB.IncludeIdentifier(DerivedCharacteristicPrimaryAttributeValue),
     }),
   }),
 })
 
-const BaseCalculation = DB.TypeAlias(import.meta.url, {
-  name: "BaseCalculation",
-  type: () => DB.GenIncludeIdentifier(MathOperation, [DB.IncludeIdentifier(BaseCalculationValue)]),
+const DerivedCharacteristicBase = DB.TypeAlias(import.meta.url, {
+  name: "DerivedCharacteristicBase",
+  type: () =>
+    DB.GenIncludeIdentifier(MathOperation, [DB.IncludeIdentifier(DerivedCharacteristicBaseValue)]),
+})
+
+const DerivedCharacteristicModifierOperation = DB.Enum(import.meta.url, {
+  name: "DerivedCharacteristicModifierOperation",
+  values: () => ({
+    Addition: DB.EnumCase({ type: null }),
+    Subtraction: DB.EnumCase({ type: null }),
+    Multiplication: DB.EnumCase({ type: null }),
+    Division: DB.EnumCase({ type: null }),
+  }),
+})
+
+const DerivedCharacteristicModifier = DB.TypeAlias(import.meta.url, {
+  name: "DerivedCharacteristicModifier",
+  type: () =>
+    DB.Object({
+      source: DB.Required({
+        comment: "The entry that, when active, causes the modifier.",
+        type: DB.IncludeIdentifier(DerivedCharacteristicModifierPrerequisiteGroup),
+      }),
+      operation: DB.Required({
+        comment:
+          "The mathematical operation that modifies the base value. The previous result is on the left side.",
+        type: DB.IncludeIdentifier(DerivedCharacteristicModifierOperation),
+      }),
+      value: DB.Required({
+        comment:
+          "The value that is used in the modifier operation. If the source entry has levels, the value is multiplied by the source entry’s level.",
+        type: DB.Integer({ minimum: 1 }),
+      }),
+    }),
+})
+
+const DerivedCharacteristicPurchase = DB.TypeAlias(import.meta.url, {
+  name: "DerivedCharacteristicPurchase",
+  type: () =>
+    DB.Object({
+      improvementCost: DB.Required({
+        comment: "The cost for improving the derived characteristic by one.",
+        type: DB.IncludeIdentifier(ImprovementCost),
+      }),
+      maximum: DB.Required({
+        comment:
+          "The maximum value that can be achieved for the derived characteristic through improvements.",
+        type: DB.IncludeIdentifier(DerivedCharacteristicBase),
+      }),
+    }),
+})
+
+const DerivedCharacteristicPermanentLoss = DB.TypeAlias(import.meta.url, {
+  name: "DerivedCharacteristicPermanentLoss",
+  type: () =>
+    DB.Object({
+      canBeBoughtBack: DB.Optional({
+        comment:
+          "If set, permanent losses to the derived characteristic can be bought back for the specified cost.",
+        type: DB.IncludeIdentifier(DerivedCharacteristicBuyBack),
+      }),
+    }),
+})
+
+const DerivedCharacteristicBuyBack = DB.TypeAlias(import.meta.url, {
+  name: "DerivedCharacteristicBuyBack",
+  type: () =>
+    DB.Object({
+      cost: DB.Required({
+        comment: "The AP cost for buying back one point.",
+        type: DB.Integer({ minimum: 1 }),
+      }),
+    }),
 })
 
 const CalculationTranslation = DB.TypeAlias(import.meta.url, {

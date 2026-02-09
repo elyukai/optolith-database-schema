@@ -1358,14 +1358,10 @@ export const Locale = DB.Entity(import.meta.url, {
 
           // Derived Characteristics Calculation
           "Base Value": null,
-          "Base Life Points from Race": null,
-          "Race Base LP": null,
-          "Base Spirit from Race": null,
-          "Race Base SPI": null,
-          "Base Toughness from Race": null,
-          "Race Base TOU": null,
-          "Base Movement from Race": null,
-          "Race Base MOV": null,
+          "Base {$name} from Race": null,
+          "Race Base {$abbreviation}": null,
+          "Primary attribute for the magic user’s Tradition": null,
+          "Primary attribute for the Blessed One’s Tradition": null,
         }, { allKeysAreRequired: true }),
       }),
     }),

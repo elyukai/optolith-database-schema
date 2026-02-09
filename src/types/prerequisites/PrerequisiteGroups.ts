@@ -35,6 +35,16 @@ export const DerivedCharacteristicPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "DerivedCharacteristicPrerequisiteGroup",
   values: () => ({
     Rule: DB.EnumCase({ type: DB.IncludeIdentifier(RulePrerequisite) }),
+    BlessedTradition: DB.EnumCase({ type: DB.IncludeIdentifier(BlessedTraditionPrerequisite) }),
+    MagicalTradition: DB.EnumCase({ type: DB.IncludeIdentifier(MagicalTraditionPrerequisite) }),
+  }),
+})
+
+export const DerivedCharacteristicModifierPrerequisiteGroup = DB.Enum(import.meta.url, {
+  name: "DerivedCharacteristicModifierPrerequisiteGroup",
+  values: () => ({
+    Rule: DB.EnumCase({ type: DB.IncludeIdentifier(RulePrerequisite) }),
+    Activatable: DB.EnumCase({ type: DB.IncludeIdentifier(ActivatablePrerequisite) }),
   }),
 })
 
