@@ -37,6 +37,10 @@ export const DerivedCharacteristic = DB.Entity(import.meta.url, {
             comment: "The derived characteristic’s abbreviation.",
             type: DB.String({ minLength: 1 }),
           }),
+          description: DB.Optional({
+            comment: "The derived characteristic’s description.",
+            type: DB.String({ minLength: 1, isMarkdown: true }),
+          }),
           calculation: DB.Optional({
             comment: "Possible calculation strings for the final value.",
             type: DB.IncludeIdentifier(CalculationTranslation),
