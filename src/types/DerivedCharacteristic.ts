@@ -1,5 +1,7 @@
 import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
+import { AttributeIdentifier } from "./_Identifier.ts"
+import { MathOperation } from "./_MathExpression.ts"
 import { DerivedCharacteristicPrerequisites } from "./_Prerequisite.js"
 import { src } from "./source/_PublicationRef.js"
 
@@ -12,6 +14,15 @@ export const DerivedCharacteristic = DB.Entity(import.meta.url, {
         comment:
           "The position of the derived characteristic in lists. This has to be a unique value.",
         type: DB.Integer({ minimum: 0 }),
+      }),
+      calculation: DB.Required({
+        comment: "Instructions for calculating the derived characteristic’s value.",
+        type: DB.Object({
+          base: DB.Required({
+            comment: "The base value for the calculation.",
+            type: DB.IncludeIdentifier(BaseCalculation),
+          }),
+        }),
       }),
       prerequisites: DB.Optional({
         type: DB.IncludeIdentifier(DerivedCharacteristicPrerequisites),
@@ -53,6 +64,33 @@ export const DerivedCharacteristic = DB.Entity(import.meta.url, {
       keyPathInEntityMap: "abbreviation",
     },
   ],
+})
+
+const RaceBaseCalculationValue = DB.Enum(import.meta.url, {
+  name: "RaceBaseCalculationValue",
+  values: () => ({
+    LifePoints: DB.EnumCase({ type: null }),
+    Spirit: DB.EnumCase({ type: null }),
+    Toughness: DB.EnumCase({ type: null }),
+    Movement: DB.EnumCase({ type: null }),
+  }),
+})
+
+const BaseCalculationValue = DB.Enum(import.meta.url, {
+  name: "BaseCalculationValue",
+  values: () => ({
+    Constant: DB.EnumCase({ type: DB.Integer() }),
+    Attribute: DB.EnumCase({ type: AttributeIdentifier() }),
+    RaceBaseValue: DB.EnumCase({
+      displayName: "Base Value from Race",
+      type: DB.IncludeIdentifier(RaceBaseCalculationValue),
+    }),
+  }),
+})
+
+const BaseCalculation = DB.TypeAlias(import.meta.url, {
+  name: "BaseCalculation",
+  type: () => DB.GenIncludeIdentifier(MathOperation, [DB.IncludeIdentifier(BaseCalculationValue)]),
 })
 
 const CalculationTranslation = DB.TypeAlias(import.meta.url, {

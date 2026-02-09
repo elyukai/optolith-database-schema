@@ -1355,6 +1355,17 @@ export const Locale = DB.Entity(import.meta.url, {
           "Back Cover Inside": null,
           ".input {$printing :number} {{since the {$printing}. printing}}": null,
           ".input {$printing :number} {{removed in {$printing}. printing}}": null,
+
+          // Derived Characteristics Calculation
+          "Base Value": null,
+          "Base Life Points from Race": null,
+          "Race Base LP": null,
+          "Base Spirit from Race": null,
+          "Race Base SPI": null,
+          "Base Toughness from Race": null,
+          "Race Base TOU": null,
+          "Base Movement from Race": null,
+          "Race Base MOV": null,
         }, { allKeysAreRequired: true }),
       }),
     }),
