@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.29.0](https://github.com/elyukai/optolith-database-schema/compare/v0.28.3...v0.29.0) (2026-02-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* adjust cache builder for current database
+
+### Features
+
+* add some translation strings ([55d2273](https://github.com/elyukai/optolith-database-schema/commit/55d227322346b204720b9f3a4eb32c586d26c45e))
+* adjust cache builder for current database ([9407cb5](https://github.com/elyukai/optolith-database-schema/commit/9407cb57670d8b50ba72cf5e856534447f249218))
+* **cache:** export other relevant types ([0b80c3b](https://github.com/elyukai/optolith-database-schema/commit/0b80c3bf02d1037459d8a2f19280a29082893acc))
+
 ## [0.28.3](https://github.com/elyukai/optolith-database-schema/compare/v0.28.2...v0.28.3) (2026-02-05)
 
 ## [0.28.2](https://github.com/elyukai/optolith-database-schema/compare/v0.28.1...v0.28.2) (2026-02-05)
