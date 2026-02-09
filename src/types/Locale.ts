@@ -953,6 +953,7 @@ export const Locale = DB.Entity(import.meta.url, {
           "spells.traditions.general": null,
           "magicalactions.animistforces.tribes.general": null,
 
+          // Skill check modifiers
           " (modified by {$modifier})": null,
           " (−{$modifier})": null,
           "{$first} or {$second}, depending on which value is higher": null,
@@ -960,6 +961,8 @@ export const Locale = DB.Entity(import.meta.url, {
           "ID": null,
           "Creation Difficulty": null,
           "CD": null,
+          "Object": null,
+
           "Effect": null,
           "Casting Time": null,
           "Ritual Time": null,
@@ -1088,8 +1091,11 @@ export const Locale = DB.Entity(import.meta.url, {
           "Touch": null,
           "Radius": null,
           " (casting)": null,
+
+          // Target Category
           "Zone": null,
           "Liturgical Chants and Ceremonies": null,
+          "Spellworks": null,
           "General": null,
           "Note": null,
           "all": null,
@@ -1126,6 +1132,11 @@ export const Locale = DB.Entity(import.meta.url, {
           "domain {$domain}": null,
           "{$pact} level {$pactLevel}": null,
           "Level {$level}:": null,
+
+          // Personality Trait prerequisite
+          ".input {$level :number} {{Level {$level}}}": null,
+          "cannot be chosen at the same time as {$trait}": null,
+          "must have {$trait}": null,
 
           "inlinewiki.castingtime": null,
           "inlinewiki.ritualtime": null,
@@ -1339,6 +1350,7 @@ export const Locale = DB.Entity(import.meta.url, {
           "Botch": null,
           "Improvement Cost": null,
 
+          // Source References
           "Front Cover Inside": null,
           "Back Cover Inside": null,
           ".input {$printing :number} {{since the {$printing}. printing}}": null,
