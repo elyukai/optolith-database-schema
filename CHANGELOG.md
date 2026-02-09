@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.29.1](https://github.com/elyukai/optolith-database-schema/compare/v0.29.0...v0.29.1) (2026-02-09)
+
+
+### Features
+
+* include all derived characteristic settings ([3c0469e](https://github.com/elyukai/optolith-database-schema/commit/3c0469e4148d8bd314e3c949a42a7e0ca593f87c))
+* values and translations for derived characteristic base value calculation ([f55bb9f](https://github.com/elyukai/optolith-database-schema/commit/f55bb9f6c292b79c8d45d8b620f641b8bc2fc1e8))
+
 ## [0.29.0](https://github.com/elyukai/optolith-database-schema/compare/v0.28.3...v0.29.0) (2026-02-09)
 
 
