@@ -18,10 +18,10 @@
   "main": "./lib/main.js",
   "exports": {
     ".": "./lib/main.js",
-    "./gen": "./gen/types.d.ts",
-    "./cache/*": "./lib/cache/*.js",
+    "./cache": "./lib/cache/index.js",
     "./types": "./lib/types/index.js",
-    "./types/*": "./lib/types/*.js"
+    "./types/*": "./lib/types/*.js",
+    "./gen": "./gen/types.d.ts"
   },
   "scripts": {
     "build": "tsc",
@@ -38,7 +38,7 @@
   "license": "MPL-2.0",
   "dependencies": {
     "@elyukai/utils": "^0.2.0",
-    "tsondb": "^0.19.3",
+    "tsondb": "^0.19.8",
     "yaml": "^2.8.2"
   },
   "devDependencies": {

@@ -7,6 +7,7 @@ import {
   AspectIdentifier,
   AttributeIdentifier,
   BlessingIdentifier,
+  GeneralIdentifier,
   SkillIdentifier,
 } from "../_Identifier.js"
 import { CombatTechniqueIdentifier } from "../_IdentifierGroup.js"
@@ -59,7 +60,7 @@ export const BlessedTradition = DB.Entity(import.meta.url, {
       associated_principles_id: DB.Optional({
         comment:
           "The select option’s identifier of the disadvantage *Principles* that represent this tradition’s code, if any.",
-        type: DB.Integer(),
+        type: GeneralIdentifier(),
       }),
       prerequisites: DB.Optional({
         type: DB.IncludeIdentifier(GeneralPrerequisites),

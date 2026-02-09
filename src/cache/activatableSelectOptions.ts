@@ -1,115 +1,81 @@
+import { on } from "@elyukai/utils/function"
 import { isNotNullish } from "@elyukai/utils/nullable"
 import { mapObject } from "@elyukai/utils/object"
+import { compareNullish, compareNumber } from "@elyukai/utils/ordering"
 import { assertExhaustive } from "@elyukai/utils/typeSafety"
-import type { CacheConfig } from "../cacheConfig.js"
-import { TypeMap } from "../config/types.js"
-import { ValidResults } from "../main.js"
-import {
-  ExplicitSelectOption,
+import type { Entity, TSONDB } from "tsondb"
+import { Case, fromUniformCase } from "tsondb/schema/gen"
+import type {
+  ActivatableIdentifier,
+  BlessedTradition,
+  CombatTechniqueIdentifier,
+  Element,
+  GeneralPrerequisiteGroup,
+  GeneralPrerequisites,
+  GeneralSelectOption,
+  GenericSkillsSelectOptionCategoryCategory,
+  ImprovementCost,
+  Poison,
+  PrerequisiteForLevel,
+  RequirableSelectOptionIdentifier,
+  SelectOptionCategory,
   SelectOptions,
-  SkillApplication,
-  SkillApplications,
-  SkillUse,
-  SkillUses,
-} from "../types/_Activatable.js"
-import {
   SelectOptionsAdventurePointsValue,
+  SelectOptionsBindingCostValue,
+  Skill_ID,
   SkillApplicationOrUse,
+  SkillishIdentifier,
   SkillSelectOptionCategoryPrerequisite,
   SpecificFromSkillSelectOptionCategoryCategory,
   SpecificTargetCategory,
-} from "../types/_ActivatableSelectOptionCategory.js"
-import { LocaleMap } from "../types/_LocaleMap.js"
-import { PrerequisiteForLevel } from "../types/_Prerequisite.js"
+  TargetCategory,
+  TradeSecretAdventurePointsValue,
+} from "../../gen/types.js"
+import type { TSONDBTypes } from "../main.js"
+import type { IdMap } from "./index.ts"
+import type { CacheBuilder } from "./internal.ts"
+import type { ResolvedNewSkillApplication, ResolvedSkillUse } from "./newApplicationsAndUses.ts"
 
-const PRINCIPLES_ID = 31
-const PROPERTY_KNOWLEDGE_ID = 3
-const ASPECT_KNOWLEDGE_ID = 1
+export type ResolvedSelectOptionIdentifier =
+  | RequirableSelectOptionIdentifier
+  | Case<
+      | "Blessing"
+      | "Cantrip"
+      | "Script"
+      | "Culture"
+      | "SexPractice"
+      | "HomunculusType"
+      | "BlessedTradition"
+      | "Disease"
+      | "Poison"
+      | "TargetCategory",
+      string
+    >
 
 export type ResolvedSelectOption = {
-  id: SelectOptionIdentifier
-
-  /**
-   * Sometimes, professions use specific text selections that are not
-   * contained in described lists. This ensures you can use them for
-   * professions only. They are not going to be displayed as options to the
-   * user.
-   */
-  profession_only?: true
-
-  /**
-   * Registers new applications, which get enabled once this entry is
-   * activated with its respective select option. It specifies an entry-unique
-   * identifier and the skill it belongs to. A translation can be left out if
-   * its name equals the name of the origin select option.
-   */
-  skill_applications?: SkillApplications
-
-  /**
-   * Registers uses, which get enabled once this entry is activated with its
-   * respective select option. It specifies an entry-unique identifier and the
-   * skill it belongs to. A translation can be left out if its name equals the
-   * name of the origin select option.
-   */
-  skill_uses?: SkillUses
-
-  prerequisites?: GeneralPrerequisites
-
-  /**
-   * Specific binding cost for the select option. Only has an effect if the
-   * associated entry supports binding costs.
-   */
-  binding_cost?: number
-
-  /**
-   * Specific volume for the select option. Only has an effect if the
-   * associated entry supports volume values.
-   */
-  volume?: number
-
-  /**
-   * Specific AP cost for the select option.
-   */
-  ap_value?: number
-
-  src?: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<ResolvedSelectOptionTranslation>
+  id: ResolvedSelectOptionIdentifier
+  content: Omit<GeneralSelectOption, "ap_value"> & {
+    volume?: number
+    ap_value?: TradeSecretAdventurePointsValue
+  }
+  newApplications: ResolvedNewSkillApplication[]
+  uses: ResolvedSkillUse[]
 }
 
-export type ResolvedSelectOptionTranslation = {
-  /**
-   * The name of the select option.
-   */
-  name: string
+const wrapPlainApValue = (
+  apValue: number | undefined,
+): TradeSecretAdventurePointsValue | undefined =>
+  apValue === undefined ? undefined : Case("Fixed", apValue)
 
-  /**
-   * The name of the select option when displayed in a generated
-   * profession text.
-   */
-  name_in_profession?: string
-
-  /**
-   * The description of the select option. Useful for Bad Habits, Trade
-   * Secrets and other entries where a description is available.
-   */
-  description?: string
-
-  errata?: Errata
-}
-const matchesSpecificSkillishIdList = <T>(
-  id: T,
-  config: SpecificFromSkillSelectOptionCategoryCategory<{ id: T }>,
-  equalsId: (a: T, b: T) => boolean,
+const matchesSpecificSkillishIdList = (
+  id: string,
+  config: SpecificFromSkillSelectOptionCategoryCategory<string>,
 ): boolean => {
-  switch (config.operation) {
+  switch (config.operation.kind) {
     case "Intersection":
-      return config.list.some(ref => equalsId(ref.id, id))
+      return config.list.includes(id)
     case "Difference":
-      return !config.list.some(ref => equalsId(ref.id, id))
+      return !config.list.includes(id)
     default:
       return assertExhaustive(config.operation)
   }
@@ -117,43 +83,37 @@ const matchesSpecificSkillishIdList = <T>(
 
 const getSkillishPrerequisites = (
   ps: SkillSelectOptionCategoryPrerequisite[] | undefined,
-  id: SkillIdentifierGroup | CombatTechniqueIdentifier,
+  id: SkillishIdentifier | CombatTechniqueIdentifier,
 ): GeneralPrerequisites | undefined => {
   if (ps === undefined) {
     return undefined
   }
 
   return ps.map(p => {
-    switch (p.tag) {
+    switch (p.kind) {
       case "Self":
         return {
           level: 1,
-          prerequisite: {
-            tag: "Single",
-            single: {
-              tag: "Rated",
-              rated: {
-                id,
-                value: p.self.value,
-              },
-            },
-          },
+          prerequisite: Case(
+            "Single",
+            Case("Rated", {
+              id,
+              value: p.Self.value,
+            }),
+          ),
         }
       case "SelectOption":
         return {
           level: 1,
-          prerequisite: {
-            tag: "Single",
-            single: {
-              tag: "Activatable",
-              activatable: {
-                id: p.select_option.id,
-                active: p.select_option.active,
-                level: p.select_option.level,
-                options: [id],
-              },
-            },
-          },
+          prerequisite: Case(
+            "Single",
+            Case("Activatable", {
+              id: p.SelectOption.id,
+              active: p.SelectOption.active,
+              level: p.SelectOption.level,
+              options: [id],
+            }),
+          ),
         }
       default:
         return assertExhaustive(p)
@@ -161,28 +121,42 @@ const getSkillishPrerequisites = (
   })
 }
 
+const getSkillishBindingCost = (
+  bindingCost:
+    | SelectOptionsBindingCostValue<SkillishIdentifier | CombatTechniqueIdentifier>
+    | undefined,
+  id: Case<SkillishEntityName, string>,
+): number | undefined => {
+  if (bindingCost === undefined) {
+    return undefined
+  }
+
+  return (
+    bindingCost.Fixed.map.find(mapping => equalsSkillishIdGroup(mapping.id, id))?.bindingCost ??
+    bindingCost.Fixed.default
+  )
+}
+
 const equalsSkillishIdGroup = (
-  a: SkillIdentifierGroup | CombatTechniqueIdentifier,
-  b: SkillIdentifierGroup | CombatTechniqueIdentifier,
+  a: SkillishIdentifier | CombatTechniqueIdentifier,
+  b: SkillishIdentifier | CombatTechniqueIdentifier,
 ): boolean => {
-  switch (a.tag) {
+  switch (a.kind) {
     case "Skill":
-      return b.tag === "Skill" && a.skill === b.skill
+      return b.kind === "Skill" && a.Skill === b.Skill
     case "Spell":
-      return b.tag === "Spell" && a.spell === b.spell
+      return b.kind === "Spell" && a.Spell === b.Spell
     case "Ritual":
-      return b.tag === "Ritual" && a.ritual === b.ritual
+      return b.kind === "Ritual" && a.Ritual === b.Ritual
     case "LiturgicalChant":
-      return b.tag === "LiturgicalChant" && a.liturgical_chant === b.liturgical_chant
+      return b.kind === "LiturgicalChant" && a.LiturgicalChant === b.LiturgicalChant
     case "Ceremony":
-      return b.tag === "Ceremony" && a.ceremony === b.ceremony
+      return b.kind === "Ceremony" && a.Ceremony === b.Ceremony
     case "CloseCombatTechnique":
-      return (
-        b.tag === "CloseCombatTechnique" && a.close_combat_technique === b.close_combat_technique
-      )
+      return b.kind === "CloseCombatTechnique" && a.CloseCombatTechnique === b.CloseCombatTechnique
     case "RangedCombatTechnique":
       return (
-        b.tag === "RangedCombatTechnique" && a.ranged_combat_technique === b.ranged_combat_technique
+        b.kind === "RangedCombatTechnique" && a.RangedCombatTechnique === b.RangedCombatTechnique
       )
     default:
       return assertExhaustive(a)
@@ -191,20 +165,20 @@ const equalsSkillishIdGroup = (
 
 const getApValueForSkillish = (
   config:
-    | SelectOptionsAdventurePointsValue<SkillIdentifierGroup | CombatTechniqueIdentifier>
+    | SelectOptionsAdventurePointsValue<SkillishIdentifier | CombatTechniqueIdentifier>
     | undefined,
-  id: SkillIdentifierGroup | CombatTechniqueIdentifier,
+  id: SkillishIdentifier | CombatTechniqueIdentifier,
   ic: ImprovementCost,
 ): number | undefined => {
   if (config === undefined) {
     return undefined
   }
 
-  switch (config.tag) {
+  switch (config.kind) {
     case "DerivedFromImprovementCost":
       return (
         (() => {
-          switch (ic) {
+          switch (ic.kind) {
             case "A":
               return 1
             case "B":
@@ -217,13 +191,13 @@ const getApValueForSkillish = (
               assertExhaustive(ic)
           }
         })() *
-          (config.derived_from_improvement_cost.multiplier ?? 1) +
-        (config.derived_from_improvement_cost.offset ?? 0)
+          (config.DerivedFromImprovementCost.multiplier ?? 1) +
+        (config.DerivedFromImprovementCost.offset ?? 0)
       )
     case "Fixed":
       return (
-        config.fixed.map.find(mapping => equalsSkillishIdGroup(mapping.id, id))?.ap_value ??
-        config.fixed.default
+        config.Fixed.map.find(mapping => equalsSkillishIdGroup(mapping.id, id))?.ap_value ??
+        config.Fixed.default
       )
     default:
       return assertExhaustive(config)
@@ -231,757 +205,828 @@ const getApValueForSkillish = (
 }
 
 const convertSkillApplicationOrUse = (
-  id: SkillIdentifier,
+  entryId: ActivatableIdentifier,
+  id: Skill_ID,
   applicationOrUse: SkillApplicationOrUse,
-): SkillApplication | SkillUse => ({
-  id: applicationOrUse.id,
-  skill: { tag: "Single", single: { id } },
-  translations: applicationOrUse.translations,
-})
+) =>
+  ({
+    id: fromUniformCase(entryId) + "+" + applicationOrUse.id,
+    content: {
+      parent: entryId,
+      skills: [id],
+      translations: applicationOrUse.translations,
+    },
+  }) satisfies ResolvedNewSkillApplication | ResolvedSkillUse
+
+type SkillishEntityName =
+  | "Skill"
+  | "CloseCombatTechnique"
+  | "RangedCombatTechnique"
+  | "Spell"
+  | "Ritual"
+  | "LiturgicalChant"
+  | "Ceremony"
+
+const getDefaultSkillishFilter = <E extends SkillishEntityName>(
+  category: GenericSkillsSelectOptionCategoryCategory<string>,
+): ((instance: { id: string; content: Entity<TSONDBTypes, E> }) => boolean) | undefined => {
+  const { specific } = category
+  return specific === undefined
+    ? undefined
+    : ({ id }) => matchesSpecificSkillishIdList(id, specific)
+}
+
+const getDerivedSkillishSelectOptions = <E extends SkillishEntityName>(
+  database: TSONDB<TSONDBTypes>,
+  entryId: ActivatableIdentifier,
+  entity: E,
+  category: GenericSkillsSelectOptionCategoryCategory<string> & {
+    skill_applications?: SkillApplicationOrUse[] | undefined
+    skill_uses?: SkillApplicationOrUse[] | undefined
+  },
+  options: {
+    bindingCost?: SelectOptionsBindingCostValue<SkillishIdentifier | CombatTechniqueIdentifier>
+    ap_value?: SelectOptionsAdventurePointsValue<SkillishIdentifier | CombatTechniqueIdentifier>
+  },
+  filter = getDefaultSkillishFilter<E>(category),
+) => {
+  const { prerequisites } = category
+  const { bindingCost, ap_value } = options
+
+  const instances = database.getAllInstanceContainersOfEntity(entity)
+  const filteredInstances = filter === undefined ? instances : instances.filter(filter)
+  return filteredInstances.map(({ id, content }): ResolvedSelectOption => {
+    const wrappedId = Case<SkillishEntityName, string>(entity, id)
+    return {
+      id: wrappedId,
+      content: {
+        parent: entryId,
+        prerequisites: getSkillishPrerequisites(prerequisites, wrappedId),
+        binding_cost: getSkillishBindingCost(bindingCost, wrappedId),
+        ap_value: wrapPlainApValue(
+          getApValueForSkillish(ap_value, wrappedId, content.improvement_cost),
+        ),
+        src: content.src,
+        translations: mapObject(content.translations, t10n => ({
+          name: t10n.name,
+        })),
+      },
+      newApplications:
+        category.skill_applications?.map(app => convertSkillApplicationOrUse(entryId, id, app)) ??
+        [],
+      uses: category.skill_uses?.map(use => convertSkillApplicationOrUse(entryId, id, use)) ?? [],
+    }
+  })
+}
 
 const getDerivedSelectOptions = (
   selectOptionCategory: SelectOptionCategory,
   entryId: ActivatableIdentifier,
-  database: ValidResults,
+  database: TSONDB<TSONDBTypes>,
+  idMap: IdMap,
 ): ResolvedSelectOption[] => {
-  switch (selectOptionCategory.tag) {
+  switch (selectOptionCategory.kind) {
     case "Blessings":
-      return database.blessings.map(([_, blessing]) => ({
-        id: { tag: "Blessing", blessing: blessing.id },
-        src: blessing.src,
-        translations: mapObject(blessing.translations, t10n => ({ name: t10n.name })),
-      }))
+      return database.getAllInstanceContainersOfEntity("Blessing").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("Blessing", id),
+          content: {
+            parent: entryId,
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({ name: t10n.name })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "Cantrips":
-      return database.cantrips.map(([_, cantrip]) => ({
-        id: { tag: "Cantrip", cantrip: cantrip.id },
-        src: cantrip.src,
-        translations: mapObject(cantrip.translations, t10n => ({ name: t10n.name })),
-      }))
+      return database.getAllInstanceContainersOfEntity("Cantrip").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("Cantrip", id),
+          content: {
+            parent: entryId,
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({ name: t10n.name })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "TradeSecrets":
-      return database.tradeSecrets.map(([_, tradeSecret]) => ({
-        id: { tag: "TradeSecret", trade_secret: tradeSecret.id },
-        prerequisites: tradeSecret.prerequisites,
-        ap_value: tradeSecret.ap_value,
-        src: tradeSecret.src,
-        translations: mapObject(tradeSecret.translations, t10n => ({
-          name: t10n.name,
-          errata: t10n.errata,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("TradeSecret").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("TradeSecret", id),
+          content: {
+            parent: entryId,
+            prerequisites: content.prerequisites?.map(p => ({ level: 1, prerequisite: p })),
+            ap_value: content.ap_value,
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+              errata: t10n.errata,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "Scripts":
-      return database.scripts.map(([_, script]) => ({
-        id: { tag: "Script", script: script.id },
-        ap_value: script.ap_value,
-        src: script.src,
-        translations: mapObject(script.translations, t10n => ({
-          name: t10n.name,
-          errata: t10n.errata,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("Script").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("Script", id),
+          content: {
+            parent: entryId,
+            ap_value: wrapPlainApValue(content.ap_value),
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+              errata: t10n.errata,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "AnimalShapes": {
-      const pathsWithOrderedIds = database.animalShapePaths.reduce<Record<number, number[]>>(
-        (acc, [id, _path]) => ({
+      const animalShapePaths = database.getAllInstanceContainersOfEntity("AnimalShapePath")
+      const animalShapeSizes = database.getAllInstanceContainersOfEntity("AnimalShapeSize")
+      const animalShapes = database.getAllInstanceContainersOfEntity("AnimalShape")
+
+      const pathsWithOrderedIds = animalShapePaths.reduce<Record<string, string[]>>(
+        (acc, { id }) => ({
           ...acc,
-          [id]: database.animalShapes
-            .toSorted(([_1, a], [_2, b]) => a.size.id - b.size.id)
-            .map(([id]) => id),
+          [id]: animalShapes
+            .toSorted(
+              on(
+                item =>
+                  database.getInstanceContainerOfEntityById("AnimalShapeSize", item.content.size)
+                    ?.content.volume,
+                compareNullish(compareNumber),
+              ),
+            )
+            .map(({ id }) => id),
         }),
         {},
       )
 
-      return database.animalShapes.map(([_, animalShape]) => {
-        const path = database.animalShapePaths.find(([id]) => id === animalShape.path.id)?.[1]
-        const size = database.animalShapeSizes.find(([id]) => id === animalShape.size.id)?.[1]
+      return animalShapes.map(({ id, content }): ResolvedSelectOption => {
+        const path = animalShapePaths.find(({ id: pathId }) => pathId === content.path)
+        const size = animalShapeSizes.find(({ id: sizeId }) => sizeId === content.size)
         const pathIndex =
-          path !== undefined ? (pathsWithOrderedIds[path.id]?.indexOf(animalShape.id) ?? -1) : -1
+          path !== undefined ? (pathsWithOrderedIds[path.id]?.indexOf(id) ?? -1) : -1
         return {
-          id: { tag: "AnimalShape", animal_shape: animalShape.id },
-          prerequisites:
-            pathIndex >= 0
-              ? pathIndex === 0
-                ? database.animalShapePaths
-                    .filter(
-                      ([id]) =>
-                        id !== animalShape.path.id && pathsWithOrderedIds[id]?.[0] !== undefined,
-                    )
-                    .map(([id]) => ({
-                      level: 1,
-                      prerequisite: {
-                        tag: "Single",
-                        single: {
-                          tag: "Activatable",
-                          activatable: {
+          id: Case("AnimalShape", id),
+          content: {
+            parent: entryId,
+            prerequisites:
+              pathIndex >= 0
+                ? pathIndex === 0
+                  ? animalShapePaths
+                      .filter(
+                        ({ id: pathId }) =>
+                          pathId !== content.path && pathsWithOrderedIds[pathId]?.[0] !== undefined,
+                      )
+                      .map(({ id: pathId }) => ({
+                        level: 1,
+                        prerequisite: Case(
+                          "Single",
+                          Case("Activatable", {
                             id: entryId,
                             active: false,
-                            options: [
-                              { tag: "AnimalShape", animal_shape: pathsWithOrderedIds[id]![0]! },
-                            ],
-                          },
-                        },
-                      },
-                    }))
-                : [
-                    {
-                      level: 1,
-                      prerequisite: {
-                        tag: "Single",
-                        single: {
-                          tag: "Activatable",
-                          activatable: {
+                            options: [Case("AnimalShape", pathsWithOrderedIds[pathId]![0]!)],
+                          }),
+                        ),
+                      }))
+                  : [
+                      {
+                        level: 1,
+                        prerequisite: Case(
+                          "Single",
+                          Case("Activatable", {
                             id: entryId,
                             active: true,
                             options: [
-                              {
-                                tag: "AnimalShape",
-                                animal_shape: pathsWithOrderedIds[path!.id]![pathIndex - 1]!,
-                              },
+                              Case("AnimalShape", pathsWithOrderedIds[path!.id]![pathIndex - 1]!),
                             ],
-                          },
-                        },
+                          }),
+                        ),
                       },
-                    },
-                  ]
-              : undefined,
-          volume: size?.volume,
-          ap_value: size?.ap_value,
-          translations: mapObject(animalShape.translations, (t10n, lang) => ({
-            name:
-              path?.translations[lang] !== undefined
-                ? `${t10n.name} (${path.translations[lang]!.name})`
-                : t10n.name,
-          })),
+                    ]
+                : undefined,
+            volume: size?.content.volume,
+            ap_value: wrapPlainApValue(size?.content.ap_value),
+            translations: mapObject(content.translations, (t10n, lang) => ({
+              name:
+                path?.content.translations[lang] !== undefined
+                  ? `${t10n.name} (${path.content.translations[lang].name})`
+                  : t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
         }
       })
     }
 
     case "ArcaneBardTraditions":
-      return database.arcaneBardTraditions.map(([_, arcaneBardTradition]) => ({
-        id: { tag: "ArcaneBardTradition", arcane_bard_tradition: arcaneBardTradition.id },
-        prerequisites: arcaneBardTradition.prerequisites.map(p => ({
-          level: 1,
-          prerequisite: p,
-        })),
-        translations: mapObject(arcaneBardTradition.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("ArcaneBardTradition").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("ArcaneBardTradition", id),
+          content: {
+            parent: entryId,
+            prerequisites: content.prerequisites.map(p => ({
+              level: 1,
+              prerequisite: p,
+            })),
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "ArcaneDancerTraditions":
-      return database.arcaneDancerTraditions.map(([_, arcaneDancerTradition]) => ({
-        id: { tag: "ArcaneDancerTradition", arcane_dancer_tradition: arcaneDancerTradition.id },
-        prerequisites: arcaneDancerTradition.prerequisites.map(p => ({
-          level: 1,
-          prerequisite: p,
-        })),
-        translations: mapObject(arcaneDancerTradition.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("ArcaneDancerTradition").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("ArcaneDancerTradition", id),
+          content: {
+            parent: entryId,
+            prerequisites: content.prerequisites.map(p => ({
+              level: 1,
+              prerequisite: p,
+            })),
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "SexPractices":
-      return database.sexPractices.map(([_, sexPractice]) => ({
-        id: { tag: "SexPractice", sex_practice: sexPractice.id },
-        src: sexPractice.src,
-        translations: mapObject(sexPractice.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("SexPractice").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("SexPractice", id),
+          content: {
+            parent: entryId,
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "Races":
-      return database.races.map(([_, race]) => ({
-        id: { tag: "Race", race: race.id },
-        src: race.src,
-        translations: mapObject(race.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("Race").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("Race", id),
+          content: {
+            parent: entryId,
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "Cultures":
-      return database.cultures.map(([_, culture]) => ({
-        id: { tag: "Culture", culture: culture.id },
-        src: culture.src,
-        translations: mapObject(culture.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("Culture").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("Culture", id),
+          content: {
+            parent: entryId,
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "RacesAndCultures":
       return [
-        ...database.races.map(
-          ([_, race]): ResolvedSelectOption => ({
-            id: { tag: "Race", race: race.id },
-            src: race.src,
-            translations: mapObject(race.translations, t10n => ({
-              name: t10n.name,
-            })),
+        ...database.getAllInstanceContainersOfEntity("Race").map(
+          ({ id, content }): ResolvedSelectOption => ({
+            id: Case("Race", id),
+            content: {
+              parent: entryId,
+              src: content.src,
+              translations: mapObject(content.translations, t10n => ({
+                name: t10n.name,
+              })),
+            },
+            newApplications: [],
+            uses: [],
           }),
         ),
-        ...database.cultures.map(
-          ([_, culture]): ResolvedSelectOption => ({
-            id: { tag: "Culture", culture: culture.id },
-            src: culture.src,
-            translations: mapObject(culture.translations, t10n => ({
-              name: t10n.name,
-            })),
+        ...database.getAllInstanceContainersOfEntity("Culture").map(
+          ({ id, content }): ResolvedSelectOption => ({
+            id: Case("Culture", id),
+            content: {
+              parent: entryId,
+              src: content.src,
+              translations: mapObject(content.translations, t10n => ({
+                name: t10n.name,
+              })),
+            },
+            newApplications: [],
+            uses: [],
           }),
         ),
       ]
+
+    case "HomunculusTypes":
+      return database.getAllInstanceContainersOfEntity("HomunculusType").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("HomunculusType", id),
+          content: {
+            parent: entryId,
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "BlessedTraditions": {
       const getPrerequisites = (
         blessedTradition: BlessedTradition,
       ): GeneralPrerequisites | undefined => {
         if (
-          selectOptionCategory.blessed_traditions.require_principles &&
+          selectOptionCategory.BlessedTraditions.require_principles &&
           blessedTradition.associated_principles_id !== undefined
         ) {
+          const option = database.getInstanceContainerOfEntityById(
+            "GeneralSelectOption",
+            blessedTradition.associated_principles_id,
+          )
+          if (option === undefined || option.content.parent.kind === "TradeSecret") {
+            return undefined
+          }
           return [
             {
               level: 1,
-              prerequisite: {
-                tag: "Single",
-                single: {
-                  tag: "Activatable",
-                  activatable: {
-                    id: { tag: "Disadvantage", disadvantage: PRINCIPLES_ID },
-                    active: true,
-                    options: [
-                      { tag: "General", general: blessedTradition.associated_principles_id },
-                    ],
-                  },
-                },
-              },
+              prerequisite: Case(
+                "Single",
+                Case("Activatable", {
+                  id: option.content.parent,
+                  active: true,
+                  options: [Case("General", blessedTradition.associated_principles_id)],
+                }),
+              ),
             },
           ]
         }
+
+        return undefined
       }
 
-      return database.blessedTraditions.map(([_, blessedTradition]) => ({
-        id: { tag: "BlessedTradition", blessed_tradition: blessedTradition.id },
-        prerequisites: getPrerequisites(blessedTradition),
-        src: blessedTradition.src,
-        translations: mapObject(blessedTradition.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("BlessedTradition").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("BlessedTradition", id),
+          content: {
+            parent: entryId,
+            prerequisites: getPrerequisites(content),
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
     }
 
     case "Elements": {
-      const mapToResolvedSelectOption = ([_, element]: [
-        number,
-        Element,
-      ]): ResolvedSelectOption => ({
-        id: { tag: "Element", element: element.id },
-        translations: mapObject(element.translations, t10n => ({
-          name: t10n.name,
-        })),
+      const mapToResolvedSelectOption = ({
+        id,
+        content,
+      }: {
+        id: string
+        content: Element
+      }): ResolvedSelectOption => ({
+        id: Case("Element", id),
+        content: {
+          parent: entryId,
+          translations: mapObject(content.translations, t10n => ({
+            name: t10n.name,
+          })),
+        },
+        newApplications: [],
+        uses: [],
       })
 
-      if (selectOptionCategory.elements.specific) {
-        return database.elements
-          .filter(([id]) =>
-            selectOptionCategory.elements.specific!.some(ref => ref.id.element === id),
-          )
+      const specific = selectOptionCategory.Elements.specific
+
+      if (specific) {
+        return database
+          .getAllInstanceContainersOfEntity("Element")
+          .filter(({ id }) => specific.includes(id))
           .map(mapToResolvedSelectOption)
       }
 
-      return database.elements.map(mapToResolvedSelectOption)
+      return database.getAllInstanceContainersOfEntity("Element").map(mapToResolvedSelectOption)
     }
 
     case "Properties": {
-      const getPrerequisites = (property: Property): GeneralPrerequisites | undefined => {
+      const getPrerequisites = (id: string): GeneralPrerequisites | undefined => {
         if (
-          selectOptionCategory.properties.require_knowledge !== undefined ||
-          selectOptionCategory.properties.require_minimum_spellworks_on !== undefined
+          selectOptionCategory.Properties.require_knowledge !== undefined ||
+          selectOptionCategory.Properties.require_minimum_spellworks_on !== undefined
         ) {
           const knowledgePrerequisite: PrerequisiteForLevel<GeneralPrerequisiteGroup> | undefined =
-            selectOptionCategory.properties.require_knowledge !== undefined
+            selectOptionCategory.Properties.require_knowledge !== undefined
               ? {
                   level: 1,
-                  prerequisite: {
-                    tag: "Single",
-                    single: {
-                      tag: "Activatable",
-                      activatable: {
-                        id: {
-                          tag: "MagicalSpecialAbility",
-                          magical_special_ability: PROPERTY_KNOWLEDGE_ID,
-                        },
-                        active: true,
-                        options: [{ tag: "Property", property: property.id }],
-                      },
-                    },
-                  },
+                  prerequisite: Case(
+                    "Single",
+                    Case("Activatable", {
+                      id: Case(
+                        "MagicalSpecialAbility",
+                        idMap.MagicalSpecialAbility.PropertyKnowledge,
+                      ),
+                      active: true,
+                      options: [Case("Property", id)],
+                    }),
+                  ),
                 }
               : undefined
 
           const minimumSpellworksPrerequisite:
             | PrerequisiteForLevel<GeneralPrerequisiteGroup>
             | undefined =
-            selectOptionCategory.properties.require_minimum_spellworks_on !== undefined
+            selectOptionCategory.Properties.require_minimum_spellworks_on !== undefined
               ? {
                   level: 1,
-                  prerequisite: {
-                    tag: "Single",
-                    single: {
-                      tag: "RatedMinimumNumber",
-                      rated_minimum_number: {
-                        number:
-                          selectOptionCategory.properties.require_minimum_spellworks_on.number,
-                        value: selectOptionCategory.properties.require_minimum_spellworks_on.rating,
-                        targets: {
-                          tag: "Spellworks",
-                          spellworks: {
-                            id: { tag: "Property", property: property.id },
-                          },
-                        },
-                      },
-                    },
-                  },
+                  prerequisite: Case(
+                    "Single",
+                    Case("RatedMinimumNumber", {
+                      number: selectOptionCategory.Properties.require_minimum_spellworks_on.number,
+                      value: selectOptionCategory.Properties.require_minimum_spellworks_on.rating,
+                      targets: Case("Spellworks", {
+                        property: id,
+                      }),
+                    }),
+                  ),
                 }
               : undefined
           return [knowledgePrerequisite, minimumSpellworksPrerequisite].filter(isNotNullish)
         }
+        return undefined
       }
 
-      return database.properties.map(([_, property]) => ({
-        id: { tag: "Property", property: property.id },
-        prerequisites: getPrerequisites(property),
-        translations: mapObject(property.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("Property").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("Property", id),
+          content: {
+            parent: entryId,
+            prerequisites: getPrerequisites(id),
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
     }
 
     case "Aspects": {
-      const getPrerequisites = (aspect: Aspect): GeneralPrerequisites | undefined => {
+      const getPrerequisites = (id: string): GeneralPrerequisites | undefined => {
         if (
-          selectOptionCategory.aspects.require_knowledge !== undefined ||
-          selectOptionCategory.aspects.require_minimum_liturgies_on !== undefined
+          selectOptionCategory.Aspects.require_knowledge !== undefined ||
+          selectOptionCategory.Aspects.require_minimum_liturgies_on !== undefined
         ) {
           const knowledgePrerequisite: PrerequisiteForLevel<GeneralPrerequisiteGroup> | undefined =
-            selectOptionCategory.aspects.require_knowledge !== undefined
+            selectOptionCategory.Aspects.require_knowledge !== undefined
               ? {
                   level: 1,
-                  prerequisite: {
-                    tag: "Single",
-                    single: {
-                      tag: "Activatable",
-                      activatable: {
-                        id: {
-                          tag: "KarmaSpecialAbility",
-                          karma_special_ability: ASPECT_KNOWLEDGE_ID,
-                        },
-                        active: true,
-                        options: [{ tag: "Property", property: aspect.id }],
-                      },
-                    },
-                  },
+                  prerequisite: Case(
+                    "Single",
+                    Case("Activatable", {
+                      id: Case("KarmaSpecialAbility", idMap.KarmaSpecialAbility.AspectKnowledge),
+                      active: true,
+                      options: [Case("Aspect", id)],
+                    }),
+                  ),
                 }
               : undefined
 
           const minimumSpellworksPrerequisite:
             | PrerequisiteForLevel<GeneralPrerequisiteGroup>
             | undefined =
-            selectOptionCategory.aspects.require_minimum_liturgies_on !== undefined
+            selectOptionCategory.Aspects.require_minimum_liturgies_on !== undefined
               ? {
                   level: 1,
-                  prerequisite: {
-                    tag: "Single",
-                    single: {
-                      tag: "RatedMinimumNumber",
-                      rated_minimum_number: {
-                        number: selectOptionCategory.aspects.require_minimum_liturgies_on.number,
-                        value: selectOptionCategory.aspects.require_minimum_liturgies_on.rating,
-                        targets: {
-                          tag: "Liturgies",
-                          liturgies: {
-                            id: { tag: "Aspect", aspect: aspect.id },
-                          },
-                        },
-                      },
-                    },
-                  },
+                  prerequisite: Case(
+                    "Single",
+                    Case("RatedMinimumNumber", {
+                      number: selectOptionCategory.Aspects.require_minimum_liturgies_on.number,
+                      value: selectOptionCategory.Aspects.require_minimum_liturgies_on.rating,
+                      targets: Case("Liturgies", {
+                        aspect: id,
+                      }),
+                    }),
+                  ),
                 }
               : undefined
           return [knowledgePrerequisite, minimumSpellworksPrerequisite].filter(isNotNullish)
         }
+        return undefined
       }
 
-      if (selectOptionCategory.aspects.use_master_of_suffix_as_name === true) {
-        return database.aspects
+      if (selectOptionCategory.Aspects.use_master_of_suffix_as_name === true) {
+        return database
+          .getAllInstanceContainersOfEntity("Aspect")
           .map(
-            ([_, aspect]): ResolvedSelectOption => ({
-              id: { tag: "Aspect", aspect: aspect.id },
-              prerequisites: getPrerequisites(aspect),
-              translations: mapObject(aspect.translations, t10n =>
-                t10n.master_of_aspect_suffix === undefined
-                  ? undefined
-                  : {
-                      name: t10n.master_of_aspect_suffix,
-                    },
-              ),
+            ({ id, content }): ResolvedSelectOption => ({
+              id: Case("Aspect", id),
+              content: {
+                parent: entryId,
+                prerequisites: getPrerequisites(id),
+                translations: mapObject(content.translations, t10n =>
+                  t10n.master_of_aspect_suffix === undefined
+                    ? undefined
+                    : {
+                        name: t10n.master_of_aspect_suffix,
+                      },
+                ),
+              },
+              newApplications: [],
+              uses: [],
             }),
           )
-          .filter(value => Object.keys(value.translations).length > 0)
+          .filter(value => Object.keys(value.content.translations).length > 0)
       }
 
-      return database.aspects.map(([_, aspect]) => ({
-        id: { tag: "Aspect", aspect: aspect.id },
-        prerequisites: getPrerequisites(aspect),
-        translations: mapObject(aspect.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("Aspect").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("Aspect", id),
+          content: {
+            parent: entryId,
+            prerequisites: getPrerequisites(id),
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
     }
 
     case "Diseases":
-      return database.diseases.map(([_, disease]) => ({
-        id: { tag: "Disease", disease: disease.id },
-        ap_value:
-          selectOptionCategory.diseases.use_half_level_as_ap_value === true
-            ? Math.round(disease.level / 3)
-            : disease.level,
-        src: disease.src,
-        translations: mapObject(disease.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("Disease").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("Disease", id),
+          content: {
+            parent: entryId,
+            ap_value: wrapPlainApValue(
+              selectOptionCategory.Diseases.use_half_level_as_ap_value === true
+                ? Math.round(content.level / 3)
+                : content.level,
+            ),
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
 
     case "Poisons": {
       const getLevel = (poison: Poison): number => {
-        switch (poison.source_type.tag) {
+        switch (poison.source_type.kind) {
           case "AnimalVenom":
-            return poison.source_type.animal_venom.level
+            switch (poison.source_type.AnimalVenom.level.kind) {
+              case "Constant":
+                return poison.source_type.AnimalVenom.level.Constant
+              case "QualityLevel":
+                return 6
+              case "BySubtype":
+                return Math.min(
+                  6,
+                  Math.max(
+                    ...poison.source_type.AnimalVenom.level.BySubtype.map(subtype => subtype.value),
+                  ),
+                )
+              default:
+                return assertExhaustive(poison.source_type.AnimalVenom.level)
+            }
           case "AlchemicalPoison":
             return 6
           case "MineralPoison":
-            return poison.source_type.mineral_poison.level
+            return poison.source_type.MineralPoison.level
           case "PlantPoison":
-            return poison.source_type.plant_poison.level
+            return poison.source_type.PlantPoison.level
           case "DemonicPoison":
-            switch (poison.source_type.demonic_poison.level.tag) {
+            switch (poison.source_type.DemonicPoison.level.kind) {
               case "Constant":
-                return poison.source_type.demonic_poison.level.constant.value
+                return poison.source_type.DemonicPoison.level.Constant.value
               case "QualityLevel":
                 return 6
               default:
-                return assertExhaustive(poison.source_type.demonic_poison.level)
+                return assertExhaustive(poison.source_type.DemonicPoison.level)
             }
           default:
             return assertExhaustive(poison.source_type)
         }
       }
 
-      return database.poisons.map(([_, poison]) => ({
-        id: { tag: "Poison", poison: poison.id },
-        ap_value:
-          selectOptionCategory.poisons.use_half_level_as_ap_value === true
-            ? Math.round(getLevel(poison) / 3)
-            : getLevel(poison),
-        src: poison.src,
-        translations: mapObject(poison.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("Poison").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("Poison", id),
+          content: {
+            parent: entryId,
+            ap_value: wrapPlainApValue(
+              selectOptionCategory.Poisons.use_half_level_as_ap_value === true
+                ? Math.round(getLevel(content) / 3)
+                : getLevel(content),
+            ),
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
     }
 
     case "Languages": {
-      const getPrerequisites = (language: Language): GeneralPrerequisites | undefined => {
-        if (selectOptionCategory.languages.prerequisites !== undefined) {
-          return selectOptionCategory.languages.prerequisites.map(config => ({
+      const getPrerequisites = (id: string): GeneralPrerequisites | undefined => {
+        if (selectOptionCategory.Languages.prerequisites !== undefined) {
+          return selectOptionCategory.Languages.prerequisites.map(config => ({
             level: 1,
-            prerequisite: {
-              tag: "Single",
-              single: {
-                tag: "Activatable",
-                activatable: {
-                  id: config.select_option.id,
-                  active: config.select_option.active,
-                  level: config.select_option.level,
-                  options: [{ tag: "Language", language: language.id }],
-                },
-              },
-            },
+            prerequisite: Case(
+              "Single",
+              Case("Activatable", {
+                id: config.SelectOption.id,
+                active: config.SelectOption.active,
+                level: config.SelectOption.level,
+                options: [Case("Language", id)],
+              }),
+            ),
           }))
         }
+        return undefined
       }
 
-      return database.languages.map(([_, language]) => ({
-        id: { tag: "Language", language: language.id },
-        prerequisites: getPrerequisites(language),
-        src: language.src,
-        translations: mapObject(language.translations, t10n => ({
-          name: t10n.name,
-        })),
-      }))
+      return database.getAllInstanceContainersOfEntity("Language").map(
+        ({ id, content }): ResolvedSelectOption => ({
+          id: Case("Language", id),
+          content: {
+            parent: entryId,
+            prerequisites: getPrerequisites(id),
+            src: content.src,
+            translations: mapObject(content.translations, t10n => ({
+              name: t10n.name,
+            })),
+          },
+          newApplications: [],
+          uses: [],
+        }),
+      )
     }
 
-    case "Skills": {
-      const apValueGen = selectOptionCategory.skills.ap_value
-
-      return selectOptionCategory.skills.categories.flatMap(category => {
-        switch (category.tag) {
+    case "Skills":
+      return selectOptionCategory.Skills.categories.flatMap(category => {
+        switch (category.kind) {
           case "Skills":
-            return database.skills
-              .filter(([_, skill]) => {
+            return getDerivedSkillishSelectOptions(
+              database,
+              entryId,
+              "Skill",
+              category.Skills,
+              selectOptionCategory.Skills,
+              ({ id, content }) => {
                 const matchesGroupRequirement =
-                  category.skills.groups === undefined ||
-                  category.skills.groups.some(
-                    ref => ref.id.skill_group === skill.group.id.skill_group,
-                  )
+                  category.Skills.groups === undefined ||
+                  category.Skills.groups.some(ref => ref === content.group)
 
                 const matchesIdRequirement =
-                  category.skills.specific === undefined ||
-                  matchesSpecificSkillishIdList<SkillIdentifier>(
-                    { tag: "Skill", skill: skill.id },
-                    category.skills.specific,
-                    equalsSkillishIdGroup,
-                  )
+                  category.Skills.specific === undefined ||
+                  matchesSpecificSkillishIdList(id, category.Skills.specific)
 
                 return matchesGroupRequirement && matchesIdRequirement
-              })
-              .map(([_, skill]): ResolvedSelectOption => {
-                const id: SkillIdentifier = { tag: "Skill", skill: skill.id }
-                return {
-                  id,
-                  skill_uses: category.skills.skill_uses?.map(use =>
-                    convertSkillApplicationOrUse(id, use),
-                  ),
-                  skill_applications: category.skills.skill_applications?.map(use =>
-                    convertSkillApplicationOrUse(id, use),
-                  ),
-                  prerequisites: getSkillishPrerequisites(category.skills.prerequisites, id),
-                  ap_value: getApValueForSkillish(
-                    category.skills.ap_value ?? apValueGen,
-                    id,
-                    skill.improvement_cost,
-                  ),
-                  src: skill.src,
-                  translations: mapObject(skill.translations, t10n => ({
-                    name: t10n.name,
-                  })),
-                }
-              })
+              },
+            )
           case "Spells":
-            return database.spells
-              .filter(
-                ([_, spell]) =>
-                  category.spells.specific === undefined ||
-                  matchesSpecificSkillishIdList<SpellIdentifier>(
-                    { tag: "Spell", spell: spell.id },
-                    category.spells.specific,
-                    equalsSkillishIdGroup,
-                  ),
-              )
-              .map(([_, spell]): ResolvedSelectOption => {
-                const id: SpellIdentifier = { tag: "Spell", spell: spell.id }
-                return {
-                  id,
-                  prerequisites: getSkillishPrerequisites(category.spells.prerequisites, id),
-                  ap_value: getApValueForSkillish(apValueGen, id, spell.improvement_cost),
-                  src: spell.src,
-                  translations: mapObject(spell.translations, t10n => ({
-                    name: t10n.name,
-                  })),
-                }
-              })
+            return getDerivedSkillishSelectOptions(
+              database,
+              entryId,
+              "Spell",
+              category.Spells,
+              selectOptionCategory.Skills,
+            )
           case "Rituals":
-            return database.rituals
-              .filter(
-                ([_, ritual]) =>
-                  category.rituals.specific === undefined ||
-                  matchesSpecificSkillishIdList<RitualIdentifier>(
-                    { tag: "Ritual", ritual: ritual.id },
-                    category.rituals.specific,
-                    equalsSkillishIdGroup,
-                  ),
-              )
-              .map(([_, ritual]): ResolvedSelectOption => {
-                const id: RitualIdentifier = { tag: "Ritual", ritual: ritual.id }
-                return {
-                  id,
-                  prerequisites: getSkillishPrerequisites(category.rituals.prerequisites, id),
-                  ap_value: getApValueForSkillish(apValueGen, id, ritual.improvement_cost),
-                  src: ritual.src,
-                  translations: mapObject(ritual.translations, t10n => ({
-                    name: t10n.name,
-                  })),
-                }
-              })
+            return getDerivedSkillishSelectOptions(
+              database,
+              entryId,
+              "Ritual",
+              category.Rituals,
+              selectOptionCategory.Skills,
+            )
           case "LiturgicalChants":
-            return database.liturgicalChants
-              .filter(
-                ([_, liturgicalChant]) =>
-                  category.liturgical_chants.specific === undefined ||
-                  matchesSpecificSkillishIdList<LiturgicalChantIdentifier>(
-                    { tag: "LiturgicalChant", liturgical_chant: liturgicalChant.id },
-                    category.liturgical_chants.specific,
-                    equalsSkillishIdGroup,
-                  ),
-              )
-              .map(([_, liturgicalChant]): ResolvedSelectOption => {
-                const id: LiturgicalChantIdentifier = {
-                  tag: "LiturgicalChant",
-                  liturgical_chant: liturgicalChant.id,
-                }
-                return {
-                  id,
-                  prerequisites: getSkillishPrerequisites(
-                    category.liturgical_chants.prerequisites,
-                    id,
-                  ),
-                  ap_value: getApValueForSkillish(apValueGen, id, liturgicalChant.improvement_cost),
-                  src: liturgicalChant.src,
-                  translations: mapObject(liturgicalChant.translations, t10n => ({
-                    name: t10n.name,
-                  })),
-                }
-              })
+            return getDerivedSkillishSelectOptions(
+              database,
+              entryId,
+              "LiturgicalChant",
+              category.LiturgicalChants,
+              selectOptionCategory.Skills,
+            )
           case "Ceremonies":
-            return database.ceremonies
-              .filter(
-                ([_, ceremony]) =>
-                  category.ceremonies.specific === undefined ||
-                  matchesSpecificSkillishIdList<CeremonyIdentifier>(
-                    { tag: "Ceremony", ceremony: ceremony.id },
-                    category.ceremonies.specific,
-                    equalsSkillishIdGroup,
-                  ),
-              )
-              .map(([_, ceremony]): ResolvedSelectOption => {
-                const id: CeremonyIdentifier = { tag: "Ceremony", ceremony: ceremony.id }
-                return {
-                  id,
-                  prerequisites: getSkillishPrerequisites(category.ceremonies.prerequisites, id),
-                  ap_value: getApValueForSkillish(apValueGen, id, ceremony.improvement_cost),
-                  src: ceremony.src,
-                  translations: mapObject(ceremony.translations, t10n => ({
-                    name: t10n.name,
-                  })),
-                }
-              })
+            return getDerivedSkillishSelectOptions(
+              database,
+              entryId,
+              "Ceremony",
+              category.Ceremonies,
+              selectOptionCategory.Skills,
+            )
           default:
             return assertExhaustive(category)
         }
       })
-    }
 
-    case "CombatTechniques": {
-      const apValueGen = selectOptionCategory.combat_techniques.ap_value
-
-      return selectOptionCategory.combat_techniques.categories.flatMap(category => {
-        switch (category.tag) {
+    case "CombatTechniques":
+      return selectOptionCategory.CombatTechniques.categories.flatMap(category => {
+        switch (category.kind) {
           case "CloseCombatTechniques":
-            return database.closeCombatTechniques
-              .filter(
-                ([_, closeCombatTechnique]) =>
-                  category.close_combat_techniques.specific === undefined ||
-                  matchesSpecificSkillishIdList<CloseCombatTechniqueIdentifier>(
-                    {
-                      tag: "CloseCombatTechnique",
-                      close_combat_technique: closeCombatTechnique.id,
-                    },
-                    category.close_combat_techniques.specific,
-                    equalsSkillishIdGroup,
-                  ),
-              )
-              .map(([_, closeCombatTechnique]): ResolvedSelectOption => {
-                const id: CloseCombatTechniqueIdentifier = {
-                  tag: "CloseCombatTechnique",
-                  close_combat_technique: closeCombatTechnique.id,
-                }
-                return {
-                  id,
-                  prerequisites: getSkillishPrerequisites(
-                    category.close_combat_techniques.prerequisites,
-                    id,
-                  ),
-                  ap_value: getApValueForSkillish(
-                    apValueGen,
-                    id,
-                    closeCombatTechnique.improvement_cost,
-                  ),
-                  src: closeCombatTechnique.src,
-                  translations: mapObject(closeCombatTechnique.translations, t10n => ({
-                    name: t10n.name,
-                  })),
-                }
-              })
+            return getDerivedSkillishSelectOptions(
+              database,
+              entryId,
+              "CloseCombatTechnique",
+              category.CloseCombatTechniques,
+              selectOptionCategory.CombatTechniques,
+            )
           case "RangedCombatTechniques":
-            return database.rangedCombatTechniques
-              .filter(
-                ([_, rangedCombatTechnique]) =>
-                  category.ranged_combat_techniques.specific === undefined ||
-                  matchesSpecificSkillishIdList<RangedCombatTechniqueIdentifier>(
-                    {
-                      tag: "RangedCombatTechnique",
-                      ranged_combat_technique: rangedCombatTechnique.id,
-                    },
-                    category.ranged_combat_techniques.specific,
-                    equalsSkillishIdGroup,
-                  ),
-              )
-              .map(([_, rangedCombatTechnique]): ResolvedSelectOption => {
-                const id: RangedCombatTechniqueIdentifier = {
-                  tag: "RangedCombatTechnique",
-                  ranged_combat_technique: rangedCombatTechnique.id,
-                }
-                return {
-                  id,
-                  prerequisites: getSkillishPrerequisites(
-                    category.ranged_combat_techniques.prerequisites,
-                    id,
-                  ),
-                  ap_value: getApValueForSkillish(
-                    apValueGen,
-                    id,
-                    rangedCombatTechnique.improvement_cost,
-                  ),
-                  src: rangedCombatTechnique.src,
-                  translations: mapObject(rangedCombatTechnique.translations, t10n => ({
-                    name: t10n.name,
-                  })),
-                }
-              })
+            return getDerivedSkillishSelectOptions(
+              database,
+              entryId,
+              "RangedCombatTechnique",
+              category.RangedCombatTechniques,
+              selectOptionCategory.CombatTechniques,
+            )
           default:
             return assertExhaustive(category)
         }
       })
-    }
 
     case "TargetCategories": {
       const mapToResolvedSelectOption = (
-        targetCategory: TargetCategory,
+        { id, content }: { id: string; content: TargetCategory },
         specificTargetCategory?: SpecificTargetCategory,
       ): ResolvedSelectOption => ({
-        id: { tag: "TargetCategory", target_category: targetCategory.id },
-        volume: specificTargetCategory?.volume,
-        translations: mapObject(targetCategory.translations, t10n => ({
-          name: t10n.name,
-        })),
+        id: Case("TargetCategory", id),
+        content: {
+          parent: entryId,
+          volume: specificTargetCategory?.volume,
+          translations: mapObject(content.translations, t10n => ({
+            name: t10n.name,
+          })),
+        },
+        newApplications: [],
+        uses: [],
       })
 
-      if (selectOptionCategory.target_categories.list) {
-        return database.targetCategories
-          .filter(([id]) =>
-            selectOptionCategory.target_categories.list!.some(ref => ref.id.target_category === id),
-          )
-          .map(([id, targetCategory]) =>
+      const list = selectOptionCategory.TargetCategories.list
+
+      if (list) {
+        return database
+          .getAllInstanceContainersOfEntity("TargetCategory")
+          .filter(({ id }) => list.some(ref => ref.id === id))
+          .map(({ id, content }) =>
             mapToResolvedSelectOption(
-              targetCategory,
-              selectOptionCategory.target_categories.list!.find(
-                ref => ref.id.target_category === id,
-              ),
+              { id, content },
+              list.find(ref => ref.id === id),
             ),
           )
       }
 
-      return database.targetCategories.map(p => mapToResolvedSelectOption(p[1]))
+      return database
+        .getAllInstanceContainersOfEntity("TargetCategory")
+        .map(tc => mapToResolvedSelectOption(tc))
     }
 
     default:
@@ -989,238 +1034,48 @@ const getDerivedSelectOptions = (
   }
 }
 
-const joinLocaleMaps = <T, U, V>(
-  a: LocaleMap<T>,
-  b: LocaleMap<U>,
-  join: (a?: T, b?: U) => V,
-): LocaleMap<NonNullable<V>> => {
-  const combinedLocaleMap: LocaleMap<NonNullable<V>> = {}
-  for (const key of new Set([...Object.keys(a), ...Object.keys(b)])) {
-    const newValue = join(a[key], b[key])
-    if (newValue != null) {
-      combinedLocaleMap[key] = newValue
-    }
-  }
-  return combinedLocaleMap
-}
-
 const getExplicitSelectOptions = (
-  explicitSelectOptions: ExplicitSelectOption[],
-  database: ValidResults,
+  id: ActivatableIdentifier,
+  database: TSONDB<TSONDBTypes>,
 ): ResolvedSelectOption[] =>
-  explicitSelectOptions
-    .map((explicitSelectOption): ResolvedSelectOption | undefined => {
-      switch (explicitSelectOption.tag) {
-        case "General":
-          return {
-            ...explicitSelectOption.general,
-            id: { tag: "General", general: explicitSelectOption.general.id },
-          }
-        case "Skill": {
-          const skill = database.skills.find(p => p[0] === explicitSelectOption.skill.id.skill)?.[1]
-          if (skill === undefined) {
-            return undefined
-          }
-          const id: SkillIdentifier = { tag: "Skill", skill: explicitSelectOption.skill.id.skill }
-          return {
-            ...explicitSelectOption.skill,
-            id,
-            skill_applications: explicitSelectOption.skill.skill_applications?.map(use =>
-              convertSkillApplicationOrUse(id, use),
-            ),
-            skill_uses: explicitSelectOption.skill.skill_uses?.map(use =>
-              convertSkillApplicationOrUse(id, use),
-            ),
-            translations: joinLocaleMaps(
-              explicitSelectOption.skill.translations ?? {},
-              skill.translations,
-              (explicit, base) =>
-                base === undefined ? undefined : { ...explicit, name: base.name },
-            ),
-          }
-        }
-        case "CombatTechnique":
-          switch (explicitSelectOption.combat_technique.id.tag) {
-            case "CloseCombatTechnique": {
-              const id = explicitSelectOption.combat_technique.id.close_combat_technique
-              const closeCombatTechnique = database.closeCombatTechniques.find(
-                p => p[0] === id,
-              )?.[1]
-              if (closeCombatTechnique === undefined) {
-                return undefined
-              }
-              return {
-                ...explicitSelectOption.combat_technique,
-                id: { tag: "CloseCombatTechnique", close_combat_technique: id },
-                translations: joinLocaleMaps(
-                  explicitSelectOption.combat_technique.translations ?? {},
-                  closeCombatTechnique.translations,
-                  (explicit, base) =>
-                    base === undefined ? undefined : { ...explicit, name: base.name },
-                ),
-              }
-            }
-            case "RangedCombatTechnique": {
-              const id = explicitSelectOption.combat_technique.id.ranged_combat_technique
-              const rangedCombatTechnique = database.rangedCombatTechniques.find(
-                p => p[0] === id,
-              )?.[1]
-              if (rangedCombatTechnique === undefined) {
-                return undefined
-              }
-              return {
-                ...explicitSelectOption.combat_technique,
-                id: { tag: "RangedCombatTechnique", ranged_combat_technique: id },
-                translations: joinLocaleMaps(
-                  explicitSelectOption.combat_technique.translations ?? {},
-                  rangedCombatTechnique.translations,
-                  (explicit, base) =>
-                    base === undefined ? undefined : { ...explicit, name: base.name },
-                ),
-              }
-            }
-            default:
-              return assertExhaustive(explicitSelectOption.combat_technique.id)
-          }
-        default:
-          return assertExhaustive(explicitSelectOption)
-      }
-    })
-    .filter(isNotNullish)
+  database.getAllChildInstanceContainersForParent("GeneralSelectOption", id).map(
+    ({ id, content }): ResolvedSelectOption => ({
+      id: Case("General", id),
+      content: {
+        ...content,
+        ap_value: wrapPlainApValue(content.ap_value),
+      },
+      newApplications: [], // database.getAllChildInstanceContainersForParent("NewSkillApplication", Case("GeneralSelectOption", id)), // prevent duplicates as these can already be queried from the database
+      uses: [], // database.getAllChildInstanceContainersForParent("SkillUse", Case("GeneralSelectOption", id)), // prevent duplicates as these can already be queried from the database
+    }),
+  )
 
 const getSelectOptions = (
   selectOptions: SelectOptions,
   id: ActivatableIdentifier,
-  database: ValidResults,
+  database: TSONDB<TSONDBTypes>,
+  idMap: IdMap,
 ): ResolvedSelectOption[] => [
   ...(selectOptions.derived === undefined
     ? []
-    : getDerivedSelectOptions(selectOptions.derived, id, database)),
-  ...(selectOptions.explicit === undefined
-    ? []
-    : getExplicitSelectOptions(selectOptions.explicit, database)),
+    : getDerivedSelectOptions(selectOptions.derived, id, database, idMap)),
+  ...getExplicitSelectOptions(id, database),
 ]
 
 const getSelectOptionsForResults = (
-  database: ValidResults,
-  idTag: ActivatableIdentifier["tag"],
-  results: [id: number, data: { select_options?: SelectOptions }][],
+  database: TSONDB<TSONDBTypes>,
+  idMap: IdMap,
+  entity: ActivatableIdentifier["kind"],
+  results: { id: string; content: { select_options?: SelectOptions; translations?: object } }[],
 ) =>
   results.reduce<{
-    [id: number]: ResolvedSelectOption[]
-  }>((acc, [id, data]) => {
+    [id: string]: ResolvedSelectOption[]
+  }>((acc, { id, content }) => {
     const options = getSelectOptions(
-      data.select_options ?? {},
-      (() => {
-        switch (idTag) {
-          case "Advantage":
-            return { tag: "Advantage", advantage: id }
-          case "Disadvantage":
-            return { tag: "Disadvantage", disadvantage: id }
-          case "GeneralSpecialAbility":
-            return { tag: "GeneralSpecialAbility", general_special_ability: id }
-          case "FatePointSpecialAbility":
-            return { tag: "FatePointSpecialAbility", fate_point_special_ability: id }
-          case "CombatSpecialAbility":
-            return { tag: "CombatSpecialAbility", combat_special_ability: id }
-          case "MagicalSpecialAbility":
-            return { tag: "MagicalSpecialAbility", magical_special_ability: id }
-          case "StaffEnchantment":
-            return { tag: "StaffEnchantment", staff_enchantment: id }
-          case "FamiliarSpecialAbility":
-            return { tag: "FamiliarSpecialAbility", familiar_special_ability: id }
-          case "KarmaSpecialAbility":
-            return { tag: "KarmaSpecialAbility", karma_special_ability: id }
-          case "ProtectiveWardingCircleSpecialAbility":
-            return {
-              tag: "ProtectiveWardingCircleSpecialAbility",
-              protective_warding_circle_special_ability: id,
-            }
-          case "CombatStyleSpecialAbility":
-            return { tag: "CombatStyleSpecialAbility", combat_style_special_ability: id }
-          case "AdvancedCombatSpecialAbility":
-            return { tag: "AdvancedCombatSpecialAbility", advanced_combat_special_ability: id }
-          case "CommandSpecialAbility":
-            return { tag: "CommandSpecialAbility", command_special_ability: id }
-          case "MagicStyleSpecialAbility":
-            return { tag: "MagicStyleSpecialAbility", magic_style_special_ability: id }
-          case "AdvancedMagicalSpecialAbility":
-            return { tag: "AdvancedMagicalSpecialAbility", advanced_magical_special_ability: id }
-          case "SpellSwordEnchantment":
-            return { tag: "SpellSwordEnchantment", spell_sword_enchantment: id }
-          case "DaggerRitual":
-            return { tag: "DaggerRitual", dagger_ritual: id }
-          case "InstrumentEnchantment":
-            return { tag: "InstrumentEnchantment", instrument_enchantment: id }
-          case "AttireEnchantment":
-            return { tag: "AttireEnchantment", attire_enchantment: id }
-          case "OrbEnchantment":
-            return { tag: "OrbEnchantment", orb_enchantment: id }
-          case "WandEnchantment":
-            return { tag: "WandEnchantment", wand_enchantment: id }
-          case "BrawlingSpecialAbility":
-            return { tag: "BrawlingSpecialAbility", brawling_special_ability: id }
-          case "AncestorGlyph":
-            return { tag: "AncestorGlyph", ancestor_glyph: id }
-          case "CeremonialItemSpecialAbility":
-            return { tag: "CeremonialItemSpecialAbility", ceremonial_item_special_ability: id }
-          case "Sermon":
-            return { tag: "Sermon", sermon: id }
-          case "LiturgicalStyleSpecialAbility":
-            return { tag: "LiturgicalStyleSpecialAbility", liturgical_style_special_ability: id }
-          case "AdvancedKarmaSpecialAbility":
-            return { tag: "AdvancedKarmaSpecialAbility", advanced_karma_special_ability: id }
-          case "Vision":
-            return { tag: "Vision", vision: id }
-          case "MagicalTradition":
-            return { tag: "MagicalTradition", magical_tradition: id }
-          case "BlessedTradition":
-            return { tag: "BlessedTradition", blessed_tradition: id }
-          case "PactGift":
-            return { tag: "PactGift", pact_gift: id }
-          case "SikaryanDrainSpecialAbility":
-            return { tag: "SikaryanDrainSpecialAbility", sikaryan_drain_special_ability: id }
-          case "VampiricGift":
-            return { tag: "VampiricGift", vampiric_gift: id }
-          case "LycantropicGift":
-            return { tag: "LycantropicGift", lycantropic_gift: id }
-          case "SkillStyleSpecialAbility":
-            return { tag: "SkillStyleSpecialAbility", skill_style_special_ability: id }
-          case "AdvancedSkillSpecialAbility":
-            return { tag: "AdvancedSkillSpecialAbility", advanced_skill_special_ability: id }
-          case "ArcaneOrbEnchantment":
-            return { tag: "ArcaneOrbEnchantment", arcane_orb_enchantment: id }
-          case "CauldronEnchantment":
-            return { tag: "CauldronEnchantment", cauldron_enchantment: id }
-          case "FoolsHatEnchantment":
-            return { tag: "FoolsHatEnchantment", fools_hat_enchantment: id }
-          case "ToyEnchantment":
-            return { tag: "ToyEnchantment", toy_enchantment: id }
-          case "BowlEnchantment":
-            return { tag: "BowlEnchantment", bowl_enchantment: id }
-          case "FatePointSexSpecialAbility":
-            return { tag: "FatePointSexSpecialAbility", fate_point_sex_special_ability: id }
-          case "SexSpecialAbility":
-            return { tag: "SexSpecialAbility", sex_special_ability: id }
-          case "WeaponEnchantment":
-            return { tag: "WeaponEnchantment", weapon_enchantment: id }
-          case "SickleRitual":
-            return { tag: "SickleRitual", sickle_ritual: id }
-          case "RingEnchantment":
-            return { tag: "RingEnchantment", ring_enchantment: id }
-          case "ChronicleEnchantment":
-            return { tag: "ChronicleEnchantment", chronicle_enchantment: id }
-          case "Krallenkettenzauber":
-            return { tag: "Krallenkettenzauber", krallenkettenzauber: id }
-          case "Trinkhornzauber":
-            return { tag: "Trinkhornzauber", trinkhornzauber: id }
-          case "MagicalSign":
-            return { tag: "MagicalSign", magical_sign: id }
-          default:
-            return assertExhaustive(idTag)
-        }
-      })(),
+      content.select_options ?? {},
+      Case(entity, id),
       database,
+      idMap,
     )
     if (options.length > 0) {
       acc[id] = options
@@ -1228,69 +1083,90 @@ const getSelectOptionsForResults = (
     return acc
   }, {})
 
-export type ActivatableSelectOptionsCacheKeys = {
-  [K in keyof TypeMap]: TypeMap[K] extends { select_options?: SelectOptions } ? K : never
-}[keyof TypeMap]
-
-export type ActivatableSelectOptionsCache = {
-  [K in ActivatableSelectOptionsCacheKeys]: {
-    [id: number]: ResolvedSelectOption[]
+export type ActivatableSelectOptionsCache = Record<
+  ActivatableIdentifier["kind"],
+  {
+    [id: string]: ResolvedSelectOption[]
   }
+>
+
+const cacheKeyBase: Record<ActivatableIdentifier["kind"], null> = {
+  Advantage: null,
+  Disadvantage: null,
+  AdvancedCombatSpecialAbility: null,
+  AdvancedKarmaSpecialAbility: null,
+  AdvancedMagicalSpecialAbility: null,
+  AdvancedSkillSpecialAbility: null,
+  AncestorGlyph: null,
+  ArcaneOrbEnchantment: null,
+  AttireEnchantment: null,
+  Beutelzauber: null,
+  BlessedTradition: null,
+  BowlEnchantment: null,
+  BrawlingSpecialAbility: null,
+  CauldronEnchantment: null,
+  CeremonialItemSpecialAbility: null,
+  ChronicleEnchantment: null,
+  CombatSpecialAbility: null,
+  CombatStyleSpecialAbility: null,
+  CommandSpecialAbility: null,
+  DaggerRitual: null,
+  FamiliarSpecialAbility: null,
+  FatePointSexSpecialAbility: null,
+  FatePointSpecialAbility: null,
+  FoolsHatEnchantment: null,
+  GeneralSpecialAbility: null,
+  Haubenzauber: null,
+  InstrumentEnchantment: null,
+  KarmaSpecialAbility: null,
+  Krallenkettenzauber: null,
+  Kristallkugelzauber: null,
+  LiturgicalStyleSpecialAbility: null,
+  LycantropicGift: null,
+  MagicalSign: null,
+  MagicalSpecialAbility: null,
+  MagicalTradition: null,
+  MagicStyleSpecialAbility: null,
+  OrbEnchantment: null,
+  PactGift: null,
+  ProtectiveWardingCircleSpecialAbility: null,
+  RingEnchantment: null,
+  Sermon: null,
+  SexSpecialAbility: null,
+  SickleRitual: null,
+  SikaryanDrainSpecialAbility: null,
+  SkillStyleSpecialAbility: null,
+  SpellSwordEnchantment: null,
+  StaffEnchantment: null,
+  ToyEnchantment: null,
+  Trinkhornzauber: null,
+  VampiricGift: null,
+  Vision: null,
+  WandEnchantment: null,
+  WeaponEnchantment: null,
 }
 
-// prettier-ignore
-export const config: CacheConfig<ActivatableSelectOptionsCache> = {
-  builder(database) {
-    return {
-      advancedCombatSpecialAbilities: getSelectOptionsForResults(database, "AdvancedCombatSpecialAbility", database.advancedCombatSpecialAbilities),
-      advancedKarmaSpecialAbilities: getSelectOptionsForResults(database, "AdvancedKarmaSpecialAbility", database.advancedKarmaSpecialAbilities),
-      advancedMagicalSpecialAbilities: getSelectOptionsForResults(database, "AdvancedMagicalSpecialAbility", database.advancedMagicalSpecialAbilities),
-      advancedSkillSpecialAbilities: getSelectOptionsForResults(database, "AdvancedSkillSpecialAbility", database.advancedSkillSpecialAbilities),
-      advantages: getSelectOptionsForResults(database, "Advantage", database.advantages),
-      ancestorGlyphs: getSelectOptionsForResults(database, "AncestorGlyph", database.ancestorGlyphs),
-      arcaneOrbEnchantments: getSelectOptionsForResults(database, "ArcaneOrbEnchantment", database.arcaneOrbEnchantments),
-      attireEnchantments: getSelectOptionsForResults(database, "AttireEnchantment", database.attireEnchantments),
-      blessedTraditions: getSelectOptionsForResults(database, "BlessedTradition", database.blessedTraditions),
-      bowlEnchantments: getSelectOptionsForResults(database, "BowlEnchantment", database.bowlEnchantments),
-      brawlingSpecialAbilities: getSelectOptionsForResults(database, "BrawlingSpecialAbility", database.brawlingSpecialAbilities),
-      cauldronEnchantments: getSelectOptionsForResults(database, "CauldronEnchantment", database.cauldronEnchantments),
-      ceremonialItemSpecialAbilities: getSelectOptionsForResults(database, "CeremonialItemSpecialAbility", database.ceremonialItemSpecialAbilities),
-      chronicleEnchantments: getSelectOptionsForResults(database, "ChronicleEnchantment", database.chronicleEnchantments),
-      combatSpecialAbilities: getSelectOptionsForResults(database, "CombatSpecialAbility", database.combatSpecialAbilities),
-      combatStyleSpecialAbilities: getSelectOptionsForResults(database, "CombatStyleSpecialAbility", database.combatStyleSpecialAbilities),
-      commandSpecialAbilities: getSelectOptionsForResults(database, "CommandSpecialAbility", database.commandSpecialAbilities),
-      daggerRituals: getSelectOptionsForResults(database, "DaggerRitual", database.daggerRituals),
-      disadvantages: getSelectOptionsForResults(database, "Disadvantage", database.disadvantages),
-      familiarSpecialAbilities: getSelectOptionsForResults(database, "FamiliarSpecialAbility", database.familiarSpecialAbilities),
-      fatePointSexSpecialAbilities: getSelectOptionsForResults(database, "FatePointSexSpecialAbility", database.fatePointSexSpecialAbilities),
-      fatePointSpecialAbilities: getSelectOptionsForResults(database, "FatePointSpecialAbility", database.fatePointSpecialAbilities),
-      foolsHatEnchantments: getSelectOptionsForResults(database, "FoolsHatEnchantment", database.foolsHatEnchantments),
-      generalSpecialAbilities: getSelectOptionsForResults(database, "GeneralSpecialAbility", database.generalSpecialAbilities),
-      instrumentEnchantments: getSelectOptionsForResults(database, "InstrumentEnchantment", database.instrumentEnchantments),
-      karmaSpecialAbilities: getSelectOptionsForResults(database, "KarmaSpecialAbility", database.karmaSpecialAbilities),
-      krallenkettenzauber: getSelectOptionsForResults(database, "Krallenkettenzauber", database.krallenkettenzauber),
-      liturgicalStyleSpecialAbilities: getSelectOptionsForResults(database, "LiturgicalStyleSpecialAbility", database.liturgicalStyleSpecialAbilities),
-      lycantropicGifts: getSelectOptionsForResults(database, "LycantropicGift", database.lycantropicGifts),
-      magicalSpecialAbilities: getSelectOptionsForResults(database, "MagicalSpecialAbility", database.magicalSpecialAbilities),
-      magicalTraditions: getSelectOptionsForResults(database, "MagicalTradition", database.magicalTraditions),
-      magicStyleSpecialAbilities: getSelectOptionsForResults(database, "MagicStyleSpecialAbility", database.magicStyleSpecialAbilities),
-      orbEnchantments: getSelectOptionsForResults(database, "OrbEnchantment", database.orbEnchantments),
-      pactGifts: getSelectOptionsForResults(database, "PactGift", database.pactGifts),
-      protectiveWardingCircleSpecialAbilities: getSelectOptionsForResults(database, "ProtectiveWardingCircleSpecialAbility", database.protectiveWardingCircleSpecialAbilities),
-      ringEnchantments: getSelectOptionsForResults(database, "RingEnchantment", database.ringEnchantments),
-      sermons: getSelectOptionsForResults(database, "Sermon", database.sermons),
-      sexSpecialAbilities: getSelectOptionsForResults(database, "SexSpecialAbility", database.sexSpecialAbilities),
-      sickleRituals: getSelectOptionsForResults(database, "SickleRitual", database.sickleRituals),
-      sikaryanDrainSpecialAbilities: getSelectOptionsForResults(database, "SikaryanDrainSpecialAbility", database.sikaryanDrainSpecialAbilities),
-      staffEnchantments: getSelectOptionsForResults(database, "StaffEnchantment", database.staffEnchantments),
-      skillStyleSpecialAbilities: getSelectOptionsForResults(database, "SkillStyleSpecialAbility", database.skillStyleSpecialAbilities),
-      spellSwordEnchantments: getSelectOptionsForResults(database, "SpellSwordEnchantment", database.spellSwordEnchantments),
-      toyEnchantments: getSelectOptionsForResults(database, "ToyEnchantment", database.toyEnchantments),
-      trinkhornzauber: getSelectOptionsForResults(database, "Trinkhornzauber", database.trinkhornzauber),
-      vampiricGifts: getSelectOptionsForResults(database, "VampiricGift", database.vampiricGifts),
-      visions: getSelectOptionsForResults(database, "Vision", database.visions),
-      wandEnchantments: getSelectOptionsForResults(database, "WandEnchantment", database.wandEnchantments),
-      weaponEnchantments: getSelectOptionsForResults(database, "WeaponEnchantment", database.weaponEnchantments),
-    }
-  },
-}
+export const activatableSelectOptionsCacheBuilder: CacheBuilder<ActivatableSelectOptionsCache> = (
+  database,
+  idMap,
+) =>
+  Object.fromEntries(
+    (Object.keys(cacheKeyBase) as (keyof typeof cacheKeyBase)[]).map(
+      (
+        entity,
+      ): [
+        ActivatableIdentifier["kind"],
+        {
+          [id: string]: ResolvedSelectOption[]
+        },
+      ] => [
+        entity,
+        getSelectOptionsForResults(
+          database,
+          idMap,
+          entity,
+          database.getAllInstanceContainersOfEntity(entity),
+        ),
+      ],
+    ),
+  ) as ActivatableSelectOptionsCache

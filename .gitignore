@@ -1,6 +1,7 @@
 gen
 node_modules
 lib
+*.tsbuildinfo
 
 # Swift
 .DS_Store

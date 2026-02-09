@@ -38,20 +38,17 @@ export const PublicationRef = DB.TypeAlias(import.meta.url, {
           name: "Occurrence",
           namePlural: "Occurrences",
           secondaryEntity: Locale,
-          type: DB.Object(
-            {
-              initial: DB.Optional({
-                comment: "The initial occurrence of the entry.",
-                type: DB.IncludeIdentifier(InitialOccurrence),
-              }),
-              revisions: DB.Optional({
-                comment:
-                  "Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.",
-                type: DB.Array(DB.IncludeIdentifier(Revision), { minItems: 1 }),
-              }),
-            },
-            { minProperties: 1 },
-          ),
+          type: DB.Object({
+            initial: DB.Required({
+              comment: "The initial occurrence of the entry.",
+              type: DB.IncludeIdentifier(InitialOccurrence),
+            }),
+            revisions: DB.Optional({
+              comment:
+                "Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.",
+              type: DB.Array(DB.IncludeIdentifier(Revision), { minItems: 1 }),
+            }),
+          }),
           minProperties: 1,
         }),
       }),
@@ -97,39 +94,39 @@ const InitialOccurrence = DB.TypeAlias(import.meta.url, {
 //   },
 // })
 
-const _PrintingOccurrence = DB.TypeAlias(import.meta.url, {
-  name: "PrintingOccurrence",
-  comment: "The publication’s printing where the entry has been added, changed, or removed.",
-  type: () =>
-    DB.Object({
-      printing: DB.Required({
-        comment: "The printing number.",
-        type: DB.Integer({ minimum: 1 }),
-      }),
-      changes: DB.Required({
-        comment: "The changes made in this printing.",
-        type: DB.IncludeIdentifier(PrintingChanges),
-      }),
-    }),
-})
+// const _PrintingOccurrence = DB.TypeAlias(import.meta.url, {
+//   name: "PrintingOccurrence",
+//   comment: "The publication’s printing where the entry has been added, changed, or removed.",
+//   type: () =>
+//     DB.Object({
+//       printing: DB.Required({
+//         comment: "The printing number.",
+//         type: DB.Integer({ minimum: 1 }),
+//       }),
+//       changes: DB.Required({
+//         comment: "The changes made in this printing.",
+//         type: DB.IncludeIdentifier(PrintingChanges),
+//       }),
+//     }),
+// })
 
-const PrintingChanges = DB.Enum(import.meta.url, {
-  name: "PrintingChanges",
-  comment:
-    "A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.",
-  values: () => ({
-    Set: DB.EnumCase({
-      comment:
-        "The entry has been added, re-added or changed page(s) in this printing. The page references override any previously set ones in case an entry has been moved to a different page in a later printing.",
-      type: DB.Array(DB.IncludeIdentifier(PageRange), { minItems: 1 }),
-    }),
-    Remove: DB.EnumCase({
-      comment:
-        "The entry has been removed in this printing.\n\nThis can also be used if the entry hss been removed by the release of this publication (that is, the first printing), which can be useful for books that introduce major revisions of rules into the game.",
-      type: null,
-    }),
-  }),
-})
+// const PrintingChanges = DB.Enum(import.meta.url, {
+//   name: "PrintingChanges",
+//   comment:
+//     "A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.",
+//   values: () => ({
+//     Set: DB.EnumCase({
+//       comment:
+//         "The entry has been added, re-added or changed page(s) in this printing. The page references override any previously set ones in case an entry has been moved to a different page in a later printing.",
+//       type: DB.Array(DB.IncludeIdentifier(PageRange), { minItems: 1 }),
+//     }),
+//     Remove: DB.EnumCase({
+//       comment:
+//         "The entry has been removed in this printing.\n\nThis can also be used if the entry hss been removed by the release of this publication (that is, the first printing), which can be useful for books that introduce major revisions of rules into the game.",
+//       type: null,
+//     }),
+//   }),
+// })
 
 const Revision = DB.Enum(import.meta.url, {
   name: "Revision",
