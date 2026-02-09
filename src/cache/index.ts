@@ -3,6 +3,8 @@ import type { TSONDBTypes } from "../main.ts"
 import {
   activatableSelectOptionsCacheBuilder,
   type ActivatableSelectOptionsCache,
+  type ResolvedSelectOption,
+  type ResolvedSelectOptionIdentifier,
 } from "./activatableSelectOptions.ts"
 import {
   buildAncestorBloodAdvantagesCache,
@@ -15,6 +17,8 @@ import {
 import {
   buildNewApplicationsAndUsesCache,
   type NewApplicationsAndUsesCache,
+  type ResolvedNewSkillApplication,
+  type ResolvedSkillUse,
 } from "./newApplicationsAndUses.ts"
 
 /**
@@ -41,6 +45,10 @@ export type {
   AncestorBloodAdvantagesCache,
   MagicalAndBlessedAdvantagesAndDisadvantagesCache,
   NewApplicationsAndUsesCache,
+  ResolvedNewSkillApplication,
+  ResolvedSelectOption,
+  ResolvedSelectOptionIdentifier,
+  ResolvedSkillUse,
 }
 
 /**
