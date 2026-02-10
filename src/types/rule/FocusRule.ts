@@ -10,7 +10,7 @@ export const FocusRule = DB.Entity(import.meta.url, {
   namePlural: "FocusRules",
   type: () =>
     DB.Object({
-      subject: DB.Optional({
+      subject: DB.Required({
         comment: "The associated subject.",
         type: SubjectIdentifier(),
       }),
