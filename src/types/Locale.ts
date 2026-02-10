@@ -131,6 +131,7 @@ export const Locale = DB.Entity(import.meta.url, {
            * - `0`: AP value
            */
           ".input {$value :number} {{{$value} Adventure Points}}": null,
+          "{$value} Adventure Points": null,
           /**
            * - `0`: AP value
            */
@@ -1131,10 +1132,9 @@ export const Locale = DB.Entity(import.meta.url, {
           "disadvantage": null,
           "domain {$domain}": null,
           "{$pact} level {$pactLevel}": null,
-          "Level {$level}:": null,
 
           // Personality Trait prerequisite
-          ".input {$level :number} {{Level {$level}}}": null,
+          "Level {$level}": null,
           "cannot be chosen at the same time as {$trait}": null,
           "must have {$trait}": null,
 
@@ -1362,6 +1362,48 @@ export const Locale = DB.Entity(import.meta.url, {
           "Race Base {$abbreviation}": null,
           "Primary attribute for the magic user’s Tradition": null,
           "Primary attribute for the Blessed One’s Tradition": null,
+
+          // Focus Rules
+          "The following rule is a Level {$level} focus rule for the topic {$topic}.": null,
+
+          // Special Abilities
+          "Protective Circle": null,
+          "Warding Circle": null,
+          "Prerequisites": null,
+          "AP Value": null,
+          ".input {$value :number} {{{$value} Adventure Points per level}}": null,
+          "tiny": null,
+          "small": null,
+          "medium": null,
+          "large": null,
+          "huge": null,
+          "{$values} AP for size category {$labels} (per level)": null,
+          "A/B/C/D skill": null,
+          "A/B/C/D spell": null,
+          "A/B/C/D ritual": null,
+          "A/B/C/D liturgical chant": null,
+          "A/B/C/D ceremony": null,
+          "A/B/C/D spellwork": null,
+          "A/B/C/D liturgical chant or ceremony": null,
+          "A/B/C/D ability": null,
+          "B/C/D combat technique": null,
+          "depending on the trade secret": null,
+          "{$values} Adventure Points for the {$labels} purchase": null,
+          "{$values}/and so on Adventure Points for the {$labels}/and so on purchase": null,
+          ".input {$value :number} {{{$value} Adventure Points with {$name}}}": null,
+          "Half the chosen disease’s level in adventure points": null,
+          "The chosen disease’s level in adventure points": null,
+          "Half the chosen poison’s level in adventure points": null,
+          "The chosen poison’s level in adventure points": null,
+          "{$values} adventure points for a {$sized} animal shape": null,
+          "Aspect": null,
+          "As chosen": null,
+          "Passive": null,
+          "Basic Maneuver": null,
+          "Special Maneuver": null,
+          "Volume": null,
+          "Penalty": null,
+          "Binding Cost": null,
         }, { allKeysAreRequired: true }),
       }),
     }),
