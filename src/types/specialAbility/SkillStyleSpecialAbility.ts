@@ -3,7 +3,7 @@ import { levels, maximum, name, name_in_library, rules } from "../_Activatable.j
 import { advanced } from "../_ActivatableAdvanced.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { explicit_select_options, select_options } from "../_ActivatableSelectOptions.js"
-import { AdvancedSkillSpecialAbilityIdentifier } from "../_Identifier.js"
+import { AdvancedSkillStyleSpecialAbilityIdentifier } from "../_IdentifierGroup.ts"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
@@ -18,7 +18,7 @@ export const SkillStyleSpecialAbility = DB.Entity(import.meta.url, {
       select_options,
       explicit_select_options,
       maximum,
-      advanced: advanced(AdvancedSkillSpecialAbilityIdentifier()),
+      advanced: advanced(DB.IncludeIdentifier(AdvancedSkillStyleSpecialAbilityIdentifier)),
       prerequisites: DB.Optional({
         type: DB.IncludeIdentifier(GeneralPrerequisites),
       }),
