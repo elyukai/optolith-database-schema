@@ -31,6 +31,7 @@ export const ArcaneEnergyCost = DB.Enum(import.meta.url, {
     Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefiniteArcaneEnergyCost) }),
     Disjunction: DB.EnumCase({ type: DB.IncludeIdentifier(ArcaneEnergyCostDisjunction) }),
     Variable: DB.EnumCase({ type: null }),
+    ByLevel: DB.EnumCase({ type: DB.IncludeIdentifier(ArcaneEnergyCostByLevel) }),
   }),
 })
 
@@ -196,10 +197,10 @@ const ArcaneEnergyCostDisjunction = DB.TypeAlias(import.meta.url, {
   name: "ArcaneEnergyCostDisjunction",
   type: () =>
     DB.Object({
-      interval: DB.Optional({
-        comment: "Specified if the selected AE cost option has to be paid for each time interval.",
-        type: DB.IncludeIdentifier(ArcaneEnergyCostDisjunctionInterval),
-      }),
+      // interval: DB.Optional({
+      //   comment: "Specified if the selected AE cost option has to be paid for each time interval.",
+      //   type: DB.IncludeIdentifier(ArcaneEnergyCostDisjunctionInterval),
+      // }),
       options: DB.Required({
         comment: "The possible AE cost values.",
         type: DB.Array(DB.IncludeIdentifier(ArcaneEnergyCostDisjunctionOption), { minItems: 1 }),
@@ -207,26 +208,28 @@ const ArcaneEnergyCostDisjunction = DB.TypeAlias(import.meta.url, {
     }),
 })
 
-const ArcaneEnergyCostDisjunctionInterval = DB.TypeAlias(import.meta.url, {
-  name: "ArcaneEnergyCostDisjunctionInterval",
-  type: () =>
-    DB.Object({
-      value: DB.Required({
-        comment: "The interval itself.",
-        type: DB.IncludeIdentifier(DurationUnitValue),
-      }),
-      activation_value: DB.Required({
-        comment: "The AE cost value for activation.",
-        type: DB.Integer({ minimum: 1 }),
-      }),
-      after_activation: DB.Required({
-        comment: `Set to \`true\` if the action where the enchantment is casted does not as a part of the first interval that has to be payed, so that the first interval payment needs to be done after the activation.
+// Unclear what the following was for, but I will keep it in here for now just in case I forgot about something
 
-This works different than other sustained spells, since for them the end of the cast usually already counts as part of the first interval.`,
-        type: DB.Boolean(),
-      }),
-    }),
-})
+// const ArcaneEnergyCostDisjunctionInterval = DB.TypeAlias(import.meta.url, {
+//   name: "ArcaneEnergyCostDisjunctionInterval",
+//   type: () =>
+//     DB.Object({
+//       value: DB.Required({
+//         comment: "The interval itself.",
+//         type: DB.IncludeIdentifier(DurationUnitValue),
+//       }),
+//       activation_value: DB.Required({
+//         comment: "The AE cost value for activation.",
+//         type: DB.Integer({ minimum: 1 }),
+//       }),
+//       after_activation: DB.Required({
+//         comment: `Set to \`true\` if the action where the enchantment is casted does not as a part of the first interval that has to be payed, so that the first interval payment needs to be done after the activation.
+
+// This works different than other sustained spells, since for them the end of the cast usually already counts as part of the first interval.`,
+//         type: DB.Boolean(),
+//       }),
+//     }),
+// })
 
 const ArcaneEnergyCostDisjunctionOption = DB.TypeAlias(import.meta.url, {
   name: "ArcaneEnergyCostDisjunctionOption",
@@ -250,6 +253,43 @@ const ArcaneEnergyCostDisjunctionOption = DB.TypeAlias(import.meta.url, {
         ),
       ),
     }),
+})
+
+const ArcaneEnergyCostByLevel = DB.TypeAlias(import.meta.url, {
+  name: "ArcaneEnergyCostByLevel",
+  type: () =>
+    DB.Object({
+      levels: DB.Required({
+        comment:
+          "A continuous range of arcane energy cost for each level. The first element is the AE cost for the first level, the second element is the AE cost for the second level, and so on.",
+        type: DB.Array(DB.IncludeIdentifier(ArcaneEnergyCostByLevelLevel), { minItems: 2 }),
+      }),
+      style: DB.Required({
+        comment: "How to display the AE cost by level.",
+        type: DB.IncludeIdentifier(ArcaneEnergyCostByLevelStyle),
+      }),
+    }),
+})
+
+const ArcaneEnergyCostByLevelLevel = DB.TypeAlias(import.meta.url, {
+  name: "ArcaneEnergyCostByLevelLevel",
+  type: () =>
+    DB.Object({
+      value: DB.Required({
+        comment: "The arcane energy cost for this level.",
+        type: DB.Integer({ minimum: 0 }),
+      }),
+    }),
+})
+
+const ArcaneEnergyCostByLevelStyle = DB.Enum(import.meta.url, {
+  name: "ArcaneEnergyCostByLevelStyle",
+  comment:
+    "The AE cost are defined by level of the enchantment. It may either be displayed in a compressed way (e.g. `1/2 AE for level I/II`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`).",
+  values: () => ({
+    Compressed: DB.EnumCase({ type: null }),
+    Verbose: DB.EnumCase({ type: null }),
+  }),
 })
 
 const Volume = DB.Enum(import.meta.url, {
