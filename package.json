@@ -38,7 +38,7 @@
   "author": "Lukas Obermann",
   "license": "MPL-2.0",
   "dependencies": {
-    "@elyukai/utils": "^0.2.0",
+    "@elyukai/utils": "^0.2.2",
     "tsondb": "^0.19.9",
     "yaml": "^2.8.2"
   },
