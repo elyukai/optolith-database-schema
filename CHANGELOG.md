@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.30.0](https://github.com/elyukai/optolith-database-schema/compare/v0.29.1...v0.30.0) (2026-02-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* adjust for activatable display
+* require focus rule subjects
+* more advanced identifier options
+
+### Features
+
+* add more translations ([b2a0d58](https://github.com/elyukai/optolith-database-schema/commit/b2a0d5820240fd3b89461c1742b894981c1acdbd))
+* add optional derived characteristic description ([403d4bc](https://github.com/elyukai/optolith-database-schema/commit/403d4bc1e3768a78d4bc71778c80b29c3a13d91e))
+* adjust for activatable display ([40c07ba](https://github.com/elyukai/optolith-database-schema/commit/40c07baa30361b7955f478b840717e06767054cb))
+* more advanced identifier options ([e0ac1e3](https://github.com/elyukai/optolith-database-schema/commit/e0ac1e31e4c9d19f6dacff60a120c08311a165bf)), closes [#120](https://github.com/elyukai/optolith-database-schema/issues/120)
+* require focus rule subjects ([78b69fb](https://github.com/elyukai/optolith-database-schema/commit/78b69fbe7063ba39301392382f8e8429284e7220))
+
 ## [0.29.1](https://github.com/elyukai/optolith-database-schema/compare/v0.29.0...v0.29.1) (2026-02-09)
 
 
