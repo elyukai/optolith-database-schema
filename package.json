@@ -27,6 +27,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "generate": "tsondb generate",
+    "generate:watch": "nodemon --watch lib --exec \"tsondb generate\" --ext js",
     "test": "node ./lib/test.js",
     "lint": "eslint",
     "format": "prettier \"src/{types/**/*.{ts,tsx},*.{ts,tsx}}\" --write",
@@ -47,6 +48,7 @@
     "commit-and-tag-version": "^12.6.1",
     "eslint": "^9.39.2",
     "globals": "^17.3.0",
+    "nodemon": "^3.1.11",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.54.0"
