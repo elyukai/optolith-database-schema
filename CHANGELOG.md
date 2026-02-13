@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.30.1](https://github.com/elyukai/optolith-database-schema/compare/v0.30.0...v0.30.1) (2026-02-13)
+
+
+### Features
+
+* add translations for curricula ([7da65cf](https://github.com/elyukai/optolith-database-schema/commit/7da65cf3b8015be63dccf93137dfa4cc97ed1d24))
+
 ## [0.30.0](https://github.com/elyukai/optolith-database-schema/compare/v0.29.1...v0.30.0) (2026-02-12)
 
 
