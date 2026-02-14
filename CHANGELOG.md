@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.31.0](https://github.com/elyukai/optolith-database-schema/compare/v0.30.1...v0.31.0) (2026-02-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* use correct entity names in identifier groups
+
+### Features
+
+* add some translations for equipment ([3fa1060](https://github.com/elyukai/optolith-database-schema/commit/3fa10600c26c6c82cbbed08a8cca6114d6feeeee))
+* locale measurement adjustments ([9040013](https://github.com/elyukai/optolith-database-schema/commit/9040013a844b33a707b7d0f8d804f24a2bfb1325))
+
+
+### Bug Fixes
+
+* use correct entity names in identifier groups ([b46029d](https://github.com/elyukai/optolith-database-schema/commit/b46029da1e0520cbe99f3665a928868648e027ca))
+
 ## [0.30.1](https://github.com/elyukai/optolith-database-schema/compare/v0.30.0...v0.30.1) (2026-02-13)
 
 
