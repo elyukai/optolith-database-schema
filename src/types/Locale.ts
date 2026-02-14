@@ -20,6 +20,10 @@ export const Locale = DB.Entity(import.meta.url, {
           "The language is not (fully) implemented and thus needs to be excluded from stable releases.",
         type: DB.Boolean(),
       }),
+      measurementAdjustments: DB.Optional({
+        comment: "Measurement adjustments for units used in the locale.",
+        type: DB.IncludeIdentifier(LocaleMeasurementAdjustments),
+      }),
       translations: DB.Optional({
         // TODO: Make Required again once translations are added for all locales
         comment: "The translations strings for the locale.",
@@ -1479,6 +1483,38 @@ export const Locale = DB.Entity(import.meta.url, {
       },
     ],
   ],
+})
+
+const LocaleMeasurementAdjustments = DB.TypeAlias(import.meta.url, {
+  name: "LocaleMeasurementAdjustments",
+  comment:
+    "Measurements in the database always use the metric system, although the actual unit used in the locale’s translation may be different. Some translation may use different units where values have to be converted using a multiplier.",
+  type: () =>
+    DB.Object(
+      {
+        milesMultiplier: DB.Optional({
+          comment:
+            "Some lengths in the database are stored in kilometers (or “miles”, as it is called originally). This multiplier is used to convert these lengths to the unit used in the locale’s translation.",
+          type: DB.Float({ minimum: { value: 0, isExclusive: true } }),
+        }),
+        stepsMultiplier: DB.Optional({
+          comment:
+            "Some lengths in the database are stored in meters (or “steps”, as it is called originally). This multiplier is used to convert these lengths to the unit used in the locale’s translation (e.g. yards).",
+          type: DB.Float({ minimum: { value: 0, isExclusive: true } }),
+        }),
+        halffingersMultiplier: DB.Optional({
+          comment:
+            "Some lengths in the database are stored in centimeters (or “halffingers”, as it is called originally). This multiplier is used to convert these lengths to the unit used in the locale’s translation (e.g. inches).",
+          type: DB.Float({ minimum: { value: 0, isExclusive: true } }),
+        }),
+        stonesMultiplier: DB.Optional({
+          comment:
+            "Weights in the database are stored in kilogram (or “stone”, as it is called originally). This multiplier is used to convert these weights to the unit used in the locale’s translation (e.g. pounds).",
+          type: DB.Float({ minimum: { value: 0, isExclusive: true } }),
+        }),
+      },
+      { minProperties: 1 },
+    ),
 })
 
 export const NestedTranslationMap = <
