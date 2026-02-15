@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.31.2](https://github.com/elyukai/optolith-database-schema/compare/v0.31.1...v0.31.2) (2026-02-15)
+
+
+### Features
+
+* add translations for poisons, elixirs, sex practices, diseases and personality traits ([3561289](https://github.com/elyukai/optolith-database-schema/commit/3561289fc1283bcecde3065bee5850b166ba3270))
+
+
+### Bug Fixes
+
+* incorrect comment ([c3a6124](https://github.com/elyukai/optolith-database-schema/commit/c3a61244cec93af6396f723ee972e7911f98c1fa))
+* poison addition interpretation ([a24aeb6](https://github.com/elyukai/optolith-database-schema/commit/a24aeb6dd1cf170afe0d7de1b23f5cdf0c11b5b3))
+
 ## [0.31.1](https://github.com/elyukai/optolith-database-schema/compare/v0.31.0...v0.31.1) (2026-02-15)
 
 
