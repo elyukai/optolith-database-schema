@@ -509,10 +509,15 @@ export const IntoxicantAddiction = DB.TypeAlias(import.meta.url, {
           "The chance of getting addicted after an ingestion in percent. Some intoxicants do not have a contant chance of addiction.",
         type: DB.Integer({ minimum: 0, maximum: 100, multipleOf: 5 }),
       }),
-      interval: DB.Required({
+      check: DB.Required({
+        comment:
+          "The interval at which to check for addiction after an ingestion. If set to one, every ingestion has to be checked for addiction. If set to two, every second ingestion has to be checked, and so on.",
+        type: DB.IncludeIdentifier(IntoxicantAddictionCheck),
+      }),
+      withdrawalPrevention: DB.Required({
         comment:
           "The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
-        type: DB.IncludeIdentifier(IntoxicantAddictionInterval),
+        type: DB.IncludeIdentifier(IntoxicantAddictionWithdrawalPrevention),
       }),
       translations: NestedTranslationMap(
         DB.Optional,
@@ -528,8 +533,41 @@ export const IntoxicantAddiction = DB.TypeAlias(import.meta.url, {
     }),
 })
 
-const IntoxicantAddictionInterval = DB.Enum(import.meta.url, {
-  name: "IntoxicantAddictionInterval",
+const IntoxicantAddictionCheck = DB.TypeAlias(import.meta.url, {
+  name: "IntoxicantAddictionCheck",
+  comment:
+    "The interval at which to check for addiction after an ingestion. If set to one, every ingestion has to be checked for addiction. If set to two, every second ingestion has to be checked, and so on.",
+  type: () =>
+    DB.Object({
+      interval: DB.Required({
+        type: DB.Integer({ minimum: 1 }),
+      }),
+      onlySameMonth: DB.Optional({
+        comment: "If true, only ingestions in the same month count for the check interval.",
+        type: DB.Boolean(),
+      }),
+    }),
+})
+
+const IntoxicantAddictionWithdrawalPrevention = DB.TypeAlias(import.meta.url, {
+  name: "IntoxicantAddictionWithdrawalPrevention",
+  type: () =>
+    DB.Object({
+      amount: DB.Required({
+        comment:
+          "The amount that must be ingested within the interval to prevent withdrawal symptoms.",
+        type: DB.Integer({ minimum: 1 }),
+      }),
+      interval: DB.Required({
+        comment:
+          "The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
+        type: DB.IncludeIdentifier(IntoxicantAddictionWithdrawalPreventionInterval),
+      }),
+    }),
+})
+
+const IntoxicantAddictionWithdrawalPreventionInterval = DB.Enum(import.meta.url, {
+  name: "IntoxicantAddictionWithdrawalPreventionInterval",
   comment:
     "The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
   values: () => ({
