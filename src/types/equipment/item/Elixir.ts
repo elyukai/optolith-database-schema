@@ -48,7 +48,7 @@ export const Elixir = DB.Entity(import.meta.url, {
             type: DB.String({ minLength: 1 }),
           }),
           special: DB.Optional({
-            comment: "The recipe’s description.",
+            comment: "Special information about the elixir.",
             type: DB.String({ minLength: 1 }),
           }),
           alternative_names: DB.Optional({
