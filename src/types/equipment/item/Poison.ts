@@ -3,6 +3,7 @@ import { NestedTranslationMap } from "../../Locale.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { Dice } from "../../_Dice.js"
 import { Reduceable, Resistance } from "../../_DiseasePoison.js"
+import { DiseaseIdentifier } from "../../_Identifier.ts"
 import { MathOperation } from "../../_MathExpression.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
@@ -514,10 +515,14 @@ export const IntoxicantAddiction = DB.TypeAlias(import.meta.url, {
           "The interval at which to check for addiction after an ingestion. If set to one, every ingestion has to be checked for addiction. If set to two, every second ingestion has to be checked, and so on.",
         type: DB.IncludeIdentifier(IntoxicantAddictionCheck),
       }),
-      withdrawalPrevention: DB.Required({
+      withdrawalPrevention: DB.Optional({
         comment:
           "The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
         type: DB.IncludeIdentifier(IntoxicantAddictionWithdrawalPrevention),
+      }),
+      disease: DB.Optional({
+        comment: "The disease that represents the addiction.",
+        type: DiseaseIdentifier(),
       }),
       translations: NestedTranslationMap(
         DB.Optional,

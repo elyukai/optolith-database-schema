@@ -1565,6 +1565,7 @@ export const Locale = DB.Entity(import.meta.url, {
           ".input {$hiddenCount :number} {{Alternative Names}}": null,
           ".input {$count :number} {{check required every {$count}. application}}": null,
           ".input {$count :number} {{check required every {$count}. application in the same month}}": null,
+          "see {$link}": null,
 
           // sex practices
           "Failed": null,
