@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.31.3](https://github.com/elyukai/optolith-database-schema/compare/v0.31.2...v0.31.3) (2026-02-16)
+
+
+### Bug Fixes
+
+* interpretation and display of poisons/elixirs ([30a6a3c](https://github.com/elyukai/optolith-database-schema/commit/30a6a3c4262e2920f9100605faee8c426cd37491))
+
 ## [0.31.2](https://github.com/elyukai/optolith-database-schema/compare/v0.31.1...v0.31.2) (2026-02-15)
 
 
