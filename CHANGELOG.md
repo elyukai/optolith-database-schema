@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.31.4](https://github.com/elyukai/optolith-database-schema/compare/v0.31.3...v0.31.4) (2026-02-16)
+
+
+### Bug Fixes
+
+* optional withdrawal prevention and disease link ([a9211ec](https://github.com/elyukai/optolith-database-schema/commit/a9211ec6b784538cc303cde312b59d8f72079775))
+
 ## [0.31.3](https://github.com/elyukai/optolith-database-schema/compare/v0.31.2...v0.31.3) (2026-02-16)
 
 
