@@ -1525,10 +1525,10 @@ export const Locale = DB.Entity(import.meta.url, {
 
           // poisons/elixirs
           "{$types} poison": null,
-          "Weapon": null,
-          "Ingestion": null,
-          "Inhalation": null,
-          "Contact": null,
+          "Weapon (poison)": null,
+          "Ingestion (poison)": null,
+          "Inhalation (poison)": null,
+          "Contact (poison)": null,
           "Level": null,
           "Type": null,
           "animal venom": null,
@@ -1553,6 +1553,7 @@ export const Locale = DB.Entity(import.meta.url, {
           "The poison levels equals the QL.": null,
           ".input {$value :number} {{{$value} applications every {$interval}}}": null,
           "{$valueRange} on {$dice}": null,
+          "Ingestion": null,
           "Side Effect": null,
           "Overdose": null,
           "Legality": null,
@@ -1562,6 +1563,8 @@ export const Locale = DB.Entity(import.meta.url, {
           "Value/Cost": null,
           "cannot be extracted": null,
           ".input {$hiddenCount :number} {{Alternative Names}}": null,
+          ".input {$count :number} {{check required every {$count}. application}}": null,
+          ".input {$count :number} {{check required every {$count}. application in the same month}}": null,
 
           // sex practices
           "Failed": null,

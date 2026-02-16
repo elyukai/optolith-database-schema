@@ -509,7 +509,7 @@ export const IntoxicantAddiction = DB.TypeAlias(import.meta.url, {
           "The chance of getting addicted after an ingestion in percent. Some intoxicants do not have a contant chance of addiction.",
         type: DB.Integer({ minimum: 0, maximum: 100, multipleOf: 5 }),
       }),
-      check: DB.Required({
+      check: DB.Optional({
         comment:
           "The interval at which to check for addiction after an ingestion. If set to one, every ingestion has to be checked for addiction. If set to two, every second ingestion has to be checked, and so on.",
         type: DB.IncludeIdentifier(IntoxicantAddictionCheck),
