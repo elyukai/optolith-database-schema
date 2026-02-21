@@ -96,30 +96,10 @@ export const AdvantageDisadvantagePrerequisiteGroup = DB.Enum(import.meta.url, {
   values: () => {
     return {
       CommonSuggestedByRCP: DB.EnumCase({ type: null }),
-      Sex: DB.EnumCase({ type: DB.IncludeIdentifier(SexPrerequisite) }),
-      Race: DB.EnumCase({ type: DB.IncludeIdentifier(RacePrerequisite) }),
-      Culture: DB.EnumCase({ type: DB.IncludeIdentifier(CulturePrerequisite) }),
-      Pact: DB.EnumCase({ type: DB.IncludeIdentifier(PactPrerequisite) }),
-      SocialStatus: DB.EnumCase({ type: DB.IncludeIdentifier(SocialStatusPrerequisite) }),
-      State: DB.EnumCase({ type: DB.IncludeIdentifier(StatePrerequisite) }),
-      Rule: DB.EnumCase({ type: DB.IncludeIdentifier(RulePrerequisite) }),
-      PrimaryAttribute: DB.EnumCase({ type: DB.IncludeIdentifier(PrimaryAttributePrerequisite) }),
-      Activatable: DB.EnumCase({ type: DB.IncludeIdentifier(ActivatablePrerequisite) }),
-      BlessedTradition: DB.EnumCase({ type: DB.IncludeIdentifier(BlessedTraditionPrerequisite) }),
-      MagicalTradition: DB.EnumCase({ type: DB.IncludeIdentifier(MagicalTraditionPrerequisite) }),
-      Rated: DB.EnumCase({ type: DB.IncludeIdentifier(RatedPrerequisite) }),
-      RatedMinimumNumber: DB.EnumCase({
-        type: DB.IncludeIdentifier(RatedMinimumNumberPrerequisite),
-      }),
-      RatedSum: DB.EnumCase({ type: DB.IncludeIdentifier(RatedSumPrerequisite) }),
-      Enhancement: DB.EnumCase({ type: DB.IncludeIdentifier(EnhancementPrerequisite) }),
-      Text: DB.EnumCase({ type: DB.IncludeIdentifier(TextPrerequisite) }),
       NoOtherAncestorBloodAdvantage: DB.EnumCase({
         type: AncestorBloodPrerequisite,
       }),
-      SexualCharacteristic: DB.EnumCase({
-        type: DB.IncludeIdentifier(SexualCharacteristicPrerequisite),
-      }),
+      ...GeneralPrerequisiteGroup.type.value.values,
     }
   },
 })
