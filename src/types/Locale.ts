@@ -1060,11 +1060,12 @@ export const Locale = DB.Entity(import.meta.url, {
           "at least {$value}": null,
           "/{$value}": null,
           " per {$value}": null,
-          ", minimum of {$value}": null,
+          "{$baseCost}, minimum of {$value}": null,
           " ({$value} perm.)": null,
           ".input {$value :number} {{, {$value} of which are permanent}}": null,
           ", {$value} of which are permanent": null,
           "half of the activation cost": null,
+          "50%": null,
           " and ": null,
           " + ": null,
           " or ": null,
@@ -1097,6 +1098,7 @@ export const Locale = DB.Entity(import.meta.url, {
           "Touch": null,
           "Radius": null,
           " (casting)": null,
+          "activation": null,
 
           // Target Category
           "Zone": null,
@@ -1448,13 +1450,15 @@ export const Locale = DB.Entity(import.meta.url, {
           // tradition articact enchantments -- cost
           "{$value} LP": null,
           ".input {$value :number} {{{$value} permanent AE}}": null,
+          "{$value} permanent AE": null,
+          "{$value} pAE": null,
           "{$cost} per {$interval}": null,
+          "{$cost}/{$interval}": null,
           "{$cost} per {$countable}": null,
+          "{$cost}/{$countable}": null,
           "{$cost} per level": null,
           "{$cost} for level {$level}": null,
-          "{$cost} (activation) + {$halvedCost} per {$interval}": null,
           "Variable": null,
-          "{$value} permanent AE": null,
 
           // curricula
           "Guideline": null,
@@ -1583,6 +1587,28 @@ export const Locale = DB.Entity(import.meta.url, {
 
           // personality traits
           "Can be combined with": null,
+
+          // magical actions
+          "Skill": null,
+          "{$defaultDuration}, but no more than {$maximumDuration}": null,
+          "Music Tradition": null,
+          "long": null,
+          "short": null,
+          "one-time": null,
+          "sustainable": null,
+          "{$firstPersonValue} for the first person; {$additionalPersonValue} for each additional person": null,
+          "Tribe Tradition": null,
+          "Depends on animal type": null,
+          "Crafting Time (slow / fast)": null,
+          "Duration (slow / fast)": null,
+          "Combat Technique": null,
+          "CT": null,
+
+          // familiar’s tricks
+          "All familiars know this trick by default.": null,
+          "All AE": null,
+          "All AE, at least {$value} AE": null,
+          "depends on spent AE": null,
         }, { allKeysAreRequired: true }),
       }),
     }),
