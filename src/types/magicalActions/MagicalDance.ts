@@ -1,10 +1,11 @@
 import * as DB from "tsondb/schema/dsl"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedModifier } from "../_ActivatableSkillCheckResultBased.js"
+import { NonModifiableOneTimeCostPerCountable } from "../_ActivatableSkillCost.ts"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { ArcaneDancerTraditionIdentifier, PropertyIdentifier } from "../_Identifier.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
-import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
+import { ResponsiveText } from "../_ResponsiveText.js"
 import { SkillCheck } from "../_SkillCheck.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
@@ -111,20 +112,10 @@ const FixedMagicalDanceCost = DB.TypeAlias(import.meta.url, {
         comment: "The (temporary) AE cost value.",
         type: DB.Integer({ minimum: 1 }),
       }),
-      translations: NestedTranslationMap(
-        DB.Optional,
-        "FixedMagicalDanceCost",
-        DB.Object(
-          {
-            per: DB.Optional({
-              comment:
-                "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
-              type: DB.IncludeIdentifier(ResponsiveTextOptional),
-            }),
-          },
-          { minProperties: 1 },
-        ),
-      ),
+      per: DB.Optional({
+        comment: "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
+        type: DB.IncludeIdentifier(NonModifiableOneTimeCostPerCountable),
+      }),
     }),
 })
 
@@ -132,7 +123,7 @@ const IndefiniteMagicalDanceCost = DB.TypeAlias(import.meta.url, {
   name: "IndefiniteMagicalDanceCost",
   type: () =>
     DB.Object({
-      maximum: DB.Optional({
+      modifier: DB.Optional({
         comment:
           "Specified if the indefinite description's result value is to be modified by a certain number.",
         type: DB.IncludeIdentifier(CheckResultBasedModifier),

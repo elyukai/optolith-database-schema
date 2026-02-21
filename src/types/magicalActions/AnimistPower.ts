@@ -145,13 +145,13 @@ const OneTimeAnimistPowerPerformanceParameters = DB.TypeAlias(import.meta.url, {
 const OneTimeAnimistPowerCost = DB.Enum(import.meta.url, {
   name: "OneTimeAnimistPowerCost",
   values: () => ({
-    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedAnimistPowerCost) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedOneTimeAnimistPowerCost) }),
     ByPrimaryPatron: DB.EnumCase({ type: DB.IncludeIdentifier(AnimistPowerCostByPrimaryPatron) }),
   }),
 })
 
-const FixedAnimistPowerCost = DB.TypeAlias(import.meta.url, {
-  name: "FixedAnimistPowerCost",
+const FixedOneTimeAnimistPowerCost = DB.TypeAlias(import.meta.url, {
+  name: "FixedOneTimeAnimistPowerCost",
   type: () =>
     DB.Object({
       value: DB.Required({
@@ -159,7 +159,7 @@ const FixedAnimistPowerCost = DB.TypeAlias(import.meta.url, {
         type: DB.Integer({ minimum: 1 }),
       }),
       interval: DB.Optional({
-        comment: "If defined, half of the AE cost `value` has to be paid each interval.",
+        comment: "If defined, the AE cost has to be paid each interval.",
         type: DB.IncludeIdentifier(DurationUnitValue),
       }),
     }),
@@ -210,9 +210,24 @@ const SustainedAnimistPowerPerformanceParameters = DB.TypeAlias(import.meta.url,
 const SustainedAnimistPowerCost = DB.Enum(import.meta.url, {
   name: "SustainedAnimistPowerCost",
   values: () => ({
-    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedAnimistPowerCost) }),
+    Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(FixedSustainedAnimistPowerCost) }),
     ByPrimaryPatron: DB.EnumCase({ type: DB.IncludeIdentifier(AnimistPowerCostByPrimaryPatron) }),
   }),
+})
+
+const FixedSustainedAnimistPowerCost = DB.TypeAlias(import.meta.url, {
+  name: "FixedSustainedAnimistPowerCost",
+  type: () =>
+    DB.Object({
+      value: DB.Required({
+        comment: "The (temporary) AE cost value.",
+        type: DB.Integer({ minimum: 1 }),
+      }),
+      interval: DB.Required({
+        comment: "Half of the AE cost `value` has to be paid each interval.",
+        type: DB.IncludeIdentifier(DurationUnitValue),
+      }),
+    }),
 })
 
 const AnimistPowerImprovementCost = DB.Enum(import.meta.url, {

@@ -45,7 +45,7 @@ const InfluenceEffect = DB.TypeAlias(import.meta.url, {
   name: "InfluenceEffect",
   type: () =>
     DB.Object({
-      label: DB.Optional({
+      label: DB.Required({
         comment: "An optional label that is displayed and placed before the actual text.",
         type: DB.String({ minLength: 1 }),
       }),

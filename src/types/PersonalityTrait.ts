@@ -56,7 +56,7 @@ const PersonalityTraitEffect = DB.TypeAlias(import.meta.url, {
   name: "PersonalityTraitEffect",
   type: () =>
     DB.Object({
-      label: DB.Optional({
+      label: DB.Required({
         comment: "A label that is displayed and placed before the actual text.",
         type: DB.String({ minLength: 1 }),
       }),

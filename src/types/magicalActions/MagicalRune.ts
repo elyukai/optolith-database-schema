@@ -185,14 +185,6 @@ const MagicalRuneCost = DB.Enum(import.meta.url, {
   }),
 })
 
-const MagicalRuneOptionCost = DB.Enum(import.meta.url, {
-  name: "MagicalRuneOptionCost",
-  values: () => ({
-    Single: DB.EnumCase({ type: DB.IncludeIdentifier(SingleMagicalRuneCost) }),
-    Disjunction: DB.EnumCase({ type: DB.IncludeIdentifier(MagicalRuneCostDisjunction) }),
-  }),
-})
-
 const SingleMagicalRuneCost = DB.TypeAlias(import.meta.url, {
   name: "SingleMagicalRuneCost",
   type: () =>
@@ -228,6 +220,23 @@ const MagicalRuneCostDisjunction = DB.TypeAlias(import.meta.url, {
     }),
 })
 
+const MagicalRuneCraftingTimePerCountable = DB.TypeAlias(import.meta.url, {
+  name: "MagicalRuneCraftingTimePerCountable",
+  type: () =>
+    DB.Object({
+      translations: NestedTranslationMap(
+        DB.Required,
+        "MagicalRuneCraftingTimePerCountable",
+        DB.Object({
+          countable: DB.Required({
+            comment: "The countable entity name.",
+            type: DB.IncludeIdentifier(ResponsiveText),
+          }),
+        }),
+      ),
+    }),
+})
+
 const MagicalRuneCraftingTime = DB.TypeAlias(import.meta.url, {
   name: "MagicalRuneCraftingTime",
   type: () =>
@@ -236,17 +245,11 @@ const MagicalRuneCraftingTime = DB.TypeAlias(import.meta.url, {
         comment: "The crafting time in actions.",
         type: DB.Integer({ minimum: 1 }),
       }),
-      translations: NestedTranslationMap(
-        DB.Optional,
-        "MagicalRuneCraftingTime",
-        DB.Object({
-          per: DB.Required({
-            comment:
-              "The crafting time has to be per a specific countable entity, e.g. `8 actions per person`.",
-            type: DB.IncludeIdentifier(ResponsiveText),
-          }),
-        }),
-      ),
+      per: DB.Optional({
+        comment:
+          "The crafting time has to be per a specific countable entity, e.g. `8 Actions per person`.",
+        type: DB.IncludeIdentifier(MagicalRuneCraftingTimePerCountable),
+      }),
     }),
 })
 
@@ -284,7 +287,7 @@ export const MagicalRuneOption = DB.Entity(import.meta.url, {
       }),
       cost: DB.Optional({
         comment: "The option-specific AE cost.",
-        type: DB.IncludeIdentifier(MagicalRuneOptionCost),
+        type: DB.IncludeIdentifier(SingleMagicalRuneCost),
       }),
       improvement_cost: DB.Optional({
         comment: "The option-specific improvement cost.",

@@ -1,10 +1,11 @@
 import * as DB from "tsondb/schema/dsl"
 import { OldParameter } from "../_ActivatableSkill.js"
+import { NonModifiableOneTimeCostPerCountable } from "../_ActivatableSkillCost.ts"
 import { DurationUnitValue } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { PropertyIdentifier, SkillIdentifier } from "../_Identifier.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
-import { ResponsiveText, ResponsiveTextReplace } from "../_ResponsiveText.js"
+import { ResponsiveTextReplace } from "../_ResponsiveText.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
@@ -105,16 +106,10 @@ const ElvenMagicalSongCost = DB.TypeAlias(import.meta.url, {
         comment: "A permanent AE cost, independent from a possible interval.",
         type: DB.IncludeIdentifier(ElvenMagicalSongPermanentCost),
       }),
-      translations: NestedTranslationMap(
-        DB.Optional,
-        "ElvenMagicalSongCost",
-        DB.Object({
-          per: DB.Required({
-            comment: "The cost have to be per a specific countable entity, e.g. `8 AE per person`.",
-            type: DB.IncludeIdentifier(ResponsiveText),
-          }),
-        }),
-      ),
+      per: DB.Optional({
+        comment: "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
+        type: DB.IncludeIdentifier(NonModifiableOneTimeCostPerCountable),
+      }),
     }),
 })
 

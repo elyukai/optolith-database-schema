@@ -1,13 +1,16 @@
 import * as DB from "tsondb/schema/dsl"
 import { OldParameter } from "./_ActivatableSkill.js"
-import { IndefiniteOneTimeCost } from "./_ActivatableSkillCost.js"
+import {
+  IndefiniteOneTimeCost,
+  NonModifiableOneTimeCostPerCountable,
+} from "./_ActivatableSkillCost.js"
 import {
   DurationUnitValue,
   FixedDuration,
   IndefiniteDuration,
 } from "./_ActivatableSkillDuration.js"
 import { AnimalTypeIdentifier, PropertyIdentifier } from "./_Identifier.js"
-import { ResponsiveText, ResponsiveTextOptional } from "./_ResponsiveText.js"
+import { ResponsiveText } from "./_ResponsiveText.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
@@ -141,7 +144,7 @@ const FamiliarsTrickFixedOneTimeCost = DB.TypeAlias(import.meta.url, {
   name: "FamiliarsTrickFixedOneTimeCost",
   type: () =>
     DB.Object({
-      ae_value: DB.Required({
+      value: DB.Required({
         comment: "The AE cost value.",
         type: DB.Integer({ minimum: 1 }),
       }),
@@ -153,20 +156,10 @@ const FamiliarsTrickFixedOneTimeCost = DB.TypeAlias(import.meta.url, {
         comment: "The interval in which you have to pay the AE cost again.",
         type: DB.IncludeIdentifier(DurationUnitValue),
       }),
-      translations: NestedTranslationMap(
-        DB.Optional,
-        "FamiliarsTrickFixedOneTimeCost",
-        DB.Object(
-          {
-            per: DB.Optional({
-              comment:
-                "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
-              type: DB.IncludeIdentifier(ResponsiveTextOptional),
-            }),
-          },
-          { minProperties: 1 },
-        ),
-      ),
+      per: DB.Optional({
+        comment: "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
+        type: DB.IncludeIdentifier(NonModifiableOneTimeCostPerCountable),
+      }),
     }),
 })
 
@@ -204,12 +197,8 @@ const FamiliarsTrickOneTimeIntervalCost = DB.TypeAlias(import.meta.url, {
   name: "FamiliarsTrickOneTimeIntervalCost",
   type: () =>
     DB.Object({
-      ae_value: DB.Required({
+      value: DB.Required({
         comment: "The AE cost value.",
-        type: DB.Integer({ minimum: 1 }),
-      }),
-      lp_value: DB.Optional({
-        comment: "The LP cost value.",
         type: DB.Integer({ minimum: 1 }),
       }),
       interval: DB.Required({
@@ -233,12 +222,8 @@ const FamiliarsTrickSustainedCost = DB.TypeAlias(import.meta.url, {
   name: "FamiliarsTrickSustainedCost",
   type: () =>
     DB.Object({
-      ae_value: DB.Required({
+      value: DB.Required({
         comment: "The AE cost value.",
-        type: DB.Integer({ minimum: 1 }),
-      }),
-      lp_value: DB.Optional({
-        comment: "The LP cost value.",
         type: DB.Integer({ minimum: 1 }),
       }),
       interval: DB.Optional({

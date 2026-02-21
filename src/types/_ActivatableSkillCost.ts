@@ -89,7 +89,7 @@ const NonModifiableOneTimeCost = DB.TypeAlias(import.meta.url, {
     }),
 })
 
-const NonModifiableOneTimeCostPerCountable = DB.TypeAlias(import.meta.url, {
+export const NonModifiableOneTimeCostPerCountable = DB.TypeAlias(import.meta.url, {
   name: "NonModifiableOneTimeCostPerCountable",
   type: () =>
     DB.Object({
@@ -98,7 +98,7 @@ const NonModifiableOneTimeCostPerCountable = DB.TypeAlias(import.meta.url, {
         type: DB.Integer({ minimum: 1 }),
       }),
       translations: NestedTranslationMap(
-        DB.Optional,
+        DB.Required,
         "NonModifiableOneTimeCostPerCountable",
         DB.Object({
           countable: DB.Required({
