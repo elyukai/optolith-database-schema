@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.32.0](https://github.com/elyukai/optolith-database-schema/compare/v0.31.4...v0.32.0) (2026-02-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* streamline types
+
+* streamline types ([9fd01ec](https://github.com/elyukai/optolith-database-schema/commit/9fd01ec1f287b881548f91d562eea7efcfc2e50f))
+
+
+### Features
+
+* add translations for magical actions ([db431e2](https://github.com/elyukai/optolith-database-schema/commit/db431e25cf45b732ea5ed4be9faca7b6e98617ca))
+
 ## [0.31.4](https://github.com/elyukai/optolith-database-schema/compare/v0.31.3...v0.31.4) (2026-02-16)
 
 
