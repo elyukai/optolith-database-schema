@@ -5,6 +5,7 @@ import {
   BlessedTraditionIdentifier,
   DisadvantageIdentifier,
   LanguageIdentifier,
+  LanguageSpecializationIdentifier,
   MagicalTraditionIdentifier,
   ProfessionIdentifier,
   ProfessionVariantIdentifier,
@@ -25,7 +26,7 @@ export const Culture = DB.Entity(import.meta.url, {
     DB.Object({
       language: DB.Required({
         comment: "A list of native languages (usually it is only one).",
-        type: DB.Array(LanguageIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: DB.Array(DB.IncludeIdentifier(CultureLanguage), { minItems: 1, uniqueItems: true }),
       }),
       script: DB.Optional({
         comment:
@@ -131,6 +132,22 @@ export const Culture = DB.Entity(import.meta.url, {
       keyPathInEntityMap: "name",
     },
   ],
+})
+
+const CultureLanguage = DB.TypeAlias(import.meta.url, {
+  name: "CultureLanguage",
+  comment: "A native languages with optional specializations.",
+  type: () =>
+    DB.Object({
+      id: DB.Required({
+        comment: "The language’s identifier.",
+        type: LanguageIdentifier(),
+      }),
+      specializations: DB.Optional({
+        comment: "The language specializations, if any.",
+        type: DB.Array(LanguageSpecializationIdentifier(), { minItems: 1, uniqueItems: true }),
+      }),
+    }),
 })
 
 const AreaKnowledge = DB.TypeAlias(import.meta.url, {
