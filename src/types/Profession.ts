@@ -223,7 +223,7 @@ export const ProfessionPackage = DB.Entity(import.meta.url, {
         comment: "The associated profession version.",
         type: ProfessionVersionIdentifier(),
       }),
-      experience_level: DB.Optional({
+      experience_level: DB.Required({
         comment:
           "The associated experience level. By default, profession packages are associated with the experience level *Experienced*.",
         type: ExperienceLevelIdentifier(),
@@ -297,6 +297,16 @@ export const ProfessionPackage = DB.Entity(import.meta.url, {
 
     return baseName
   },
+  uniqueConstraints: [
+    [
+      {
+        keyPath: "profession_version",
+      },
+      {
+        keyPath: "experience_level",
+      },
+    ],
+  ],
 })
 
 export const ProfessionVariant = DB.Entity(import.meta.url, {
