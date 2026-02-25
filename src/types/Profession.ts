@@ -6,7 +6,6 @@ import {
   CurriculumIdentifier,
   DisadvantageIdentifier,
   ExperienceLevelIdentifier,
-  GeneralSelectOptionIdentifier,
   MagicalTraditionIdentifier,
   ProfessionIdentifier,
   ProfessionPackageIdentifier,
@@ -569,9 +568,6 @@ const ProfessionPackageOptions = DB.TypeAlias(import.meta.url, {
         curses: DB.Optional({
           type: DB.IncludeIdentifier(CursesOptions),
         }),
-        terrain_knowledge: DB.Optional({
-          type: DB.IncludeIdentifier(TerrainKnowledgeOptions),
-        }),
         skills: DB.Optional({
           type: DB.IncludeIdentifier(SkillsOptions),
         }),
@@ -612,11 +608,6 @@ const ProfessionVariantPackageOptions = DB.TypeAlias(import.meta.url, {
         }),
         curses: DB.Optional({
           type: DB.GenIncludeIdentifier(VariantOptionAction, [DB.IncludeIdentifier(CursesOptions)]),
-        }),
-        terrain_knowledge: DB.Optional({
-          type: DB.GenIncludeIdentifier(VariantOptionAction, [
-            DB.IncludeIdentifier(TerrainKnowledgeOptions),
-          ]),
         }),
         skills: DB.Optional({
           type: DB.GenIncludeIdentifier(VariantOptionAction, [DB.IncludeIdentifier(SkillsOptions)]),
@@ -734,18 +725,6 @@ const CursesOptions = DB.TypeAlias(import.meta.url, {
       ap_value: DB.Required({
         comment: "The AP value you can buy curses for.",
         type: DB.Integer({ minimum: 2 }),
-      }),
-    }),
-})
-
-const TerrainKnowledgeOptions = DB.TypeAlias(import.meta.url, {
-  name: "TerrainKnowledgeOptions",
-  comment: `Select one of a list of possible terrain knowledges`,
-  type: () =>
-    DB.Object({
-      options: DB.Required({
-        comment: "The list of possible terrain knowledges.",
-        type: DB.Array(GeneralSelectOptionIdentifier(), { minItems: 2 }),
       }),
     }),
 })
