@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.33.0](https://github.com/elyukai/optolith-database-schema/compare/v0.32.0...v0.33.0) (2026-02-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* require blessed ones' name
+* required skill group for free AP distribution on skills
+* remove terrain knowledge profession option
+* require experience level for profession packages
+* remove subgroup option from common mundane professions
+* culture languages can specify specializations
+
+### Features
+
+* activatable name builder rules ([977f33c](https://github.com/elyukai/optolith-database-schema/commit/977f33c068d9a47f9b760fa50b53a33ede3688cb))
+* add various translations ([7b28823](https://github.com/elyukai/optolith-database-schema/commit/7b2882322cd7b7a217c124a69bdf709e07cdd177))
+* culture languages can specify specializations ([1c84c83](https://github.com/elyukai/optolith-database-schema/commit/1c84c830bc67eb9d41523c8b5ffe31fca8958d53))
+* language specialization display name includes language ([badd4ae](https://github.com/elyukai/optolith-database-schema/commit/badd4aef9537786e54c002048f10b2e57bd26f1a))
+* remove subgroup option from common mundane professions ([710d5be](https://github.com/elyukai/optolith-database-schema/commit/710d5be33d2dfa62c9a6a875a53f4fac07f50748))
+* remove terrain knowledge profession option ([fa3be57](https://github.com/elyukai/optolith-database-schema/commit/fa3be570968d507cd825808b5f8c77d6b14af315))
+* require blessed ones' name ([9fcb303](https://github.com/elyukai/optolith-database-schema/commit/9fcb303452ea8534e9f69eb1779afd9b52464d7d))
+* require experience level for profession packages ([ab02370](https://github.com/elyukai/optolith-database-schema/commit/ab02370c90f685034cc43a16ea798ab47a2ba25b))
+* required skill group for free AP distribution on skills ([6154058](https://github.com/elyukai/optolith-database-schema/commit/6154058d655dc5adf9c796a4e5590616bb17ffbf))
+
 ## [0.32.0](https://github.com/elyukai/optolith-database-schema/compare/v0.31.4...v0.32.0) (2026-02-21)
 
 
