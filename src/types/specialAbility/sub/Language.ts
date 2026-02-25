@@ -90,6 +90,17 @@ export const LanguageSpecialization = DB.Entity(import.meta.url, {
     }),
   parentReferenceKey: "parent",
   instanceDisplayName: {},
+  instanceDisplayNameCustomizer: ({
+    instance,
+    instanceDisplayName,
+    instanceDisplayNameLocaleId,
+    getDisplayNameForInstanceId,
+  }) => ({
+    name: `${
+      getDisplayNameForInstanceId("Language", instance.parent)?.name ?? "[unknown parent]"
+    } — ${instanceDisplayName}`,
+    localeId: instanceDisplayNameLocaleId,
+  }),
 })
 
 const IndefiniteSpecializations = DB.TypeAlias(import.meta.url, {
