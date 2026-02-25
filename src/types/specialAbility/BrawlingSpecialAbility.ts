@@ -2,6 +2,7 @@ import * as DB from "tsondb/schema/dsl"
 import { levels, maximum, name, name_in_library, rules } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { combat_techniques, usage_type } from "../_ActivatableCombat.js"
+import { nameBuilderRules } from "../_ActivatableNames.ts"
 import { explicit_select_options, select_options } from "../_ActivatableSelectOptions.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { NestedTranslationMap } from "../Locale.js"
@@ -14,6 +15,7 @@ export const BrawlingSpecialAbility = DB.Entity(import.meta.url, {
   type: () =>
     DB.Object({
       levels,
+      nameBuilderRules,
       usage_type,
       select_options,
       explicit_select_options,

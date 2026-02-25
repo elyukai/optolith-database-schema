@@ -3,6 +3,7 @@ import { levels, maximum, name, name_in_library, rules } from "../_Activatable.j
 import { advanced } from "../_ActivatableAdvanced.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
 import { combat_techniques, penalty, type, usage_type } from "../_ActivatableCombat.js"
+import { nameBuilderRules } from "../_ActivatableNames.ts"
 import { explicit_select_options, select_options } from "../_ActivatableSelectOptions.js"
 import { skill_applications, skill_uses } from "../_ActivatableSkillApplicationsAndUses.js"
 import { AdvancedCombatSpecialAbilityIdentifier } from "../_Identifier.js"
@@ -17,6 +18,7 @@ export const CombatStyleSpecialAbility = DB.Entity(import.meta.url, {
   type: () =>
     DB.Object({
       levels,
+      nameBuilderRules,
       usage_type,
       type,
       select_options,

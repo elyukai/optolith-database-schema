@@ -1,6 +1,7 @@
 import * as DB from "tsondb/schema/dsl"
 import { effect, levels, maximum, name, name_in_library } from "../_Activatable.js"
 import { ap_value, ap_value_append, ap_value_l10n } from "../_ActivatableAdventurePointsValue.js"
+import { nameBuilderRules } from "../_ActivatableNames.ts"
 import {
   aeCost,
   bindingCost,
@@ -22,6 +23,7 @@ export const StaffEnchantment = DB.Entity(import.meta.url, {
   type: () =>
     DB.Object({
       levels,
+      nameBuilderRules,
       select_options,
       explicit_select_options,
       maximum,
