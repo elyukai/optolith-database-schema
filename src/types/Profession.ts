@@ -734,7 +734,7 @@ const SkillsOptions = DB.TypeAlias(import.meta.url, {
   comment: `Buy skills for a specific amount of AP.`,
   type: () =>
     DB.Object({
-      group: DB.Optional({
+      group: DB.Required({
         comment: "If specified, you may only choose from skills of the specified group.",
         type: SkillGroupIdentifier(),
       }),
