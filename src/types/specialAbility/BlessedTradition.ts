@@ -78,6 +78,10 @@ export const BlessedTradition = DB.Entity(import.meta.url, {
             type: DB.String({ minLength: 1 }),
           }),
           name_in_library,
+          nameOfBlessedOnes: DB.Required({
+            comment: "The name of Blessed Ones of this tradition.",
+            type: DB.String({ minLength: 1 }),
+          }),
           special_rules: DB.Required({
             comment:
               "The special rules of the tradition. They should be sorted like they are in the book.",
