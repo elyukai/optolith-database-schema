@@ -1,8 +1,8 @@
 import * as DB from "tsondb/schema/dsl"
-import { InfluencePrerequisites } from "./_Prerequisite.js"
-import { NestedTranslationMap } from "./Locale.js"
-import { Errata } from "./source/_Erratum.js"
-import { src } from "./source/_PublicationRef.js"
+import { InfluencePrerequisites } from "./_Prerequisite.ts"
+import { NestedTranslationMap } from "./Locale.ts"
+import { Errata } from "./source/_Erratum.ts"
+import { src } from "./source/_PublicationRef.ts"
 
 export const Influence = DB.Entity(import.meta.url, {
   name: "Influence",
