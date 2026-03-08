@@ -14,6 +14,10 @@ export const OptionalRule = DB.Entity(import.meta.url, {
           "Has the optional rule not been implemented in Optolith yet? This is also true if the optional rule does not (currently) apply to any Optolith feature.",
         type: DB.Boolean(),
       }),
+      complexityInfluence: DB.Required({
+        comment: "How this optional rule influences the complexity of the game.",
+        type: DB.IncludeIdentifier(ComplexityInfluence),
+      }),
       prerequisites: DB.Optional({
         type: DB.IncludeIdentifier(RulePrerequisites),
       }),
@@ -48,4 +52,17 @@ export const OptionalRule = DB.Entity(import.meta.url, {
       keyPathInEntityMap: "name",
     },
   ],
+})
+
+const ComplexityInfluence = DB.Enum(import.meta.url, {
+  name: "ComplexityInfluence",
+  comment: "How this optional rule influences the complexity of the game.",
+  values: () => ({
+    Less: DB.EnumCase({ comment: "The optional rule makes the game less complex.", type: null }),
+    Unchanged: DB.EnumCase({
+      comment: "The optional rule does not change the complexity of the game.",
+      type: null,
+    }),
+    More: DB.EnumCase({ comment: "The optional rule makes the game more complex.", type: null }),
+  }),
 })
