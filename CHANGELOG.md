@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.2](https://github.com/elyukai/optolith-database-schema/compare/v0.34.1...v0.34.2) (2026-03-08)
+
+
+### Features
+
+* make optional rule complexity influence optional ([fa4c6f8](https://github.com/elyukai/optolith-database-schema/commit/fa4c6f820bc5c48ddbceacee325c2d29b839069f))
+
 ## [0.34.1](https://github.com/elyukai/optolith-database-schema/compare/v0.34.0...v0.34.1) (2026-03-08)
 
 ## [0.34.0](https://github.com/elyukai/optolith-database-schema/compare/v0.33.0...v0.34.0) (2026-03-08)
