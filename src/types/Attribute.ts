@@ -1,5 +1,6 @@
 import * as DB from "tsondb/schema/dsl"
 import { NestedTranslationMap } from "./Locale.js"
+import { AttributeColor } from "./_Color.ts"
 
 export const Attribute = DB.Entity(import.meta.url, {
   name: "Attribute",
@@ -10,6 +11,10 @@ export const Attribute = DB.Entity(import.meta.url, {
       position: DB.Required({
         comment: "The position of the attribute in lists. This has to be a unique value.",
         type: DB.Integer({ minimum: 0 }),
+      }),
+      color: DB.Required({
+        comment: "The display color of the attribute.",
+        type: DB.IncludeIdentifier(AttributeColor),
       }),
       translations: NestedTranslationMap(
         DB.Required,

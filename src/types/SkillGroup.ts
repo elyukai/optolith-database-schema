@@ -1,4 +1,5 @@
 import * as DB from "tsondb/schema/dsl"
+import { GradientColor } from "./_Color.ts"
 import { SkillCheck } from "./_SkillCheck.js"
 import { NestedTranslationMap } from "./Locale.js"
 
@@ -14,6 +15,10 @@ export const SkillGroup = DB.Entity(import.meta.url, {
       check: DB.Required({
         comment: "The skill group’s skill check attributes",
         type: DB.IncludeIdentifier(SkillCheck),
+      }),
+      color: DB.Required({
+        comment: "The display color of the skill group.",
+        type: DB.IncludeIdentifier(GradientColor),
       }),
       translations: NestedTranslationMap(
         DB.Required,
