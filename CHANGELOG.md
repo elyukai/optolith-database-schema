@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.0](https://github.com/elyukai/optolith-database-schema/compare/v0.33.0...v0.34.0) (2026-03-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* define attribute and skill group colors
+* atomic specification of how an optional rule influences game complexity
+
+### Features
+
+* atomic specification of how an optional rule influences game complexity ([b2f1c5d](https://github.com/elyukai/optolith-database-schema/commit/b2f1c5dfd64777cb083da4bb1964ad4a3e219e8b))
+* define attribute and skill group colors ([8aedafb](https://github.com/elyukai/optolith-database-schema/commit/8aedafb8136439fa9a1011ea94ee2f301f0d6f64))
+
 ## [0.33.0](https://github.com/elyukai/optolith-database-schema/compare/v0.32.0...v0.33.0) (2026-02-25)
 
 
