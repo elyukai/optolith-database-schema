@@ -14,8 +14,8 @@ export const OptionalRule = DB.Entity(import.meta.url, {
           "Has the optional rule not been implemented in Optolith yet? This is also true if the optional rule does not (currently) apply to any Optolith feature.",
         type: DB.Boolean(),
       }),
-      complexityInfluence: DB.Required({
-        comment: "How this optional rule influences the complexity of the game.",
+      complexityInfluence: DB.Optional({
+        comment: "How this optional rule influences the complexity of the game, if specified.",
         type: DB.IncludeIdentifier(ComplexityInfluence),
       }),
       prerequisites: DB.Optional({
