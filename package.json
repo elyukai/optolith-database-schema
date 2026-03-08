@@ -38,16 +38,16 @@
   "author": "Lukas Obermann",
   "license": "MPL-2.0",
   "dependencies": {
-    "@elyukai/utils": "^0.2.8",
-    "tsondb": "^0.19.11",
+    "@elyukai/utils": "^0.3.0",
+    "tsondb": "^0.19.12",
     "yaml": "^2.8.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^25.3.0",
+    "@types/node": "^25.3.5",
     "commit-and-tag-version": "^12.6.1",
-    "eslint": "^10.0.2",
-    "globals": "^17.3.0",
+    "eslint": "^10.0.3",
+    "globals": "^17.4.0",
     "nodemon": "^3.1.14",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
