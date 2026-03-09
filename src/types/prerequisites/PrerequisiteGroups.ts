@@ -8,6 +8,7 @@ import { InfluencePrerequisite } from "./single/InfluencePrerequisite.js"
 import { PactPrerequisite } from "./single/PactPrerequisite.js"
 import { PersonalityTraitPrerequisite } from "./single/PersonalityTraitPrerequisite.js"
 import { PrimaryAttributePrerequisite } from "./single/PrimaryAttributePrerequisite.js"
+import { ProfessionPrerequisite } from "./single/ProfessionPrerequisite.ts"
 import { PublicationPrerequisite } from "./single/PublicationPrerequisite.js"
 import { RacePrerequisite } from "./single/RacePrerequisite.js"
 import { RatedMinimumNumberPrerequisite } from "./single/RatedMinimumNumberPrerequisite.js"
@@ -142,6 +143,7 @@ export const InfluencePrerequisiteGroup = DB.Enum(import.meta.url, {
   values: () => ({
     Influence: DB.EnumCase({ type: DB.IncludeIdentifier(InfluencePrerequisite) }),
     Race: DB.EnumCase({ type: DB.IncludeIdentifier(RacePrerequisite) }),
+    Profession: DB.EnumCase({ type: DB.IncludeIdentifier(ProfessionPrerequisite) }),
     Activatable: DB.EnumCase({ type: DB.IncludeIdentifier(ActivatablePrerequisite) }),
     Text: DB.EnumCase({ type: DB.IncludeIdentifier(TextPrerequisite) }),
   }),
