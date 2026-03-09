@@ -192,6 +192,7 @@ export const PreconditionGroup = DB.Enum(import.meta.url, {
   name: "PreconditionGroup",
   values: () => ({
     Publication: DB.EnumCase({ type: DB.IncludeIdentifier(PublicationPrerequisite) }),
+    Rule: DB.EnumCase({ type: DB.IncludeIdentifier(RulePrerequisite) }),
     SexualCharacteristic: DB.EnumCase({
       type: DB.IncludeIdentifier(SexualCharacteristicPrerequisite),
     }),
