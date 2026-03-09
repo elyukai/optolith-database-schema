@@ -141,6 +141,8 @@ export const InfluencePrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "InfluencePrerequisiteGroup",
   values: () => ({
     Influence: DB.EnumCase({ type: DB.IncludeIdentifier(InfluencePrerequisite) }),
+    Race: DB.EnumCase({ type: DB.IncludeIdentifier(RacePrerequisite) }),
+    Activatable: DB.EnumCase({ type: DB.IncludeIdentifier(ActivatablePrerequisite) }),
     Text: DB.EnumCase({ type: DB.IncludeIdentifier(TextPrerequisite) }),
   }),
 })
