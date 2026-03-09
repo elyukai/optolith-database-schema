@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.9](https://github.com/elyukai/optolith-database-schema/compare/v0.34.8...v0.34.9) (2026-03-09)
+
+
+### Features
+
+* add circle of damnation as possible poison duration component ([d519e66](https://github.com/elyukai/optolith-database-schema/commit/d519e662b416a376824a1042bf0f11f7e9033017))
+
 ## [0.34.8](https://github.com/elyukai/optolith-database-schema/compare/v0.34.7...v0.34.8) (2026-03-09)
 
 
