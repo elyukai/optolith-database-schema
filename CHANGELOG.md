@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.7](https://github.com/elyukai/optolith-database-schema/compare/v0.34.6...v0.34.7) (2026-03-09)
+
+
+### Features
+
+* add alchemical pact gift poison source type and make cost optional ([c32cb59](https://github.com/elyukai/optolith-database-schema/commit/c32cb594aa0cb7802511adb7ed13327e51620999)), closes [#88](https://github.com/elyukai/optolith-database-schema/issues/88)
+
 ## [0.34.6](https://github.com/elyukai/optolith-database-schema/compare/v0.34.5...v0.34.6) (2026-03-09)
 
 
