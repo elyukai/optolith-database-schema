@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.5](https://github.com/elyukai/optolith-database-schema/compare/v0.34.4...v0.34.5) (2026-03-09)
+
+
+### Features
+
+* support markdown in influence effect texts ([1e08553](https://github.com/elyukai/optolith-database-schema/commit/1e08553eae6216411abe4124b63a07684ffd485d))
+
 ## [0.34.4](https://github.com/elyukai/optolith-database-schema/compare/v0.34.3...v0.34.4) (2026-03-09)
 
 
