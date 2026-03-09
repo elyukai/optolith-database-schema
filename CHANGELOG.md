@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.3](https://github.com/elyukai/optolith-database-schema/compare/v0.34.2...v0.34.3) (2026-03-09)
+
+
+### Features
+
+* add race and activatable influence prerequisites ([bc41f2e](https://github.com/elyukai/optolith-database-schema/commit/bc41f2e7d10ca24b83f3961fd644428c188696ab))
+
 ## [0.34.2](https://github.com/elyukai/optolith-database-schema/compare/v0.34.1...v0.34.2) (2026-03-08)
 
 
