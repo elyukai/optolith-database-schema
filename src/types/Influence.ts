@@ -21,6 +21,11 @@ export const Influence = DB.Entity(import.meta.url, {
             comment: "The influence’s name.",
             type: DB.String({ minLength: 1 }),
           }),
+          rules: DB.Optional({
+            comment:
+              "Some general rules for the influence. They will be prepended to the effects. This can be used for influences that do not have any effects and should contain the text mentioning this fact.",
+            type: DB.String({ minLength: 1, isMarkdown: true }),
+          }),
           effects: DB.Optional({
             comment:
               "The effects of the influence. They should be sorted like they are in the book.",
