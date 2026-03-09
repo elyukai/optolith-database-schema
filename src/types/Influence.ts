@@ -51,7 +51,7 @@ const InfluenceEffect = DB.TypeAlias(import.meta.url, {
       }),
       text: DB.Required({
         comment: "The effect text.",
-        type: DB.String({ minLength: 1 }),
+        type: DB.String({ minLength: 1, isMarkdown: true }),
       }),
     }),
 })
