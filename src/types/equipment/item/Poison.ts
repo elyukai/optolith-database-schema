@@ -214,6 +214,7 @@ export const ExpressionBasedPoisonTimeExpressionValue = DB.Enum(import.meta.url,
   values: () => ({
     Constant: DB.EnumCase({ type: DB.Integer({ minimum: 1 }) }),
     Dice: DB.EnumCase({ type: DB.IncludeIdentifier(Dice) }),
+    CircleOfDamnation: DB.EnumCase({ type: null }),
   }),
 })
 
