@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.4](https://github.com/elyukai/optolith-database-schema/compare/v0.34.3...v0.34.4) (2026-03-09)
+
+
+### Features
+
+* profession influence prerequisites ([c7f862b](https://github.com/elyukai/optolith-database-schema/commit/c7f862b4cb798a566eb82835d002f707cc739881))
+* rule precondition ([7404637](https://github.com/elyukai/optolith-database-schema/commit/7404637f2982a9abd5c26a9b10c77e75deb848a2))
+
 ## [0.34.3](https://github.com/elyukai/optolith-database-schema/compare/v0.34.2...v0.34.3) (2026-03-09)
 
 
