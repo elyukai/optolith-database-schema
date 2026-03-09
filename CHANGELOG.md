@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.8](https://github.com/elyukai/optolith-database-schema/compare/v0.34.7...v0.34.8) (2026-03-09)
+
+
+### Bug Fixes
+
+* **cache:** handle added poison source type ([17d46f1](https://github.com/elyukai/optolith-database-schema/commit/17d46f17b45efe20e154e15a526a370e7b73a5c2))
+
 ## [0.34.7](https://github.com/elyukai/optolith-database-schema/compare/v0.34.6...v0.34.7) (2026-03-09)
 
 
