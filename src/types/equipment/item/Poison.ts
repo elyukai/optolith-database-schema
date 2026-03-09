@@ -41,7 +41,7 @@ export const Poison = DB.Entity(import.meta.url, {
         comment: "The raw (ingredients) value per level, in silverthalers.",
         type: DB.Integer({ minimum: 1 }),
       }),
-      cost: DB.Required({
+      cost: DB.Optional({
         comment: "Price for one dose, in silverthalers.",
         type: DB.IncludeIdentifier(PoisonCost),
       }),
@@ -252,6 +252,11 @@ const PoisonSourceType = DB.Enum(import.meta.url, {
   values: () => ({
     AnimalVenom: DB.EnumCase({ type: DB.IncludeIdentifier(AnimalVenom) }),
     AlchemicalPoison: DB.EnumCase({ type: DB.IncludeIdentifier(AlchemicalPoison) }),
+    AlchemicalPactGiftPoison: DB.EnumCase({
+      comment:
+        "An alchemical poison that is part of a pact gift and cannot be obtained or brewed by means typical for an alchemical poison.",
+      type: null,
+    }),
     MineralPoison: DB.EnumCase({ type: DB.IncludeIdentifier(MineralPoison) }),
     PlantPoison: DB.EnumCase({ type: DB.IncludeIdentifier(PlantPoison) }),
     DemonicPoison: DB.EnumCase({ type: DB.IncludeIdentifier(DemonicPoison) }),
