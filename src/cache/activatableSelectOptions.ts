@@ -834,6 +834,7 @@ const getDerivedSelectOptions = (
                 return assertExhaustive(poison.source_type.AnimalVenom.level)
             }
           case "AlchemicalPoison":
+          case "AlchemicalPactGiftPoison":
             return 6
           case "MineralPoison":
             return poison.source_type.MineralPoison.level
