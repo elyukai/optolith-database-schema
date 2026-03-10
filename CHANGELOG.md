@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.10](https://github.com/elyukai/optolith-database-schema/compare/v0.34.9...v0.34.10) (2026-03-10)
+
+
+### Features
+
+* poison cost depending on purchase or sale ([22e6dfd](https://github.com/elyukai/optolith-database-schema/commit/22e6dfda8b2e9425ab7b524fda0276ef549a685c))
+
 ## [0.34.9](https://github.com/elyukai/optolith-database-schema/compare/v0.34.8...v0.34.9) (2026-03-09)
 
 
