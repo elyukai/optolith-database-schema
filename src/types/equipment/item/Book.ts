@@ -44,12 +44,12 @@ export const Book = DB.Entity(import.meta.url, {
             comment: "An auxiliary name or label of the item, if available.",
             type: DB.String({ minLength: 1 }),
           }),
-          language: DB.Required({
-            comment: "The language the book is written in.",
+          language: DB.Optional({
+            comment: "The language the book is written in, if specified.",
             type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
-          script: DB.Required({
-            comment: "The script that was used for the book.",
+          script: DB.Optional({
+            comment: "The script that was used for the book, if specified.",
             type: DB.String({ minLength: 1, isMarkdown: true }),
           }),
           note: DB.Optional({
