@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.11](https://github.com/elyukai/optolith-database-schema/compare/v0.34.10...v0.34.11) (2026-03-10)
+
+
+### Features
+
+* working supernatural creature entity ([f8a174e](https://github.com/elyukai/optolith-database-schema/commit/f8a174efad6dc46e83efd9d6e33155de435e6569))
+
 ## [0.34.10](https://github.com/elyukai/optolith-database-schema/compare/v0.34.9...v0.34.10) (2026-03-10)
 
 
