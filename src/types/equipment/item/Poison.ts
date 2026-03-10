@@ -121,6 +121,10 @@ const PoisonCost = DB.Enum(import.meta.url, {
     None: DB.EnumCase({ type: DB.IncludeIdentifier(NoPoisonCost) }),
     Constant: DB.EnumCase({ type: DB.Float({ minimum: { value: 0, isExclusive: true } }) }),
     Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefinitePoisonCost) }),
+    DependingOnPurchaseOrSale: DB.EnumCase({
+      comment: "The cost depends on whether the poison is being purchased or sold.",
+      type: DB.IncludeIdentifier(DependingOnPurchaseOrSalePoisonCost),
+    }),
   }),
 })
 
@@ -155,6 +159,22 @@ export const IndefinitePoisonCost = DB.TypeAlias(import.meta.url, {
           }),
         }),
       ),
+    }),
+})
+
+const DependingOnPurchaseOrSalePoisonCost = DB.TypeAlias(import.meta.url, {
+  name: "DependingOnPurchaseOrSalePoisonCost",
+  comment: "The cost depends on whether the poison is being purchased or sold.",
+  type: () =>
+    DB.Object({
+      purchase: DB.Required({
+        comment: "The cost when purchasing the poison.",
+        type: DB.Float({ minimum: { value: 0, isExclusive: true } }),
+      }),
+      sale: DB.Required({
+        comment: "The cost when selling the poison.",
+        type: DB.Float({ minimum: { value: 0, isExclusive: true } }),
+      }),
     }),
 })
 
