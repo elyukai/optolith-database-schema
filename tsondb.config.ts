@@ -1,20 +1,15 @@
 import { join } from "node:path"
 import type { GenerationConfig } from "tsondb/config"
 import { TypeScriptOutput } from "tsondb/renderer/ts"
-import { schema } from "./lib/main.js"
+import { schema, type TSONDBTypes } from "./lib/main.js"
 
-const config: GenerationConfig = {
+const config: GenerationConfig<TSONDBTypes> = {
   schema: schema,
   outputs: [
     TypeScriptOutput({
       targetPath: join(import.meta.dirname, "gen", "types.d.ts"),
       rendererOptions: {
-        generateHelpers: {
-          entityMap: true,
-          childEntityMap: true,
-          enumMap: true,
-          typeAliasMap: true,
-        },
+        generateHelpers: true,
         inferTranslationParameters: {
           format: "mf2",
         },
