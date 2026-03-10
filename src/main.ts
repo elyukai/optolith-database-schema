@@ -177,6 +177,7 @@ export const schema = new Schema<TSONDBTypes>(
     Types.Weapon,
     Types.WeaponAccessory,
     Types.WeaponEnchantment,
+    Types.WorkingSupernaturalCreature,
     Types.ZibiljaRitual,
   ],
   Types.Locale,

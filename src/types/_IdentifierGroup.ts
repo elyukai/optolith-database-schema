@@ -124,6 +124,7 @@ import {
   WeaponAccessoryIdentifier,
   WeaponEnchantmentIdentifier,
   WeaponIdentifier,
+  WorkingSupernaturalCreatureIdentifier,
   ZibiljaRitualIdentifier,
 } from "./_Identifier.js"
 
@@ -451,6 +452,7 @@ export const EquipmentIdentifier = DB.Enum(import.meta.url, {
     Vehicle: DB.EnumCase({ type: VehicleIdentifier() }),
     Weapon: DB.EnumCase({ type: WeaponIdentifier() }),
     WeaponAccessory: DB.EnumCase({ type: WeaponAccessoryIdentifier() }),
+    WorkingSupernaturalCreature: DB.EnumCase({ type: WorkingSupernaturalCreatureIdentifier() }),
   }),
 })
 

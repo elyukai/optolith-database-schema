@@ -52,6 +52,7 @@ import { TravelGearOrTool } from "./equipment/item/TravelGearOrTool.js"
 import { Vehicle } from "./equipment/item/Vehicle.js"
 import { Weapon } from "./equipment/item/Weapon.js"
 import { WeaponAccessory } from "./equipment/item/WeaponAccessory.js"
+import { WorkingSupernaturalCreature } from "./equipment/item/WorkingSupernaturalCreature.ts"
 import { ExperienceLevel } from "./ExperienceLevel.js"
 import { EyeColor } from "./EyeColor.js"
 import { HairColor } from "./HairColor.js"
@@ -322,4 +323,5 @@ export const WandEnchantmentIdentifier: () => R = () => R(WandEnchantment)
 export const WeaponAccessoryIdentifier: () => R = () => R(WeaponAccessory)
 export const WeaponEnchantmentIdentifier: () => R = () => R(WeaponEnchantment)
 export const WeaponIdentifier: () => R = () => R(Weapon)
+export const WorkingSupernaturalCreatureIdentifier: () => R = () => R(WorkingSupernaturalCreature)
 export const ZibiljaRitualIdentifier: () => R = () => R(ZibiljaRitual)
