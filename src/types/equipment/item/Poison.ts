@@ -365,6 +365,11 @@ export const AlchemicalPoison = DB.TypeAlias(import.meta.url, {
         comment: "Additional information if the poison is an intoxicant.",
         type: DB.IncludeIdentifier(Intoxicant),
       }),
+      isDemonic: DB.Optional({
+        displayName: "Is demonic?",
+        comment: "Whether the poison is of demonic nature or not.",
+        type: DB.Boolean(),
+      }),
       translations: NestedTranslationMap(
         DB.Required,
         "AlchemicalPoison",
