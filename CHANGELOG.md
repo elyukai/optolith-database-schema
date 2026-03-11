@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.13](https://github.com/elyukai/optolith-database-schema/compare/v0.34.12...v0.34.13) (2026-03-11)
+
+
+### Features
+
+* alchemical poison can be demonic as well ([21e033e](https://github.com/elyukai/optolith-database-schema/commit/21e033e0169c051baf5f3167e070adcde9da76b3))
+
 ## [0.34.12](https://github.com/elyukai/optolith-database-schema/compare/v0.34.11...v0.34.12) (2026-03-10)
 
 
