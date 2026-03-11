@@ -47,23 +47,23 @@ export const MagicalArtifact = DB.Entity(import.meta.url, {
           }),
           description: DB.Optional({
             comment: "Description text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           note: DB.Optional({
             comment: "A note.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           rules: DB.Optional({
             comment: "Rules text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           effect: DB.Optional({
             comment: "Effect text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           cost: DB.Optional({
             comment: "Cost text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),

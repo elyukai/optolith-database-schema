@@ -24,7 +24,7 @@ export const Influence = DB.Entity(import.meta.url, {
           rules: DB.Optional({
             comment:
               "Some general rules for the influence. They will be prepended to the effects. This can be used for influences that do not have any effects and should contain the text mentioning this fact.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           effects: DB.Optional({
             comment:
@@ -56,7 +56,7 @@ const InfluenceEffect = DB.TypeAlias(import.meta.url, {
       }),
       text: DB.Required({
         comment: "The effect text.",
-        type: DB.String({ minLength: 1, isMarkdown: true }),
+        type: DB.String({ minLength: 1, markdown: "block" }),
       }),
     }),
 })

@@ -30,7 +30,7 @@ export const Blessing = DB.Entity(import.meta.url, {
           }),
           effect: DB.Required({
             comment: "The effect description.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           range: DB.Required({
             isDeprecated: true,

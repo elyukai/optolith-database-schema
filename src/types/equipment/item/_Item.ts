@@ -90,11 +90,11 @@ export const DefaultItemTranslations = (singularName: string) =>
       }),
       note: DB.Optional({
         comment: "Note text.",
-        type: DB.String({ minLength: 1, isMarkdown: true }),
+        type: DB.String({ minLength: 1, markdown: "block" }),
       }),
       rules: DB.Optional({
         comment: "Special rules text.",
-        type: DB.String({ minLength: 1, isMarkdown: true }),
+        type: DB.String({ minLength: 1, markdown: "block" }),
       }),
       errata: DB.Optional({
         type: DB.IncludeIdentifier(Errata),

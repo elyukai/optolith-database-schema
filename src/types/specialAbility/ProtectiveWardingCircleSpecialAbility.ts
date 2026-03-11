@@ -35,11 +35,11 @@ export const ProtectiveWardingCircleSpecialAbility = DB.Entity(import.meta.url, 
           name_in_library,
           protective_circle: DB.Required({
             comment: "The rules for the protective circle variant.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           warding_circle: DB.Optional({
             comment: "The rules for the warding circle variant.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           ap_value_append,
           ap_value: ap_value_l10n,

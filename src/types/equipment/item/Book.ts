@@ -46,19 +46,19 @@ export const Book = DB.Entity(import.meta.url, {
           }),
           language: DB.Optional({
             comment: "The language the book is written in, if specified.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "inline" }),
           }),
           script: DB.Optional({
             comment: "The script that was used for the book, if specified.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "inline" }),
           }),
           note: DB.Optional({
             comment: "Note text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           rules: DB.Optional({
             comment: "Special rules text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),
@@ -177,7 +177,7 @@ const DefiniteBookCostVariant = DB.TypeAlias(import.meta.url, {
           {
             label: DB.Optional({
               comment: "The label for the cost variant, e.g. “Original script”.",
-              type: DB.String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, markdown: "inline" }),
             }),
           },
           { minProperties: 1 },
@@ -198,11 +198,11 @@ const IndefiniteBookCostVariant = DB.TypeAlias(import.meta.url, {
         DB.Object({
           label: DB.Optional({
             comment: "The label for the cost variant, e.g. “Original script”.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "inline" }),
           }),
           description: DB.Required({
             comment: "The description of the cost variant, e.g. “less”.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
         }),
       ),

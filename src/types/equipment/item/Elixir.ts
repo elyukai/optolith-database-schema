@@ -61,12 +61,12 @@ export const Elixir = DB.Entity(import.meta.url, {
           }),
           brewing_process_prerequisites: DB.Optional({
             comment: "Prerequsites for the brewing process, if any.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           quality_levels: DB.Required({
             comment:
               "The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.",
-            type: DB.Array(DB.String({ minLength: 1, isMarkdown: true }), {
+            type: DB.Array(DB.String({ minLength: 1, markdown: "block" }), {
               minItems: 6,
               maxItems: 6,
             }),

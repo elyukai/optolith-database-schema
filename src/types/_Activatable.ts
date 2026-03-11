@@ -33,12 +33,12 @@ The maximum is only set if it differs from the defaults specified above.`,
 
 export const rules = DB.Required({
   comment: "The rule text.",
-  type: DB.String({ minLength: 1, isMarkdown: true }),
+  type: DB.String({ minLength: 1, markdown: "block" }),
 })
 
 export const effect = DB.Required({
   comment: "The effect description.",
-  type: DB.String({ minLength: 1, isMarkdown: true }),
+  type: DB.String({ minLength: 1, markdown: "block" }),
 })
 
 export const range_l10n = DB.Optional({

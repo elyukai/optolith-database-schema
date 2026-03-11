@@ -46,7 +46,7 @@ export const TradeSecret = DB.Entity(import.meta.url, {
           name_in_library,
           description: DB.Optional({
             comment: "The description of the trade secret.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),

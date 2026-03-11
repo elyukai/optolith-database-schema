@@ -85,7 +85,7 @@ const AdventurePointsDerivedFromSelection = DB.TypeAlias(import.meta.url, {
             replacement: DB.Optional({
               comment:
                 "A replacement for the generated text if it would not match the original one.",
-              type: DB.String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, markdown: "inline" }),
             }),
           },
           { minProperties: 1 },

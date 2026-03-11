@@ -45,7 +45,7 @@ export const Disadvantage = DB.Entity(import.meta.url, {
           rules,
           range: DB.Optional({
             comment: "The range.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           ap_value_append,
           ap_value: ap_value_l10n,

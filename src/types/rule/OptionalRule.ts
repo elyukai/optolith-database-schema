@@ -32,12 +32,12 @@ export const OptionalRule = DB.Entity(import.meta.url, {
           }),
           description: DB.Required({
             comment: "The description of the optional rule, as stated in the optional rule box.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           additionalRules: DB.Optional({
             comment:
               "Sometimes, an optional rule does not only contain all the rules belonging to it in its rule box, but also in the main text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),

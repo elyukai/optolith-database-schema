@@ -32,7 +32,7 @@ This is the only use case for this property.`,
         DB.Object({
           text: DB.Required({
             comment: "The displayed text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "inline" }),
           }),
         }),
       ),

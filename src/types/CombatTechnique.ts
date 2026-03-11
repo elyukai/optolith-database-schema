@@ -38,7 +38,7 @@ export const CloseCombatTechnique = DB.Entity(import.meta.url, {
           }),
           special: DB.Optional({
             comment: "Additional rules for the combat technique, if applicable.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),
@@ -125,7 +125,7 @@ export const RangedCombatTechnique = DB.Entity(import.meta.url, {
           }),
           special: DB.Optional({
             comment: "Additional rules for the combat technique, if applicable.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),

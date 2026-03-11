@@ -26,7 +26,7 @@ export const Service = DB.Entity(import.meta.url, {
           }),
           description: DB.Required({
             comment: "The service’s description.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),

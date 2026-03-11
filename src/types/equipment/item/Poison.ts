@@ -61,12 +61,12 @@ export const Poison = DB.Entity(import.meta.url, {
           effect: DB.Required({
             comment: "The normal and degraded poison’s effects.",
             type: DB.GenIncludeIdentifier(Reduceable, [
-              DB.String({ minLength: 1, isMarkdown: true }),
+              DB.String({ minLength: 1, markdown: "block" }),
             ]),
           }),
           notes: DB.Optional({
             comment: "Notes on the poison’s special features.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),
@@ -138,7 +138,7 @@ export const NoPoisonCost = DB.TypeAlias(import.meta.url, {
         DB.Object({
           description: DB.Required({
             comment: "A description of the cost.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
         }),
       ),
@@ -155,7 +155,7 @@ export const IndefinitePoisonCost = DB.TypeAlias(import.meta.url, {
         DB.Object({
           description: DB.Required({
             comment: "A description of the cost.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
         }),
       ),
@@ -259,7 +259,7 @@ export const IndefinitePoisonTime = DB.TypeAlias(import.meta.url, {
           {
             description: DB.Optional({
               comment: "A description of the duration.",
-              type: DB.String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, markdown: "block" }),
             }),
           },
           { minProperties: 1 },
@@ -380,7 +380,7 @@ export const AlchemicalPoison = DB.TypeAlias(import.meta.url, {
           }),
           brewing_process_prerequisites: DB.Optional({
             comment: "Prerequsites for the brewing process, if any.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
         }),
       ),
@@ -432,7 +432,7 @@ export const DemonicPoison = DB.TypeAlias(import.meta.url, {
           {
             note: DB.Optional({
               comment: "A note, if any.",
-              type: DB.String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, markdown: "block" }),
             }),
           },
           { minProperties: 1 },
@@ -497,21 +497,21 @@ export const Intoxicant = DB.TypeAlias(import.meta.url, {
         DB.Object({
           ingestion: DB.Required({
             comment: "How to ingest the intoxicant.",
-            type: DB.String({ minLength: 1 }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           side_effect: DB.Optional({
             comment:
               "The intoxicants side effects that always happen, no matter whether the intoxicant has the default or the reduced effect.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           overdose: DB.Optional({
             comment:
               "What happens if the intoxicant has been overdosed, that is, it has been ingested another time within the duration.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           special: DB.Optional({
             comment: "Special information about the intoxicant.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
         }),
       ),
@@ -562,7 +562,7 @@ export const IntoxicantAddiction = DB.TypeAlias(import.meta.url, {
           chance: DB.Required({
             comment:
               "The chance of getting addicted after an ingestion. Use if and only if the plain constant percent is not sufficient.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "inline" }),
           }),
         }),
       ),

@@ -99,7 +99,7 @@ export const MagicalTradition = DB.Entity(import.meta.url, {
           supplemental_content: DB.Optional({
             comment:
               "Supplemental content for the tradition, such as additional information or clarifications.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           ap_value_append,
           ap_value: ap_value_l10n,

@@ -23,7 +23,7 @@ const ActivatableSkillPlainEffect = DB.TypeAlias(import.meta.url, {
     DB.Object({
       text: DB.Required({
         comment: "The effect description.",
-        type: DB.String({ minLength: 1, isMarkdown: true }),
+        type: DB.String({ minLength: 1, markdown: "block" }),
       }),
     }),
 })
@@ -34,19 +34,19 @@ const ActivatableSkillEffectForEachQualityLevel = DB.TypeAlias(import.meta.url, 
     DB.Object({
       text_before: DB.Required({
         comment: "The effect description before the list of effects for each quality level.",
-        type: DB.String({ minLength: 1, isMarkdown: true }),
+        type: DB.String({ minLength: 1, markdown: "block" }),
       }),
       quality_levels: DB.Required({
         comment:
           "The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.",
-        type: DB.Array(DB.String({ minLength: 1, isMarkdown: true }), {
+        type: DB.Array(DB.String({ minLength: 1, markdown: "block" }), {
           minItems: 6,
           maxItems: 6,
         }),
       }),
       text_after: DB.Optional({
         comment: "The effect description after the list of effects for each quality level.",
-        type: DB.String({ minLength: 1, isMarkdown: true }),
+        type: DB.String({ minLength: 1, markdown: "block" }),
       }),
     }),
 })
@@ -57,19 +57,19 @@ const ActivatableSkillEffectForEachTwoQualityLevels = DB.TypeAlias(import.meta.u
     DB.Object({
       text_before: DB.Required({
         comment: "The effect description before the list of effects for each quality level.",
-        type: DB.String({ minLength: 1, isMarkdown: true }),
+        type: DB.String({ minLength: 1, markdown: "block" }),
       }),
       quality_levels: DB.Required({
         comment:
           "The list of effects for each two quality levels. The first element represents QL 1–2, the second element QL 3–4 and the third element QL 5–6.",
-        type: DB.Array(DB.String({ minLength: 1, isMarkdown: true }), {
+        type: DB.Array(DB.String({ minLength: 1, markdown: "block" }), {
           minItems: 3,
           maxItems: 3,
         }),
       }),
       text_after: DB.Optional({
         comment: "The effect description after the list of effects for each quality level.",
-        type: DB.String({ minLength: 1, isMarkdown: true }),
+        type: DB.String({ minLength: 1, markdown: "block" }),
       }),
     }),
 })

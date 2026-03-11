@@ -52,7 +52,7 @@ If no animal types are given, the animal disease applies to all animal types.`,
           }),
           effect: DB.Required({
             comment: "The effect description.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           cost: DB.Optional({
             isDeprecated: true,

@@ -77,7 +77,7 @@ const TextNode = DB.TypeAlias(import.meta.url, {
         DB.Object({
           text: DB.Required({
             comment: "Markdown-formatted text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
         }),
       ),
@@ -98,7 +98,7 @@ const ReferenceListNode = DB.TypeAlias(import.meta.url, {
         DB.Object({
           text: DB.Required({
             comment: "Markdown-formatted text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
         }),
       ),

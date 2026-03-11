@@ -19,11 +19,11 @@ export const Condition = DB.Entity(import.meta.url, {
           }),
           rules: DB.Optional({
             comment: "Additional rules for the condition, if applicable.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           effects: DB.Required({
             comment: "The effects for level 1 to 4.",
-            type: DB.Array(DB.String({ minLength: 1, isMarkdown: true }), {
+            type: DB.Array(DB.String({ minLength: 1, markdown: "block" }), {
               minItems: 4,
               maxItems: 4,
             }),

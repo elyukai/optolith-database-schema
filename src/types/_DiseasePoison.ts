@@ -99,7 +99,7 @@ export const DiseaseTranslation = DB.Object({
   }),
   progress: DB.Required({
     comment: "The disease’s progress, in detail.",
-    type: DB.String({ minLength: 1, isMarkdown: true }),
+    type: DB.String({ minLength: 1, markdown: "block" }),
   }),
   incubation_time: DB.Required({
     comment: "After infection, how much time passes before symptoms appear?",
@@ -108,23 +108,23 @@ export const DiseaseTranslation = DB.Object({
   damage: DB.Required({
     comment:
       "The damage caused by the disease. If the disease check fails, apply the lessened effects.",
-    type: DB.GenIncludeIdentifier(Reduceable, [DB.String({ minLength: 1, isMarkdown: true })]),
+    type: DB.GenIncludeIdentifier(Reduceable, [DB.String({ minLength: 1, markdown: "block" })]),
   }),
   duration: DB.Required({
     comment: "The duration of the disease. If the disease check fails, use the lessened duration.",
-    type: DB.GenIncludeIdentifier(Reduceable, [DB.String({ minLength: 1, isMarkdown: true })]),
+    type: DB.GenIncludeIdentifier(Reduceable, [DB.String({ minLength: 1, markdown: "block" })]),
   }),
   special: DB.Optional({
     comment: "Special information about the disease.",
-    type: DB.String({ minLength: 1, isMarkdown: true }),
+    type: DB.String({ minLength: 1, markdown: "block" }),
   }),
   treatment: DB.Required({
     comment: "Methods known to lessen the disease’s progress or relieve symptoms.",
-    type: DB.String({ minLength: 1, isMarkdown: true }),
+    type: DB.String({ minLength: 1, markdown: "block" }),
   }),
   cure: DB.Required({
     comment: "Known remedies for the disease.",
-    type: DB.String({ minLength: 1, isMarkdown: true }),
+    type: DB.String({ minLength: 1, markdown: "block" }),
   }),
   errata: DB.Optional({
     type: DB.IncludeIdentifier(Errata),

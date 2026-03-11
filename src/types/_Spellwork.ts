@@ -42,7 +42,7 @@ const ReversalisEffect = DB.TypeAlias(import.meta.url, {
         DB.Object({
           effect: DB.Required({
             comment: "The effect description of the reversed spell.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
         }),
       ),

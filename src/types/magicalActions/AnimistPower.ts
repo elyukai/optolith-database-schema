@@ -108,7 +108,7 @@ const AnimistPowerLevel = DB.TypeAlias(import.meta.url, {
         DB.Object({
           effect: DB.Required({
             comment: "An additional effect description for this level.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
         }),
       ),

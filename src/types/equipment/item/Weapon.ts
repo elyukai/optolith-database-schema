@@ -72,19 +72,19 @@ export const Weapon = DB.Entity(import.meta.url, {
           }),
           note: DB.Optional({
             comment: "Note text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           rules: DB.Optional({
             comment: "Special rules text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           advantage: DB.Optional({
             comment: "The weapon advantage text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           disadvantage: DB.Optional({
             comment: "The weapon disadvantage text.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),
@@ -140,11 +140,11 @@ export const ImprovisedWeapon = DB.TypeAlias(import.meta.url, {
           {
             advantage: DB.Optional({
               comment: "The weapon advantage text.",
-              type: DB.String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, markdown: "block" }),
             }),
             disadvantage: DB.Optional({
               comment: "The weapon disadvantage text.",
-              type: DB.String({ minLength: 1, isMarkdown: true }),
+              type: DB.String({ minLength: 1, markdown: "block" }),
             }),
           },
           { minProperties: 1 },

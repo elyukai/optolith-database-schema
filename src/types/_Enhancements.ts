@@ -60,7 +60,7 @@ export const Enhancement = DB.Entity(import.meta.url, {
             comment: "The effect description.",
             type: DB.String({
               minLength: 1,
-              isMarkdown: true,
+              markdown: "block",
             }),
           }),
           errata: DB.Optional({

@@ -84,7 +84,7 @@ export const GeneralSelectOption = DB.Entity(import.meta.url, {
           description: DB.Optional({
             comment:
               "The description of the select option. Useful for Bad Habits, Trade Secrets and other entries where a description is available.",
-            type: DB.String({ minLength: 1, isMarkdown: true }),
+            type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),
