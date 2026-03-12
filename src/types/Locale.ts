@@ -1686,6 +1686,10 @@ export const Locale = DB.Entity(import.meta.url, {
           "Enhancements": null,
           "SR {$value}": null,
           ".input {$hiddenCount :number} {{Prerequisites}}": null,
+
+          // Library Entry Subtitles
+          "Profession Package": null,
+          "Optional Rule": null,
         }, { allKeysAreRequired: true }),
       }),
     }),
