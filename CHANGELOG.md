@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.34.15](https://github.com/elyukai/optolith-database-schema/compare/v0.34.14...v0.34.15) (2026-03-12)
+
+
+### Features
+
+* add translations for recent additions ([8f59744](https://github.com/elyukai/optolith-database-schema/commit/8f59744409c12894525e18b880296cefc9e90aa1))
+
 ## [0.34.14](https://github.com/elyukai/optolith-database-schema/compare/v0.34.13...v0.34.14) (2026-03-11)
 
 ## [0.34.13](https://github.com/elyukai/optolith-database-schema/compare/v0.34.12...v0.34.13) (2026-03-11)
