@@ -1532,6 +1532,10 @@ export const Locale = DB.Entity(import.meta.url, {
           "Structure Points": null,
           ".input {$value :number} {{{$value} Structure Points}}": null,
           "{$value} Structure Points": null,
+          "Components": null,
+          "Use": null,
+          "purchase": null,
+          "sale": null,
 
           // poisons/elixirs
           "{$types} poison": null,
@@ -1576,6 +1580,7 @@ export const Locale = DB.Entity(import.meta.url, {
           ".input {$count :number} {{check required every {$count}. application}}": null,
           ".input {$count :number} {{check required every {$count}. application in the same month}}": null,
           "see {$link}": null,
+          "CoD": null,
 
           // sex practices
           "Failed": null,
