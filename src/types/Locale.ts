@@ -1681,6 +1681,11 @@ export const Locale = DB.Entity(import.meta.url, {
           "The Twelve Blessings": null,
           "except for {$list :list type=conjunction}": null,
           "depends on selected tradition": null,
+
+          // Enhancements
+          "Enhancements": null,
+          "SR {$value}": null,
+          ".input {$hiddenCount :number} {{Prerequisites}}": null,
         }, { allKeysAreRequired: true }),
       }),
     }),
