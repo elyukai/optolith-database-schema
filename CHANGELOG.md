@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.36.1](https://github.com/elyukai/optolith-database-schema/compare/v0.36.0...v0.36.1) (2026-03-13)
+
+
+### Features
+
+* cost map style ([127cc6c](https://github.com/elyukai/optolith-database-schema/commit/127cc6cc48ea1c77ab4e31eb424ddc92c2cb248e))
+
 ## [0.36.0](https://github.com/elyukai/optolith-database-schema/compare/v0.35.0...v0.36.0) (2026-03-13)
 
 
