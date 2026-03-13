@@ -153,6 +153,11 @@ This will generate the exact same string as seen above – given it is set for a
           minItems: 2,
         }),
       }),
+      style: DB.Optional({
+        comment:
+          "The style of the generated string. It may either be displayed in a compressed way (e.g. `1/2/3 AE for a small/medium/large object`) or in a verbose way (e.g. `1 AE for a small object, 2 AE for a medium object, 3 AE for a large object`). The default is `compressed`.",
+        type: DB.IncludeIdentifier(MapStyle),
+      }),
       translations: NestedTranslationMap(
         DB.Optional,
         "OneTimeCostMap",
@@ -206,6 +211,16 @@ const OneTimeCostMapOption = DB.TypeAlias(import.meta.url, {
         }),
       ),
     }),
+})
+
+export const MapStyle = DB.Enum(import.meta.url, {
+  name: "MapStyle",
+  comment:
+    "The style of the generated string. It may either be displayed in a compressed way (e.g. `1/2/3 AE for a small/medium/large object`) or in a verbose way (e.g. `1 AE for a small object, 2 AE for a medium object, 3 AE for a large object`).",
+  values: () => ({
+    Compressed: DB.EnumCase({ type: null }),
+    Verbose: DB.EnumCase({ type: null }),
+  }),
 })
 
 export const SustainedCost = DB.Enum(import.meta.url, {
