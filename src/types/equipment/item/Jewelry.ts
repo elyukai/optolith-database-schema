@@ -1,6 +1,6 @@
 import * as DB from "tsondb/schema/dsl"
 import { src } from "../../source/_PublicationRef.js"
-import { Complexity, Cost, DefaultItemTranslations, StructurePoints, Weight } from "./_Item.js"
+import { Complexity, DefaultItemTranslations, StructurePoints, Weight } from "./_Item.js"
 
 export const Jewelry = DB.Entity(import.meta.url, {
   name: "Jewelry",
@@ -9,7 +9,9 @@ export const Jewelry = DB.Entity(import.meta.url, {
     DB.Object({
       cost: DB.Required({
         comment: "The cost in silverthalers.",
-        type: DB.GenIncludeIdentifier(JewelryMaterialDifference, [DB.IncludeIdentifier(Cost)]),
+        type: DB.GenIncludeIdentifier(JewelryMaterialDifference, [
+          DB.Float({ minimum: { value: 0, isExclusive: true } }),
+        ]),
       }),
       weight: DB.Required({
         comment: "The weight in kg.",
