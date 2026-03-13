@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.36.0](https://github.com/elyukai/optolith-database-schema/compare/v0.35.0...v0.36.0) (2026-03-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* style for time units
+
+### Features
+
+* style for time units ([5f5785d](https://github.com/elyukai/optolith-database-schema/commit/5f5785db79da544267d48f5787d5142517c30f1f))
+
 ## [0.35.0](https://github.com/elyukai/optolith-database-schema/compare/v0.34.17...v0.35.0) (2026-03-13)
 
 
