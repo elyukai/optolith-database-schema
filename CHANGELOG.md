@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.35.0](https://github.com/elyukai/optolith-database-schema/compare/v0.34.17...v0.35.0) (2026-03-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* only allow numeric cost for jewelry
+
+### Features
+
+* only allow numeric cost for jewelry ([a83b27e](https://github.com/elyukai/optolith-database-schema/commit/a83b27e802efb026bbd2fc75ee70a41df2c56c36))
+
 ## [0.34.17](https://github.com/elyukai/optolith-database-schema/compare/v0.34.16...v0.34.17) (2026-03-12)
 
 
