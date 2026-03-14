@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.38.0](https://github.com/elyukai/optolith-database-schema/compare/v0.37.0...v0.38.0) (2026-03-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* reconstruction and references can differ per edition
+
+### Features
+
+* display names for new skill applications and uses ([e3eaca0](https://github.com/elyukai/optolith-database-schema/commit/e3eaca0c25f6597bed456f6ae2edd0ff4afd2dae))
+* reconstruction and references can differ per edition ([8774da6](https://github.com/elyukai/optolith-database-schema/commit/8774da6c72786333b09235ee712d0864778dbbfe))
+
 ## [0.37.0](https://github.com/elyukai/optolith-database-schema/compare/v0.36.1...v0.37.0) (2026-03-14)
 
 
