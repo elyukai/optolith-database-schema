@@ -280,15 +280,6 @@ const BookRulesByEdition = DB.TypeAlias(import.meta.url, {
       editions: DB.Required({
         type: DB.Array(DB.IncludeIdentifier(BookRulesOfEdition), { minItems: 1 }),
       }),
-      reconstruction: DB.Optional({
-        comment: "Rules for reconstructing certain skills or abilities from the book.",
-        type: DB.String({ minLength: 1, markdown: "block" }),
-      }),
-      references: DB.Optional({
-        comment:
-          "References to skills and abilities that, while mentioned in the book, cannot be learned from this book alone.",
-        type: DB.String({ minLength: 1, markdown: "block" }),
-      }),
       textAfter: DB.Optional({
         comment: "Additional rules text that comes after all other rules.",
         type: DB.String({ minLength: 1, markdown: "block" }),
@@ -306,6 +297,15 @@ const BookRulesOfEdition = DB.TypeAlias(import.meta.url, {
       }),
       text: DB.Required({
         comment: "The rules text.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
+      reconstruction: DB.Optional({
+        comment: "Rules for reconstructing certain skills or abilities from the book.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
+      references: DB.Optional({
+        comment:
+          "References to skills and abilities that, while mentioned in the book, cannot be learned from this book alone.",
         type: DB.String({ minLength: 1, markdown: "block" }),
       }),
     }),
