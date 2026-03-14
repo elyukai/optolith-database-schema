@@ -31,6 +31,10 @@ export const Book = DB.Entity(import.meta.url, {
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
         type: DB.IncludeIdentifier(StructurePoints),
       }),
+      contentQuality: DB.Optional({
+        comment: "The quality of the book’s content.",
+        type: DB.IncludeIdentifier(BookContentQuality),
+      }),
       src,
       translations: NestedTranslationMap(
         DB.Required,
@@ -58,6 +62,18 @@ export const Book = DB.Entity(import.meta.url, {
           }),
           rules: DB.Optional({
             comment: "Special rules text.",
+            type: DB.IncludeIdentifier(BookRules),
+          }),
+          legality: DB.Optional({
+            comment: "The legality of the item, if specified.",
+            type: DB.String({ minLength: 1, markdown: "inline" }),
+          }),
+          availability: DB.Optional({
+            comment: "The availability of the item, if specified.",
+            type: DB.String({ minLength: 1, markdown: "inline" }),
+          }),
+          special: DB.Optional({
+            comment: "Special properties or features of the item.",
             type: DB.String({ minLength: 1, markdown: "block" }),
           }),
           errata: DB.Optional({
@@ -206,5 +222,91 @@ const IndefiniteBookCostVariant = DB.TypeAlias(import.meta.url, {
           }),
         }),
       ),
+    }),
+})
+
+const BookContentQuality = DB.Enum(import.meta.url, {
+  name: "BookContentQuality",
+  comment: "The quality of the book’s content.",
+  values: () => ({
+    Modest: DB.EnumCase({ type: null }),
+    Average: DB.EnumCase({ type: null }),
+    Demanding: DB.EnumCase({ type: DB.Integer({ minimum: 1, maximum: 3 }) }),
+  }),
+})
+
+const BookRules = DB.Enum(import.meta.url, {
+  name: "BookRules",
+  comment:
+    "Skills and abilities you can learn by reading the book, as well as any other rules and effects concerning the book.",
+  values: () => ({
+    Plain: DB.EnumCase({ type: DB.IncludeIdentifier(PlainBookRules) }),
+    Entertainment: DB.EnumCase({ type: null }),
+    ByEdition: DB.EnumCase({ type: DB.IncludeIdentifier(BookRulesByEdition) }),
+  }),
+})
+
+const PlainBookRules = DB.TypeAlias(import.meta.url, {
+  name: "PlainBookRules",
+  comment: "The book’s rules without any special effects or conditions.",
+  type: () =>
+    DB.Object({
+      text: DB.Required({
+        comment: "The (main) rules text.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
+      reconstruction: DB.Optional({
+        comment: "Rules for reconstructing certain skills or abilities from the book.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
+      references: DB.Optional({
+        comment:
+          "References to skills and abilities that, while mentioned in the book, cannot be learned from this book alone.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
+      textAfter: DB.Optional({
+        comment: "Additional rules text that comes after all other rules.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
+    }),
+})
+
+const BookRulesByEdition = DB.TypeAlias(import.meta.url, {
+  name: "BookRulesByEdition",
+  comment:
+    "The book’s rules with differences between each edition and more differentiation between types of rules.",
+  type: () =>
+    DB.Object({
+      editions: DB.Required({
+        type: DB.Array(DB.IncludeIdentifier(BookRulesOfEdition), { minItems: 1 }),
+      }),
+      reconstruction: DB.Optional({
+        comment: "Rules for reconstructing certain skills or abilities from the book.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
+      references: DB.Optional({
+        comment:
+          "References to skills and abilities that, while mentioned in the book, cannot be learned from this book alone.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
+      textAfter: DB.Optional({
+        comment: "Additional rules text that comes after all other rules.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
+    }),
+})
+
+const BookRulesOfEdition = DB.TypeAlias(import.meta.url, {
+  name: "BookRulesOfEdition",
+  type: () =>
+    DB.Object({
+      label: DB.Required({
+        comment: "The edition(s) the rules apply to.",
+        type: DB.String({ minLength: 1 }),
+      }),
+      text: DB.Required({
+        comment: "The rules text.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
     }),
 })
