@@ -51,6 +51,7 @@ export const NewSkillApplication = DB.Entity(import.meta.url, {
 })
 
 export const skill_applications = DB.Required({
+  displayName: "New Skill Applications",
   comment:
     "Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
   type: DB.ChildEntities(NewSkillApplication),
@@ -104,6 +105,7 @@ export const SkillUse = DB.Entity(import.meta.url, {
 })
 
 export const skill_uses = DB.Required({
+  displayName: "Skill Uses",
   comment:
     "Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
   type: DB.ChildEntities(SkillUse),
