@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.37.0](https://github.com/elyukai/optolith-database-schema/compare/v0.36.1...v0.37.0) (2026-03-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* more detailed book rules and meta data
+
+### Features
+
+* more detailed book rules and meta data ([04b3a74](https://github.com/elyukai/optolith-database-schema/commit/04b3a7451e8ccc629b670da95b178f115085363b))
+
 ## [0.36.1](https://github.com/elyukai/optolith-database-schema/compare/v0.36.0...v0.36.1) (2026-03-13)
 
 
