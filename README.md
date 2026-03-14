@@ -15,3 +15,20 @@ If you want to contribute to the database schema itself, please open an issue or
 ## Usage
 
 If you want to use the database (or parts of it) in your own project (most likely to support Optolith export formats in your own application), you can use the TypeScript sources as a simple database reader, at least if you have a project targeting JavaScript interpreters as well. This way, you already have proper typings. You can extract the database from the installation folder of Optolith and then configure the database reader to your needs.
+
+## Semantic Versioning
+
+The following situations are considered breaking changes:
+
+- Underlying data must be changed in order to comply with the new schema. Examples:
+  - Existing optional properties are made required
+  - New required properties are added
+  - Properties or enumeration cases are removed
+- Code that uses the data must be adjusted in order to use the new version. Examples:
+  - Existing required properties are made optional
+  - Enumeration cases are added
+  - Properties or enumeration cases are removed
+
+This implies that breaking changes can occur quite frequently, even if the changes are very small.
+
+A minor version bump can represent new optional properties, while patch version might represent adjustments in comments or display names for the editor.
