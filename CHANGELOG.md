@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.39.0](https://github.com/elyukai/optolith-database-schema/compare/v0.38.0...v0.39.0) (2026-03-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* more translations for equipment and professions
+
+### Features
+
+* more translations for equipment and professions ([960f1a9](https://github.com/elyukai/optolith-database-schema/commit/960f1a9a363593b8b16b0258f86338a546e0c674))
+
 ## [0.38.0](https://github.com/elyukai/optolith-database-schema/compare/v0.37.0...v0.38.0) (2026-03-14)
 
 
