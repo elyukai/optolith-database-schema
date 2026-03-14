@@ -1610,6 +1610,8 @@ export const Locale = DB.Entity(import.meta.url, {
           "Reconstruction": null,
           "References": null,
           "Entertainment": null,
+          "Topics": null,
+          "Place of Publication": null,
 
           // sex practices
           "Failed": null,
@@ -1710,6 +1712,7 @@ export const Locale = DB.Entity(import.meta.url, {
           "The Twelve Blessings": null,
           "except for {$list :list type=conjunction}": null,
           "depends on selected tradition": null,
+          "Additional Prerequisites": null,
 
           // Enhancements
           "Enhancements": null,
