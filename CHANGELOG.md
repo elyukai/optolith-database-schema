@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.40.0](https://github.com/elyukai/optolith-database-schema/compare/v0.39.0...v0.40.0) (2026-03-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* translations for style and advanced special abilities
+
+### Features
+
+* translations for style and advanced special abilities ([7712c1b](https://github.com/elyukai/optolith-database-schema/commit/7712c1b9bd49a3cd934a03d3018972d6376c686a))
+
 ## [0.39.0](https://github.com/elyukai/optolith-database-schema/compare/v0.38.0...v0.39.0) (2026-03-14)
 
 
