@@ -7,7 +7,7 @@ import { DiseaseIdentifier } from "../../_Identifier.ts"
 import { MathOperation } from "../../_MathExpression.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
-import { EffectType, LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
+import { EffectType, LaboratoryLevel, RecipeComplexity, RecipeTradeSecret } from "./_Herbary.js"
 
 export const Poison = DB.Entity(import.meta.url, {
   name: "Poison",
@@ -263,9 +263,10 @@ export const AnimalVenom = DB.TypeAlias(import.meta.url, {
         comment: "If `false`, the poison cannot be extracted.",
         type: DB.Boolean(),
       }),
-      trade_secret: DB.Optional({
-        comment: "AP value and prerequisites of the poison’s trade secret.",
-        type: DB.IncludeIdentifier(RecipeTradeSecret),
+      complexity: DB.Optional({
+        comment:
+          "The complexity of the poison. Complex poisons define AP value and prerequisites of the poison’s trade secret.",
+        type: DB.IncludeIdentifier(RecipeComplexity),
       }),
     }),
 })

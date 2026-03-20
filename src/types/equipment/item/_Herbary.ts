@@ -28,6 +28,16 @@ export const LaboratoryLevel = DB.Enum(import.meta.url, {
   }),
 })
 
+export const RecipeComplexity = DB.Enum(import.meta.url, {
+  name: "RecipeComplexity",
+  comment: "The complexity of crafting the recipe.",
+  values: () => ({
+    Primitive: DB.EnumCase({ type: null }),
+    Simple: DB.EnumCase({ type: null }),
+    Complex: DB.EnumCase({ type: DB.IncludeIdentifier(RecipeTradeSecret) }),
+  }),
+})
+
 export const RecipeTradeSecret = DB.TypeAlias(import.meta.url, {
   name: "RecipeTradeSecret",
   type: () =>
