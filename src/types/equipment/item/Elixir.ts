@@ -65,11 +65,8 @@ export const Elixir = DB.Entity(import.meta.url, {
           }),
           quality_levels: DB.Required({
             comment:
-              "The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.",
-            type: DB.Array(DB.String({ minLength: 1, markdown: "block" }), {
-              minItems: 6,
-              maxItems: 6,
-            }),
+              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level.",
+            type: DB.IncludeIdentifier(ElixirEffect),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),
@@ -84,4 +81,44 @@ export const Elixir = DB.Entity(import.meta.url, {
       keyPathInEntityMap: "name",
     },
   ],
+})
+
+export const ElixirEffect = DB.Enum(import.meta.url, {
+  name: "ElixirEffect",
+  comment:
+    "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level.",
+  values: () => ({
+    Plain: DB.EnumCase({
+      type: DB.IncludeIdentifier(ElixirPlainEffect),
+    }),
+    ForEachQualityLevel: DB.EnumCase({
+      type: DB.IncludeIdentifier(ElixirEffectForEachQualityLevel),
+    }),
+  }),
+})
+
+const ElixirPlainEffect = DB.TypeAlias(import.meta.url, {
+  name: "ElixirPlainEffect",
+  type: () =>
+    DB.Object({
+      text: DB.Required({
+        comment: "The effect description.",
+        type: DB.String({ minLength: 1, markdown: "block" }),
+      }),
+    }),
+})
+
+const ElixirEffectForEachQualityLevel = DB.TypeAlias(import.meta.url, {
+  name: "ElixirEffectForEachQualityLevel",
+  type: () =>
+    DB.Object({
+      qualityLevels: DB.Required({
+        comment:
+          "The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.",
+        type: DB.Array(DB.String({ minLength: 1, markdown: "block" }), {
+          minItems: 6,
+          maxItems: 6,
+        }),
+      }),
+    }),
 })
