@@ -97,8 +97,7 @@ const PoisonStart = DB.Enum(import.meta.url, {
   name: "PoisonStart",
   values: () => ({
     Immediate: DB.EnumCase({ type: null }),
-    Constant: DB.EnumCase({ type: DB.IncludeIdentifier(ConstantPoisonTime) }),
-    DiceBased: DB.EnumCase({ type: DB.IncludeIdentifier(DiceBasedPoisonTime) }),
+    ExpressionBased: DB.EnumCase({ type: DB.IncludeIdentifier(ExpressionBasedPoisonTime) }),
     Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefinitePoisonTime) }),
   }),
 })
@@ -107,8 +106,6 @@ const PoisonDuration = DB.Enum(import.meta.url, {
   name: "PoisonDuration",
   values: () => ({
     Instant: DB.EnumCase({ type: null }),
-    Constant: DB.EnumCase({ type: DB.IncludeIdentifier(ConstantPoisonTime) }),
-    DiceBased: DB.EnumCase({ type: DB.IncludeIdentifier(DiceBasedPoisonTime) }),
     ExpressionBased: DB.EnumCase({ type: DB.IncludeIdentifier(ExpressionBasedPoisonTime) }),
     Indefinite: DB.EnumCase({ type: DB.IncludeIdentifier(IndefinitePoisonTime) }),
   }),
@@ -174,36 +171,6 @@ const DependingOnPurchaseOrSalePoisonCost = DB.TypeAlias(import.meta.url, {
       sale: DB.Required({
         comment: "The cost when selling the poison.",
         type: DB.Float({ minimum: { value: 0, isExclusive: true } }),
-      }),
-    }),
-})
-
-export const ConstantPoisonTime = DB.TypeAlias(import.meta.url, {
-  name: "ConstantPoisonTime",
-  type: () =>
-    DB.Object({
-      value: DB.Required({
-        type: DB.Integer({ minimum: 1 }),
-      }),
-      unit: DB.Required({
-        type: DB.IncludeIdentifier(PoisonTimeUnit),
-      }),
-    }),
-})
-
-export const DiceBasedPoisonTime = DB.TypeAlias(import.meta.url, {
-  name: "DiceBasedPoisonTime",
-  type: () =>
-    DB.Object({
-      dice: DB.Required({
-        type: DB.IncludeIdentifier(Dice),
-      }),
-      flat: DB.Optional({
-        comment: "The value to add to the result of the dice roll(s).",
-        type: DB.Integer(),
-      }),
-      unit: DB.Required({
-        type: DB.IncludeIdentifier(PoisonTimeUnit),
       }),
     }),
 })
