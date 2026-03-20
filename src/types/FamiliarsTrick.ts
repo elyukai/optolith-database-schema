@@ -9,7 +9,11 @@ import {
   FixedDuration,
   IndefiniteDuration,
 } from "./_ActivatableSkillDuration.js"
-import { AnimalTypeIdentifier, MagicalTraditionIdentifier, PropertyIdentifier } from "./_Identifier.js"
+import {
+  AnimalTypeIdentifier,
+  MagicalTraditionIdentifier,
+  PropertyIdentifier,
+} from "./_Identifier.js"
 import { ResponsiveText } from "./_ResponsiveText.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
