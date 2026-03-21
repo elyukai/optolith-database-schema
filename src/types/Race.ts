@@ -1,3 +1,4 @@
+import { isNotNullish } from "@elyukai/utils/nullable"
 import * as DB from "tsondb/schema/dsl"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { Dice, DieType } from "./_Dice.js"
@@ -10,6 +11,7 @@ import {
   HairColorIdentifier,
   RaceIdentifier,
 } from "./_Identifier.js"
+import { calculationContainsRaceBase, DerivedCharacteristic } from "./DerivedCharacteristic.ts"
 import { ExperienceLevel } from "./ExperienceLevel.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
@@ -137,27 +139,35 @@ export const Race = DB.Entity(import.meta.url, {
       keyPathInEntityMap: "name",
     },
   ],
+  customConstraints: ({ instanceContent, getAllInstanceContainers, getDisplayNameAndId }) => {
+    const expectedBaseValues = getAllInstanceContainers("DerivedCharacteristic").filter(dc =>
+      calculationContainsRaceBase(dc.content.calculation.base),
+    )
+
+    const actualBaseValues = Object.keys(instanceContent.base_values)
+
+    return [
+      expectedBaseValues.length !== actualBaseValues.length ||
+      actualBaseValues.some(actual => !expectedBaseValues.some(expected => actual === expected.id))
+        ? `The race needs to define base values for ${expectedBaseValues.map(dc => getDisplayNameAndId("DerivedCharacteristic", dc.id)).join(", ")}, but defines ${actualBaseValues.map(dcId => getDisplayNameAndId("DerivedCharacteristic", dcId)).join(", ")}.`
+        : null,
+    ].filter(isNotNullish)
+  },
 })
 
 const BaseValues = DB.TypeAlias(import.meta.url, {
   name: "BaseValues",
   type: () =>
-    DB.Object({
-      life_points: DB.Required({
-        comment: "The race’s life point base value.",
-        type: DB.Integer(),
-      }),
-      spirit: DB.Required({
-        comment: "The race’s Spirit base value.",
-        type: DB.Integer(),
-      }),
-      toughness: DB.Required({
-        comment: "The race’s Toughness base value.",
-        type: DB.Integer(),
-      }),
-      movement: DB.Required({
-        comment: "The race’s tactical movement rate.",
-        type: DB.Integer(),
+    DB.NestedEntityMap({
+      name: "RaceBaseValue",
+      namePlural: "RaceBaseValues",
+      comment: "The base value for a derived characteristic that is granted by the race.",
+      secondaryEntity: DerivedCharacteristic,
+      type: DB.Object({
+        value: DB.Required({
+          comment: "The base value for the derived characteristic that is granted by the race.",
+          type: DB.Integer(),
+        }),
       }),
     }),
 })

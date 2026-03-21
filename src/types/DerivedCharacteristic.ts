@@ -1,4 +1,11 @@
+import { assertExhaustive } from "@elyukai/utils/typeSafety"
 import * as DB from "tsondb/schema/dsl"
+import { fromUniformCase } from "tsondb/schema/gen"
+import type {
+  DerivedCharacteristicBase,
+  DerivedCharacteristicBaseValue,
+  MathOperation as MathOperationType,
+} from "../../gen/types.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { AttributeIdentifier } from "./_Identifier.ts"
 import { ImprovementCost } from "./_ImprovementCost.ts"
@@ -93,16 +100,6 @@ const DerivedCharacteristicCalculation = DB.TypeAlias(import.meta.url, {
     }),
 })
 
-const DerivedCharacteristicRaceBaseValue = DB.Enum(import.meta.url, {
-  name: "DerivedCharacteristicRaceBaseValue",
-  values: () => ({
-    LifePoints: DB.EnumCase({ type: null }),
-    Spirit: DB.EnumCase({ type: null }),
-    Toughness: DB.EnumCase({ type: null }),
-    Movement: DB.EnumCase({ type: null }),
-  }),
-})
-
 const DerivedCharacteristicPrimaryAttributeValue = DB.Enum(import.meta.url, {
   name: "DerivedCharacteristicPrimaryAttributeValue",
   values: () => ({
@@ -116,10 +113,7 @@ const DerivedCharacteristicBaseValue = DB.Enum(import.meta.url, {
   values: () => ({
     Constant: DB.EnumCase({ type: DB.Integer() }),
     Attribute: DB.EnumCase({ type: AttributeIdentifier() }),
-    RaceBaseValue: DB.EnumCase({
-      displayName: "Base Value from Race",
-      type: DB.IncludeIdentifier(DerivedCharacteristicRaceBaseValue),
-    }),
+    RaceBaseValue: DB.EnumCase({ displayName: "Base Value from Race", type: null }),
     PrimaryAttribute: DB.EnumCase({
       type: DB.IncludeIdentifier(DerivedCharacteristicPrimaryAttributeValue),
     }),
@@ -131,6 +125,36 @@ const DerivedCharacteristicBase = DB.TypeAlias(import.meta.url, {
   type: () =>
     DB.GenIncludeIdentifier(MathOperation, [DB.IncludeIdentifier(DerivedCharacteristicBaseValue)]),
 })
+
+export const calculationContainsRaceBase = (base: DerivedCharacteristicBase): boolean => {
+  switch (base.kind) {
+    case "Value":
+      switch (base.Value.kind) {
+        case "RaceBaseValue":
+          return true
+        case "Constant":
+        case "Attribute":
+        case "PrimaryAttribute":
+          return false
+        default:
+          return assertExhaustive(base.Value)
+      }
+    case "Addition":
+    case "Subtraction":
+    case "Multiplication":
+    case "Division":
+    case "Exponentiation": {
+      const [left, right] = fromUniformCase<
+        "Addition" | "Subtraction" | "Multiplication" | "Division" | "Exponentiation",
+        [
+          MathOperationType<DerivedCharacteristicBaseValue>,
+          MathOperationType<DerivedCharacteristicBaseValue>,
+        ]
+      >(base)
+      return calculationContainsRaceBase(left) || calculationContainsRaceBase(right)
+    }
+  }
+}
 
 const DerivedCharacteristicModifierOperation = DB.Enum(import.meta.url, {
   name: "DerivedCharacteristicModifierOperation",
