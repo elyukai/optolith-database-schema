@@ -28,7 +28,7 @@ export const CeremonialItem = DB.Entity(import.meta.url, {
         comment: "The complexity of crafting the item.",
         type: DB.IncludeIdentifier(Complexity),
       }),
-      structure_points: DB.Required({
+      structure_points: DB.Optional({
         comment:
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
         type: DB.IncludeIdentifier(StructurePoints),
