@@ -176,6 +176,7 @@ export const TribePrerequisiteGroup = DB.Enum(import.meta.url, {
 export const GeodeRitualPrerequisiteGroup = DB.Enum(import.meta.url, {
   name: "GeodeRitualPrerequisiteGroup",
   values: () => ({
+    Activatable: DB.EnumCase({ type: DB.IncludeIdentifier(ActivatablePrerequisite) }),
     Influence: DB.EnumCase({ type: DB.IncludeIdentifier(InfluencePrerequisite) }),
   }),
 })
