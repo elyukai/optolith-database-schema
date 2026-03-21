@@ -25,3 +25,9 @@ You can also watch for changes when you are working on the schema. For this, the
 In order to test changes with the actual database, one approach could be to install the schema as a local npm package in the database. To do so, go to your local database copy and run `npm i ../path/to/schema`, where you just point to your local working copy of the database schema repository (the one this document belongs to).
 
 Make sure to always restart the editor when you make changes, as the database schema is not automatically reloaded. If the editor UI does not update properly, try resetting the browser cache by holding shift while reloading the page.
+
+## Naming conventions
+
+If you create branches in this repository, use either `feature/<topic>` or `fix/<topic>` as the branch name and replace `<topic>` with a kebab case version of what the branch is going to do. Branches are merged using squash merge, so commits within a pull request do not have to follow any naming convention, just do what you can work with best.
+
+Alternatively, you can fork the repository and create pull requests from there.
