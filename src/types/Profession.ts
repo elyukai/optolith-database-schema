@@ -18,8 +18,8 @@ import {
   CombatTechniqueIdentifier,
   LiturgyIdentifier,
   MagicalActionIdentifier,
+  ProfessionSpecialAbilityIdentifier,
   RequirableSelectOptionIdentifier,
-  SpecialAbilityIdentifier,
   SpellworkIdentifier,
 } from "./_IdentifierGroup.js"
 import { ProfessionPrerequisites } from "./_Prerequisite.js"
@@ -404,7 +404,7 @@ const ConstantProfessionSpecialAbility = DB.TypeAlias(import.meta.url, {
     DB.Object({
       id: DB.Required({
         comment: "The identifier of the special ability to grant.",
-        type: DB.IncludeIdentifier(SpecialAbilityIdentifier),
+        type: DB.IncludeIdentifier(ProfessionSpecialAbilityIdentifier),
       }),
       level: DB.Optional({
         comment:
