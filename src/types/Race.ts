@@ -30,11 +30,6 @@ export const Race = DB.Entity(import.meta.url, {
         comment: "The race’s base values.",
         type: DB.IncludeIdentifier(BaseValues),
       }),
-      attribute_adjustments: DB.Required({
-        comment:
-          "Describes how to raise or lower maximum attribute values during character creation.",
-        type: DB.IncludeIdentifier(AttributeAdjustments),
-      }),
       automatic_advantages: DB.Optional({
         comment:
           "A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.",
@@ -301,6 +296,11 @@ export const RaceVariant = DB.Entity(import.meta.url, {
       race: DB.Required({
         comment: "The associated race.",
         type: RaceIdentifier(),
+      }),
+      attribute_adjustments: DB.Required({
+        comment:
+          "Describes how to raise or lower maximum attribute values during character creation.",
+        type: DB.IncludeIdentifier(AttributeAdjustments),
       }),
       common_cultures: DB.Optional({
         comment: "The list of common cultures.",
