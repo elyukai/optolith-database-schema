@@ -1,5 +1,6 @@
 import * as DB from "tsondb/schema/dsl"
 import { OldParameter } from "../_ActivatableSkill.js"
+import { DurationUnitValue } from "../_ActivatableSkillDuration.ts"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import {
   ArcaneBardTraditionIdentifier,
@@ -125,6 +126,10 @@ const FixedMagicalMelodyCost = DB.TypeAlias(import.meta.url, {
       value: DB.Required({
         comment: "The (temporary) AE cost value.",
         type: DB.Integer({ minimum: 1 }),
+      }),
+      interval: DB.Optional({
+        comment: "The interval at which to pay half the initial cost.",
+        type: DB.IncludeIdentifier(DurationUnitValue),
       }),
     }),
 })
