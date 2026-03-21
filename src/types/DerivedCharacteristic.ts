@@ -24,6 +24,10 @@ export const DerivedCharacteristic = DB.Entity(import.meta.url, {
           "The position of the derived characteristic in lists. This has to be a unique value.",
         type: DB.Integer({ minimum: 0 }),
       }),
+      type: DB.Optional({
+        comment: "The derived characteristic may have a specific use in the game.",
+        type: DB.IncludeIdentifier(DerivedCharacteristicType),
+      }),
       calculation: DB.Required({
         comment: "Instructions for calculating the derived characteristic’s value.",
         type: DB.IncludeIdentifier(DerivedCharacteristicCalculation),
@@ -74,6 +78,41 @@ export const DerivedCharacteristic = DB.Entity(import.meta.url, {
   ],
 })
 
+const DerivedCharacteristicType = DB.Enum(import.meta.url, {
+  name: "DerivedCharacteristicType",
+  comment:
+    "The type of the derived characteristic, which determines how it can be used in the game.",
+  values: () => ({
+    Energy: DB.EnumCase({
+      comment:
+        "The derived characteristic works like an energy in that it can be spent on various actions and abilities, and also be refilled based on certain conditions.",
+      type: DB.IncludeIdentifier(EnergyType),
+    }),
+    Resistance: DB.EnumCase({
+      comment: "The derived characteristic represents a resistance against certain effects.",
+      type: null,
+    }),
+  }),
+})
+
+const EnergyType = DB.TypeAlias(import.meta.url, {
+  name: "EnergyType",
+  comment: "Additional values that can be defined for an energy.",
+  type: () =>
+    DB.Object({
+      purchase: DB.Optional({
+        comment:
+          "If set, the energy’s maximum value can be improved by spending AP.\n\nIf the energy’s permanent losses can be bought back, points will not be able to be purchased unless all permanent losses have been bought back.",
+        type: DB.IncludeIdentifier(DerivedCharacteristicPurchase),
+      }),
+      permanentLoss: DB.Optional({
+        comment:
+          "If set, the energy can suffer permanent losses that reduce its maximum value. It may also be possible to buy back these permanent losses.",
+        type: DB.IncludeIdentifier(DerivedCharacteristicPermanentLoss),
+      }),
+    }),
+})
+
 const DerivedCharacteristicCalculation = DB.TypeAlias(import.meta.url, {
   name: "DerivedCharacteristicCalculation",
   type: () =>
@@ -86,16 +125,6 @@ const DerivedCharacteristicCalculation = DB.TypeAlias(import.meta.url, {
         comment:
           "A list of modifiers that are applied to the base value. The modifiers are applied in the order they appear in the list.",
         type: DB.Array(DB.IncludeIdentifier(DerivedCharacteristicModifier), { minItems: 1 }),
-      }),
-      purchasable: DB.Optional({
-        comment:
-          "If set, the derived characteristic can be improved by spending AP.\n\nIf the derived characteristic’s permanent losses can be bought back, points will not be able to be purchased unless all permanent losses have been bought back.",
-        type: DB.IncludeIdentifier(DerivedCharacteristicPurchase),
-      }),
-      permanentLoss: DB.Optional({
-        comment:
-          "If set, the derived characteristic can suffer permanent losses that reduce its maximum value. It may also be possible to buy back these permanent losses.",
-        type: DB.IncludeIdentifier(DerivedCharacteristicPermanentLoss),
       }),
     }),
 })
