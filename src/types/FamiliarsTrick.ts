@@ -32,7 +32,7 @@ export const FamiliarsTrick = DB.Entity(import.meta.url, {
 If no animal types are given, the familiars trick applies to all animal types.`,
         type: DB.Array(AnimalTypeIdentifier(), { uniqueItems: true }),
       }),
-      traditions: DB.Required({
+      traditions: DB.Optional({
         comment: `The magical traditions whose familiars can use this trick. Either it is available to all or only a list of specific traditions.
 
 If no traditions are given, the familiars trick is not restricted by the magical tradition at all.`,
