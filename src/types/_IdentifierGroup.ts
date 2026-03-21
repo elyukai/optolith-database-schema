@@ -456,6 +456,14 @@ export const EquipmentIdentifier = DB.Enum(import.meta.url, {
   }),
 })
 
+export const AmmunitionishIdentifier = DB.Enum(import.meta.url, {
+  name: "AmmunitionishIdentifier",
+  values: () => ({
+    Ammunition: DB.EnumCase({ type: AmmunitionIdentifier() }),
+    Weapon: DB.EnumCase({ type: WeaponIdentifier() }),
+  }),
+})
+
 export const AdvancedSkillStyleSpecialAbilityIdentifier = DB.Enum(import.meta.url, {
   name: "AdvancedSkillStyleSpecialAbilityIdentifier",
   values: () => ({

@@ -4,7 +4,7 @@
 
 import * as DB from "tsondb/schema/dsl"
 import { Dice } from "../../_Dice.js"
-import { AmmunitionIdentifier } from "../../_Identifier.js"
+import { AmmunitionishIdentifier } from "../../_IdentifierGroup.ts"
 import { Length } from "./_Weapon.js"
 
 const RangedDamage = DB.Enum(import.meta.url, {
@@ -61,7 +61,7 @@ export const GenRangedWeapon = DB.GenTypeAlias(import.meta.url, {
       }),
       ammunition: DB.Optional({
         comment: "The needed ammunition.",
-        type: AmmunitionIdentifier(),
+        type: DB.IncludeIdentifier(AmmunitionishIdentifier),
       }),
       length: DB.Optional({
         comment: "The length of the weapon in cm/halffingers.",
