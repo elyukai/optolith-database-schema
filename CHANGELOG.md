@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.41.0](https://github.com/elyukai/optolith-database-schema/compare/v0.40.0...v0.41.0) (2026-03-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* allow activatable prerequisites for geode rituals
+* childhood and magical disease flags
+* attribute adjustments can vary by race variant
+* optional ceremonial item structure points
+* allow enhancements as profession special abilities
+* allow weapons as ammunition
+* multiple weapon reaches
+* reach position
+* derived characteristic type
+* id-connected race base values
+* atomic talisman activation values
+* plain quality level effect
+* animal poison can have a complexity
+* unify poison times as expression
+
+* id-connected race base values ([ee11a36](https://github.com/elyukai/optolith-database-schema/commit/ee11a3605159dfff9a1ba12fabe5cb11523bbf91))
+* unify poison times as expression ([03f33ce](https://github.com/elyukai/optolith-database-schema/commit/03f33ce36d127c080a932be013428a0f6247aaf1))
+
+
+### Features
+
+* allow activatable prerequisites for geode rituals ([937eeb9](https://github.com/elyukai/optolith-database-schema/commit/937eeb94e0c110acf7959ee07b9a7bbd48bb3938)), closes [#124](https://github.com/elyukai/optolith-database-schema/issues/124)
+* allow enhancements as profession special abilities ([47cdc55](https://github.com/elyukai/optolith-database-schema/commit/47cdc55aa0eb0b312a6528e020fc4069e02c70bd)), closes [#114](https://github.com/elyukai/optolith-database-schema/issues/114)
+* allow weapons as ammunition ([d36c4b8](https://github.com/elyukai/optolith-database-schema/commit/d36c4b8334e72ce680ec50b8d5ac4272302286cc)), closes [#90](https://github.com/elyukai/optolith-database-schema/issues/90)
+* animal poison can have a complexity ([eafeb5d](https://github.com/elyukai/optolith-database-schema/commit/eafeb5de3648d6d9181e5e772dbfcab121c3f0ea)), closes [#48](https://github.com/elyukai/optolith-database-schema/issues/48)
+* atomic talisman activation values ([0375cd5](https://github.com/elyukai/optolith-database-schema/commit/0375cd5d2ae3812218bd753a98fa9a0f34f9cd8b))
+* attribute adjustments can vary by race variant ([ed6cec9](https://github.com/elyukai/optolith-database-schema/commit/ed6cec999785f6f516478d03a34900e6f173abe8)), closes [#117](https://github.com/elyukai/optolith-database-schema/issues/117)
+* childhood and magical disease flags ([d4008b3](https://github.com/elyukai/optolith-database-schema/commit/d4008b3fcf60ae0da3fb317721eac3c0d7703a2a)), closes [#122](https://github.com/elyukai/optolith-database-schema/issues/122)
+* derived characteristic type ([9a5ae50](https://github.com/elyukai/optolith-database-schema/commit/9a5ae5028092a6226443f3836e26941d32516307))
+* magical melody cost interval ([c3087b4](https://github.com/elyukai/optolith-database-schema/commit/c3087b456bbe57a7a8efc95700bf0a692241c8ad)), closes [#123](https://github.com/elyukai/optolith-database-schema/issues/123)
+* multiple weapon reaches ([00966f9](https://github.com/elyukai/optolith-database-schema/commit/00966f9186a1298ac575c8fdef4cab7e60b22658)), closes [#89](https://github.com/elyukai/optolith-database-schema/issues/89)
+* optional ceremonial item structure points ([b172b9f](https://github.com/elyukai/optolith-database-schema/commit/b172b9f3313e59f08bb0d2cdf07b917ea13b5472)), closes [#115](https://github.com/elyukai/optolith-database-schema/issues/115)
+* plain quality level effect ([30db26f](https://github.com/elyukai/optolith-database-schema/commit/30db26fc6bc5eb742d6d87847d91fec85c235954)), closes [#56](https://github.com/elyukai/optolith-database-schema/issues/56)
+* reach position ([962950d](https://github.com/elyukai/optolith-database-schema/commit/962950d4c58b8caad89d617f789c221fdae7c202))
+* specific skills for profession skill options ([4f5ed76](https://github.com/elyukai/optolith-database-schema/commit/4f5ed7679f94acb67e7bb845114a46a2d82a3136)), closes [#97](https://github.com/elyukai/optolith-database-schema/issues/97)
+
 ## [0.40.0](https://github.com/elyukai/optolith-database-schema/compare/v0.39.0...v0.40.0) (2026-03-15)
 
 
