@@ -6,6 +6,7 @@ export const CheckResultValue = DB.Enum(import.meta.url, {
   values: () => ({
     QualityLevels: DB.EnumCase({ type: null }),
     SkillPoints: DB.EnumCase({ type: null }),
+    SkillRating: DB.EnumCase({ type: null }),
   }),
 })
 
