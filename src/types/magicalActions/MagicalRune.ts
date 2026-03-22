@@ -6,7 +6,7 @@ import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { MagicalRuneIdentifier, PropertyIdentifier } from "../_Identifier.js"
 import { CombatTechniqueIdentifier } from "../_IdentifierGroup.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
-import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
+import { ResponsiveTextOptional, ResponsiveTextReplace } from "../_ResponsiveText.js"
 import { SkillCheck } from "../_SkillCheck.js"
 import { NestedTranslationMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
@@ -220,35 +220,46 @@ const MagicalRuneCostDisjunction = DB.TypeAlias(import.meta.url, {
     }),
 })
 
-const MagicalRuneCraftingTimePerCountable = DB.TypeAlias(import.meta.url, {
-  name: "MagicalRuneCraftingTimePerCountable",
-  type: () =>
-    DB.Object({
-      translations: NestedTranslationMap(
-        DB.Required,
-        "MagicalRuneCraftingTimePerCountable",
-        DB.Object({
-          countable: DB.Required({
-            comment: "The countable entity name.",
-            type: DB.IncludeIdentifier(ResponsiveText),
-          }),
-        }),
-      ),
-    }),
-})
-
 const MagicalRuneCraftingTime = DB.TypeAlias(import.meta.url, {
   name: "MagicalRuneCraftingTime",
   type: () =>
     DB.Object({
-      value: DB.Required({
-        comment: "The crafting time in actions.",
-        type: DB.Integer({ minimum: 1 }),
+      slow: DB.Required({
+        type: DB.Object({
+          value: DB.Required({
+            comment: "The crafting time in days on slow rune application.",
+            type: DB.Integer({ minimum: 1 }),
+          }),
+          translations: NestedTranslationMap(
+            DB.Optional,
+            "MagicalRuneCraftingTimeSlow",
+            DB.Object({
+              replacement: DB.Optional({
+                comment: "A replacement string.",
+                type: DB.IncludeIdentifier(ResponsiveTextReplace),
+              }),
+            }),
+          ),
+        }),
       }),
-      per: DB.Optional({
-        comment:
-          "The crafting time has to be per a specific countable entity, e.g. `8 Actions per person`.",
-        type: DB.IncludeIdentifier(MagicalRuneCraftingTimePerCountable),
+
+      fast: DB.Required({
+        type: DB.Object({
+          value: DB.Required({
+            comment: "The crafting time in actions on fast rune application.",
+            type: DB.Integer({ minimum: 1 }),
+          }),
+          translations: NestedTranslationMap(
+            DB.Optional,
+            "MagicalRuneCraftingTimeFast",
+            DB.Object({
+              replacement: DB.Optional({
+                comment: "A replacement string.",
+                type: DB.IncludeIdentifier(ResponsiveTextReplace),
+              }),
+            }),
+          ),
+        }),
       }),
     }),
 })
