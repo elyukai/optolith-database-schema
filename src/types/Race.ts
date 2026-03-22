@@ -62,6 +62,11 @@ export const Race = DB.Entity(import.meta.url, {
           { minItems: 1 },
         ),
       }),
+      hairColorCount: DB.Optional({
+        comment:
+          "How many different hair colors a race may have. By default, they have a single one that is for their whole body, but a race may have multiple if their hair color is different for different body parts. Additionally, if the hair color is labelled differently (e.g. scale color), there might be multiple colors for different body parts as well. This should only be set if the hair color count is higher than 1.",
+        type: DB.Integer({ minimum: 2 }),
+      }),
       weight: DB.Required({
         comment: "Configuration for random weight generation.",
         type: DB.IncludeIdentifier(RandomWeightGeneration),
@@ -119,6 +124,11 @@ export const Race = DB.Entity(import.meta.url, {
           }),
           strongly_recommended_disadvantages: DB.Optional({
             comment: "The respective strongly recommended disadvantages text from the source book.",
+            type: DB.String({ minLength: 1 }),
+          }),
+          hairColorLabel: DB.Optional({
+            comment:
+              "The label for hair colors if it is not a hair color in that sense: Some races may have different labels for hair color such as scale color.",
             type: DB.String({ minLength: 1 }),
           }),
           errata: DB.Optional({
