@@ -344,12 +344,12 @@ export const RaceVariant = DB.Entity(import.meta.url, {
           { minItems: 1 },
         ),
       }),
-      hair_color: DB.Optional({
+      hair_color: DB.Required({
         comment:
           "An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.",
         type: DB.Array(HairColorIdentifier(), { minItems: 20, maxItems: 20 }),
       }),
-      eye_color: DB.Optional({
+      eye_color: DB.Required({
         comment:
           "An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.",
         type: DB.Array(EyeColorIdentifier(), { minItems: 20, maxItems: 20 }),
