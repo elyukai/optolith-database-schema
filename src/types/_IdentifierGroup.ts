@@ -20,6 +20,7 @@ import {
   AttireEnchantmentIdentifier,
   AttributeIdentifier,
   BandageOrRemedyIdentifier,
+  BannzeichenIdentifier,
   BeutelzauberIdentifier,
   BlessedTraditionIdentifier,
   BlessingIdentifier,
@@ -338,6 +339,7 @@ export const LiturgyIdentifier = DB.Enum(import.meta.url, {
 export const MagicalActionIdentifier = DB.Enum(import.meta.url, {
   name: "MagicalActionIdentifier",
   values: () => ({
+    Bannzeichen: DB.EnumCase({ type: BannzeichenIdentifier() }),
     Curse: DB.EnumCase({ type: CurseIdentifier() }),
     ElvenMagicalSong: DB.EnumCase({ type: ElvenMagicalSongIdentifier() }),
     DominationRitual: DB.EnumCase({ type: DominationRitualIdentifier() }),
