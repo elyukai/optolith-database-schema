@@ -31,3 +31,12 @@ Make sure to always restart the editor when you make changes, as the database sc
 If you create branches in this repository, use either `feature/<topic>` or `fix/<topic>` as the branch name and replace `<topic>` with a kebab case version of what the branch is going to do. Branches are merged using squash merge, so commits within a pull request do not have to follow any naming convention, just do what you can work with best.
 
 Alternatively, you can fork the repository and create pull requests from there.
+
+## New entities
+
+If you add new entities, there are some additional steps to take.
+
+1. Add the corresponding identifier to the `src/types/_Identifier.ts` file. Just duplicate an existing one, adjust the referenced entity at the end and make sure the variable/function name is the entity name plus `Identifier` and is inserted into the list of identifiers in alphabetical order.
+2. Check `src/types/_Identifier.ts` if you need to add the entity to any existing identifier group. For example, if you add another special ability entity, add it to the `SpecialAbilityIdentifier` group; if it is a combat-related special ability, add it to the `CombatRelatedSpecialAbilityIdentifier` group as well.
+3. **If it is not a child entity:** Export the entity declaration alone from `src/types/index.ts`.
+4. **If it is not a child entity:** Add the entity declaration to the schema definition in `src/main.ts` in alphabetical order.
