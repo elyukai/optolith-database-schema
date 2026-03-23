@@ -91,9 +91,17 @@ export const GoblinRitual = DB.Entity(import.meta.url, {
     ],
 })
 
-const GoblinRitualPerformanceParameters = DB.TypeAlias(import.meta.url, {
+const GoblinRitualPerformanceParameters = DB.Enum(import.meta.url, {
     name: "GoblinRitualPerformanceParameters",
     comment: "Measurable parameters of a goblin ritual.",
+    values: () => ({
+        OneTime: DB.EnumCase({ type: DB.IncludeIdentifier(GoblinRitualOneTimePerformanceParameters) }),
+        Sustained: DB.EnumCase({ type: DB.IncludeIdentifier(GoblinRitualSustainedPerformanceParameters) }),
+    }),
+})
+
+const GoblinRitualSustainedPerformanceParameters = DB.TypeAlias(import.meta.url, {
+    name: "GoblinRitualSustainedPerformanceParameters",
     type: () =>
         DB.Object({
             casting_time: DB.Required({
@@ -102,7 +110,26 @@ const GoblinRitualPerformanceParameters = DB.TypeAlias(import.meta.url, {
             }),
             cost: DB.Required({
                 comment: "The AE cost.",
-                type: DB.IncludeIdentifier(GoblinRitualCost),
+                type: DB.IncludeIdentifier(GoblinRitualSustainedCost),
+            }),
+            range: DB.Required({
+                comment: "The range.",
+                type: DB.IncludeIdentifier(GoblinRitualRange),
+            }),
+        }),
+})
+
+const GoblinRitualOneTimePerformanceParameters = DB.TypeAlias(import.meta.url, {
+    name: "GoblinRitualOneTimePerformanceParameters",
+    type: () =>
+        DB.Object({
+            casting_time: DB.Required({
+                comment: "The casting time.",
+                type: DB.IncludeIdentifier(GoblinRitualCastingTime),
+            }),
+            cost: DB.Required({
+                comment: "The AE cost.",
+                type: DB.IncludeIdentifier(GoblinRitualOneTimeCost),
             }),
             range: DB.Required({
                 comment: "The range.",
@@ -115,7 +142,7 @@ const GoblinRitualPerformanceParameters = DB.TypeAlias(import.meta.url, {
         }),
 })
 
-const GoblinRitualCastingTime = DB.Enum(import.meta.url, {
+const GoblinRitualCastingTime = DB.TypeAlias(import.meta.url, {
     name: "GoblinRitualCastingTime",
     type: () =>
         DB.Object({
@@ -129,7 +156,7 @@ const GoblinRitualCastingTime = DB.Enum(import.meta.url, {
 })
 
 const GoblinRitualCastingTimeUnit = DB.Enum(import.meta.url, {
-    name: "SlowSkillCastingTimeUnit",
+    name: "GoblinRitualCastingTimeUnit",
     values: () => ({
         Actions: DB.EnumCase({ type: null }),
         Minutes: DB.EnumCase({ type: null }),
@@ -137,15 +164,17 @@ const GoblinRitualCastingTimeUnit = DB.Enum(import.meta.url, {
     }),
 })
 
-const GoblinRitualCost = DB.Enum(import.meta.url, {
-    name: "GoblinRitualCost",
-    values: () => ({
-        Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(NonModifiableOneTimeCost) }),
-        Sustained: DB.EnumCase({ type: DB.IncludeIdentifier(NonModifiableSustainedCost) }),
-    }),
+const GoblinRitualOneTimeCost = DB.Enum(import.meta.url, {
+    name: "GoblinRitualOneTimeCost",
+    values: () => ({ Fixed: DB.EnumCase({ type: DB.IncludeIdentifier(NonModifiableOneTimeCost) }) }),
 })
 
-const GoblinRitualRange = DB.Enum(import.meta.url, {
+const GoblinRitualSustainedCost = DB.Enum(import.meta.url, {
+    name: "GoblinRitualSustainedCost",
+    values: () => ({ Sustained: DB.EnumCase({ type: DB.IncludeIdentifier(NonModifiableSustainedCost) }) }),
+})
+
+const GoblinRitualRange = DB.TypeAlias(import.meta.url, {
     name: "GoblinRitualRange",
     type: () =>
         DB.Object({
@@ -193,9 +222,3 @@ const GoblinRitualDuration = DB.Enum(import.meta.url, {
         CheckResultBased: DB.EnumCase({ type: DB.IncludeIdentifier(CheckResultBasedDuration) }),
     }),
 })
-
-/*Durations: 
-CheckResultBased
-Instant
-sustained
-fixed*/
