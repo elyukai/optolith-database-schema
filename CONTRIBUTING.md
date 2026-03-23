@@ -37,7 +37,7 @@ Alternatively, you can fork the repository and create pull requests from there.
 If you add new entities, there are some additional steps to take.
 
 1. Add the corresponding identifier to the `src/types/_Identifier.ts` file. Just duplicate an existing one, adjust the referenced entity at the end and make sure the variable/function name is the entity name plus `Identifier` and is inserted into the list of identifiers in alphabetical order.
-2. Check `src/types/_Identifier.ts` if you need to add the entity to any existing identifier group. For example, if you add another special ability entity, add it to the `SpecialAbilityIdentifier` group; if it is a combat-related special ability, add it to the `CombatRelatedSpecialAbilityIdentifier` group as well.
+2. Check `src/types/_IdentifierGroup.ts` if you need to add the entity to any existing identifier group. For example, if you add another special ability entity, add it to the `SpecialAbilityIdentifier` group; if it is a combat-related special ability, add it to the `CombatRelatedSpecialAbilityIdentifier` group as well.
 3. **If it is not a child entity:** Export the entity declaration alone from `src/types/index.ts`.
 4. **If it is not a child entity:** Add the entity declaration to the schema definition in `src/main.ts` in alphabetical order.
 
