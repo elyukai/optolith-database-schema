@@ -1634,6 +1634,8 @@ export const Locale = DB.Entity(import.meta.url, {
           ".input {$value :number} {{{$value}%}}": null,
           "Animal Types": null,
           "Communicability to Intelligent Creatures": null,
+          "childhood disease": null,
+          "magical disease": null,
 
           // personality traits
           "Can be combined with": null,
@@ -1661,10 +1663,7 @@ export const Locale = DB.Entity(import.meta.url, {
           "depends on spent AE": null,
 
           // races
-          "Life Point Base Value": null,
-          "Spirit Base Value": null,
-          "Toughness Base Value": null,
-          "Movement Base Value": null,
+          "{$derivedCharacteristic} Base Value": null,
           "Attribute Adjustments": null,
           "one attribute of your choice": null,
           "Common Cultures": null,
@@ -1708,12 +1707,13 @@ export const Locale = DB.Entity(import.meta.url, {
           "no Skill Specialization for a {$skillOfGroup}": null,
           ".input {$count :number} {{{$count} of the following combat techniques {$rating}}}": null,
           ".input {$count :number} {{{$previous}, {$count} others {$rating}}}": null,
-          "{$previous}, all others {$rating}": null,
+          "{$previous}, the others {$rating}": null,
           "Curses totaling {$apValue} AP": null,
           "no Curses totaling {$apValue} AP": null,
           "Liturgies totaling {$apValue} AP": null,
           "no Liturgies totaling {$apValue} AP": null,
           "{$apValue} AP to improve other {$skillsOfGroup}": null,
+          "{$apValue} AP to distribute among the following skills: {$list}": null,
           "no AP to improve other {$skillsOfGroup}": null,
           ".input {$count :number} {{{$count} cantrips}}": null,
           "{$count} from the following list": null,
@@ -1726,6 +1726,9 @@ export const Locale = DB.Entity(import.meta.url, {
           "Enhancements": null,
           "SR {$value}": null,
           ".input {$hiddenCount :number} {{Prerequisites}}": null,
+          "Spell Enhancement {$spell}": null,
+          "Ritual Enhancement {$ritual}": null,
+          "Liturgical Enhancement {$liturgicalChantOrCeremony}": null,
 
           // Library Entry Subtitles
           "Profession Package": null,
