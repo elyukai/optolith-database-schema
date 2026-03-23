@@ -101,7 +101,7 @@ export const Locale = DB.Entity(import.meta.url, {
           "Personal Data": null,
           "Character Sheet": null,
           "Pact": null,
-          "Rules": null,
+          "Rule Set": null,
           "Race, Culture & Profession": null,
           "Race": null,
           "Culture": null,
@@ -970,6 +970,7 @@ export const Locale = DB.Entity(import.meta.url, {
           "Object": null,
 
           "Effect": null,
+          "Rules": null,
           "Casting Time": null,
           "Ritual Time": null,
           "Liturgical Time": null,
