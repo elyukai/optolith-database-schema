@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.42.0](https://github.com/elyukai/optolith-database-schema/compare/v0.41.0...v0.42.0) (2026-03-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* adjust translations for 0.41.0 schema changes
+* do not confuse rules tab with rules term in entry texts
+* require hair and eye color specifications
+
+### Features
+
+* add familiars trick magical tradition restriction ([5c8a164](https://github.com/elyukai/optolith-database-schema/commit/5c8a164428d3e2a706bf07f106e1c7aecc8cb1af)), closes [#126](https://github.com/elyukai/optolith-database-schema/issues/126) [#106](https://github.com/elyukai/optolith-database-schema/issues/106)
+* adjust translations for 0.41.0 schema changes ([849fca4](https://github.com/elyukai/optolith-database-schema/commit/849fca45dbfcd48e8fa99a30ee375d37738c55f3))
+* do not confuse rules tab with rules term in entry texts ([7d8bcd8](https://github.com/elyukai/optolith-database-schema/commit/7d8bcd89baebcea6db20c442cb26aa48ea9268cc))
+* hair color label and hair color count ([750ddb1](https://github.com/elyukai/optolith-database-schema/commit/750ddb154824ab1e2de557084655297aa19e86fd)), closes [#116](https://github.com/elyukai/optolith-database-schema/issues/116)
+* require hair and eye color specifications ([99466ed](https://github.com/elyukai/optolith-database-schema/commit/99466ed0eec6676c0a8a0259bfc7480988284f41))
+* skill rating as check-result-based base value ([bd931ff](https://github.com/elyukai/optolith-database-schema/commit/bd931ffcb671e7b34a79d8d3f6b11da586a21859)), closes [#125](https://github.com/elyukai/optolith-database-schema/issues/125)
+
 ## [0.41.0](https://github.com/elyukai/optolith-database-schema/compare/v0.40.0...v0.41.0) (2026-03-21)
 
 
