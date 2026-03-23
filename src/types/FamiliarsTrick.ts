@@ -36,7 +36,7 @@ If no animal types are given, the familiars trick applies to all animal types.`,
         comment: `The magical traditions whose familiars can use this trick. Either it is available to all or only a list of specific traditions.
 
 If no traditions are given, the familiars trick is not restricted by the magical tradition at all.`,
-          type: DB.Array(MagicalTraditionIdentifier(), { uniqueItems: true, minItems: 1 }),
+        type: DB.Array(MagicalTraditionIdentifier(), { uniqueItems: true, minItems: 1 }),
       }),
       parameters: DB.Required({
         comment: "Measurable parameters of a familiar’s trick.",
