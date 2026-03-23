@@ -30,7 +30,7 @@ export const Bannzeichen = DB.Entity(import.meta.url, {
       }),
       improvement_cost: DB.Required({
         comment: "States which column is used to improve the skill.",
-        type: DB.IncludeIdentifier( BannzeichenImprovementCost),
+        type: DB.IncludeIdentifier(BannzeichenImprovementCost),
       }),
       src,
       translations: NestedTranslationMap(
@@ -74,7 +74,7 @@ If the bannzeichen has an option, the option’s name will/should not be include
 })
 
 const BannzeichenPerformanceParameters = DB.TypeAlias(import.meta.url, {
-    name: "BannzeichenPerformanceParameters",
+  name: "BannzeichenPerformanceParameters",
   comment: "Measurable parameters of a magical rune.",
   type: () =>
     DB.Object({
