@@ -56,7 +56,7 @@ const ModifiableOneTimeCost = DB.TypeAlias(import.meta.url, {
     }),
 })
 
-const NonModifiableOneTimeCost = DB.TypeAlias(import.meta.url, {
+export const NonModifiableOneTimeCost = DB.TypeAlias(import.meta.url, {
   name: "NonModifiableOneTimeCost",
   type: () =>
     DB.Object({
@@ -247,7 +247,7 @@ const ModifiableSustainedCost = DB.TypeAlias(import.meta.url, {
     }),
 })
 
-const NonModifiableSustainedCost = DB.TypeAlias(import.meta.url, {
+export const NonModifiableSustainedCost = DB.TypeAlias(import.meta.url, {
   name: "NonModifiableSustainedCost",
   type: () =>
     DB.Object({
