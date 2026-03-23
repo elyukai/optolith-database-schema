@@ -92,6 +92,7 @@ export const schema = new Schema<TSONDBTypes>(
     Types.GemOrPreciousStone,
     Types.GeneralSpecialAbility,
     Types.GeodeRitual,
+    Types.GoblinRitual,
     Types.Guideline,
     Types.HairColor,
     Types.Haubenzauber,
