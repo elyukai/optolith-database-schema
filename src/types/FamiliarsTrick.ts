@@ -9,7 +9,11 @@ import {
   FixedDuration,
   IndefiniteDuration,
 } from "./_ActivatableSkillDuration.js"
-import { AnimalTypeIdentifier, PropertyIdentifier } from "./_Identifier.js"
+import {
+  AnimalTypeIdentifier,
+  MagicalTraditionIdentifier,
+  PropertyIdentifier,
+} from "./_Identifier.js"
 import { ResponsiveText } from "./_ResponsiveText.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
@@ -25,8 +29,14 @@ export const FamiliarsTrick = DB.Entity(import.meta.url, {
       animal_types: DB.Required({
         comment: `The animal types this trick is available to. Either it is available to all or only a list of specific animal types.
 
-If no animal types are given, the animal disease applies to all animal types.`,
+If no animal types are given, the familiars trick applies to all animal types.`,
         type: DB.Array(AnimalTypeIdentifier(), { uniqueItems: true }),
+      }),
+      traditions: DB.Optional({
+        comment: `The magical traditions whose familiars can use this trick. Either it is available to all or only a list of specific traditions.
+
+If no traditions are given, the familiars trick is not restricted by the magical tradition at all.`,
+        type: DB.Array(MagicalTraditionIdentifier(), { uniqueItems: true, minItems: 1 }),
       }),
       parameters: DB.Required({
         comment: "Measurable parameters of a familiar’s trick.",
