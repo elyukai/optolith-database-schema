@@ -10,7 +10,7 @@ The entity reference in the documentation and the JSON Schema documents are gene
 
 If you want to contribute, it is most likely you want to help with inserting new data into the database. In this case, the [User Documentation](docs/Home.md) is the place to start. Conversations usually happen on the [Optolith Discord Server](https://discord.gg/wfdgB9g). We can also manage required permissions there, since you can't publicly access the database, as already mentioned.
 
-If you want to contribute to the database schema itself, please open an issue or discussion (whatever fits best) with what you want to achieve so we can discuss it. Breaking changes would require changes inside the database as well, so Pull Requests are usually not the way to go unless you want to fix a bug.
+If you want to contribute to the database schema itself, please open an issue or discussion (whatever fits best) with what you want to achieve so we can discuss it. Please look at the [CONTRIBUTING](./CONTRIBUTING.md) document for actual contributing to the schema repository.
 
 ## Usage
 

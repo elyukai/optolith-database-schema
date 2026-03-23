@@ -15,6 +15,7 @@ import { CloseCombatTechnique, RangedCombatTechnique } from "./CombatTechnique.j
 import { Condition } from "./Condition.js"
 import { Continent } from "./Continent.js"
 import { Culture } from "./Culture.js"
+import { DerivedCharacteristic } from "./DerivedCharacteristic.ts"
 import { Disadvantage } from "./Disadvantage.js"
 import { Disease } from "./Disease.js"
 import { Element } from "./Element.js"
@@ -209,6 +210,7 @@ export const CultureIdentifier: () => R = () => R(Culture)
 export const CurriculumIdentifier: () => R = () => R(Curriculum)
 export const CurseIdentifier: () => R = () => R(Curse)
 export const DaggerRitualIdentifier: () => R = () => R(DaggerRitual)
+export const DerivedCharacteristicIdentifier: () => R = () => R(DerivedCharacteristic)
 export const DisadvantageIdentifier: () => R = () => R(Disadvantage)
 export const DiseaseIdentifier: () => R = () => R(Disease)
 export const DominationRitualIdentifier: () => R = () => R(DominationRitual)

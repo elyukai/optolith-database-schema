@@ -16,6 +16,14 @@ export const Disease = DB.Entity(import.meta.url, {
         comment: "AP value and prerequisites of the disease’s trade secret.",
         type: DB.IncludeIdentifier(RecipeTradeSecret),
       }),
+      isChildhoodDisease: DB.Required({
+        comment: "Whether the disease is a childhood disease.",
+        type: DB.Boolean(),
+      }),
+      isMagicalDisease: DB.Required({
+        comment: "Whether the disease is a magical disease.",
+        type: DB.Boolean(),
+      }),
       src,
       translations: NestedTranslationMap(DB.Required, "Disease", DiseaseTranslation),
     }),

@@ -85,7 +85,7 @@ export const GenMeleeWeapon = DB.GenTypeAlias(import.meta.url, {
       }),
       reach: DB.Optional({
         comment: "The reach of the weapon.",
-        type: ReachIdentifier(),
+        type: DB.Array(ReachIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       length: DB.Optional({
         comment: "The length of the weapon in cm/halffingers.",

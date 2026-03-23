@@ -1,3 +1,4 @@
+import { isNotNullish } from "@elyukai/utils/nullable"
 import * as DB from "tsondb/schema/dsl"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { Dice, DieType } from "./_Dice.js"
@@ -10,6 +11,7 @@ import {
   HairColorIdentifier,
   RaceIdentifier,
 } from "./_Identifier.js"
+import { calculationContainsRaceBase, DerivedCharacteristic } from "./DerivedCharacteristic.ts"
 import { ExperienceLevel } from "./ExperienceLevel.js"
 import { NestedTranslationMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
@@ -27,11 +29,6 @@ export const Race = DB.Entity(import.meta.url, {
       base_values: DB.Required({
         comment: "The race’s base values.",
         type: DB.IncludeIdentifier(BaseValues),
-      }),
-      attribute_adjustments: DB.Required({
-        comment:
-          "Describes how to raise or lower maximum attribute values during character creation.",
-        type: DB.IncludeIdentifier(AttributeAdjustments),
       }),
       automatic_advantages: DB.Optional({
         comment:
@@ -64,6 +61,11 @@ export const Race = DB.Entity(import.meta.url, {
           DB.GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 },
         ),
+      }),
+      hairColorCount: DB.Optional({
+        comment:
+          "How many different hair colors a race may have. By default, they have a single one that is for their whole body, but a race may have multiple if their hair color is different for different body parts. Additionally, if the hair color is labelled differently (e.g. scale color), there might be multiple colors for different body parts as well. This should only be set if the hair color count is higher than 1.",
+        type: DB.Integer({ minimum: 2 }),
       }),
       weight: DB.Required({
         comment: "Configuration for random weight generation.",
@@ -124,6 +126,11 @@ export const Race = DB.Entity(import.meta.url, {
             comment: "The respective strongly recommended disadvantages text from the source book.",
             type: DB.String({ minLength: 1 }),
           }),
+          hairColorLabel: DB.Optional({
+            comment:
+              "The label for hair colors if it is not a hair color in that sense: Some races may have different labels for hair color such as scale color.",
+            type: DB.String({ minLength: 1 }),
+          }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),
           }),
@@ -137,27 +144,35 @@ export const Race = DB.Entity(import.meta.url, {
       keyPathInEntityMap: "name",
     },
   ],
+  customConstraints: ({ instanceContent, getAllInstanceContainers, getDisplayNameAndId }) => {
+    const expectedBaseValues = getAllInstanceContainers("DerivedCharacteristic").filter(dc =>
+      calculationContainsRaceBase(dc.content.calculation.base),
+    )
+
+    const actualBaseValues = Object.keys(instanceContent.base_values)
+
+    return [
+      expectedBaseValues.length !== actualBaseValues.length ||
+      actualBaseValues.some(actual => !expectedBaseValues.some(expected => actual === expected.id))
+        ? `The race needs to define base values for ${expectedBaseValues.map(dc => getDisplayNameAndId("DerivedCharacteristic", dc.id)).join(", ")}, but defines ${actualBaseValues.map(dcId => getDisplayNameAndId("DerivedCharacteristic", dcId)).join(", ")}.`
+        : null,
+    ].filter(isNotNullish)
+  },
 })
 
 const BaseValues = DB.TypeAlias(import.meta.url, {
   name: "BaseValues",
   type: () =>
-    DB.Object({
-      life_points: DB.Required({
-        comment: "The race’s life point base value.",
-        type: DB.Integer(),
-      }),
-      spirit: DB.Required({
-        comment: "The race’s Spirit base value.",
-        type: DB.Integer(),
-      }),
-      toughness: DB.Required({
-        comment: "The race’s Toughness base value.",
-        type: DB.Integer(),
-      }),
-      movement: DB.Required({
-        comment: "The race’s tactical movement rate.",
-        type: DB.Integer(),
+    DB.NestedEntityMap({
+      name: "RaceBaseValue",
+      namePlural: "RaceBaseValues",
+      comment: "The base value for a derived characteristic that is granted by the race.",
+      secondaryEntity: DerivedCharacteristic,
+      type: DB.Object({
+        value: DB.Required({
+          comment: "The base value for the derived characteristic that is granted by the race.",
+          type: DB.Integer(),
+        }),
       }),
     }),
 })
@@ -292,6 +307,11 @@ export const RaceVariant = DB.Entity(import.meta.url, {
         comment: "The associated race.",
         type: RaceIdentifier(),
       }),
+      attribute_adjustments: DB.Required({
+        comment:
+          "Describes how to raise or lower maximum attribute values during character creation.",
+        type: DB.IncludeIdentifier(AttributeAdjustments),
+      }),
       common_cultures: DB.Optional({
         comment: "The list of common cultures.",
         type: DB.Array(CultureIdentifier(), { minItems: 1 }),
@@ -324,12 +344,12 @@ export const RaceVariant = DB.Entity(import.meta.url, {
           { minItems: 1 },
         ),
       }),
-      hair_color: DB.Optional({
+      hair_color: DB.Required({
         comment:
           "An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.",
         type: DB.Array(HairColorIdentifier(), { minItems: 20, maxItems: 20 }),
       }),
-      eye_color: DB.Optional({
+      eye_color: DB.Required({
         comment:
           "An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.",
         type: DB.Array(EyeColorIdentifier(), { minItems: 20, maxItems: 20 }),

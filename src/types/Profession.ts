@@ -1,3 +1,4 @@
+import { isNotNullish } from "@elyukai/utils/nullable"
 import * as DB from "tsondb/schema/dsl"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import {
@@ -17,8 +18,8 @@ import {
   CombatTechniqueIdentifier,
   LiturgyIdentifier,
   MagicalActionIdentifier,
+  ProfessionSpecialAbilityIdentifier,
   RequirableSelectOptionIdentifier,
-  SpecialAbilityIdentifier,
   SpellworkIdentifier,
 } from "./_IdentifierGroup.js"
 import { ProfessionPrerequisites } from "./_Prerequisite.js"
@@ -403,7 +404,7 @@ const ConstantProfessionSpecialAbility = DB.TypeAlias(import.meta.url, {
     DB.Object({
       id: DB.Required({
         comment: "The identifier of the special ability to grant.",
-        type: DB.IncludeIdentifier(SpecialAbilityIdentifier),
+        type: DB.IncludeIdentifier(ProfessionSpecialAbilityIdentifier),
       }),
       level: DB.Optional({
         comment:
@@ -738,11 +739,23 @@ const SkillsOptions = DB.TypeAlias(import.meta.url, {
         comment: "If specified, you may only choose from skills of the specified group.",
         type: SkillGroupIdentifier(),
       }),
+      specific: DB.Optional({
+        comment: "The list of specific skills to distribute AP to.",
+        type: DB.Array(SkillIdentifier(), { minItems: 2 }),
+      }),
       ap_value: DB.Required({
         comment: "The AP value you can buy skills for.",
         type: DB.Integer({ minimum: 1 }),
       }),
     }),
+  customConstraints: ({ instanceContent, getInstanceById }) =>
+    [
+      (instanceContent.specific?.some(
+        skillId => getInstanceById("Skill", skillId)?.group !== instanceContent.group,
+      ) ?? false)
+        ? "All selected skills must be from the selected group."
+        : undefined,
+    ].filter(isNotNullish),
 })
 
 const LiturgiesOptions = DB.TypeAlias(import.meta.url, {

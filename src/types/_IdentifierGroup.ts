@@ -48,6 +48,7 @@ import {
   ElementIdentifier,
   ElixirIdentifier,
   ElvenMagicalSongIdentifier,
+  EnhancementIdentifier,
   EquipmentOfBlessedOnesIdentifier,
   FamiliarSpecialAbilityIdentifier,
   FatePointSexSpecialAbilityIdentifier,
@@ -227,6 +228,14 @@ export const CombatRelatedSpecialAbilityIdentifier = DB.Enum(import.meta.url, {
     CombatStyleSpecialAbility: DB.EnumCase({ type: CombatStyleSpecialAbilityIdentifier() }),
     AdvancedCombatSpecialAbility: DB.EnumCase({ type: AdvancedCombatSpecialAbilityIdentifier() }),
     CommandSpecialAbility: DB.EnumCase({ type: CommandSpecialAbilityIdentifier() }),
+  }),
+})
+
+export const ProfessionSpecialAbilityIdentifier = DB.Enum(import.meta.url, {
+  name: "ProfessionSpecialAbilityIdentifier",
+  values: () => ({
+    ...SpecialAbilityIdentifier.type.value.values,
+    Enhancement: DB.EnumCase({ type: EnhancementIdentifier() }),
   }),
 })
 
@@ -453,6 +462,14 @@ export const EquipmentIdentifier = DB.Enum(import.meta.url, {
     Weapon: DB.EnumCase({ type: WeaponIdentifier() }),
     WeaponAccessory: DB.EnumCase({ type: WeaponAccessoryIdentifier() }),
     WorkingSupernaturalCreature: DB.EnumCase({ type: WorkingSupernaturalCreatureIdentifier() }),
+  }),
+})
+
+export const AmmunitionishIdentifier = DB.Enum(import.meta.url, {
+  name: "AmmunitionishIdentifier",
+  values: () => ({
+    Ammunition: DB.EnumCase({ type: AmmunitionIdentifier() }),
+    Weapon: DB.EnumCase({ type: WeaponIdentifier() }),
   }),
 })
 

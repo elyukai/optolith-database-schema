@@ -6,6 +6,11 @@ export const Reach = DB.Entity(import.meta.url, {
   namePlural: "Reaches",
   type: () =>
     DB.Object({
+      position: DB.Required({
+        comment:
+          "The position of the reach in lists. Lower values indicate a shorter range; higher values a larger range. This has to be a unique value.",
+        type: DB.Integer({ minimum: 0 }),
+      }),
       translations: NestedTranslationMap(
         DB.Required,
         "Reach",
@@ -18,6 +23,9 @@ export const Reach = DB.Entity(import.meta.url, {
       ),
     }),
   instanceDisplayName: {},
+  sortOrder: {
+    keyPath: "position",
+  },
   uniqueConstraints: [
     {
       entityMapKeyPath: "translations",
