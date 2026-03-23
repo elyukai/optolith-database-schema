@@ -40,3 +40,7 @@ If you add new entities, there are some additional steps to take.
 2. Check `src/types/_Identifier.ts` if you need to add the entity to any existing identifier group. For example, if you add another special ability entity, add it to the `SpecialAbilityIdentifier` group; if it is a combat-related special ability, add it to the `CombatRelatedSpecialAbilityIdentifier` group as well.
 3. **If it is not a child entity:** Export the entity declaration alone from `src/types/index.ts`.
 4. **If it is not a child entity:** Add the entity declaration to the schema definition in `src/main.ts` in alphabetical order.
+
+## Formatting and linting
+
+This repository makes use of linting via ESLint and formatting via Prettier. It can be helpful to use available editor extensions when contributing to fix errors before they appear in your PR. Formatting and linting is checked for every pull request and must succeed in order to be able to accept your PR.
