@@ -66,6 +66,7 @@ import { Curse } from "./magicalActions/Curse.js"
 import { DominationRitual } from "./magicalActions/DominationRitual.js"
 import { ElvenMagicalSong } from "./magicalActions/ElvenMagicalSong.js"
 import { GeodeRitual } from "./magicalActions/GeodeRitual.js"
+import { GoblinRitual } from "./magicalActions/GoblinRitual.js"
 import { JesterTrick } from "./magicalActions/JesterTrick.js"
 import { MagicalDance } from "./magicalActions/MagicalDance.js"
 import { MagicalMelody } from "./magicalActions/MagicalMelody.js"
@@ -231,6 +232,7 @@ export const GeneralSelectOptionIdentifier: () => R = () => R(GeneralSelectOptio
 export { GeneralSelectOptionIdentifier as GeneralIdentifier }
 export const GeneralSpecialAbilityIdentifier: () => R = () => R(GeneralSpecialAbility)
 export const GeodeRitualIdentifier: () => R = () => R(GeodeRitual)
+export const GoblinRitualIdentifier: () => R = () => R(GoblinRitual)
 export const GuidelineIdentifier: () => R = () => R(Guideline)
 export const HairColorIdentifier: () => R = () => R(HairColor)
 export const HaubenzauberIdentifier: () => R = () => R(Haubenzauber)
