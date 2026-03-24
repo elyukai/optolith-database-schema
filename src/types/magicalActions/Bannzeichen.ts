@@ -59,6 +59,16 @@ If the Bannzeichen has an option, the option’s name will/should not be include
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
             type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
+          crafting_time: DB.Optional({
+            comment:
+              "The crafting time of the Bannzeichen",
+            type: DB.String({ minLength: 1 })
+          }),
+          duration: DB.Optional({
+            comment:
+              "The duration of the Bannzeichen",
+            type: DB.String({ minLength: 1 })
+          }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),
           }),
