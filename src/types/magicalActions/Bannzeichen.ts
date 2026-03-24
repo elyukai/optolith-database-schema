@@ -1,6 +1,5 @@
 import * as DB from "tsondb/schema/dsl"
 import { name_in_library } from "../_Activatable.js"
-import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { PropertyIdentifier, BannzeichenIdentifier } from "../_Identifier.js"
@@ -17,9 +16,9 @@ export const Bannzeichen = DB.Entity(import.meta.url, {
   type: () =>
     DB.Object({
       options: DB.Required({
-        comment: `The options the magical rune has, if any.
+        comment: `The options the Bannzeichen has, if any.
 
-If there are multiple options, the magical rune may be activated for each option, that is, multiple times.`,
+If there are multiple options, the Bannzeichen may be activated for each option, that is, multiple times.`,
         type: DB.ChildEntities(BannzeichenOption),
       }),
       check: DB.Required({
@@ -27,7 +26,7 @@ If there are multiple options, the magical rune may be activated for each option
         type: DB.IncludeIdentifier(SkillCheck),
       }),
       parameters: DB.Required({
-        comment: "Measurable parameters of a magical rune.",
+        comment: "Measurable parameters of a Bannzeichen.",
         type: DB.IncludeIdentifier(BannzeichenPerformanceParameters),
       }),
       property: DB.Required({
@@ -44,25 +43,21 @@ If there are multiple options, the magical rune may be activated for each option
         "Bannzeichen",
         DB.Object({
           name: DB.Required({
-            comment: `The bannzeichen’s name.
+            comment: `The Bannzeichen’s name.
 
-If the bannzeichen has an option, the option’s name will/should not be included in the name as well as its surrounding parenthesis. It will/should be combined on demand.`,
+If the Bannzeichen has an option, the option’s name will/should not be included in the name as well as its surrounding parenthesis. It will/should be combined on demand.`,
             type: DB.String({ minLength: 1 }),
           }),
           name_in_library,
           native_name: DB.Optional({
             comment:
-              "The native name of the bannzeichen. It has to be specified unless it is defined by an option.",
+              "The native name of the Bannzeichen. It has to be specified unless it is defined by an option.",
             type: DB.String({ minLength: 1 }),
           }),
           effect: DB.Required({
             comment:
               "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
             type: DB.IncludeIdentifier(ActivatableSkillEffect),
-          }),
-          cost: DB.Optional({
-            isDeprecated: true,
-            type: DB.IncludeIdentifier(OldParameter),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),
@@ -81,7 +76,7 @@ If the bannzeichen has an option, the option’s name will/should not be include
 
 const BannzeichenPerformanceParameters = DB.TypeAlias(import.meta.url, {
   name: "BannzeichenPerformanceParameters",
-  comment: "Measurable parameters of a magical rune.",
+  comment: "Measurable parameters of a Bannzeichen.",
   type: () =>
     DB.Object({
       cost: DB.Required({
@@ -181,11 +176,11 @@ const BannzeichenDuration = DB.TypeAlias(import.meta.url, {
   type: () =>
     DB.Object({
       slow: DB.Required({
-        comment: "The duration on slow rune application.",
+        comment: "The duration on slow Bannzeichen application.",
         type: DB.IncludeIdentifier(CheckResultBasedDuration),
       }),
       fast: DB.Required({
-        comment: "The duration on fast rune application.",
+        comment: "The duration on fast Bannzeichen application.",
         type: DB.IncludeIdentifier(CheckResultBasedDuration),
       }),
     }),
@@ -205,7 +200,7 @@ export const BannzeichenOption = DB.Entity(import.meta.url, {
   type: () =>
     DB.Object({
       parent: DB.Required({
-        comment: "The bannzeichen this option belongs to.",
+        comment: "The Bannzeichen this option belongs to.",
         type: BannzeichenIdentifier(),
       }),
       cost: DB.Optional({
@@ -224,13 +219,13 @@ export const BannzeichenOption = DB.Entity(import.meta.url, {
         "BannzeichenOption",
         DB.Object({
           name: DB.Required({
-            comment: `The bannzeichen option’s name.
+            comment: `The Bannzeichen option’s name.
 
 The surrounding parenthesis will/should not be included, they will/should be generated.`,
             type: DB.String({ minLength: 1 }),
           }),
           native_name: DB.Required({
-            comment: "The native name of the bannzeichen option.",
+            comment: "The native name of the Bannzeichen option.",
             type: DB.String({ minLength: 1 }),
           }),
         }),
