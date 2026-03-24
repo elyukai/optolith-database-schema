@@ -62,6 +62,7 @@ import { Curriculum, Guideline, LessonPackage } from "./Lessons.js"
 import { LiturgicalChant } from "./LiturgicalChant.js"
 import { AnimistPower } from "./magicalActions/AnimistPower.js"
 import { Tribe } from "./magicalActions/AnimistPower_Tribe.js"
+import { Bannzeichen } from "./magicalActions/Bannzeichen.js"
 import { Curse } from "./magicalActions/Curse.js"
 import { DominationRitual } from "./magicalActions/DominationRitual.js"
 import { ElvenMagicalSong } from "./magicalActions/ElvenMagicalSong.js"
@@ -184,6 +185,7 @@ export const AspectIdentifier: () => R = () => R(Aspect)
 export const AttireEnchantmentIdentifier: () => R = () => R(AttireEnchantment)
 export const AttributeIdentifier: () => R = () => R(Attribute)
 export const BandageOrRemedyIdentifier: () => R = () => R(BandageOrRemedy)
+export const BannzeichenIdentifier: () => R = () => R(Bannzeichen)
 export const BeutelzauberIdentifier: () => R = () => R(Beutelzauber)
 export const BlessedTraditionIdentifier: () => R = () => R(BlessedTradition)
 export const BlessingIdentifier: () => R = () => R(Blessing)
