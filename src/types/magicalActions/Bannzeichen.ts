@@ -61,7 +61,7 @@ If the Bannzeichen has an option, the option’s name will/should not be include
           }),
           cost: DB.Optional({
             comment: "The ae-cost of the Bannzeichen",
-              type: DB.String({ minLength: 1 }),
+            type: DB.String({ minLength: 1 }),
           }),
           crafting_time: DB.Optional({
             comment: "The crafting time of the Bannzeichen",
