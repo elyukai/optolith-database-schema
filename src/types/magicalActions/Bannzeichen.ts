@@ -60,14 +60,12 @@ If the Bannzeichen has an option, the option’s name will/should not be include
             type: DB.IncludeIdentifier(ActivatableSkillEffect),
           }),
           crafting_time: DB.Optional({
-            comment:
-              "The crafting time of the Bannzeichen",
-            type: DB.String({ minLength: 1 })
+            comment: "The crafting time of the Bannzeichen",
+            type: DB.String({ minLength: 1 }),
           }),
           duration: DB.Optional({
-            comment:
-              "The duration of the Bannzeichen",
-            type: DB.String({ minLength: 1 })
+            comment: "The duration of the Bannzeichen",
+            type: DB.String({ minLength: 1 }),
           }),
           errata: DB.Optional({
             type: DB.IncludeIdentifier(Errata),
