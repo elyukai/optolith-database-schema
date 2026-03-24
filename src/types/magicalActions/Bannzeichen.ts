@@ -3,7 +3,7 @@ import { name_in_library } from "../_Activatable.js"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
-import { PropertyIdentifier } from "../_Identifier.js"
+import { PropertyIdentifier, BannzeichenIdentifier } from "../_Identifier.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
 import { SkillCheck } from "../_SkillCheck.js"
@@ -16,6 +16,12 @@ export const Bannzeichen = DB.Entity(import.meta.url, {
   namePlural: "Bannzeichen",
   type: () =>
     DB.Object({
+      options: DB.Required({
+        comment: `The options the magical rune has, if any.
+
+If there are multiple options, the magical rune may be activated for each option, that is, multiple times.`,
+        type: DB.ChildEntities(BannzeichenOption),
+      }),
       check: DB.Required({
         comment: "Lists the linked three attributes used to make a skill check.",
         type: DB.IncludeIdentifier(SkillCheck),
@@ -191,4 +197,75 @@ const BannzeichenImprovementCost = DB.Enum(import.meta.url, {
     Constant: DB.EnumCase({ type: DB.IncludeIdentifier(ImprovementCost) }),
     DerivedFromOption: DB.EnumCase({ type: null }),
   }),
+})
+
+export const BannzeichenOption = DB.Entity(import.meta.url, {
+  name: "BannzeichenOption",
+  namePlural: "BannzeichenOptions",
+  type: () =>
+    DB.Object({
+      parent: DB.Required({
+        comment: "The bannzeichen this option belongs to.",
+        type: BannzeichenIdentifier(),
+      }),
+      cost: DB.Optional({
+        comment: "The option-specific AE cost.",
+        type: DB.IncludeIdentifier(SingleBannzeichenCost),
+      }),
+      improvement_cost: DB.Optional({
+        comment: "The option-specific improvement cost.",
+        type: DB.IncludeIdentifier(ImprovementCost),
+      }),
+      suboption: DB.Optional({
+        type: DB.IncludeIdentifier(BannzeichenSuboption),
+      }),
+      translations: NestedTranslationMap(
+        DB.Required,
+        "BannzeichenOption",
+        DB.Object({
+          name: DB.Required({
+            comment: `The bannzeichen option’s name.
+
+The surrounding parenthesis will/should not be included, they will/should be generated.`,
+            type: DB.String({ minLength: 1 }),
+          }),
+          native_name: DB.Required({
+            comment: "The native name of the bannzeichen option.",
+            type: DB.String({ minLength: 1 }),
+          }),
+        }),
+      ),
+    }),
+  parentReferenceKey: "parent",
+  instanceDisplayName: {},
+})
+
+const BannzeichenSuboption = DB.Enum(import.meta.url, {
+  name: "BannzeichenSuboption",
+  values: () => ({
+    Custom: DB.EnumCase({
+      comment: "The sub-option may be defined by the user (as a arbitrary text).",
+      type: DB.IncludeIdentifier(CustomBannzeichenSuboption),
+    }),
+  }),
+})
+
+const CustomBannzeichenSuboption = DB.TypeAlias(import.meta.url, {
+  name: "CustomBannzeichenSuboption",
+  type: () =>
+    DB.Object({
+      translations: NestedTranslationMap(
+        DB.Required,
+        "CustomBannzeichenSuboption",
+        DB.Object(
+          {
+            examples: DB.Optional({
+              comment: "One or more examples for the suboption.",
+              type: DB.Array(DB.String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
+            }),
+          },
+          { minProperties: 1 },
+        ),
+      ),
+    }),
 })
