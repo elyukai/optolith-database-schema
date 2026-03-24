@@ -45,6 +45,7 @@ export const schema = new Schema<TSONDBTypes>(
     Types.AttireEnchantment,
     Types.Attribute,
     Types.BandageOrRemedy,
+    Types.Bannzeichen,
     Types.Beutelzauber,
     Types.BlessedTradition,
     Types.Blessing,
