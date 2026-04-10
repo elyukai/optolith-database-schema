@@ -7,7 +7,7 @@ import {
   ProfessionIdentifier,
   RaceIdentifier,
 } from "../../_Identifier.js"
-import { ResponsiveTextOptional } from "../../_ResponsiveText.ts"
+import { ResponsiveTextOptional, ResponsiveTextReplace } from "../../_ResponsiveText.ts"
 import { NestedTranslationMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
@@ -436,6 +436,23 @@ const ConstantCollectorsValue = DB.TypeAlias(import.meta.url, {
         comment: "The collector’s value is a fixed price in silverthalers.",
         type: DB.Float({ minimum: { value: 0, isExclusive: true } }),
       }),
+      translations: NestedTranslationMap(
+        DB.Optional,
+        "ConstantCollectorsValue",
+        DB.Object(
+          {
+            note: DB.Optional({
+              comment: "A note, appended to the generated string in parenthesis.",
+              type: DB.IncludeIdentifier(ResponsiveTextOptional),
+            }),
+            replacement: DB.Optional({
+              comment: "A replacement string.",
+              type: DB.IncludeIdentifier(ResponsiveTextReplace),
+            }),
+          },
+          { minProperties: 1 },
+        ),
+      ),
     }),
 })
 
@@ -451,12 +468,19 @@ const MinimumCollectorsValue = DB.TypeAlias(import.meta.url, {
       translations: NestedTranslationMap(
         DB.Optional,
         "MinimumCollectorsValue",
-        DB.Object({
-          note: DB.Required({
-            comment: "A note, appended to the generated string in parenthesis.",
-            type: DB.IncludeIdentifier(ResponsiveTextOptional),
-          }),
-        }),
+        DB.Object(
+          {
+            note: DB.Optional({
+              comment: "A note, appended to the generated string in parenthesis.",
+              type: DB.IncludeIdentifier(ResponsiveTextOptional),
+            }),
+            replacement: DB.Optional({
+              comment: "A replacement string.",
+              type: DB.IncludeIdentifier(ResponsiveTextReplace),
+            }),
+          },
+          { minProperties: 1 },
+        ),
       ),
     }),
 })
