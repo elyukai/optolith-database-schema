@@ -53,9 +53,9 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1"
   },
-  "repository": "github:elyukai/optolith-database-schema",
+  "repository": "github:Optolith/database-schema",
   "bugs": {
-    "url": "https://github.com/elyukai/optolith-database-schema/issues"
+    "url": "https://github.com/Optolith/database-schema/issues"
   },
   "type": "module"
 }
